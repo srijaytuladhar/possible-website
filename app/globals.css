@@ -1,26 +1,181 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary-pink: #ED2E84;
+  --color-secondary-blue: #00BBE2;
+  --color-accent-purple: #782888;
+  --color-body-gray: #6F6F70;
+  
+  --font-equip: var(--font-outfit), sans-serif;
+  --font-equip-thin: var(--font-outfit), sans-serif;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #111112;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Typography Utility Helper Classes matching spec exactly */
+.h1-hero {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 40px;
+  font-weight: 100;
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .h1-hero {
+    font-size: 48px;
+  }
+}
+
+.h2-section {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 28px;
+  font-weight: 200;
+  line-height: 1.3;
+}
+@media (min-width: 768px) {
+  .h2-section {
+    font-size: 32px;
+  }
+}
+
+.h3-card {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+@media (min-width: 768px) {
+  .h3-card {
+    font-size: 24px;
+  }
+}
+
+.text-subheading {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  .text-subheading {
+    font-size: 18px;
+  }
+}
+
+.text-body {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+@media (min-width: 768px) {
+  .text-body {
+    font-size: 16px;
+  }
+}
+
+.text-small {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  .text-small {
+    font-size: 14px;
+  }
+}
+
+.text-button {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+@media (min-width: 768px) {
+  .text-button {
+    font-size: 15px;
+  }
+}
+
+.text-navbar {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+@media (min-width: 768px) {
+  .text-navbar {
+    font-size: 16px;
+  }
+}
+
+/* Loading Screen Keyframe Animations */
+@keyframes slide-pink {
+  0% {
+    transform: translate(-35px, 35px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-blue {
+  0% {
+    transform: translate(35px, -35px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-center {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-pink-slide {
+  animation: slide-pink 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-blue-slide {
+  animation: slide-blue 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-center-fade {
+  animation: fade-center 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes spin-logo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-logo-spin {
+  animation: spin-logo 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

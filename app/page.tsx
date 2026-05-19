@@ -1,65 +1,125 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Compass, Target, Activity, ShieldCheck, HeartHandshake, Eye, Users } from "lucide-react";
+import HeroSlider from "@/components/HeroSlider";
 
 export default function Home() {
+  const solutions = [
+    {
+      title: "CHWs at Scale for Chronic Disease and Behavioral Health",
+      desc: "Expanding Nepal's national community health worker program to deliver home-based care for chronic conditions and mental health, supported by a state-of-the-art Community Health Information System (CHIS) to track patient outcomes and guide interventions.",
+      icon: Users,
+      color: "border-primary-pink hover:bg-primary-pink/5",
+      badgeColor: "bg-primary-pink/10 text-primary-pink",
+    },
+    {
+      title: "MILAP for Intimate Partner Violence",
+      desc: "A family-based intervention co-created with WOREC that engages husbands and mothers-in-law to reduce domestic violence, improve mental health, and alleviate depression among women in rural communities.",
+      icon: HeartHandshake,
+      color: "border-secondary-blue hover:bg-secondary-blue/5",
+      badgeColor: "bg-secondary-blue/10 text-secondary-blue",
+    },
+    {
+      title: "INCLUDE for Improving HIV Care",
+      desc: "A digital tool designed to identify, monitor, and reduce stigma within HIV clinics, optimizing and improving care for people living with HIV across healthcare facilities.",
+      icon: ShieldCheck,
+      color: "border-accent-purple hover:bg-accent-purple/5",
+      badgeColor: "bg-accent-purple/10 text-accent-purple",
+    },
+    {
+      title: "Collaborative Care for Improving Mental Health Care",
+      desc: "An integrated collaborative care model training local CHWs and clinicians to identify, manage, and treat depression and anxiety effectively within primary care structures.",
+      icon: Activity,
+      color: "border-zinc-300 hover:border-primary-pink hover:bg-zinc-50",
+      badgeColor: "bg-zinc-100 text-zinc-700",
+    },
+    {
+      title: "Dementia Support Intervention",
+      desc: "A home-based behavioral care program designed to support older adults suffering from cognitive decline and provide essential education and coping resources for their caregivers.",
+      icon: Eye,
+      color: "border-zinc-300 hover:border-secondary-blue hover:bg-zinc-50",
+      badgeColor: "bg-zinc-100 text-zinc-700",
+    },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex flex-col w-full">
+      {/* 1. Hero Image Slider */}
+      <HeroSlider />
+
+      {/* 2. Vision & Mission Section */}
+      <section className="py-16 bg-zinc-50 border-y border-zinc-100 px-6 sm:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            {/* Vision card */}
+            <div className="flex flex-col p-8 sm:p-10 bg-white rounded-2xl border border-zinc-100 shadow-sm transition-all duration-300 hover:shadow-md hover:border-zinc-200">
+              <div className="p-3 bg-primary-pink/10 text-primary-pink rounded-xl w-fit mb-6">
+                <Compass className="h-6 w-6" />
+              </div>
+              <h2 className="h2-section text-zinc-950 mb-4 uppercase tracking-wide">
+                Our Vision
+              </h2>
+              <p className="text-body text-body-gray leading-relaxed font-light">
+                Possible envisions a world where everyone, everywhere, has access to high-quality health care rooted in community, context, and evidence.
+              </p>
+            </div>
+
+            {/* Mission card */}
+            <div className="flex flex-col p-8 sm:p-10 bg-white rounded-2xl border border-zinc-100 shadow-sm transition-all duration-300 hover:shadow-md hover:border-zinc-200">
+              <div className="p-3 bg-secondary-blue/10 text-secondary-blue rounded-xl w-fit mb-6">
+                <Target className="h-6 w-6" />
+              </div>
+              <h2 className="h2-section text-zinc-950 mb-4 uppercase tracking-wide">
+                Our Mission
+              </h2>
+              <p className="text-body text-body-gray leading-relaxed font-light">
+                We reduce suffering and improve lives by co-designing, testing, and scaling solutions that strengthen community care systems.
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* 3. Our Solutions Section */}
+      <section className="py-16 px-6 sm:px-8 bg-white" id="solutions">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-purple/10 px-3.5 py-1 text-[13px] font-medium text-accent-purple mb-4 uppercase tracking-wider">
+              Evidence to Action
+            </span>
+            <h2 className="h2-section text-zinc-950 mb-4 uppercase tracking-wide">
+              Our Research & Solutions
+            </h2>
+            <p className="text-body text-body-gray font-light">
+              We design and evaluate implementation models that bridge the gap between evidence and actual health service delivery in low-resource settings.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {solutions.map((sol, index) => {
+              const IconComp = sol.icon;
+              return (
+                <div
+                  key={index}
+                  className={`flex flex-col p-6 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-all duration-300 ${sol.color} ${
+                    index === 3 || index === 4 ? "lg:col-span-1" : ""
+                  } ${index === 4 ? "md:col-span-2 lg:col-span-1" : ""}`}
+                >
+                  <div className={`p-2.5 rounded-lg w-fit mb-5 ${sol.badgeColor}`}>
+                    <IconComp className="h-5 w-5" />
+                  </div>
+                  <h3 className="h3-card text-zinc-900 mb-3 font-medium">
+                    {sol.title}
+                  </h3>
+                  <p className="text-[14px] text-body-gray leading-relaxed font-light mt-auto">
+                    {sol.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </main>
+      </section>
     </div>
   );
 }
