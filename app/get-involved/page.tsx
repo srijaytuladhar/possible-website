@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import { Users, Briefcase, ChevronRight, MessageSquareQuote, Layers, HelpCircle } from "lucide-react";
+import { Users, Briefcase, ChevronRight, MessageSquareQuote, Layers, HelpCircle, X } from "lucide-react";
 
 function GetInvolvedContent() {
   const searchParams = useSearchParams();
@@ -11,6 +11,16 @@ function GetInvolvedContent() {
   
   const initialTab = searchParams.get("tab") || "our-team";
   const [activeTab, setActiveTab] = useState(initialTab);
+  
+  const [teamMembers, setTeamMembers] = useState<any[]>([]);
+  const [selectedMember, setSelectedMember] = useState<any | null>(null);
+
+  useEffect(() => {
+    fetch('/teamData.json')
+      .then(res => res.json())
+      .then(data => setTeamMembers(data))
+      .catch(err => console.error("Error loading team data:", err));
+  }, []);
 
   // Update state if search param changes
   useEffect(() => {
@@ -122,6 +132,43 @@ function GetInvolvedContent() {
                 <Users className="h-40 w-40" />
               </div>
             </div>
+
+            {/* Team Roster Block */}
+            <div className="pt-12 border-t border-zinc-100">
+              <div className="mb-8 text-center">
+                <span className="inline-flex items-center gap-1 bg-primary-pink/10 px-3 py-1 rounded-full text-xs font-semibold text-primary-pink uppercase tracking-wider mb-2">
+                  Our Team
+                </span>
+                <h3 className="h2-section text-zinc-950 uppercase tracking-wide">
+                  Meet the People
+                </h3>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {teamMembers.map((member) => (
+                  <div
+                    key={member.id}
+                    className="flex flex-col items-center group cursor-pointer"
+                    onClick={() => setSelectedMember(member)}
+                  >
+                    <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-zinc-50 shadow-sm transition-all duration-300 group-hover:border-primary-pink/30 group-hover:shadow-md mb-4 bg-zinc-100 flex items-center justify-center">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        onError={(e) => { (e.target as any).style.display = 'none'; }}
+                      />
+                    </div>
+                    <h4 className="text-[16px] font-semibold text-zinc-900 text-center group-hover:text-primary-pink transition-colors">
+                      {member.name}
+                    </h4>
+                    <p className="text-[13px] text-body-gray font-light text-center">
+                      {member.role}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 
@@ -216,6 +263,38 @@ function GetInvolvedContent() {
           </div>
         )}
       </div>
+
+      {/* Team Member Modal */}
+      {selectedMember && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 relative">
+            <div className="relative h-48 w-full bg-zinc-100">
+              <Image
+                src={selectedMember.image}
+                alt={selectedMember.name}
+                fill
+                className="object-cover"
+                onError={(e) => { (e.target as any).style.display = 'none'; }}
+              />
+              <button
+                onClick={() => setSelectedMember(null)}
+                className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white text-zinc-900 rounded-full shadow-sm transition-colors z-10"
+                aria-label="Close modal"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="p-8">
+              <h3 className="h3-card text-zinc-900 mb-1">{selectedMember.name}</h3>
+              <p className="text-[14px] font-medium text-primary-pink mb-4">{selectedMember.role}</p>
+              <div className="w-12 h-1 bg-zinc-200 rounded-full mb-4"></div>
+              <p className="text-[15px] text-body-gray font-light leading-relaxed">
+                {selectedMember.bio}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

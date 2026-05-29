@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "name": "Jane Doe",
+    "role": "Chief Executive Officer",
+    "image": "/team/jane-doe.jpg",
+    "bio": "Jane Doe is the CEO of Possible. She has over 20 years of experience in global health and has led multiple successful interventions in low-resource settings."
+  },
+  {
+    "id": "2",
+    "name": "John Smith",
+    "role": "Medical Director",
+    "image": "/team/john-smith.jpg",
+    "bio": "Dr. John Smith oversees the clinical programs at Possible. His work focuses on integrating chronic disease management into primary care."
+  }
+]

@@ -65,18 +65,18 @@ function PublicationsContent() {
   const publicationsData = {
     "impact-report": [
       {
+        title: "Annual Impact Report",
+        desc: "Overview of our yearly milestones, organizational goals, and community impact.",
+        link: "/annual-impact-report.pdf",
+        type: "PDF Report",
+        date: "2024",
+      },
+      {
         title: "Integrated Community Care Impact Assessment",
         desc: "An evaluation of maternal health care delivery, showing progress in prenatal care adherence and child nutrition monitoring across rural districts.",
         link: "#",
         type: "PDF Report",
         date: "2024",
-      },
-      {
-        title: "Annual Health Innovation Report",
-        desc: "A summary of pilot milestones, co-design activities, digital health integrations, and system scalability reviews.",
-        link: "#",
-        type: "PDF Report",
-        date: "2023",
       },
     ],
     "research-paper": [
@@ -104,34 +104,48 @@ function PublicationsContent() {
     ],
     "research-brief": [
       {
+        title: "Intervention Briefs",
+        desc: "Summaries of our ongoing interventions and their clinical methodologies.",
+        link: "/intervention-briefs.pdf",
+        type: "Brief",
+        date: "2024",
+      },
+      {
+        title: "Ethics Brief",
+        desc: "Guidelines and ethical considerations in delivering healthcare innovations.",
+        link: "/ethics-brief.pdf",
+        type: "Brief",
+        date: "2024",
+      },
+      {
         title: "Policy Brief: Strengthening Nepal's Community Health System",
         desc: "A translation of community health worker implementation findings into national guideline suggestions for the Ministry of Health.",
         link: "#",
         type: "Brief",
         date: "2024",
       },
-      {
-        title: "Digital Health Brief: Lessons from CHIS Implementation",
-        desc: "Key takeaways regarding the training and scaling of mobile community health information tools in rural primary care.",
-        link: "#",
-        type: "Brief",
-        date: "2023",
-      },
     ],
     financials: [
+      {
+        title: "Financial Reports",
+        desc: "Detailed financial reports regarding our organizational income and expenditure.",
+        link: "/financial-reports.pdf",
+        type: "Audited Report",
+        date: "2024",
+      },
+      {
+        title: "Conflict of Interest Policy",
+        desc: "Our organizational policies for maintaining transparency and handling conflicts of interest.",
+        link: "/conflict-of-interest-policy.pdf",
+        type: "Policy",
+        date: "2024",
+      },
       {
         title: "Fiscal Year 2024 Financial Statements",
         desc: "Audited financial statements detailing funding sources (global grants, private donations) and program expenditures.",
         link: "#",
         type: "Audited Report",
         date: "2024",
-      },
-      {
-        title: "Annual Tax Filings (Form 990)",
-        desc: "Possible US IRS tax filings showing transparent non-profit operations.",
-        link: "#",
-        type: "Tax Filing",
-        date: "2023",
       },
     ],
   };

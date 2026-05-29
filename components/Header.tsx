@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import Image from "next/image";
 import { Menu, X, ChevronDown, Heart } from "lucide-react";
 
 interface SubmenuItem {
@@ -49,6 +50,7 @@ export default function Header() {
         { name: "Work with us", href: "/get-involved?tab=work-with-us", tabKey: "work-with-us" },
       ],
     },
+    { name: "News", href: "/news" },
     { name: "Contact Us", href: "/contact-us" },
   ];
 
@@ -57,9 +59,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl h-20 items-center justify-between px-6 sm:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <span className="font-equip-thin text-2xl tracking-[0.2em] font-extralight text-black transition-colors group-hover:text-primary-pink">
-            POSSIBLE
-          </span>
+          <Image src="/logo.png" alt="Possible Logo" width={150} height={40} className="object-contain" />
         </Link>
 
         {/* Desktop Navigation */}
