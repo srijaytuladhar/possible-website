@@ -143,11 +143,11 @@ body {
 @keyframes fade-center {
   0% {
     opacity: 0;
-    transform: scale(0.7);
+    transform: scale(0.6);
   }
-  60% {
+  75% {
     opacity: 0;
-    transform: scale(0.7);
+    transform: scale(0.8);
   }
   100% {
     opacity: 1;
@@ -164,7 +164,7 @@ body {
 }
 
 .animate-center-fade {
-  animation: fade-center 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fade-center 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes spin-logo {
@@ -177,5 +177,55 @@ body {
 }
 
 .animate-logo-spin {
-  animation: spin-logo 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: spin-logo 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Accessibility Feature Styles */
+.high-contrast {
+  --background: #000000 !important;
+  --foreground: #ffffff !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.high-contrast body,
+.high-contrast main,
+.high-contrast section,
+.high-contrast div:not(.bg-white):not(.bg-\[\#7B2B88\]) {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.high-contrast p,
+.high-contrast span,
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast h4,
+.high-contrast li {
+  color: #ffffff !important;
+}
+
+.high-contrast a,
+.high-contrast button {
+  color: #ffff00 !important;
+  text-decoration: underline !important;
+}
+
+.dyslexia-font,
+.dyslexia-font * {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', sans-serif !important;
+  letter-spacing: 0.15em !important;
+  word-spacing: 0.25em !important;
+  line-height: 1.8 !important;
+}
+
+.highlight-links a,
+.highlight-links button:not([aria-label="Accessibility settings"]) {
+  outline: 3px solid #ED2E84 !important;
+  outline-offset: 2px !important;
+  background-color: rgba(237, 46, 132, 0.1) !important;
+  text-decoration: underline !important;
+}
+

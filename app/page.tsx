@@ -47,6 +47,57 @@ export default function Home() {
       {/* 1. Hero Image Slider */}
       <HeroSlider />
 
+      {/* Who We Are Section */}
+      <section className="py-20 px-6 sm:px-8 bg-white" id="who-we-are">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6 space-y-6">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/10 px-3.5 py-1 text-[13px] font-medium text-primary-pink uppercase tracking-wider">
+                Who We Are
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extralight text-zinc-950 uppercase tracking-wide leading-tight animate-fade-in">
+                We are researchers <br className="hidden sm:inline" />and doers.
+              </h2>
+              <p className="text-subheading text-body-gray leading-relaxed font-light">
+                Possible is built by healthcare professionals, clinicians, data systems engineers, and human rights advocates. Rooted in Nepal, we build and test innovations to strengthen healthcare delivery where it is needed most.
+              </p>
+              <div className="pt-2">
+                <Link
+                  href="/get-involved/our-team"
+                  className="inline-flex items-center gap-2 font-equip font-medium text-[14px] text-primary-pink hover:text-primary-pink/80 hover:underline transition-all"
+                >
+                  <span>Meet our team</span>
+                  <span className="text-lg">&rarr;</span>
+                </Link>
+              </div>
+            </div>
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="p-6 bg-zinc-50 border border-zinc-100 rounded-2xl hover:border-secondary-blue/30 transition-all duration-300">
+                <div className="w-1.5 h-8 bg-secondary-blue mb-4 rounded-full" />
+                <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-wider">Co-Design</h4>
+                <p className="text-[13px] text-body-gray font-light mt-2 leading-relaxed">
+                  Creating healthcare delivery models hand-in-hand with municipal governments and local stakeholders.
+                </p>
+              </div>
+              <div className="p-6 bg-zinc-50 border border-zinc-100 rounded-2xl hover:border-primary-pink/30 transition-all duration-300">
+                <div className="w-1.5 h-8 bg-primary-pink mb-4 rounded-full" />
+                <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-wider">Test</h4>
+                <p className="text-[13px] text-body-gray font-light mt-2 leading-relaxed">
+                  Evaluating operational models and clinical interventions through rigorous research trials.
+                </p>
+              </div>
+              <div className="p-6 bg-zinc-50 border border-zinc-100 rounded-2xl hover:border-accent-purple/30 transition-all duration-300">
+                <div className="w-1.5 h-8 bg-accent-purple mb-4 rounded-full" />
+                <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-wider">Scale</h4>
+                <p className="text-[13px] text-body-gray font-light mt-2 leading-relaxed">
+                  Transitioning validated clinical and data workflows directly into government networks.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2. Vision & Mission Section */}
       <section className="py-16 bg-zinc-50 border-y border-zinc-100 px-6 sm:px-8">
         <div className="mx-auto max-w-7xl">
@@ -101,9 +152,8 @@ export default function Home() {
               return (
                 <div
                   key={index}
-                  className={`flex flex-col p-6 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-all duration-300 ${sol.color} ${
-                    index === 3 || index === 4 ? "lg:col-span-1" : ""
-                  } ${index === 4 ? "md:col-span-2 lg:col-span-1" : ""}`}
+                  className={`flex flex-col p-6 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-all duration-300 ${sol.color} ${index === 3 || index === 4 ? "lg:col-span-1" : ""
+                    } ${index === 4 ? "md:col-span-2 lg:col-span-1" : ""}`}
                 >
                   <div className={`p-2.5 rounded-lg w-fit mb-5 ${sol.badgeColor}`}>
                     <IconComp className="h-5 w-5" />
@@ -136,7 +186,7 @@ export default function Home() {
           </div>
           <div className="relative w-full max-w-4xl mx-auto h-[400px] md:h-[600px] rounded-2xl overflow-hidden border border-zinc-200 shadow-sm bg-white flex items-center justify-center">
             <Image
-              src="/presence-map.png"
+              src="/presence-maps.png"
               alt="Possible Health Operational Presence Map"
               fill
               className="object-contain p-4"

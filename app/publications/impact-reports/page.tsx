@@ -1,0 +1,136 @@
+"use client";
+
+import { BarChart3, FileText, Download, Eye } from "lucide-react";
+
+export default function ImpactReportsPage() {
+  // 12 mock reports to demonstrate the "latest 10 cards + rest list format" requirement
+  const reports = [
+    { title: "2025 Mid-Year Progress & Outcomes Report", desc: "A detailed review of community care program metrics and digital tracking results.", date: "2025", type: "PDF Report", link: "/reports/mid-year-2025.pdf" },
+    { title: "2024 Annual Impact & Strategy Assessment", desc: "Overview of our yearly milestones, organizational goals, and community impact in Nepal.", date: "2024", type: "PDF Report", link: "/reports/annual-impact-2024.pdf" },
+    { title: "Integrated Community Care Impact Assessment", desc: "An evaluation of maternal health care delivery, showing progress in prenatal care adherence.", date: "2024", type: "PDF Report", link: "/reports/maternal-care-2024.pdf" },
+    { title: "Community Health Information System (CHIS) Pilot Study", desc: "Assessing patient outcomes and tracking interventions in rural communities.", date: "2023", type: "PDF Report", link: "/reports/chis-pilot-2023.pdf" },
+    { title: "Chronic Disease Management Implementation Report", desc: "Delivering home-based care models for hypertension and diabetes in Nepal.", date: "2023", type: "PDF Report", link: "/reports/chronic-disease-2023.pdf" },
+    { title: "Mental Health Primary Care Integration Analysis", desc: "Training community health workers to address depression and anxiety.", date: "2023", type: "PDF Report", link: "/reports/mental-health-2023.pdf" },
+    { title: "2022 Annual Impact & Financial Overview", desc: "Highlights of our operational achievements and funding allocations.", date: "2022", type: "PDF Report", link: "/reports/annual-impact-2022.pdf" },
+    { title: "Maternal & Child Health Care Quality Index", desc: "A multi-district analysis of prenatal care quality and child nutrition outcomes.", date: "2022", type: "PDF Report", link: "/reports/maternal-child-2022.pdf" },
+    { title: "COVID-19 Emergency Care Response Evaluation", desc: "Reviewing our support to municipal hospitals during the pandemic peaks.", date: "2021", type: "PDF Report", link: "/reports/covid-response-2021.pdf" },
+    { title: "2021 Annual Impact Report", desc: "Yearly progress on community-centered healthcare innovation and trials.", date: "2021", type: "PDF Report", link: "/reports/annual-impact-2021.pdf" },
+    // Rest will display in list format
+    { title: "Non-Communicable Diseases (NCD) Care Protocol Assessment", desc: "Standardizing clinical treatment packages for community health workers.", date: "2020", type: "PDF Report", link: "/reports/ncd-protocol-2020.pdf" },
+    { title: "2020 Annual Impact Report", desc: "Yearly progress report highlighting our shift towards research-backed models.", date: "2020", type: "PDF Report", link: "/reports/annual-impact-2020.pdf" },
+  ];
+
+  const latestReports = reports.slice(0, 10);
+  const olderReports = reports.slice(10);
+
+  return (
+    <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
+      {/* Page Header */}
+      <div className="mb-12 text-center max-w-3xl mx-auto">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/10 px-3.5 py-1 text-[13px] font-medium text-primary-pink mb-4 uppercase tracking-wider">
+          Publications
+        </span>
+        <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
+          Impact Reports
+        </h1>
+        <p className="text-subheading text-body-gray font-light">
+          Detailed reviews of our yearly milestones, organizational goals, and community health indicators in Nepal.
+        </p>
+      </div>
+
+      <div className="space-y-16 animate-in fade-in duration-300">
+        {/* Latest 10 Reports: Card Layout */}
+        <div className="space-y-6">
+          <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">Latest Reports</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {latestReports.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col p-6 bg-zinc-50 hover:bg-zinc-100/70 border border-zinc-100 rounded-2xl transition-all duration-300 group shadow-sm hover:shadow-md"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white text-zinc-600 border border-zinc-200 shadow-sm">
+                    <BarChart3 className="h-3 w-3 text-primary-pink" />
+                    {item.type}
+                  </span>
+                  <span className="text-[13px] text-zinc-400 font-medium">{item.date}</span>
+                </div>
+                <h3 className="text-[18px] sm:text-[20px] font-semibold text-zinc-950 mb-3 group-hover:text-primary-pink transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-[14px] text-body-gray leading-relaxed font-light mb-6">
+                  {item.desc}
+                </p>
+                
+                {/* View & Download options */}
+                <div className="mt-auto flex items-center gap-4 border-t border-zinc-200/50 pt-4">
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-equip text-[14px] font-medium text-secondary-blue hover:text-secondary-blue/80 transition-colors"
+                  >
+                    <Eye className="h-4 w-4" />
+                    <span>View Report</span>
+                  </a>
+                  <span className="text-zinc-300">|</span>
+                  <a
+                    href={item.link}
+                    download
+                    className="inline-flex items-center gap-1.5 font-equip text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors"
+                  >
+                    <Download className="h-4 w-4" />
+                    <span>Download</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Older Reports: List Layout */}
+        {olderReports.length > 0 && (
+          <div className="space-y-6 border-t border-zinc-100 pt-10">
+            <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">Archive & Older Reports</h2>
+            <div className="bg-white border border-zinc-100 rounded-2xl overflow-hidden shadow-sm">
+              <div className="divide-y divide-zinc-100">
+                {olderReports.map((item, idx) => (
+                  <div key={idx} className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-zinc-50/50 transition-colors">
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-3">
+                        <span className="text-[13px] font-bold text-zinc-400 uppercase tracking-widest">{item.date}</span>
+                        <span className="text-xs px-2 py-0.5 rounded bg-zinc-100 text-zinc-600 border border-zinc-200/50">{item.type}</span>
+                      </div>
+                      <h4 className="text-[16px] font-semibold text-zinc-900">{item.title}</h4>
+                      <p className="text-[13.5px] text-body-gray font-light max-w-3xl">{item.desc}</p>
+                    </div>
+                    <div className="flex items-center gap-4 shrink-0 sm:self-center">
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-secondary-blue hover:text-secondary-blue/80 transition-colors"
+                      >
+                        <Eye className="h-4 w-4" />
+                        <span>View</span>
+                      </a>
+                      <span className="text-zinc-300">|</span>
+                      <a
+                        href={item.link}
+                        download
+                        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors"
+                      >
+                        <Download className="h-4 w-4" />
+                        <span>Download</span>
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
