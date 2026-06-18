@@ -1,27 +1,51 @@
 "use client";
 
+import { useState } from "react";
 import { BarChart3, FileText, Download, Eye } from "lucide-react";
+import ReportViewerModal from "@/components/ReportViewerModal";
 
 export default function ImpactReportsPage() {
+  const [selectedReport, setSelectedReport] = useState<any | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // 12 mock reports to demonstrate the "latest 10 cards + rest list format" requirement
   const reports = [
-    { title: "2025 Mid-Year Progress & Outcomes Report", desc: "A detailed review of community care program metrics and digital tracking results.", date: "2025", type: "PDF Report", link: "/reports/mid-year-2025.pdf" },
-    { title: "2024 Annual Impact & Strategy Assessment", desc: "Overview of our yearly milestones, organizational goals, and community impact in Nepal.", date: "2024", type: "PDF Report", link: "/reports/annual-impact-2024.pdf" },
-    { title: "Integrated Community Care Impact Assessment", desc: "An evaluation of maternal health care delivery, showing progress in prenatal care adherence.", date: "2024", type: "PDF Report", link: "/reports/maternal-care-2024.pdf" },
-    { title: "Community Health Information System (CHIS) Pilot Study", desc: "Assessing patient outcomes and tracking interventions in rural communities.", date: "2023", type: "PDF Report", link: "/reports/chis-pilot-2023.pdf" },
-    { title: "Chronic Disease Management Implementation Report", desc: "Delivering home-based care models for hypertension and diabetes in Nepal.", date: "2023", type: "PDF Report", link: "/reports/chronic-disease-2023.pdf" },
-    { title: "Mental Health Primary Care Integration Analysis", desc: "Training community health workers to address depression and anxiety.", date: "2023", type: "PDF Report", link: "/reports/mental-health-2023.pdf" },
-    { title: "2022 Annual Impact & Financial Overview", desc: "Highlights of our operational achievements and funding allocations.", date: "2022", type: "PDF Report", link: "/reports/annual-impact-2022.pdf" },
-    { title: "Maternal & Child Health Care Quality Index", desc: "A multi-district analysis of prenatal care quality and child nutrition outcomes.", date: "2022", type: "PDF Report", link: "/reports/maternal-child-2022.pdf" },
-    { title: "COVID-19 Emergency Care Response Evaluation", desc: "Reviewing our support to municipal hospitals during the pandemic peaks.", date: "2021", type: "PDF Report", link: "/reports/covid-response-2021.pdf" },
-    { title: "2021 Annual Impact Report", desc: "Yearly progress on community-centered healthcare innovation and trials.", date: "2021", type: "PDF Report", link: "/reports/annual-impact-2021.pdf" },
+    { title: "2025 Mid-Year Progress & Outcomes Report", desc: "A detailed review of community care program metrics and digital tracking results.", date: "June 18, 2025, 2:30 PM", type: "PDF Report", link: "/reports/mid-year-2025.pdf" },
+    { title: "2024 Annual Impact & Strategy Assessment", desc: "Overview of our yearly milestones, organizational goals, and community impact in Nepal.", date: "November 12, 2024, 10:15 AM", type: "PDF Report", link: "/reports/annual-impact-2024.pdf" },
+    { title: "Integrated Community Care Impact Assessment", desc: "An evaluation of maternal health care delivery, showing progress in prenatal care adherence.", date: "May 08, 2024, 4:45 PM", type: "PDF Report", link: "/reports/maternal-care-2024.pdf" },
+    { title: "Community Health Information System (CHIS) Pilot Study", desc: "Assessing patient outcomes and tracking interventions in rural communities.", date: "October 20, 2023, 9:00 AM", type: "PDF Report", link: "/reports/chis-pilot-2023.pdf" },
+    { title: "Chronic Disease Management Implementation Report", desc: "Delivering home-based care models for hypertension and diabetes in Nepal.", date: "August 14, 2023, 11:30 AM", type: "PDF Report", link: "/reports/chronic-disease-2023.pdf" },
+    { title: "Mental Health Primary Care Integration Analysis", desc: "Training community health workers to address depression and anxiety.", date: "February 05, 2023, 3:15 PM", type: "PDF Report", link: "/reports/mental-health-2023.pdf" },
+    { title: "2022 Annual Impact & Financial Overview", desc: "Highlights of our operational achievements and funding allocations.", date: "December 15, 2022, 10:00 AM", type: "PDF Report", link: "/reports/annual-impact-2022.pdf" },
+    { title: "Maternal & Child Health Care Quality Index", desc: "A multi-district analysis of prenatal care quality and child nutrition outcomes.", date: "June 22, 2022, 1:30 PM", type: "PDF Report", link: "/reports/maternal-child-2022.pdf" },
+    { title: "COVID-19 Emergency Care Response Evaluation", desc: "Reviewing our support to municipal hospitals during the pandemic peaks.", date: "September 09, 2021, 5:00 PM", type: "PDF Report", link: "/reports/covid-response-2021.pdf" },
+    { title: "2021 Annual Impact Report", desc: "Yearly progress on community-centered healthcare innovation and trials.", date: "January 15, 2021, 11:00 AM", type: "PDF Report", link: "/reports/annual-impact-2021.pdf" },
     // Rest will display in list format
-    { title: "Non-Communicable Diseases (NCD) Care Protocol Assessment", desc: "Standardizing clinical treatment packages for community health workers.", date: "2020", type: "PDF Report", link: "/reports/ncd-protocol-2020.pdf" },
-    { title: "2020 Annual Impact Report", desc: "Yearly progress report highlighting our shift towards research-backed models.", date: "2020", type: "PDF Report", link: "/reports/annual-impact-2020.pdf" },
+    { title: "Non-Communicable Diseases (NCD) Care Protocol Assessment", desc: "Standardizing clinical treatment packages for community health workers.", date: "October 10, 2020, 2:15 PM", type: "PDF Report", link: "/reports/ncd-protocol-2020.pdf" },
+    { title: "2020 Annual Impact Report", desc: "Yearly progress report highlighting our shift towards research-backed models.", date: "April 02, 2020, 9:45 AM", type: "PDF Report", link: "/reports/annual-impact-2020.pdf" },
   ];
 
   const latestReports = reports.slice(0, 10);
   const olderReports = reports.slice(10);
+
+  const openReport = (report: any) => {
+    setSelectedReport(report);
+    setIsModalOpen(true);
+  };
+
+  const handleDownload = (e: React.MouseEvent, title: string, date: string, desc: string) => {
+    e.preventDefault();
+    const content = `POSSIBLE HEALTH REPORT\n======================\nTitle: ${title}\nDate: ${date}\nDescription: ${desc}\n\nThis is a mock report document generated for preview purposes.\nFor the full official publication, please contact info@possiblehealth.org.\n`;
+    const blob = new Blob([content], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
@@ -64,24 +88,21 @@ export default function ImpactReportsPage() {
                 
                 {/* View & Download options */}
                 <div className="mt-auto flex items-center gap-4 border-t border-zinc-200/50 pt-4">
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-equip text-[14px] font-medium text-secondary-blue hover:text-secondary-blue/80 transition-colors"
+                  <button
+                    onClick={() => openReport(item)}
+                    className="inline-flex items-center gap-1.5 font-equip text-[14px] font-medium text-secondary-blue hover:text-secondary-blue/80 transition-colors cursor-pointer"
                   >
                     <Eye className="h-4 w-4" />
                     <span>View Report</span>
-                  </a>
+                  </button>
                   <span className="text-zinc-300">|</span>
-                  <a
-                    href={item.link}
-                    download
-                    className="inline-flex items-center gap-1.5 font-equip text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors"
+                  <button
+                    onClick={(e) => handleDownload(e, item.title, item.date, item.desc)}
+                    className="inline-flex items-center gap-1.5 font-equip text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors cursor-pointer"
                   >
                     <Download className="h-4 w-4" />
                     <span>Download</span>
-                  </a>
+                  </button>
                 </div>
               </div>
             ))}
@@ -105,24 +126,21 @@ export default function ImpactReportsPage() {
                       <p className="text-[13.5px] text-body-gray font-light max-w-3xl">{item.desc}</p>
                     </div>
                     <div className="flex items-center gap-4 shrink-0 sm:self-center">
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-secondary-blue hover:text-secondary-blue/80 transition-colors"
+                      <button
+                        onClick={() => openReport(item)}
+                        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-secondary-blue hover:text-secondary-blue/80 transition-colors cursor-pointer"
                       >
                         <Eye className="h-4 w-4" />
                         <span>View</span>
-                      </a>
+                      </button>
                       <span className="text-zinc-300">|</span>
-                      <a
-                        href={item.link}
-                        download
-                        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors"
+                      <button
+                        onClick={(e) => handleDownload(e, item.title, item.date, item.desc)}
+                        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors cursor-pointer"
                       >
                         <Download className="h-4 w-4" />
                         <span>Download</span>
-                      </a>
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -131,6 +149,13 @@ export default function ImpactReportsPage() {
           </div>
         )}
       </div>
+
+      <ReportViewerModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        report={selectedReport}
+        category="impact"
+      />
     </div>
   );
 }

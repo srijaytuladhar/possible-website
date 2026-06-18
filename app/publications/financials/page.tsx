@@ -1,25 +1,49 @@
 "use client";
 
+import { useState } from "react";
 import { Award, Download, Eye } from "lucide-react";
+import ReportViewerModal from "@/components/ReportViewerModal";
 
 export default function FinancialsPage() {
+  const [selectedReport, setSelectedReport] = useState<any | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const financialReports = [
-    { title: "Fiscal Year 2024 Audited Financial Statements", desc: "Audited financial statements detailing funding sources (global grants, private donations) and program expenditures.", date: "2024", type: "Audited Report", link: "/docs/financials-2024.pdf" },
-    { title: "Conflict of Interest Policy & Disclosures", desc: "Our organizational policies for maintaining transparency, integrity, and handling potential conflicts of interest.", date: "2024", type: "Policy", link: "/docs/conflict-of-interest-policy.pdf" },
-    { title: "Fiscal Year 2023 Audited Financial Statements", desc: "Independent auditor's report and complete balance sheet details for Sambhav and Possible US.", date: "2023", type: "Audited Report", link: "/docs/financials-2023.pdf" },
-    { title: "Annual Whistleblower & Transparency Policy", desc: "Policies ensuring safe channels for reporting misconduct and maintaining high corporate governance standards.", date: "2023", type: "Policy", link: "/docs/whistleblower-policy.pdf" },
-    { title: "Fiscal Year 2022 Audited Financial Statements", desc: "Audited statement of activities, functional expenses, and cash flows.", date: "2022", type: "Audited Report", link: "/docs/financials-2022.pdf" },
-    { title: "Procurement and Grant Allocation Standards", desc: "Guidelines outlining competitive bidding requirements and sub-award allocation rules for regional partners.", date: "2022", type: "Policy", link: "/docs/procurement-policy.pdf" },
-    { title: "Fiscal Year 2021 Audited Financial Statements", desc: "Annual statement detailing funding allocations and emergency pandemic response expenditures.", date: "2021", type: "Audited Report", link: "/docs/financials-2021.pdf" },
-    { title: "Executive Compensation & Board Governance Policy", desc: "Standard policies defining salary caps, board reviews, and independent member criteria.", date: "2021", type: "Policy", link: "/docs/governance-policy.pdf" },
-    { title: "Fiscal Year 2020 Audited Financial Statements", desc: "Complete audited financial records highlighting program cost ratios and reserve funds.", date: "2020", type: "Audited Report", link: "/docs/financials-2020.pdf" },
-    { title: "Donor Privacy & Fund Allocation Standards", desc: "Policies protecting individual donor details and ensuring designated funds match field executions.", date: "2020", type: "Policy", link: "/docs/donor-privacy-policy.pdf" },
+    { title: "Fiscal Year 2024 Audited Financial Statements", desc: "Audited financial statements detailing funding sources (global grants, private donations) and program expenditures.", date: "September 24, 2024, 11:30 AM", type: "Audited Report", link: "/docs/financials-2024.pdf" },
+    { title: "Conflict of Interest Policy & Disclosures", desc: "Our organizational policies for maintaining transparency, integrity, and handling potential conflicts of interest.", date: "July 12, 2024, 3:45 PM", type: "Policy", link: "/docs/conflict-of-interest-policy.pdf" },
+    { title: "Fiscal Year 2023 Audited Financial Statements", desc: "Independent auditor's report and complete balance sheet details for Sambhav and Possible US.", date: "October 18, 2023, 10:15 AM", type: "Audited Report", link: "/docs/financials-2023.pdf" },
+    { title: "Annual Whistleblower & Transparency Policy", desc: "Policies ensuring safe channels for reporting misconduct and maintaining high corporate governance standards.", date: "May 09, 2023, 9:00 AM", type: "Policy", link: "/docs/whistleblower-policy.pdf" },
+    { title: "Fiscal Year 2022 Audited Financial Statements", desc: "Audited statement of activities, functional expenses, and cash flows.", date: "November 28, 2022, 2:30 PM", type: "Audited Report", link: "/docs/financials-2022.pdf" },
+    { title: "Procurement and Grant Allocation Standards", desc: "Guidelines outlining competitive bidding requirements and sub-award allocation rules for regional partners.", date: "March 15, 2022, 4:00 PM", type: "Policy", link: "/docs/procurement-policy.pdf" },
+    { title: "Fiscal Year 2021 Audited Financial Statements", desc: "Annual statement detailing funding allocations and emergency pandemic response expenditures.", date: "December 05, 2021, 10:45 AM", type: "Audited Report", link: "/docs/financials-2021.pdf" },
+    { title: "Executive Compensation & Board Governance Policy", desc: "Standard policies defining salary caps, board reviews, and independent member criteria.", date: "June 18, 2021, 1:15 PM", type: "Policy", link: "/docs/governance-policy.pdf" },
+    { title: "Fiscal Year 2020 Audited Financial Statements", desc: "Complete audited financial records highlighting program cost ratios and reserve funds.", date: "November 10, 2020, 3:30 PM", type: "Audited Report", link: "/docs/financials-2020.pdf" },
+    { title: "Donor Privacy & Fund Allocation Standards", desc: "Policies protecting individual donor details and ensuring designated funds match field executions.", date: "January 20, 2020, 11:00 AM", type: "Policy", link: "/docs/donor-privacy-policy.pdf" },
     // Rest in list format
-    { title: "Fiscal Year 2019 Audited Financial Statements", desc: "Audited statements detailing the financials of our clinical hospital operations support phase.", date: "2019", type: "Audited Report", link: "/docs/financials-2019.pdf" },
+    { title: "Fiscal Year 2019 Audited Financial Statements", desc: "Audited statements detailing the financials of our clinical hospital operations support phase.", date: "October 14, 2019, 9:30 AM", type: "Audited Report", link: "/docs/financials-2019.pdf" },
   ];
 
   const latestReports = financialReports.slice(0, 10);
   const olderReports = financialReports.slice(10);
+
+  const openReport = (report: any) => {
+    setSelectedReport(report);
+    setIsModalOpen(true);
+  };
+
+  const handleDownload = (e: React.MouseEvent, title: string, date: string, desc: string) => {
+    e.preventDefault();
+    const content = `POSSIBLE HEALTH REPORT\n======================\nTitle: ${title}\nDate: ${date}\nDescription: ${desc}\n\nThis is a mock report document generated for preview purposes.\nFor the full official publication, please contact info@possiblehealth.org.\n`;
+    const blob = new Blob([content], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
@@ -62,24 +86,21 @@ export default function FinancialsPage() {
                 
                 {/* View & Download options */}
                 <div className="mt-auto flex items-center gap-4 border-t border-zinc-200/50 pt-4">
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-equip text-[14px] font-medium text-secondary-blue hover:text-secondary-blue/80 transition-colors"
+                  <button
+                    onClick={() => openReport(item)}
+                    className="inline-flex items-center gap-1.5 font-equip text-[14px] font-medium text-secondary-blue hover:text-secondary-blue/80 transition-colors cursor-pointer"
                   >
                     <Eye className="h-4 w-4" />
                     <span>View Document</span>
-                  </a>
+                  </button>
                   <span className="text-zinc-300">|</span>
-                  <a
-                    href={item.link}
-                    download
-                    className="inline-flex items-center gap-1.5 font-equip text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors"
+                  <button
+                    onClick={(e) => handleDownload(e, item.title, item.date, item.desc)}
+                    className="inline-flex items-center gap-1.5 font-equip text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors cursor-pointer"
                   >
                     <Download className="h-4 w-4" />
                     <span>Download</span>
-                  </a>
+                  </button>
                 </div>
               </div>
             ))}
@@ -103,24 +124,21 @@ export default function FinancialsPage() {
                       <p className="text-[13.5px] text-body-gray font-light max-w-3xl">{item.desc}</p>
                     </div>
                     <div className="flex items-center gap-4 shrink-0 sm:self-center">
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-secondary-blue hover:text-secondary-blue/80 transition-colors"
+                      <button
+                        onClick={() => openReport(item)}
+                        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-secondary-blue hover:text-secondary-blue/80 transition-colors cursor-pointer"
                       >
                         <Eye className="h-4 w-4" />
                         <span>View</span>
-                      </a>
+                      </button>
                       <span className="text-zinc-300">|</span>
-                      <a
-                        href={item.link}
-                        download
-                        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors"
+                      <button
+                        onClick={(e) => handleDownload(e, item.title, item.date, item.desc)}
+                        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors cursor-pointer"
                       >
                         <Download className="h-4 w-4" />
                         <span>Download</span>
-                      </a>
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -129,6 +147,13 @@ export default function FinancialsPage() {
           </div>
         )}
       </div>
+
+      <ReportViewerModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        report={selectedReport}
+        category="financial"
+      />
     </div>
   );
 }
