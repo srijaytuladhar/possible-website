@@ -2,6 +2,7 @@
 
 import { X, Download, Printer, FileText, CheckCircle2, TrendingUp, Calendar, Tag, ShieldCheck } from "lucide-react";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 interface Report {
   title: string;
@@ -163,6 +164,22 @@ For the full unredacted publication, raw datasets, or partnership inquiries, ple
           <div className="relative mx-auto max-w-3xl bg-white border border-zinc-200 rounded-2xl shadow-sm p-6 sm:p-10 md:p-12 print:border-none print:shadow-none overflow-hidden">
             {/* Color Accent Bar */}
             <div className={`absolute top-0 left-0 right-0 h-2.5 ${theme.accent}`} />
+
+            {/* Document Cover Image */}
+            <div className="relative h-48 sm:h-60 w-full mb-8 rounded-xl overflow-hidden bg-zinc-100 border border-zinc-150 shadow-inner">
+              <Image
+                src={{
+                  impact: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&h=400&q=80",
+                  financial: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&h=400&q=80",
+                  brief: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&h=400&q=80",
+                  paper: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&h=400&q=80",
+                }[category]}
+                alt={report.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 768px"
+              />
+            </div>
 
             {/* Document Title Header */}
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-6 border-b border-zinc-100 pb-8 mb-8">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Award, Download, Eye } from "lucide-react";
 import ReportViewerModal from "@/components/ReportViewerModal";
 
@@ -9,18 +10,18 @@ export default function FinancialsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const financialReports = [
-    { title: "Fiscal Year 2024 Audited Financial Statements", desc: "Audited financial statements detailing funding sources (global grants, private donations) and program expenditures.", date: "September 24, 2024, 11:30 AM", type: "Audited Report", link: "/docs/financials-2024.pdf" },
-    { title: "Conflict of Interest Policy & Disclosures", desc: "Our organizational policies for maintaining transparency, integrity, and handling potential conflicts of interest.", date: "July 12, 2024, 3:45 PM", type: "Policy", link: "/docs/conflict-of-interest-policy.pdf" },
-    { title: "Fiscal Year 2023 Audited Financial Statements", desc: "Independent auditor's report and complete balance sheet details for Sambhav and Possible US.", date: "October 18, 2023, 10:15 AM", type: "Audited Report", link: "/docs/financials-2023.pdf" },
-    { title: "Annual Whistleblower & Transparency Policy", desc: "Policies ensuring safe channels for reporting misconduct and maintaining high corporate governance standards.", date: "May 09, 2023, 9:00 AM", type: "Policy", link: "/docs/whistleblower-policy.pdf" },
-    { title: "Fiscal Year 2022 Audited Financial Statements", desc: "Audited statement of activities, functional expenses, and cash flows.", date: "November 28, 2022, 2:30 PM", type: "Audited Report", link: "/docs/financials-2022.pdf" },
-    { title: "Procurement and Grant Allocation Standards", desc: "Guidelines outlining competitive bidding requirements and sub-award allocation rules for regional partners.", date: "March 15, 2022, 4:00 PM", type: "Policy", link: "/docs/procurement-policy.pdf" },
-    { title: "Fiscal Year 2021 Audited Financial Statements", desc: "Annual statement detailing funding allocations and emergency pandemic response expenditures.", date: "December 05, 2021, 10:45 AM", type: "Audited Report", link: "/docs/financials-2021.pdf" },
-    { title: "Executive Compensation & Board Governance Policy", desc: "Standard policies defining salary caps, board reviews, and independent member criteria.", date: "June 18, 2021, 1:15 PM", type: "Policy", link: "/docs/governance-policy.pdf" },
-    { title: "Fiscal Year 2020 Audited Financial Statements", desc: "Complete audited financial records highlighting program cost ratios and reserve funds.", date: "November 10, 2020, 3:30 PM", type: "Audited Report", link: "/docs/financials-2020.pdf" },
-    { title: "Donor Privacy & Fund Allocation Standards", desc: "Policies protecting individual donor details and ensuring designated funds match field executions.", date: "January 20, 2020, 11:00 AM", type: "Policy", link: "/docs/donor-privacy-policy.pdf" },
+    { title: "Fiscal Year 2024 Audited Financial Statements", desc: "Audited financial statements detailing funding sources (global grants, private donations) and program expenditures.", date: "September 24, 2024, 11:30 AM", type: "Audited Report", link: "/docs/financials-2024.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Conflict of Interest Policy & Disclosures", desc: "Our organizational policies for maintaining transparency, integrity, and handling potential conflicts of interest.", date: "July 12, 2024, 3:45 PM", type: "Policy", link: "/docs/conflict-of-interest-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2023 Audited Financial Statements", desc: "Independent auditor's report and complete balance sheet details for Sambhav and Possible US.", date: "October 18, 2023, 10:15 AM", type: "Audited Report", link: "/docs/financials-2023.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Annual Whistleblower & Transparency Policy", desc: "Policies ensuring safe channels for reporting misconduct and maintaining high corporate governance standards.", date: "May 09, 2023, 9:00 AM", type: "Policy", link: "/docs/whistleblower-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2022 Audited Financial Statements", desc: "Audited statement of activities, functional expenses, and cash flows.", date: "November 28, 2022, 2:30 PM", type: "Audited Report", link: "/docs/financials-2022.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Procurement and Grant Allocation Standards", desc: "Guidelines outlining competitive bidding requirements and sub-award allocation rules for regional partners.", date: "March 15, 2022, 4:00 PM", type: "Policy", link: "/docs/procurement-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2021 Audited Financial Statements", desc: "Annual statement detailing funding allocations and emergency pandemic response expenditures.", date: "December 05, 2021, 10:45 AM", type: "Audited Report", link: "/docs/financials-2021.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Executive Compensation & Board Governance Policy", desc: "Standard policies defining salary caps, board reviews, and independent member criteria.", date: "June 18, 2021, 1:15 PM", type: "Policy", link: "/docs/governance-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2020 Audited Financial Statements", desc: "Complete audited financial records highlighting program cost ratios and reserve funds.", date: "November 10, 2020, 3:30 PM", type: "Audited Report", link: "/docs/financials-2020.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Donor Privacy & Fund Allocation Standards", desc: "Policies protecting individual donor details and ensuring designated funds match field executions.", date: "January 20, 2020, 11:00 AM", type: "Policy", link: "/docs/donor-privacy-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
     // Rest in list format
-    { title: "Fiscal Year 2019 Audited Financial Statements", desc: "Audited statements detailing the financials of our clinical hospital operations support phase.", date: "October 14, 2019, 9:30 AM", type: "Audited Report", link: "/docs/financials-2019.pdf" },
+    { title: "Fiscal Year 2019 Audited Financial Statements", desc: "Audited statements detailing the financials of our clinical hospital operations support phase.", date: "October 14, 2019, 9:30 AM", type: "Audited Report", link: "/docs/financials-2019.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
   ];
 
   const latestReports = financialReports.slice(0, 10);
@@ -70,6 +71,17 @@ export default function FinancialsPage() {
                 key={idx}
                 className="flex flex-col p-6 bg-zinc-50 hover:bg-zinc-100/70 border border-zinc-100 rounded-2xl transition-all duration-300 group shadow-sm hover:shadow-md"
               >
+                {/* Card Cover Image */}
+                <div className="relative h-48 w-full mb-5 rounded-xl overflow-hidden bg-zinc-200/50 border border-zinc-200/50 shrink-0">
+                  <Image
+                    src={item.cover}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+
                 <div className="flex items-center justify-between mb-4">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white text-zinc-600 border border-zinc-200 shadow-sm">
                     <Award className="h-3 w-3 text-accent-purple" />

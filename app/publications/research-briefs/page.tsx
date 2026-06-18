@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { FileText, Download, Eye } from "lucide-react";
 import ReportViewerModal from "@/components/ReportViewerModal";
 
@@ -9,18 +10,18 @@ export default function ResearchBriefsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const briefs = [
-    { title: "Intervention Briefs: National Expansion Guidelines", desc: "Summaries of our ongoing interventions and their clinical methodologies in Nepal.", date: "July 19, 2024, 11:00 AM", type: "Brief", link: "/briefs/intervention-briefs.pdf" },
-    { title: "Ethics Brief: Research Conduct in Vulnerable Settings", desc: "Guidelines and ethical considerations in delivering healthcare innovations and trials.", date: "April 05, 2024, 2:45 PM", type: "Brief", link: "/briefs/ethics-brief.pdf" },
-    { title: "Policy Brief: Strengthening Nepal's Community Health System", desc: "A translation of community health worker implementation findings into national guideline suggestions.", date: "January 14, 2024, 10:15 AM", type: "Brief", link: "/briefs/policy-brief-2024.pdf" },
-    { title: "Behavioral Interventions for Older Adults", desc: "Short summary on dementia care workflows and caregiver training guides.", date: "November 23, 2023, 4:30 PM", type: "Brief", link: "/briefs/dementia-brief-2023.pdf" },
-    { title: "Intimate Partner Violence Prevention (MILAP Brief)", desc: "Policy translation regarding WOREC advocacy and family-based domestic violence reduction.", date: "August 08, 2023, 9:30 AM", type: "Brief", link: "/briefs/milap-brief-2023.pdf" },
-    { title: "Stigma Mitigation in HIV Clinics (INCLUDE Brief)", desc: "Clinical brief on stigma reduction training modules for facility healthcare staff.", date: "May 17, 2023, 1:45 PM", type: "Brief", link: "/briefs/include-brief-2023.pdf" },
-    { title: "Digital Integration & Data Architecture Brief", desc: "Detailing data security and cloud sync strategies for the Nepal CHIS platform.", date: "December 12, 2022, 11:15 AM", type: "Brief", link: "/briefs/digital-chis-2022.pdf" },
-    { title: "Collaborative Mental Health Model Policy Brief", desc: "An overview of primary care clinician training and medication supply integration.", date: "June 20, 2022, 3:00 PM", type: "Brief", link: "/briefs/mental-health-brief-2022.pdf" },
-    { title: "Maternal Health Supervision Standards Brief", desc: "Standard operating procedures for maternal health tracking and high-risk case management.", date: "September 29, 2021, 2:15 PM", type: "Brief", link: "/briefs/maternal-brief-2021.pdf" },
-    { title: "Non-Communicable Diseases (NCD) Referral Guide Brief", desc: "Guidelines for referring complex hypertensive and diabetic patients to municipal hospitals.", date: "March 08, 2021, 10:00 AM", type: "Brief", link: "/briefs/ncd-referral-2021.pdf" },
+    { title: "Intervention Briefs: National Expansion Guidelines", desc: "Summaries of our ongoing interventions and their clinical methodologies in Nepal.", date: "July 19, 2024, 11:00 AM", type: "Brief", link: "/briefs/intervention-briefs.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Ethics Brief: Research Conduct in Vulnerable Settings", desc: "Guidelines and ethical considerations in delivering healthcare innovations and trials.", date: "April 05, 2024, 2:45 PM", type: "Brief", link: "/briefs/ethics-brief.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Policy Brief: Strengthening Nepal's Community Health System", desc: "A translation of community health worker implementation findings into national guideline suggestions.", date: "January 14, 2024, 10:15 AM", type: "Brief", link: "/briefs/policy-brief-2024.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Behavioral Interventions for Older Adults", desc: "Short summary on dementia care workflows and caregiver training guides.", date: "November 23, 2023, 4:30 PM", type: "Brief", link: "/briefs/dementia-brief-2023.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Intimate Partner Violence Prevention (MILAP Brief)", desc: "Policy translation regarding WOREC advocacy and family-based domestic violence reduction.", date: "August 08, 2023, 9:30 AM", type: "Brief", link: "/briefs/milap-brief-2023.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Stigma Mitigation in HIV Clinics (INCLUDE Brief)", desc: "Clinical brief on stigma reduction training modules for facility healthcare staff.", date: "May 17, 2023, 1:45 PM", type: "Brief", link: "/briefs/include-brief-2023.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Digital Integration & Data Architecture Brief", desc: "Detailing data security and cloud sync strategies for the Nepal CHIS platform.", date: "December 12, 2022, 11:15 AM", type: "Brief", link: "/briefs/digital-chis-2022.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Collaborative Mental Health Model Policy Brief", desc: "An overview of primary care clinician training and medication supply integration.", date: "June 20, 2022, 3:00 PM", type: "Brief", link: "/briefs/mental-health-brief-2022.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Maternal Health Supervision Standards Brief", desc: "Standard operating procedures for maternal health tracking and high-risk case management.", date: "September 29, 2021, 2:15 PM", type: "Brief", link: "/briefs/maternal-brief-2021.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Non-Communicable Diseases (NCD) Referral Guide Brief", desc: "Guidelines for referring complex hypertensive and diabetic patients to municipal hospitals.", date: "March 08, 2021, 10:00 AM", type: "Brief", link: "/briefs/ncd-referral-2021.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
     // Rest in list format
-    { title: "Nepal Health Post Infrastructure & Equipment Needs", desc: "An assessment of basic laboratory and pharmacy supply chain gaps across rural provinces.", date: "October 11, 2020, 11:30 AM", type: "Brief", link: "/briefs/infrastructure-brief-2020.pdf" },
+    { title: "Nepal Health Post Infrastructure & Equipment Needs", desc: "An assessment of basic laboratory and pharmacy supply chain gaps across rural provinces.", date: "October 11, 2020, 11:30 AM", type: "Brief", link: "/briefs/infrastructure-brief-2020.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
   ];
 
   const latestBriefs = briefs.slice(0, 10);
@@ -70,6 +71,17 @@ export default function ResearchBriefsPage() {
                 key={idx}
                 className="flex flex-col p-6 bg-zinc-50 hover:bg-zinc-100/70 border border-zinc-100 rounded-2xl transition-all duration-300 group shadow-sm hover:shadow-md"
               >
+                {/* Card Cover Image */}
+                <div className="relative h-48 w-full mb-5 rounded-xl overflow-hidden bg-zinc-200/50 border border-zinc-200/50 shrink-0">
+                  <Image
+                    src={item.cover}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+
                 <div className="flex items-center justify-between mb-4">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white text-zinc-600 border border-zinc-200 shadow-sm">
                     <FileText className="h-3 w-3 text-secondary-blue" />

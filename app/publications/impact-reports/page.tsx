@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { BarChart3, FileText, Download, Eye } from "lucide-react";
 import ReportViewerModal from "@/components/ReportViewerModal";
 
@@ -10,19 +11,19 @@ export default function ImpactReportsPage() {
 
   // 12 mock reports to demonstrate the "latest 10 cards + rest list format" requirement
   const reports = [
-    { title: "2025 Mid-Year Progress & Outcomes Report", desc: "A detailed review of community care program metrics and digital tracking results.", date: "June 18, 2025, 2:30 PM", type: "PDF Report", link: "/reports/mid-year-2025.pdf" },
-    { title: "2024 Annual Impact & Strategy Assessment", desc: "Overview of our yearly milestones, organizational goals, and community impact in Nepal.", date: "November 12, 2024, 10:15 AM", type: "PDF Report", link: "/reports/annual-impact-2024.pdf" },
-    { title: "Integrated Community Care Impact Assessment", desc: "An evaluation of maternal health care delivery, showing progress in prenatal care adherence.", date: "May 08, 2024, 4:45 PM", type: "PDF Report", link: "/reports/maternal-care-2024.pdf" },
-    { title: "Community Health Information System (CHIS) Pilot Study", desc: "Assessing patient outcomes and tracking interventions in rural communities.", date: "October 20, 2023, 9:00 AM", type: "PDF Report", link: "/reports/chis-pilot-2023.pdf" },
-    { title: "Chronic Disease Management Implementation Report", desc: "Delivering home-based care models for hypertension and diabetes in Nepal.", date: "August 14, 2023, 11:30 AM", type: "PDF Report", link: "/reports/chronic-disease-2023.pdf" },
-    { title: "Mental Health Primary Care Integration Analysis", desc: "Training community health workers to address depression and anxiety.", date: "February 05, 2023, 3:15 PM", type: "PDF Report", link: "/reports/mental-health-2023.pdf" },
-    { title: "2022 Annual Impact & Financial Overview", desc: "Highlights of our operational achievements and funding allocations.", date: "December 15, 2022, 10:00 AM", type: "PDF Report", link: "/reports/annual-impact-2022.pdf" },
-    { title: "Maternal & Child Health Care Quality Index", desc: "A multi-district analysis of prenatal care quality and child nutrition outcomes.", date: "June 22, 2022, 1:30 PM", type: "PDF Report", link: "/reports/maternal-child-2022.pdf" },
-    { title: "COVID-19 Emergency Care Response Evaluation", desc: "Reviewing our support to municipal hospitals during the pandemic peaks.", date: "September 09, 2021, 5:00 PM", type: "PDF Report", link: "/reports/covid-response-2021.pdf" },
-    { title: "2021 Annual Impact Report", desc: "Yearly progress on community-centered healthcare innovation and trials.", date: "January 15, 2021, 11:00 AM", type: "PDF Report", link: "/reports/annual-impact-2021.pdf" },
+    { title: "2025 Mid-Year Progress & Outcomes Report", desc: "A detailed review of community care program metrics and digital tracking results.", date: "June 18, 2025, 2:30 PM", type: "PDF Report", link: "/reports/mid-year-2025.pdf", cover: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "2024 Annual Impact & Strategy Assessment", desc: "Overview of our yearly milestones, organizational goals, and community impact in Nepal.", date: "November 12, 2024, 10:15 AM", type: "PDF Report", link: "/reports/annual-impact-2024.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Integrated Community Care Impact Assessment", desc: "An evaluation of maternal health care delivery, showing progress in prenatal care adherence.", date: "May 08, 2024, 4:45 PM", type: "PDF Report", link: "/reports/maternal-care-2024.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Community Health Information System (CHIS) Pilot Study", desc: "Assessing patient outcomes and tracking interventions in rural communities.", date: "October 20, 2023, 9:00 AM", type: "PDF Report", link: "/reports/chis-pilot-2023.pdf", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Chronic Disease Management Implementation Report", desc: "Delivering home-based care models for hypertension and diabetes in Nepal.", date: "August 14, 2023, 11:30 AM", type: "PDF Report", link: "/reports/chronic-disease-2023.pdf", cover: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Mental Health Primary Care Integration Analysis", desc: "Training community health workers to address depression and anxiety.", date: "February 05, 2023, 3:15 PM", type: "PDF Report", link: "/reports/mental-health-2023.pdf", cover: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "2022 Annual Impact & Financial Overview", desc: "Highlights of our operational achievements and funding allocations.", date: "December 15, 2022, 10:00 AM", type: "PDF Report", link: "/reports/annual-impact-2022.pdf", cover: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Maternal & Child Health Care Quality Index", desc: "A multi-district analysis of prenatal care quality and child nutrition outcomes.", date: "June 22, 2022, 1:30 PM", type: "PDF Report", link: "/reports/maternal-child-2022.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "COVID-19 Emergency Care Response Evaluation", desc: "Reviewing our support to municipal hospitals during the pandemic peaks.", date: "September 09, 2021, 5:00 PM", type: "PDF Report", link: "/reports/covid-response-2021.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "2021 Annual Impact Report", desc: "Yearly progress on community-centered healthcare innovation and trials.", date: "January 15, 2021, 11:00 AM", type: "PDF Report", link: "/reports/annual-impact-2021.pdf", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" },
     // Rest will display in list format
-    { title: "Non-Communicable Diseases (NCD) Care Protocol Assessment", desc: "Standardizing clinical treatment packages for community health workers.", date: "October 10, 2020, 2:15 PM", type: "PDF Report", link: "/reports/ncd-protocol-2020.pdf" },
-    { title: "2020 Annual Impact Report", desc: "Yearly progress report highlighting our shift towards research-backed models.", date: "April 02, 2020, 9:45 AM", type: "PDF Report", link: "/reports/annual-impact-2020.pdf" },
+    { title: "Non-Communicable Diseases (NCD) Care Protocol Assessment", desc: "Standardizing clinical treatment packages for community health workers.", date: "October 10, 2020, 2:15 PM", type: "PDF Report", link: "/reports/ncd-protocol-2020.pdf", cover: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "2020 Annual Impact Report", desc: "Yearly progress report highlighting our shift towards research-backed models.", date: "April 02, 2020, 9:45 AM", type: "PDF Report", link: "/reports/annual-impact-2020.pdf", cover: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&h=350&q=80" },
   ];
 
   const latestReports = reports.slice(0, 10);
@@ -72,6 +73,17 @@ export default function ImpactReportsPage() {
                 key={idx}
                 className="flex flex-col p-6 bg-zinc-50 hover:bg-zinc-100/70 border border-zinc-100 rounded-2xl transition-all duration-300 group shadow-sm hover:shadow-md"
               >
+                {/* Card Cover Image */}
+                <div className="relative h-48 w-full mb-5 rounded-xl overflow-hidden bg-zinc-200/50 border border-zinc-200/50 shrink-0">
+                  <Image
+                    src={item.cover}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+
                 <div className="flex items-center justify-between mb-4">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white text-zinc-600 border border-zinc-200 shadow-sm">
                     <BarChart3 className="h-3 w-3 text-primary-pink" />
