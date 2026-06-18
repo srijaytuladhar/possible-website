@@ -92,12 +92,12 @@ export default function HeroSlider() {
             src={slide.image}
             alt={slide.title}
             fill
-            className="object-cover object-center opacity-40 brightness-[0.7] transition-transform duration-[6000ms] ease-out scale-105"
+            className="object-cover object-center opacity-65 brightness-[0.9] transition-transform duration-[6000ms] ease-out scale-105"
             style={{ transform: idx === currentIndex ? "scale(1.0)" : "scale(1.05)" }}
             sizes="100vw"
             priority={idx === 0}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
         </div>
       ))}
 

@@ -7,6 +7,7 @@ import { Users, MessageSquareQuote, X } from "lucide-react";
 export default function OurTeamPage() {
   const [teamMembers, setTeamMembers] = useState<any[]>([]);
   const [selectedMember, setSelectedMember] = useState<any | null>(null);
+  const [imageFallbacks, setImageFallbacks] = useState<Record<string, string>>({});
 
   useEffect(() => {
     fetch('/teamData.json')
@@ -14,6 +15,18 @@ export default function OurTeamPage() {
       .then(data => setTeamMembers(data))
       .catch(err => console.error("Error loading team data:", err));
   }, []);
+
+  const getMemberImage = (member: any) => {
+    if (!member) return "";
+    return imageFallbacks[member.id] || member.image;
+  };
+
+  const handleImageError = (memberId: string) => {
+    setImageFallbacks(prev => ({
+      ...prev,
+      [memberId]: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&h=200&q=80"
+    }));
+  };
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
@@ -82,12 +95,12 @@ export default function OurTeamPage() {
               >
                 <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-zinc-50 shadow-sm transition-all duration-300 group-hover:border-primary-pink/30 group-hover:scale-105 mb-4 bg-zinc-100">
                   <Image
-                    src={member.image}
+                    src={getMemberImage(member)}
                     alt={member.name}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 144px, 144px"
-                    onError={(e) => { (e.target as any).style.display = 'none'; }}
+                    onError={() => handleImageError(member.id)}
                   />
                 </div>
                 <h4 className="text-[16px] font-semibold text-zinc-900 text-center group-hover:text-primary-pink transition-colors">
@@ -130,11 +143,11 @@ export default function OurTeamPage() {
           <div className="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 relative border border-zinc-100">
             <div className="relative h-48 w-full bg-zinc-100">
               <Image
-                src={selectedMember.image}
+                src={getMemberImage(selectedMember)}
                 alt={selectedMember.name}
                 fill
                 className="object-cover"
-                onError={(e) => { (e.target as any).style.display = 'none'; }}
+                onError={() => handleImageError(selectedMember.id)}
               />
               <button
                 onClick={() => setSelectedMember(null)}

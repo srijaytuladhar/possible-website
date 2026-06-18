@@ -1,16 +1,268 @@
 [
   {
     "id": "1",
-    "name": "Jane Doe",
-    "role": "Chief Executive Officer",
-    "image": "/team/jane-doe.jpg",
-    "bio": "Jane Doe is the CEO of Possible. She has over 20 years of experience in global health and has led multiple successful interventions in low-resource settings."
+    "name": "Sabitri Sapkota MPH, PHD",
+    "role": "Executive Director",
+    "image": "https://possiblehealth.org/wp-content/uploads/2026/06/Sapkota-Sabitri-Headshot-e1597751998763.png",
+    "bio": "Dr. Sabitri Sapkota is the Executive Director of Possible. She leads the team in designing and implementing healthcare delivery research in Nepal."
   },
   {
     "id": "2",
-    "name": "John Smith",
-    "role": "Medical Director",
-    "image": "/team/john-smith.jpg",
-    "bio": "Dr. John Smith oversees the clinical programs at Possible. His work focuses on integrating chronic disease management into primary care."
+    "name": "Mina Shrestha MPhil Pharma, PhD",
+    "role": "Associate Scientist",
+    "image": "https://possiblehealth.org/wp-content/uploads/2024/11/Minabasnet.jpg",
+    "bio": "Dr. Mina Shrestha works as an Associate Scientist, focusing on pharmacology research, healthcare data validation, and clinical trials."
+  },
+  {
+    "id": "3",
+    "name": "Bhubi Bista",
+    "role": "People and Culture Executive",
+    "image": "https://possiblehealth.org/wp-content/uploads/2023/10/DSC_0185-e1697157879785.png",
+    "bio": "Bhubi Bista manages people, organizational culture, team growth, and HR protocols at Possible."
+  },
+  {
+    "id": "4",
+    "name": "Kumar Tamang",
+    "role": "Finance and Operations Executive",
+    "image": "https://possiblehealth.org/wp-content/uploads/2021/11/Kumar-Tamang.jpg",
+    "bio": "Kumar Tamang oversees the operational infrastructure, budget allocations, compliance reporting, and financial resources."
+  },
+  {
+    "id": "5",
+    "name": "Kripa Sigdel",
+    "role": "Senior Mental Health Research Manager",
+    "image": "https://possiblehealth.org/wp-content/uploads/2022/11/DSC_0268-1-scaled.jpg",
+    "bio": "Kripa Sigdel coordinates clinical trials and mental health programs, standardizing collaborative care in primary care health posts."
+  },
+  {
+    "id": "6",
+    "name": "Dikshya Sharma",
+    "role": "Community Health Research Manager",
+    "image": "https://possiblehealth.org/wp-content/uploads/2021/08/Dikshya-Sharma-scaled-1.jpg",
+    "bio": "Dikshya Sharma directs research trials evaluating full-time community health worker programs and maternal care adherence."
+  },
+  {
+    "id": "7",
+    "name": "Jene Shrestha",
+    "role": "Qualitative and Intervention Research Coordinator",
+    "image": "https://possiblehealth.org/wp-content/uploads/2022/07/Jene-Shrestha-scaled.jpg",
+    "bio": "Jene Shrestha coordinates qualitative assessments and intervention methodologies for intimate partner violence and HIV care."
+  },
+  {
+    "id": "8",
+    "name": "Shuvam Sharma",
+    "role": "Intervention Research Officer",
+    "image": "https://possiblehealth.org/wp-content/uploads/2023/01/IMG_20221214_105809-1.jpg",
+    "bio": "Shuvam Sharma implements and tracks health post-based clinical trials and behavioral intervention models in rural Nepal."
+  },
+  {
+    "id": "9",
+    "name": "Puskar Paudel",
+    "role": "Implementation Research Coordinator",
+    "image": "https://possiblehealth.org/wp-content/uploads/2023/10/puskar_photo.jpg",
+    "bio": "Puskar Paudel manages research trial data collection, CHW workflows, and local government co-design partnerships."
+  },
+  {
+    "id": "10",
+    "name": "Jyoti Nepal",
+    "role": "Implementation Research Coordinator",
+    "image": "https://possiblehealth.org/wp-content/uploads/2023/10/jyotipic.png",
+    "bio": "Jyoti Nepal coordinates community research trials, focusing on digital tools and health systems strengthening."
+  },
+  {
+    "id": "11",
+    "name": "Soni Maharjan",
+    "role": "Finance and Admin Assistant",
+    "image": "https://possiblehealth.org/wp-content/uploads/2023/02/Headshot_Soni-Maharjan.jpg",
+    "bio": "Soni Maharjan provides support for administrative systems, accounting services, and daily operations management."
+  },
+  {
+    "id": "12",
+    "name": "Kalpana Ghimire Kadari",
+    "role": "Research Assistant",
+    "image": "https://possiblehealth.org/wp-content/uploads/2022/07/image4-e1658765920170.png",
+    "bio": "Kalpana Ghimire Kadari supports data entry, fieldwork interviews, and implementation studies for mental health models."
+  },
+  {
+    "id": "13",
+    "name": "Saugat Joshi",
+    "role": "Qualitative Research Manager",
+    "image": "https://possiblehealth.org/wp-content/uploads/2025/01/Saugat-Joshi.jpg",
+    "bio": "Saugat Joshi leads qualitative investigations, capturing community narratives and assessing social stigma in clinical trials."
+  },
+  {
+    "id": "14",
+    "name": "Rajesh Kumar Jha",
+    "role": "Mental Health Research Manager",
+    "image": "https://possiblehealth.org/wp-content/uploads/2025/08/Rajesh-kumar-jha.jpg",
+    "bio": "Rajesh Kumar Jha oversees research compliance, clinical training packages, and medication tracking for collaborative care programs."
+  },
+  {
+    "id": "15",
+    "name": "Ramkrishna khatiwada",
+    "role": "Information System Administrator",
+    "image": "https://possiblehealth.org/wp-content/uploads/2025/09/Ramkrishna-khatiwada.jpg",
+    "bio": "Ramkrishna Khatiwada manages IT support, server infrastructure, and secure cloud sync functions for the national CHIS platform."
+  },
+  {
+    "id": "16",
+    "name": "Shristi Tiwari",
+    "role": "Qualitative Research Officer",
+    "image": "https://possiblehealth.org/wp-content/uploads/2025/08/Shristi-Tiwari-Headshot-scaled.jpg",
+    "bio": "Shristi Tiwari coordinates field assessments and structured interviews evaluating family-based interventions."
+  },
+  {
+    "id": "17",
+    "name": "Alisha Karki",
+    "role": "Intervention Research Coordinator",
+    "image": "https://possiblehealth.org/wp-content/uploads/2025/08/Alisha-karki.jpg",
+    "bio": "Alisha Karki supports experimental protocol execution, clinic staff coordination, and follow-up metrics reporting."
+  },
+  {
+    "id": "18",
+    "name": "Aastha Kayastha",
+    "role": "People and Culture Assistant",
+    "image": "https://possiblehealth.org/wp-content/uploads/2025/08/Aastha-maharjan.jpg",
+    "bio": "Aastha Kayastha assists in recruiting, onboarding, and organizing professional development programs."
+  },
+  {
+    "id": "19",
+    "name": "Bhawani Yogi",
+    "role": "Research Assistant",
+    "image": "https://possiblehealth.org/wp-content/uploads/2024/07/Bhawani-Yogi.jpg",
+    "bio": "Bhawani Yogi supports qualitative research tasks, patient surveys, and regional health data compilation."
+  },
+  {
+    "id": "20",
+    "name": "Navin Kumar Sah",
+    "role": "Research Assistant",
+    "image": "https://possiblehealth.org/wp-content/uploads/2024/07/Navin_sah.jpeg",
+    "bio": "Navin Kumar Sah assists in collecting medical registry data and tracking patient follow-up compliance in rural clinics."
+  },
+  {
+    "id": "21",
+    "name": "Renasha Ghimire",
+    "role": "Implementation Research Coordinator",
+    "image": "https://possiblehealth.org/wp-content/uploads/2024/11/Renesha_ghimire.jpg",
+    "bio": "Renasha Ghimire monitors digital system integration and collaborates with health post staff to track research metrics."
+  },
+  {
+    "id": "22",
+    "name": "Prakash Pant",
+    "role": "Research Data Manager",
+    "image": "https://possiblehealth.org/wp-content/uploads/2024/11/prakashpant.jpg",
+    "bio": "Prakash Pant manages the data entry pipelines, performs quality checks, and organizes datasets for statistical studies."
+  },
+  {
+    "id": "23",
+    "name": "Rabina Dhakal",
+    "role": "Data Manager",
+    "image": "https://possiblehealth.org/wp-content/uploads/2026/03/Rabina-Photo-1.png",
+    "bio": "Rabina Dhakal maintains the integrity of scientific records, ensuring clinical trials datasets comply with global standards."
+  },
+  {
+    "id": "24",
+    "name": "Barsha Mainali",
+    "role": "Finance and Budget Officer",
+    "image": "https://possiblehealth.org/wp-content/uploads/2026/03/Barsha-ji.jpg",
+    "bio": "Barsha Mainali reviews financial spending plans, grant reports, and manages administrative budgets at Possible."
+  },
+  {
+    "id": "25",
+    "name": "Anant Raut",
+    "role": "Advisor, Informatics",
+    "image": "https://possiblehealth.org/wp-content/uploads/2016/08/anant_308x308-1.jpg",
+    "bio": "Anant Raut advises on information architecture, electronic health records, and clinical software systems."
+  },
+  {
+    "id": "26",
+    "name": "Bibhav Acharya, MD",
+    "role": "Co-Founder and Advisor",
+    "image": "https://possiblehealth.org/wp-content/uploads/2014/02/Bibhav-Acharya-1.jpg",
+    "bio": "Dr. Bibhav Acharya co-founded Possible and advises on psychiatric treatments, mental health research, and training models."
+  },
+  {
+    "id": "27",
+    "name": "Dan Schwarz, MD, MPH",
+    "role": "Advisor",
+    "image": "https://possiblehealth.org/wp-content/uploads/2014/02/Dan-Schwartz-1.jpg",
+    "bio": "Dr. Dan Schwarz advises on health systems strengthening, pediatric treatments, and global health research."
+  },
+  {
+    "id": "28",
+    "name": "Rekha Khatri, MSW",
+    "role": "Advisor",
+    "image": "https://possiblehealth.org/wp-content/uploads/2021/06/20201014_084928.jpg",
+    "bio": "Rekha Khatri advises on community outreach programs, social support networks, and gender-based violence projects."
+  },
+  {
+    "id": "29",
+    "name": "David Citrin, MPH, PHD",
+    "role": "Advisor, Implementation Research",
+    "image": "https://possiblehealth.org/wp-content/uploads/2014/02/David-Citrin-1.jpg",
+    "bio": "Dr. David Citrin advises on implementation research designs, anthropological research, and public health policies."
+  },
+  {
+    "id": "30",
+    "name": "Duncan Maru, MD, PhD",
+    "role": "Co-Founder and Advisor",
+    "image": "https://possiblehealth.org/wp-content/uploads/2014/02/Duncan-Maru1-1.jpg",
+    "bio": "Dr. Duncan Maru co-founded Possible and advises on epidemiological research, clinical quality, and community care scaling."
+  },
+  {
+    "id": "31",
+    "name": "Nandini Choudhury",
+    "role": "Advisor, Data Analytics",
+    "image": "https://possiblehealth.org/wp-content/uploads/2016/12/nandini-choudhury_308x308-1.jpg",
+    "bio": "Nandini Choudhury advises on data pipelines, performance metrics analysis, and statistical study design."
+  },
+  {
+    "id": "32",
+    "name": "Pragya Rimal",
+    "role": "Advisor, Mental Health",
+    "image": "https://possiblehealth.org/wp-content/uploads/2016/12/Pragya-Rimal.jpg",
+    "bio": "Pragya Rimal advises on mental health service scaling, therapist supervision methods, and clinical trial coordination."
+  },
+  {
+    "id": "33",
+    "name": "Ryan Schwarz, MD, MBA",
+    "role": "Advisor",
+    "image": "https://possiblehealth.org/wp-content/uploads/2014/02/Ryan-Schwarz-1.jpg",
+    "bio": "Dr. Ryan Schwarz advises on hospital administration, health post infrastructure designs, and budget sustainability."
+  },
+  {
+    "id": "34",
+    "name": "Scott Halliday",
+    "role": "Board Member and Advisor",
+    "image": "https://possiblehealth.org/wp-content/uploads/2016/12/scott_308x308-1.jpg",
+    "bio": "Scott Halliday serves as a board advisor, focusing on system infrastructure, logistics support, and governance compliance."
+  },
+  {
+    "id": "35",
+    "name": "Sheela Maru, MD, MPH",
+    "role": "Advisor, Reproductive, Maternal, Newborn and Child Health",
+    "image": "https://possiblehealth.org/wp-content/uploads/2015/03/Sheela-Maru1-1.jpg",
+    "bio": "Dr. Sheela Maru advises on maternal healthcare quality indexes, child health programs, and reproductive rights trials."
+  },
+  {
+    "id": "36",
+    "name": "Srijana Shrestha, PhD",
+    "role": "Advisor, Mental Health",
+    "image": "https://possiblehealth.org/wp-content/uploads/2020/04/image-6-e1586806328422.png",
+    "bio": "Dr. Srijana Shrestha advises on mental health research, behavioral therapies, and training programs for clinicians."
+  },
+  {
+    "id": "37",
+    "name": "Wan-Ju Wu, MD, MPH",
+    "role": "Advisor, Reproductive Maternal Newborn and Child Health",
+    "image": "https://possiblehealth.org/wp-content/uploads/2018/05/Wupic-1-e1530294583630-1.png",
+    "bio": "Dr. Wan-Ju Wu advises on clinical guidelines and evaluation standards for maternal health post services."
+  },
+  {
+    "id": "38",
+    "name": "Samrachana Adhikari, PHD",
+    "role": "Advisor, Data Science",
+    "image": "https://possiblehealth.org/wp-content/uploads/2025/06/Samrachana-Adhikari-scaled.jpg",
+    "bio": "Dr. Samrachana Adhikari advises on statistical modeling, random assignment controls, and clinical trial outcomes evaluation."
   }
 ]
