@@ -46,7 +46,9 @@ export default function Header() {
       name: "Get Involved",
       href: "/get-involved/our-team",
       submenu: [
-        { name: "Our Team", href: "/get-involved/our-team", tabKey: "our-team" },
+        { name: "Team Members", href: "/get-involved/our-team?tab=team-members", tabKey: "team-members" },
+        { name: "Possible Board - US", href: "/get-involved/our-team?tab=us-board", tabKey: "us-board" },
+        { name: "Shambhav (Possible) Board - Nepal", href: "/get-involved/our-team?tab=nepal-board", tabKey: "nepal-board" },
         { name: "Work with us", href: "/get-involved/work-with-us", tabKey: "work-with-us" },
         { name: "Collaborators & Partners", href: "/get-involved/collaborators-partners", tabKey: "collaborators-partners" },
       ],

@@ -38,8 +38,8 @@ export default function ContactUs() {
   ];
 
   const emailGrid = [
-    { label: "General Inquiries", email: "Answers@possiblehealth.org", desc: "For general inquiries, partnership questions, and collaborations." },
-    { label: "Donations & Support", email: "Donation@possiblehealth.org", desc: "For donations, wire instructions, tax receipts, and sponsorships." },
+    { label: "General Inquiries", email: "answers@possiblehealth.org", desc: "For general inquiries, partnership questions, and collaborations." },
+    { label: "Donations & Support", email: "donation@possiblehealth.org", desc: "For donations, wire instructions, tax receipts, and sponsorships." },
     { label: "Research & Innovation", email: "research@possiblehealth.org", desc: "For clinical datasets, research partnerships, and research-related enquiries." },
   ];
 

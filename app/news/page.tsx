@@ -120,7 +120,7 @@ export default function NewsPage() {
               Newsroom
             </span>
             <h1 className="h1-hero text-zinc-950 uppercase tracking-wide leading-tight">
-              News & Announcements
+              News
             </h1>
             <p className="text-subheading text-body-gray font-light max-w-2xl leading-relaxed">
               Stay up to date with the latest from Possible, our clinical trials in Nepal, technology milestones, and global partnership initiatives.

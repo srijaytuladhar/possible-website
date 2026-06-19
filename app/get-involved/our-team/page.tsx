@@ -1,10 +1,105 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
-import { Users, MessageSquareQuote, X } from "lucide-react";
+import { Users, X } from "lucide-react";
+import { useSearchParams, useRouter } from "next/navigation";
 
-export default function OurTeamPage() {
+const nepalBoardMembers = [
+  {
+    id: "np-1",
+    name: "Indira Basnett, MD, MPH",
+    role: "Board Chair",
+    image: "https://possiblehealth.org/wp-content/uploads/2021/11/Dr.-Indira.jpg",
+    bio: "Dr. Indira Basnett serves as the Board Chair for Sambhav (Possible) Nepal. She has decades of experience in health systems and medical governance in Nepal."
+  },
+  {
+    id: "np-2",
+    name: "Meeta Sainju Pradhan, PhD",
+    role: "Vice-Chair",
+    image: "https://possiblehealth.org/wp-content/uploads/2021/06/Meeta.jpg",
+    bio: "Dr. Meeta Sainju Pradhan serves as the Vice-Chair. She specializes in social science, developmental policy, and gender/equality research in healthcare access."
+  },
+  {
+    id: "np-3",
+    name: "Sushama Gautam",
+    role: "Board Secretary",
+    image: "https://possiblehealth.org/wp-content/uploads/2021/06/Sushama.jpg",
+    bio: "Sushama Gautam is the Board Secretary. She oversees governance compliance and coordinates organizational development strategies."
+  },
+  {
+    id: "np-4",
+    name: "Rajesh Parajuli, FCA",
+    role: "Board Treasurer",
+    image: "https://possiblehealth.org/wp-content/uploads/2021/06/Rajesh.jpg",
+    bio: "Rajesh Parajuli is a Fellow Chartered Accountant (FCA) and serves as the Board Treasurer, managing financial auditing controls and corporate governance."
+  },
+  {
+    id: "np-5",
+    name: "Prakash Nepali, LLM",
+    role: "Board Member",
+    image: "https://possiblehealth.org/wp-content/uploads/2021/06/Prakash.jpg",
+    bio: "Prakash Nepali holds a Master of Laws (LLM) and serves as a Board Member, advising the organization on legal frameworks, human rights, and compliance."
+  },
+  {
+    id: "np-6",
+    name: "Manish Prasai, MBA",
+    role: "Board Member",
+    image: "https://possiblehealth.org/wp-content/uploads/2021/06/Manish.jpg",
+    bio: "Manish Prasai serves as a Board Member. He brings business management expertise and strategic planning skills to the governance of Sambhav."
+  },
+  {
+    id: "np-7",
+    name: "Dewan Rai",
+    role: "Board Member",
+    image: "https://possiblehealth.org/wp-content/uploads/2022/10/Dewan-e1665413452132.jpg",
+    bio: "Dewan Rai is a Board Member and veteran journalist who advises the organization on media communication and public advocacy."
+  },
+  {
+    id: "np-8",
+    name: "Parbata Acharya",
+    role: "Board Member",
+    image: "https://possiblehealth.org/wp-content/uploads/2024/09/Parwata-Acharya_headshot.jpeg",
+    bio: "Parbata Acharya serves as a Board Member. She supports community engagement protocols and rural healthcare access models."
+  },
+  {
+    id: "np-9",
+    name: "Sita Mademba",
+    role: "Board Member",
+    image: "https://possiblehealth.org/wp-content/uploads/2024/09/Sita-Mademba.jpeg",
+    bio: "Sita Mademba is a Board Member who coordinates community-led monitoring systems and public health advocacy."
+  }
+];
+
+const usBoardMembers = [
+  {
+    id: "us-1",
+    name: "Duncan Maru, MD, PhD",
+    role: "Co-Founder & Board Member",
+    image: "https://possiblehealth.org/wp-content/uploads/2014/02/Duncan-Maru1-1.jpg",
+    bio: "Dr. Duncan Maru co-founded Possible and serves as a Board Member, advising on epidemiological research, clinical quality, and community care scaling."
+  },
+  {
+    id: "us-4",
+    name: "Kim Lipman-White",
+    role: "Board Member",
+    image: "https://possiblehealth.org/wp-content/uploads/2018/10/Kim-Photo-1.png",
+    bio: "Kim Lipman-White serves as a member of the US Board of Directors, providing oversight and guidance on fundraising and organizational strategy."
+  },
+  {
+    id: "us-3",
+    name: "Scott Halliday",
+    role: "Board Member & Advisor",
+    image: "https://possiblehealth.org/wp-content/uploads/2016/12/scott_308x308-1.jpg",
+    bio: "Scott Halliday serves as a board advisor, focusing on system infrastructure, logistics support, and governance compliance."
+  },
+];
+
+function TeamPageContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const tabParam = searchParams.get("tab") || "team-members";
+
   const [teamMembers, setTeamMembers] = useState<any[]>([]);
   const [selectedMember, setSelectedMember] = useState<any | null>(null);
   const [imageFallbacks, setImageFallbacks] = useState<Record<string, string>>({});
@@ -12,7 +107,11 @@ export default function OurTeamPage() {
   useEffect(() => {
     fetch('/teamData.json')
       .then(res => res.json())
-      .then(data => setTeamMembers(data))
+      .then(data => {
+        // Exclude specific US board members from the primary staff list to avoid duplication
+        const staff = data.filter((m: any) => m.id !== "34" && m.id !== "26" && m.id !== "30");
+        setTeamMembers(staff);
+      })
       .catch(err => console.error("Error loading team data:", err));
   }, []);
 
@@ -28,66 +127,98 @@ export default function OurTeamPage() {
     }));
   };
 
+  const getActiveMembers = () => {
+    if (tabParam === "us-board") return usBoardMembers;
+    if (tabParam === "nepal-board") return nepalBoardMembers;
+    return teamMembers;
+  };
+
+  const activeMembers = getActiveMembers();
+
+  const tabs = [
+    { key: "team-members", label: "Team Members" },
+    { key: "us-board", label: "Possible Board - US" },
+    { key: "nepal-board", label: "Shambhav (Possible) Board - Nepal" }
+  ];
+
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
       {/* Page Header */}
-      <div className="mb-12 text-center max-w-3xl mx-auto">
+      <div className="mb-8 text-center max-w-3xl mx-auto">
         <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/10 px-3.5 py-1 text-[13px] font-medium text-primary-pink mb-4 uppercase tracking-wider">
           Our Team
         </span>
         <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
-          Meet the People
+          Team Members
         </h1>
         <p className="text-subheading text-body-gray font-light">
           Meet the researchers, clinicians, and innovators co-designing care in Nepal.
         </p>
       </div>
 
-      <div className="space-y-16 animate-in fade-in duration-300">
-        {/* Who We Are Intro */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-zinc-50 p-8 sm:p-10 rounded-3xl border border-zinc-100">
-          <div className="lg:col-span-7 space-y-6">
-            <span className="inline-flex items-center gap-1 bg-primary-pink/10 px-3 py-1 rounded-full text-xs font-semibold text-primary-pink uppercase tracking-wider">
-              Who We Are
-            </span>
-            <p className="text-subheading text-zinc-900 leading-relaxed font-light">
-              We are researchers and doers—health workers, clinicians, engineers, and advocates. Rooted in Nepal, we build and test innovations to strengthen healthcare delivery where it is needed most.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
-              <div className="border-l-2 border-secondary-blue pl-4">
-                <h4 className="text-[14px] font-semibold text-zinc-900 uppercase tracking-wider">Co-Design</h4>
-                <p className="text-[13px] text-body-gray font-light mt-1">Creating health models in partnership with local municipalities.</p>
-              </div>
-              <div className="border-l-2 border-primary-pink pl-4">
-                <h4 className="text-[14px] font-semibold text-zinc-900 uppercase tracking-wider">Test</h4>
-                <p className="text-[13px] text-body-gray font-light mt-1">Evaluating clinical effectiveness through strict research trials.</p>
-              </div>
-              <div className="border-l-2 border-accent-purple pl-4">
-                <h4 className="text-[14px] font-semibold text-zinc-900 uppercase tracking-wider">Scale</h4>
-                <p className="text-[13px] text-body-gray font-light mt-1">Transitioning validated protocols into government networks.</p>
-              </div>
+      {/* Who We Are Intro (Visible on all tabs, above chips) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-zinc-50 p-8 sm:p-10 rounded-3xl border border-zinc-100 mb-12">
+        <div className="lg:col-span-7 space-y-6">
+          <span className="inline-flex items-center gap-1 bg-primary-pink/10 px-3 py-1 rounded-full text-xs font-semibold text-primary-pink uppercase tracking-wider">
+            Who We Are
+          </span>
+          <p className="text-subheading text-zinc-900 leading-relaxed font-light">
+            We are researchers and doers—health workers, clinicians, engineers, and advocates. Rooted in Nepal, we build and test innovations to strengthen healthcare delivery where it is needed most.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+            <div className="border-l-2 border-secondary-blue pl-4">
+              <h4 className="text-[14px] font-semibold text-zinc-900 uppercase tracking-wider">Co-Design</h4>
+              <p className="text-[13px] text-body-gray font-light mt-1">Creating health models in partnership with local municipalities.</p>
+            </div>
+            <div className="border-l-2 border-primary-pink pl-4">
+              <h4 className="text-[14px] font-semibold text-zinc-900 uppercase tracking-wider">Test</h4>
+              <p className="text-[13px] text-body-gray font-light mt-1">Evaluating clinical effectiveness through strict research trials.</p>
+            </div>
+            <div className="border-l-2 border-accent-purple pl-4">
+              <h4 className="text-[14px] font-semibold text-zinc-900 uppercase tracking-wider">Scale</h4>
+              <p className="text-[13px] text-body-gray font-light mt-1">Transitioning validated protocols into government networks.</p>
             </div>
           </div>
-          <div className="lg:col-span-5 relative h-64 sm:h-80 w-full overflow-hidden rounded-2xl border border-zinc-200 shadow-sm bg-zinc-100">
-            <Image
-              src="/about_team.png"
-              alt="Possible Team Collaborating"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 40vw"
-            />
-          </div>
         </div>
+        <div className="lg:col-span-5 relative h-64 sm:h-80 w-full overflow-hidden rounded-2xl border border-zinc-200 shadow-sm bg-zinc-100">
+          <Image
+            src="/about_team.png"
+            alt="Possible Team Collaborating"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 40vw"
+          />
+        </div>
+      </div>
 
-        {/* Team Roster Grid - Cleaner and More Organized */}
+      {/* Tabs */}
+      <div className="flex flex-wrap justify-center gap-2 mb-10 pb-4 border-b border-zinc-100">
+        {tabs.map((tab) => (
+          <button
+            key={tab.key}
+            onClick={() => router.push(`/get-involved/our-team?tab=${tab.key}`)}
+            className={`px-5 py-2.5 rounded-full text-[13.5px] font-medium transition-all cursor-pointer border ${tabParam === tab.key
+              ? "bg-zinc-950 text-white border-zinc-950 shadow-sm"
+              : "bg-white text-body-gray border-zinc-200 hover:border-zinc-300 hover:text-zinc-950"
+              }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="space-y-16 animate-in fade-in duration-300">
+        {/* Team Roster Grid */}
         <div className="space-y-8">
           <div className="text-center">
-            <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">Our Leadership & Staff</h2>
+            <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">
+              {tabs.find(t => t.key === tabParam)?.label}
+            </h2>
             <div className="h-0.5 w-16 bg-primary-pink mx-auto mt-3 rounded-full"></div>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member) => (
+            {activeMembers.map((member) => (
               <div
                 key={member.id}
                 onClick={() => setSelectedMember(member)}
@@ -114,25 +245,6 @@ export default function OurTeamPage() {
                 </span>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Team Voices Testimonial Block */}
-        <div className="bg-zinc-50 rounded-2xl p-8 border border-zinc-100 flex flex-col md:flex-row items-start gap-6 relative overflow-hidden">
-          <div className="p-3 bg-white border border-zinc-200/50 rounded-xl text-primary-pink w-fit z-10 shrink-0">
-            <MessageSquareQuote className="h-6 w-6" />
-          </div>
-          <div className="space-y-4 z-10">
-            <blockquote className="text-[16px] italic leading-relaxed text-zinc-800 font-light">
-              &ldquo;Designing care systems in Nepal requires humility, respect, and scientific rigor. Our team lives these values every day, ensuring that evidence-based health innovation is accessible in the most remote areas.&rdquo;
-            </blockquote>
-            <cite className="block not-italic">
-              <span className="block text-[14px] font-semibold text-zinc-900">Dr. Rita Thapa</span>
-              <span className="block text-[13px] text-body-gray font-light">Lead Health Systems Researcher</span>
-            </cite>
-          </div>
-          <div className="absolute right-0 bottom-0 text-zinc-100 opacity-20 -mr-6 -mb-6 z-0">
-            <Users className="h-40 w-40" />
           </div>
         </div>
       </div>
@@ -169,5 +281,13 @@ export default function OurTeamPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function OurTeamPage() {
+  return (
+    <Suspense fallback={<div className="text-center py-20">Loading team...</div>}>
+      <TeamPageContent />
+    </Suspense>
   );
 }
