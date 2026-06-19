@@ -47,8 +47,8 @@ export default function Header() {
       href: "/get-involved/our-team",
       submenu: [
         { name: "Team Members", href: "/get-involved/our-team?tab=team-members", tabKey: "team-members" },
-        { name: "Possible Board - US", href: "/get-involved/our-team?tab=us-board", tabKey: "us-board" },
-        { name: "Shambhav (Possible) Board - Nepal", href: "/get-involved/our-team?tab=nepal-board", tabKey: "nepal-board" },
+        // { name: "Possible Board - US", href: "/get-involved/our-team?tab=us-board", tabKey: "us-board" },
+        // { name: "Shambhav (Possible) Board - Nepal", href: "/get-involved/our-team?tab=nepal-board", tabKey: "nepal-board" },
         { name: "Work with us", href: "/get-involved/work-with-us", tabKey: "work-with-us" },
         { name: "Collaborators & Partners", href: "/get-involved/collaborators-partners", tabKey: "collaborators-partners" },
       ],
@@ -76,11 +76,10 @@ export default function Header() {
             >
               {item.submenu ? (
                 <button
-                  className={`flex items-center gap-1 font-equip font-medium text-[15px] md:text-[16px] py-2 transition-colors cursor-pointer ${
-                    pathname === item.href
+                  className={`flex items-center gap-1 font-equip font-medium text-[15px] md:text-[16px] py-2 transition-colors cursor-pointer ${pathname === item.href
                       ? "text-primary-pink"
                       : "text-body-gray hover:text-primary-pink"
-                  }`}
+                    }`}
                 >
                   {item.name}
                   <ChevronDown className="h-4 w-4 transition-transform duration-200" />
@@ -88,11 +87,10 @@ export default function Header() {
               ) : (
                 <Link
                   href={item.href}
-                  className={`font-equip font-medium text-[15px] md:text-[16px] py-2 transition-colors ${
-                    pathname === item.href
+                  className={`font-equip font-medium text-[15px] md:text-[16px] py-2 transition-colors ${pathname === item.href
                       ? "text-primary-pink"
                       : "text-body-gray hover:text-primary-pink"
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -174,11 +172,10 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`font-equip font-medium text-[16px] py-1 transition-colors ${
-                      pathname === item.href
+                    className={`font-equip font-medium text-[16px] py-1 transition-colors ${pathname === item.href
                         ? "text-primary-pink"
                         : "text-body-gray hover:text-primary-pink"
-                    }`}
+                      }`}
                   >
                     {item.name}
                   </Link>
