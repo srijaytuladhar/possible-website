@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Compass, Target, Activity, ShieldCheck, HeartHandshake, Eye, Users, DraftingCompass, Beaker, TrendingUp, ArrowRight, Sparkles } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
 
+import InteractivePresenceMap from "@/components/InteractivePresenceMap";
+
 export default function Home() {
   const solutions = [
     {
@@ -209,33 +211,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* 4. Current Operational Presence Section */}
-      <section className="py-16 bg-zinc-50 border-y border-zinc-100 px-6 sm:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/10 px-3.5 py-1 text-[13px] font-medium text-secondary-blue mb-4 uppercase tracking-wider">
-              Where We Work
-            </span>
-            <h2 className="h2-section text-zinc-950 mb-4 uppercase tracking-wide">
-              Current Operational Presence
-            </h2>
-            <p className="text-body text-body-gray font-light">
-              We operate across multiple districts in Nepal, ensuring remote communities have access to high-quality healthcare.
-            </p>
-          </div>
-          <div className="relative w-full max-w-4xl mx-auto h-[400px] md:h-[600px] rounded-2xl overflow-hidden border border-zinc-200 shadow-sm bg-white flex items-center justify-center">
-            <Image
-              src="/presence-maps.png"
-              alt="Possible Health Operational Presence Map"
-              fill
-              className="object-contain p-4"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-zinc-100 -z-10">
-              <span className="text-zinc-400 font-medium">Map placeholder - please upload presence-map.png to public folder</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 4. Current Operational Presence Section (Interactive Map Dashboard) */}
+      <InteractivePresenceMap />
     </div>
   );
 }
