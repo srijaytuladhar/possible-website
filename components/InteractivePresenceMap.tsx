@@ -254,14 +254,14 @@ export default function InteractivePresenceMap() {
     <section className="py-20 bg-zinc-50 border-y border-zinc-100 px-6 sm:px-8 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.15] pointer-events-none" />
       <div className="mx-auto max-w-7xl relative z-10">
-        
+
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/10 px-3.5 py-1 text-[13px] font-semibold text-secondary-blue mb-4 uppercase tracking-wider">
+          {/* <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/10 px-3.5 py-1 text-[13px] font-semibold text-secondary-blue mb-4 uppercase tracking-wider">
             Where We Work
-          </span>
+          </span> */}
           <h2 className="h2-section text-zinc-950 mb-4 uppercase tracking-wide">
-            Current Operational Presence
+            Innovation and Implementation Sites
           </h2>
           <p className="text-body text-body-gray font-light">
             We operate and conduct research in collaboration with local governments across Nepal. Hover or click on the highlighted districts below to learn more about our implementation sites.
@@ -270,10 +270,10 @@ export default function InteractivePresenceMap() {
 
         {/* Dashboard Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
+
           {/* Map Column (Left 7) */}
           <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-zinc-100 shadow-sm flex flex-col justify-between relative min-h-[500px]">
-            
+
             {/* Interactive geographic presence label & pulsing status */}
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center gap-2">
@@ -283,7 +283,7 @@ export default function InteractivePresenceMap() {
                 </span>
                 <span className="text-[11px] text-zinc-400 uppercase tracking-widest font-bold">Innovation & Implementation Sites</span>
               </div>
-              
+
               {/* Compass Rose icon */}
               <div className="flex flex-col items-center text-zinc-400 opacity-60">
                 <span className="text-[10px] font-bold tracking-widest leading-none mb-0.5">N</span>
@@ -293,7 +293,7 @@ export default function InteractivePresenceMap() {
 
             {/* Stylized Interactive Nepal Map Wrapper */}
             <div className="relative w-full flex-1 flex items-center justify-center my-2 nepal-district-map-container">
-              <NepalMap 
+              <NepalMap
                 data={mapData}
                 colorMode="flat"
                 baseColor="#00B2E2" // Cyan/blue background for all other districts
@@ -345,13 +345,11 @@ export default function InteractivePresenceMap() {
                     <button
                       key={d.id}
                       onClick={() => setActiveDistrictId(d.id)}
-                      className={`w-full text-left px-3.5 py-1.5 transition-colors border-b border-zinc-200 hover:bg-zinc-200/50 flex items-center gap-2 ${
-                        activeDistrictId === d.id ? "bg-rose-50 text-rose-700 font-bold" : ""
-                      }`}
+                      className={`w-full text-left px-3.5 py-1.5 transition-colors border-b border-zinc-200 hover:bg-zinc-200/50 flex items-center gap-2 ${activeDistrictId === d.id ? "bg-rose-50 text-rose-700 font-bold" : ""
+                        }`}
                     >
-                      <span className={`inline-flex items-center justify-center h-4 w-4 rounded text-[9px] font-bold ${
-                        activeDistrictId === d.id ? "bg-rose-600 text-white" : "bg-zinc-300 text-zinc-700"
-                      }`}>{d.number}</span>
+                      <span className={`inline-flex items-center justify-center h-4 w-4 rounded text-[9px] font-bold ${activeDistrictId === d.id ? "bg-rose-600 text-white" : "bg-zinc-300 text-zinc-700"
+                        }`}>{d.number}</span>
                       <span>{d.name}</span>
                     </button>
                   ))}
@@ -362,13 +360,11 @@ export default function InteractivePresenceMap() {
                     <button
                       key={d.id}
                       onClick={() => setActiveDistrictId(d.id)}
-                      className={`w-full text-left px-3.5 py-1.5 transition-colors border-b border-zinc-200 hover:bg-zinc-200/50 flex items-center gap-2 ${
-                        activeDistrictId === d.id ? "bg-rose-50 text-rose-700 font-bold" : ""
-                      }`}
+                      className={`w-full text-left px-3.5 py-1.5 transition-colors border-b border-zinc-200 hover:bg-zinc-200/50 flex items-center gap-2 ${activeDistrictId === d.id ? "bg-rose-50 text-rose-700 font-bold" : ""
+                        }`}
                     >
-                      <span className={`inline-flex items-center justify-center h-4 w-4 rounded text-[9px] font-bold ${
-                        activeDistrictId === d.id ? "bg-rose-600 text-white" : "bg-zinc-300 text-zinc-700"
-                      }`}>{d.number}</span>
+                      <span className={`inline-flex items-center justify-center h-4 w-4 rounded text-[9px] font-bold ${activeDistrictId === d.id ? "bg-rose-600 text-white" : "bg-zinc-300 text-zinc-700"
+                        }`}>{d.number}</span>
                       <span>{d.name}</span>
                     </button>
                   ))}

@@ -42,9 +42,8 @@ export default function LoadingScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white transition-all duration-500 ${
-        visible ? "opacity-100 visibility-visible" : "opacity-0 invisible pointer-events-none"
-      }`}
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white transition-all duration-500 ${visible ? "opacity-100 visibility-visible" : "opacity-0 invisible pointer-events-none"
+        }`}
     >
       <div className="flex flex-col items-center gap-6">
         {/* Animated SVG Logo */}
@@ -80,7 +79,7 @@ export default function LoadingScreen() {
         </div>
 
         {/* Text Fade-In */}
-        <div className="text-center animate-pulse">
+        <div className="text-center animate-pulse" hidden>
           <span className="font-equip-thin text-xl tracking-[0.25em] font-extralight text-black block">
             POSSIBLE
           </span>

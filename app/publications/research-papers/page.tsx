@@ -31,8 +31,8 @@ export default function ResearchPapersPage() {
     { title: "Initial Trial Design for Integrated Community Care Models", desc: "Outlining the cluster-randomized protocols for the original 2012 pilot study.", date: "2012", type: "Journal Article", link: "https://trialsjournal.biomedcentral.com", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" }
   ];
 
-  const latestPapers = papers.slice(0, 10);
-  const olderPapers = papers.slice(10);
+  const latestPapers = papers.slice(0, 2);
+  const olderPapers = papers.slice(2);
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -47,10 +47,7 @@ export default function ResearchPapersPage() {
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
       {/* Page Header */}
       <div className="mb-12 text-center max-w-3xl mx-auto">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-purple/10 px-3.5 py-1 text-[13px] font-medium text-accent-purple mb-4 uppercase tracking-wider">
-          Publications
-        </span>
-        <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
+        <h1 className="h1-hero text-primary-pink mb-3 uppercase tracking-wide">
           Research Papers
         </h1>
         <p className="text-subheading text-body-gray font-light">
@@ -58,25 +55,18 @@ export default function ResearchPapersPage() {
         </p>
       </div>
 
-      <div className="space-y-16 animate-in fade-in duration-300">
-        {/* Latest 10 Papers: Card Layout */}
+      <div className="bg-zinc-100/70 p-8 sm:p-10 rounded-3xl border border-zinc-200/50 animate-in fade-in duration-300 space-y-16">
+        {/* Latest Papers: Card Layout */}
         <div className="space-y-6">
           <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">Latest Research Papers</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {latestPapers.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col sm:flex-row justify-between p-6 bg-zinc-50 hover:bg-zinc-100/70 border border-zinc-100 rounded-2xl transition-all duration-300 group shadow-sm hover:shadow-md gap-6"
+                className="flex flex-col sm:flex-row justify-between p-6 bg-white hover:bg-zinc-50 border border-zinc-200/60 rounded-2xl transition-all duration-300 group shadow-sm hover:shadow-md gap-6"
               >
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white text-zinc-600 border border-zinc-200 shadow-sm">
-                        <BookOpen className="h-3 w-3 text-accent-purple" />
-                        {item.type}
-                      </span>
-                      <span className="text-[13px] text-zinc-400 font-medium">{item.date}</span>
-                    </div>
                     <h3 className="text-[17px] sm:text-[19px] font-semibold text-zinc-950 mb-3 group-hover:text-primary-pink transition-colors">
                       {item.title}
                     </h3>
@@ -100,7 +90,7 @@ export default function ResearchPapersPage() {
                 </div>
 
                 {/* Card Cover Image on the right */}
-                <div className="relative h-40 w-full sm:w-44 rounded-xl overflow-hidden bg-zinc-200/50 border border-zinc-200/50 shrink-0 self-center">
+                <div className="relative aspect-[3/4] w-full sm:w-32 rounded-xl overflow-hidden bg-zinc-200/50 border border-zinc-200/50 shrink-0 self-center shadow-sm">
                   <Image
                     src={item.cover}
                     alt={item.title}
@@ -116,17 +106,13 @@ export default function ResearchPapersPage() {
 
         {/* Older Papers: List Layout with Pagination */}
         {olderPapers.length > 0 && (
-          <div className="space-y-6 border-t border-zinc-100 pt-10">
-            <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">Archive & Older Papers</h2>
-            <div className="bg-white border border-zinc-100 rounded-2xl overflow-hidden shadow-sm">
+          <div className="space-y-6 border-t border-zinc-200/60 pt-10">
+            <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">Previous Papers</h2>
+            <div className="bg-white border border-zinc-200/60 rounded-2xl overflow-hidden shadow-sm">
               <div className="divide-y divide-zinc-100">
                 {paginatedOlderPapers.map((item, idx) => (
                   <div key={idx} className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-zinc-50/50 transition-colors">
                     <div className="space-y-1 flex-1">
-                      <div className="flex items-center gap-3">
-                        <span className="text-[13px] font-bold text-zinc-400 uppercase tracking-widest">{item.date}</span>
-                        <span className="text-xs px-2 py-0.5 rounded bg-zinc-100 text-zinc-600 border border-zinc-200/50">{item.type}</span>
-                      </div>
                       <h4 className="text-[16px] font-semibold text-zinc-900">{item.title}</h4>
                       <p className="text-[13.5px] text-body-gray font-light max-w-3xl">{item.desc}</p>
                     </div>
@@ -143,7 +129,7 @@ export default function ResearchPapersPage() {
                       </a>
                       
                       {/* Thumbnail Cover Image on the right of the row */}
-                      <div className="relative h-14 w-20 rounded overflow-hidden bg-zinc-100 border border-zinc-200/60 hidden md:block shrink-0">
+                      <div className="relative aspect-[3/4] w-12 rounded overflow-hidden bg-zinc-100 border border-zinc-200/60 hidden md:block shrink-0 shadow-sm">
                         <Image
                           src={item.cover}
                           alt={item.title}
@@ -164,7 +150,7 @@ export default function ResearchPapersPage() {
                 <button
                   onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                   disabled={currentPage === 1}
-                  className="px-4 py-2 border border-zinc-200 rounded-lg text-sm font-medium hover:bg-zinc-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                  className="px-4 py-2 border border-zinc-200 rounded-lg text-sm font-medium hover:bg-zinc-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer bg-white"
                 >
                   Previous
                 </button>
@@ -175,7 +161,7 @@ export default function ResearchPapersPage() {
                     className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
                       currentPage === page
                         ? "bg-zinc-950 text-white"
-                        : "border border-zinc-200 hover:bg-zinc-50 text-zinc-600"
+                        : "bg-white border border-zinc-200 hover:bg-zinc-50 text-zinc-600"
                     }`}
                   >
                     {page}
@@ -184,7 +170,7 @@ export default function ResearchPapersPage() {
                 <button
                   onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                   disabled={currentPage === totalPages}
-                  className="px-4 py-2 border border-zinc-200 rounded-lg text-sm font-medium hover:bg-zinc-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                  className="px-4 py-2 border border-zinc-200 rounded-lg text-sm font-medium hover:bg-zinc-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer bg-white"
                 >
                   Next
                 </button>

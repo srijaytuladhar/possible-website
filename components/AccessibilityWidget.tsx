@@ -11,6 +11,12 @@ export default function AccessibilityWidget() {
   const [highlightLinks, setHighlightLinks] = useState(false);
 
   useEffect(() => {
+    const handleToggle = () => setIsOpen((prev) => !prev);
+    window.addEventListener("toggle-accessibility", handleToggle);
+    return () => window.removeEventListener("toggle-accessibility", handleToggle);
+  }, []);
+
+  useEffect(() => {
     const root = document.documentElement;
 
     // Font Size
@@ -94,11 +100,10 @@ export default function AccessibilityWidget() {
                   <button
                     key={sz.value}
                     onClick={() => setFontSize(sz.value)}
-                    className={`px-3 py-1.5 rounded-lg border text-[13px] font-medium transition-all cursor-pointer ${
-                      fontSize === sz.value
+                    className={`px-3 py-1.5 rounded-lg border text-[13px] font-medium transition-all cursor-pointer ${fontSize === sz.value
                         ? "bg-primary-pink text-white border-primary-pink"
                         : "border-zinc-200 hover:bg-zinc-50"
-                    }`}
+                      }`}
                   >
                     {sz.label}
                   </button>
@@ -109,11 +114,10 @@ export default function AccessibilityWidget() {
             {/* High Contrast Mode Toggle */}
             <button
               onClick={() => setHighContrast(!highContrast)}
-              className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl border text-[13.5px] font-medium transition-all cursor-pointer ${
-                highContrast
+              className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl border text-[13.5px] font-medium transition-all cursor-pointer ${highContrast
                   ? "bg-zinc-900 text-white border-zinc-900"
                   : "border-zinc-200 hover:bg-zinc-50"
-              }`}
+                }`}
             >
               <span className="flex items-center gap-2">
                 <ShieldAlert className="h-4 w-4" />
@@ -125,11 +129,10 @@ export default function AccessibilityWidget() {
             {/* Dyslexia Friendly Font Toggle */}
             <button
               onClick={() => setDyslexiaFont(!dyslexiaFont)}
-              className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl border text-[13.5px] font-medium transition-all cursor-pointer ${
-                dyslexiaFont
+              className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl border text-[13.5px] font-medium transition-all cursor-pointer ${dyslexiaFont
                   ? "bg-[#7B2B88] text-white border-[#7B2B88]"
                   : "border-zinc-200 hover:bg-zinc-50"
-              }`}
+                }`}
             >
               <span className="flex items-center gap-2">
                 <Type className="h-4 w-4" />
@@ -141,11 +144,10 @@ export default function AccessibilityWidget() {
             {/* Highlight Links Toggle */}
             <button
               onClick={() => setHighlightLinks(!highlightLinks)}
-              className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl border text-[13.5px] font-medium transition-all cursor-pointer ${
-                highlightLinks
+              className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl border text-[13.5px] font-medium transition-all cursor-pointer ${highlightLinks
                   ? "bg-secondary-blue text-white border-secondary-blue"
                   : "border-zinc-200 hover:bg-zinc-50"
-              }`}
+                }`}
             >
               <span className="flex items-center gap-2">
                 <Sparkles className="h-4 w-4" />

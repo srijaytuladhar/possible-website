@@ -6,6 +6,7 @@
   --color-accent-purple: #782888;
   --color-body-gray: #6F6F70;
   
+  --font-outfit: "Calibri", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   --font-equip: var(--font-outfit), sans-serif;
   --font-equip-thin: var(--font-outfit), sans-serif;
 }

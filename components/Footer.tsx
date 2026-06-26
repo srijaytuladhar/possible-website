@@ -38,8 +38,8 @@ export default function Footer() {
         </div>
 
         {/* Full-width Collaborative Statement */}
-        <div className="w-full">
-          <p className="text-[14px] leading-relaxed text-white/80 font-light">
+        <div className="w-full flex justify-center">
+          <p className="text-[14px] leading-relaxed text-white/80 font-light text-justify text-center [text-align-last:center] text-balance max-w-6xl">
             Possible is a collaboration between two independent organizations: Sambhav (Possible-Nepal), a Nepal-based non-governmental organization, and Possible-US, a U.S.-based nonprofit. While we operate independently, we maintain a mutually interdependent partnership with a shared mission to advance health innovation in Nepal.
           </p>
         </div>

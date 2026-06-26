@@ -145,11 +145,14 @@ function TeamPageContent() {
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
       {/* Page Header */}
       <div className="mb-8 text-center max-w-3xl mx-auto">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/10 px-3.5 py-1 text-[13px] font-medium text-primary-pink mb-4 uppercase tracking-wider">
+        {/* <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/10 px-3.5 py-1 text-[13px] font-medium text-primary-pink mb-4 uppercase tracking-wider">
           Our Team
-        </span>
-        <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
-          Team Members
+        </span> */}
+        <h1 className={`h1-hero mb-3 uppercase tracking-wide transition-colors duration-300 ${tabParam === "team-members" ? "text-primary-pink" :
+          tabParam === "us-board" ? "text-accent-purple" : "text-secondary-blue"
+          }`}>
+          {tabParam === "team-members" ? "Team Members" :
+            tabParam === "us-board" ? "Possible Board - US" : "Sambhav (Possible) Board - Nepal"}
         </h1>
         <p className="text-subheading text-body-gray font-light">
           Meet the researchers, clinicians, and innovators co-designing care in Nepal.
@@ -159,9 +162,9 @@ function TeamPageContent() {
       {/* Who We Are Intro (Visible on all tabs, above chips) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-zinc-50 p-8 sm:p-10 rounded-3xl border border-zinc-100 mb-12">
         <div className="lg:col-span-7 space-y-6">
-          <span className="inline-flex items-center gap-1 bg-primary-pink/10 px-3 py-1 rounded-full text-xs font-semibold text-primary-pink uppercase tracking-wider">
+          {/* <span className="inline-flex items-center gap-1 bg-primary-pink/10 px-3 py-1 rounded-full text-xs font-semibold text-primary-pink uppercase tracking-wider">
             Who We Are
-          </span>
+          </span> */}
           <p className="text-subheading text-zinc-900 leading-relaxed font-light">
             We are researchers and doers—health workers, clinicians, engineers, and advocates. Rooted in Nepal, we build and test innovations to strengthen healthcare delivery where it is needed most.
           </p>
@@ -191,20 +194,38 @@ function TeamPageContent() {
         </div>
       </div>
 
-      {/* Tabs */}
-      <div className="flex flex-wrap justify-center gap-2 mb-10 pb-4 border-b border-zinc-100">
-        {tabs.map((tab) => (
-          <button
-            key={tab.key}
-            onClick={() => router.push(`/get-involved/our-team?tab=${tab.key}`)}
-            className={`px-5 py-2.5 rounded-full text-[13.5px] font-medium transition-all cursor-pointer border ${tabParam === tab.key
-              ? "bg-zinc-950 text-white border-zinc-950 shadow-sm"
-              : "bg-white text-body-gray border-zinc-200 hover:border-zinc-300 hover:text-zinc-950"
-              }`}
-          >
-            {tab.label}
-          </button>
-        ))}
+      {/* Tabs Banner */}
+      <div className="w-full max-w-5xl mx-auto flex flex-col sm:flex-row overflow-hidden shadow-sm mb-16 rounded-lg border border-zinc-150">
+        <button
+          onClick={() => router.push("/get-involved/our-team?tab=team-members")}
+          className={`flex-1 py-5 text-center text-white uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer bg-primary-pink ${tabParam === "team-members" ? "opacity-100" : "opacity-75 hover:opacity-90"
+            }`}
+        >
+          Team Members
+          {tabParam === "team-members" && (
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-primary-pink z-10" />
+          )}
+        </button>
+        <button
+          onClick={() => router.push("/get-involved/our-team?tab=us-board")}
+          className={`flex-1 py-5 text-center text-white uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer bg-accent-purple ${tabParam === "us-board" ? "opacity-100" : "opacity-75 hover:opacity-90"
+            }`}
+        >
+          Possible Board - US
+          {tabParam === "us-board" && (
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-accent-purple z-10" />
+          )}
+        </button>
+        <button
+          onClick={() => router.push("/get-involved/our-team?tab=nepal-board")}
+          className={`flex-1 py-5 text-center text-white uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer bg-secondary-blue ${tabParam === "nepal-board" ? "opacity-100" : "opacity-75 hover:opacity-90"
+            }`}
+        >
+          Sambhav (Possible) Board - Nepal
+          {tabParam === "nepal-board" && (
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-secondary-blue z-10" />
+          )}
+        </button>
       </div>
 
       <div className="space-y-16 animate-in fade-in duration-300">
