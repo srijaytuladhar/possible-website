@@ -91,11 +91,10 @@ export default function Header() {
             >
               {item.submenu ? (
                 <button
-                  className={`flex items-center gap-1 font-equip font-medium text-[15px] md:text-[16px] py-2 transition-colors cursor-pointer ${
-                    isItemActive(item)
+                  className={`flex items-center gap-1 font-equip font-medium text-[15px] md:text-[16px] py-2 transition-colors cursor-pointer ${isItemActive(item)
                       ? "text-primary-pink"
                       : "text-body-gray hover:text-primary-pink"
-                  }`}
+                    }`}
                 >
                   {item.name}
                   <ChevronDown className="h-4 w-4 transition-transform duration-200" />
@@ -103,11 +102,10 @@ export default function Header() {
               ) : (
                 <Link
                   href={item.href}
-                  className={`font-equip font-medium text-[15px] md:text-[16px] py-2 transition-colors ${
-                    isItemActive(item)
+                  className={`font-equip font-medium text-[15px] md:text-[16px] py-2 transition-colors ${isItemActive(item)
                       ? "text-primary-pink"
                       : "text-body-gray hover:text-primary-pink"
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -116,21 +114,19 @@ export default function Header() {
               {/* Dropdown Menu */}
               {item.submenu && activeDropdown === item.name && (
                 <div
-                  className={`absolute left-0 mt-0 w-52 rounded-xl border p-2 shadow-xl ring-1 ring-black/5 transition-all duration-200 animate-in fade-in slide-in-from-top-2 ${
-                    item.name === "Publications"
+                  className={`absolute left-0 mt-0 w-52 rounded-xl border p-2 shadow-xl ring-1 ring-black/5 transition-all duration-200 animate-in fade-in slide-in-from-top-2 ${item.name === "Publications"
                       ? "bg-primary-pink border-primary-pink text-white"
                       : "bg-white border-gray-100 text-body-gray"
-                  }`}
+                    }`}
                 >
                   {item.submenu.map((sub) => (
                     <Link
                       key={sub.name}
                       href={sub.href}
-                      className={`block rounded-lg px-4 py-2.5 font-equip text-[14px] transition-colors ${
-                        item.name === "Publications"
+                      className={`block rounded-lg px-4 py-2.5 font-equip text-[14px] transition-colors ${item.name === "Publications"
                           ? "text-white/90 hover:bg-white/20 hover:text-white"
                           : "text-body-gray hover:bg-zinc-50 hover:text-primary-pink"
-                      }`}
+                        }`}
                     >
                       {sub.name}
                     </Link>
@@ -143,7 +139,7 @@ export default function Header() {
 
         {/* Action Button: Donate */}
         <div className="hidden md:flex items-center gap-4">
-          <button
+          <button hidden
             onClick={() => window.dispatchEvent(new Event("toggle-accessibility"))}
             className="inline-flex items-center justify-center h-[42px] w-[42px] rounded-full text-body-gray hover:text-primary-pink hover:bg-zinc-50 transition-colors border border-gray-200 cursor-pointer shrink-0"
             aria-label="Toggle accessibility options"
@@ -214,8 +210,8 @@ export default function Header() {
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`font-equip font-medium text-[16px] py-1 transition-colors ${pathname === item.href
-                        ? "text-primary-pink"
-                        : "text-body-gray hover:text-primary-pink"
+                      ? "text-primary-pink"
+                      : "text-body-gray hover:text-primary-pink"
                       }`}
                   >
                     {item.name}
