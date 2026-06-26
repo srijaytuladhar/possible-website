@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense, useRef } from "react";
 import Image from "next/image";
 import { Users, X } from "lucide-react";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -103,6 +103,7 @@ function TeamPageContent() {
   const [teamMembers, setTeamMembers] = useState<any[]>([]);
   const [selectedMember, setSelectedMember] = useState<any | null>(null);
   const [imageFallbacks, setImageFallbacks] = useState<Record<string, string>>({});
+  const isFirstMount = useRef(true);
 
   useEffect(() => {
     fetch('/teamData.json')
@@ -114,6 +115,21 @@ function TeamPageContent() {
       })
       .catch(err => console.error("Error loading team data:", err));
   }, []);
+
+  // Smooth scroll handler on tab change (skipping initial page mount)
+  useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+    const element = document.getElementById("team-tabs");
+    if (element) {
+      // Small timeout to allow Next.js state update/render to register
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 50);
+    }
+  }, [tabParam]);
 
   const getMemberImage = (member: any) => {
     if (!member) return "";
@@ -195,9 +211,9 @@ function TeamPageContent() {
       </div>
 
       {/* Tabs Banner */}
-      <div className="w-full max-w-5xl mx-auto flex flex-col sm:flex-row overflow-hidden shadow-sm mb-16 rounded-lg border border-zinc-150">
+      <div id="team-tabs" className="w-full max-w-5xl mx-auto flex flex-col sm:flex-row overflow-hidden shadow-sm mb-16 rounded-lg border border-zinc-150 scroll-mt-24">
         <button
-          onClick={() => router.push("/get-involved/our-team?tab=team-members")}
+          onClick={() => router.push("/get-involved/our-team?tab=team-members", { scroll: false })}
           className={`flex-1 py-5 text-center text-white uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer bg-primary-pink ${tabParam === "team-members" ? "opacity-100" : "opacity-75 hover:opacity-90"
             }`}
         >
@@ -207,7 +223,7 @@ function TeamPageContent() {
           )}
         </button>
         <button
-          onClick={() => router.push("/get-involved/our-team?tab=us-board")}
+          onClick={() => router.push("/get-involved/our-team?tab=us-board", { scroll: false })}
           className={`flex-1 py-5 text-center text-white uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer bg-accent-purple ${tabParam === "us-board" ? "opacity-100" : "opacity-75 hover:opacity-90"
             }`}
         >
@@ -217,7 +233,7 @@ function TeamPageContent() {
           )}
         </button>
         <button
-          onClick={() => router.push("/get-involved/our-team?tab=nepal-board")}
+          onClick={() => router.push("/get-involved/our-team?tab=nepal-board", { scroll: false })}
           className={`flex-1 py-5 text-center text-white uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer bg-secondary-blue ${tabParam === "nepal-board" ? "opacity-100" : "opacity-75 hover:opacity-90"
             }`}
         >
@@ -237,70 +253,56 @@ function TeamPageContent() {
             </h2>
             <div className="h-0.5 w-16 bg-primary-pink mx-auto mt-3 rounded-full"></div>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {activeMembers.map((member) => (
               <div
                 key={member.id}
-                onClick={() => setSelectedMember(member)}
-                className="group relative flex flex-col items-center p-6 bg-white border border-zinc-100 rounded-2xl shadow-sm hover:shadow-md hover:border-primary-pink/30 transition-all duration-300 cursor-pointer"
+                className="group relative flex flex-col items-center p-6 bg-white border border-zinc-100 rounded-2xl shadow-sm hover:shadow-md hover:border-primary-pink/30 transition-all duration-300 overflow-hidden h-[290px]"
               >
-                <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-zinc-50 shadow-sm transition-all duration-300 group-hover:border-primary-pink/30 group-hover:scale-105 mb-4 bg-zinc-100">
-                  <Image
-                    src={getMemberImage(member)}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 144px, 144px"
-                    onError={() => handleImageError(member.id)}
-                  />
+                {/* Default Card View */}
+                <div className="flex flex-col items-center h-full justify-center transition-all duration-300 group-hover:scale-95">
+                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-zinc-50 shadow-sm transition-all duration-300 group-hover:border-primary-pink/20 mb-4 bg-zinc-100">
+                    <Image
+                      src={getMemberImage(member)}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 128px, 128px"
+                      onError={() => handleImageError(member.id)}
+                    />
+                  </div>
+                  <h4 className="text-[15px] font-semibold text-zinc-900 text-center line-clamp-1">
+                    {member.name}
+                  </h4>
+                  <p className="text-[12.5px] text-body-gray font-light text-center mt-1 line-clamp-1">
+                    {member.role}
+                  </p>
+                  <span className="mt-3 text-[11px] font-medium text-secondary-blue">
+                    Hover for bio &rarr;
+                  </span>
                 </div>
-                <h4 className="text-[16px] font-semibold text-zinc-900 text-center group-hover:text-primary-pink transition-colors">
-                  {member.name}
-                </h4>
-                <p className="text-[13px] text-body-gray font-light text-center mt-1">
-                  {member.role}
-                </p>
-                <span className="mt-4 text-[12px] font-medium text-secondary-blue group-hover:underline">
-                  View Bio &rarr;
-                </span>
+
+                {/* Hover Details Overlay */}
+                <div className={`absolute inset-0 p-5 flex flex-col justify-center items-center text-white opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 rounded-2xl select-none pointer-events-none ${
+                  tabParam === "team-members" ? "bg-primary-pink/95" :
+                  tabParam === "us-board" ? "bg-accent-purple/95" : "bg-secondary-blue/95"
+                }`}>
+                  <h4 className="text-[14px] font-bold text-center mb-0.5 line-clamp-1">
+                    {member.name}
+                  </h4>
+                  <span className="text-[10px] text-white/80 uppercase tracking-wider font-semibold text-center mb-3 line-clamp-1">
+                    {member.role}
+                  </span>
+                  <div className="w-8 h-[1px] bg-white/30 mb-3 shrink-0"></div>
+                  <p className="text-[11.5px] leading-relaxed text-center font-light line-clamp-[6] text-white/90">
+                    {member.bio}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Team Member Modal */}
-      {selectedMember && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 relative border border-zinc-100">
-            <div className="relative h-48 w-full bg-zinc-100">
-              <Image
-                src={getMemberImage(selectedMember)}
-                alt={selectedMember.name}
-                fill
-                className="object-cover"
-                onError={() => handleImageError(selectedMember.id)}
-              />
-              <button
-                onClick={() => setSelectedMember(null)}
-                className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white text-zinc-900 rounded-full shadow-sm transition-colors z-10 cursor-pointer"
-                aria-label="Close modal"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            <div className="p-8">
-              <h3 className="text-xl font-semibold text-zinc-900 mb-1">{selectedMember.name}</h3>
-              <p className="text-[14px] font-medium text-primary-pink mb-4">{selectedMember.role}</p>
-              <div className="w-12 h-1 bg-zinc-200 rounded-full mb-4"></div>
-              <p className="text-[15px] text-body-gray font-light leading-relaxed">
-                {selectedMember.bio}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
