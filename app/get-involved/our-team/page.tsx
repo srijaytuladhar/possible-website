@@ -245,7 +245,7 @@ function TeamPageContent() {
       <div className="space-y-16 animate-in fade-in duration-300">
         {/* Team Roster Grid (3 columns per row for consistency) */}
         <div className="space-y-8">
-          <div className="text-center">
+          <div className="text-center" hidden>
             <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">
               {tabs.find(t => t.key === tabParam)?.label}
             </h2>

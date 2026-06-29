@@ -49,50 +49,38 @@ export default function WorkWithUsPage() {
           </div>
         </div>
 
-        {/* Career Block Philosophy */}
-        <div className="p-8 bg-zinc-900 text-white rounded-2xl border border-zinc-800">
-          <div className="max-w-2xl space-y-4">
-            <span className="text-[13px] font-bold text-secondary-blue uppercase tracking-widest">Our DNA</span>
-            <h3 className="h2-section text-white font-extralight uppercase tracking-wide">
-              Rigor. Respect. Results.
-            </h3>
-            <p className="text-[15px] text-zinc-400 font-light leading-relaxed">
-              We are defined by fierce rigor and deep respect. We build sustainable, science-backed solutions that prioritize regional context and localized expertise to generate real results.
-            </p>
-          </div>
+        {/* Quote Block */}
+        <div className="relative py-12 px-8 max-w-4xl mx-auto text-center bg-zinc-50/50 rounded-3xl border border-zinc-100/80 my-8">
+          <span className="absolute top-2 left-6 text-7xl font-serif text-primary-pink/20 select-none">“</span>
+          <p className="text-[20px] sm:text-[24px] font-light text-zinc-800 leading-relaxed italic relative z-10 px-4">
+            If you thrive on creating an impact and want to join our mission to reduce suffering and improve lives by strengthening community care systems, join our team.
+          </p>
+          <span className="absolute bottom-2 right-6 text-7xl font-serif text-primary-pink/20 select-none">”</span>
         </div>
 
-        {/* Competencies Grid */}
-        <div className="space-y-6">
-          <h3 className="h3-card text-zinc-950 font-semibold flex items-center gap-2">
-            <Layers className="h-5 w-5 text-primary-pink" />
-            <span>Accelerated Learning Curve</span>
-          </h3>
-          <p className="text-[14px] text-body-gray font-light max-w-2xl">
-            Our organization empowers personnel with deep operational, clinical, and strategic capabilities across key core competencies:
-          </p>
+        {/* How will you thrive section */}
+        <div className="space-y-8 pt-6">
+          <div className="text-center">
+            <h3 className="text-2xl sm:text-3xl font-light text-zinc-950 uppercase tracking-wider">
+              How will you thrive with us?
+            </h3>
+            <div className="h-0.5 w-16 bg-primary-pink mx-auto mt-3 rounded-full"></div>
+          </div>
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              {
-                title: "Policy Translation",
-                desc: "Bridging academic implementation data and policy drafts for governmental entities.",
-              },
-              {
-                title: "Tech-Enabled Systems",
-                desc: "Deploying and managing data-driven workflows using our custom CHIS platforms.",
-              },
-              {
-                title: "Global Funding",
-                desc: "Navigating international grant compliance and cultivating donor networks.",
-              },
-              {
-                title: "Co-Design",
-                desc: "Engaging in participatory development directly with local leaders and NGOs.",
-              },
-            ].map((comp, idx) => (
-              <div key={idx} className="p-5 border border-zinc-100 bg-zinc-50 rounded-xl hover:border-primary-pink/35 transition-colors duration-300">
-                <h4 className="text-[14px] font-semibold text-zinc-900 mb-2 uppercase tracking-wide">{comp.title}</h4>
-                <p className="text-[13px] text-body-gray font-light leading-relaxed">{comp.desc}</p>
+              "Champion Rigorous and Respectful Results",
+              "Engineer Global Impact",
+              "Foster Holistic Mentorship",
+              "Accelerate Learning Curve"
+            ].map((title, idx) => (
+              <div 
+                key={idx} 
+                className="flex items-center justify-center p-6 bg-gradient-to-br from-[#FF5E97] via-primary-pink to-[#B91257] text-white rounded-2xl h-[130px] text-center shadow-lg shadow-primary-pink/15 hover:shadow-xl hover:shadow-primary-pink/25 hover:-translate-y-1 transition-all duration-300 cursor-default"
+              >
+                <span className="text-[15px] sm:text-[16px] font-semibold leading-snug">
+                  {title}
+                </span>
               </div>
             ))}
           </div>
