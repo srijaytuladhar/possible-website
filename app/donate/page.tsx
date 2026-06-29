@@ -51,9 +51,9 @@ export default function DonatePage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+      <div className="grid m-4">
         {/* Support Statement & Transparency */}
-        <div className="lg:col-span-5 space-y-6">
+        <div className="lg:col-span-5 space-y-6" hidden>
           <div className="bg-zinc-950 text-white rounded-2xl p-8 border border-zinc-800 space-y-6">
             <h3 className="h3-card text-white font-medium">How Your Donation Helps</h3>
             <ul className="space-y-4 text-[14px] text-zinc-400 font-light leading-relaxed">
@@ -130,22 +130,20 @@ export default function DonatePage() {
                 <button
                   type="button"
                   onClick={() => setFrequency("monthly")}
-                  className={`px-4 py-2 rounded-lg font-equip text-[13px] font-medium transition-all cursor-pointer ${
-                    frequency === "monthly"
-                      ? "bg-white text-zinc-950 shadow-sm"
-                      : "text-zinc-600 hover:text-zinc-950"
-                  }`}
+                  className={`px-4 py-2 rounded-lg font-equip text-[13px] font-medium transition-all cursor-pointer ${frequency === "monthly"
+                    ? "bg-white text-zinc-950 shadow-sm"
+                    : "text-zinc-600 hover:text-zinc-950"
+                    }`}
                 >
                   Monthly Gift
                 </button>
                 <button
                   type="button"
                   onClick={() => setFrequency("one-time")}
-                  className={`px-4 py-2 rounded-lg font-equip text-[13px] font-medium transition-all cursor-pointer ${
-                    frequency === "one-time"
-                      ? "bg-white text-zinc-950 shadow-sm"
-                      : "text-zinc-600 hover:text-zinc-950"
-                  }`}
+                  className={`px-4 py-2 rounded-lg font-equip text-[13px] font-medium transition-all cursor-pointer ${frequency === "one-time"
+                    ? "bg-white text-zinc-950 shadow-sm"
+                    : "text-zinc-600 hover:text-zinc-950"
+                    }`}
                 >
                   One-time Gift
                 </button>
@@ -162,11 +160,10 @@ export default function DonatePage() {
                       key={amt}
                       type="button"
                       onClick={() => handleAmountSelect(amt)}
-                      className={`py-3.5 rounded-xl border text-[14px] font-semibold transition-all cursor-pointer ${
-                        selectedAmount === amt
-                          ? "bg-primary-pink border-primary-pink text-white shadow-md shadow-primary-pink/15"
-                          : "bg-white border-zinc-200 text-zinc-800 hover:border-primary-pink/40"
-                      }`}
+                      className={`py-3.5 rounded-xl border text-[14px] font-semibold transition-all cursor-pointer ${selectedAmount === amt
+                        ? "bg-primary-pink border-primary-pink text-white shadow-md shadow-primary-pink/15"
+                        : "bg-white border-zinc-200 text-zinc-800 hover:border-primary-pink/40"
+                        }`}
                     >
                       ${amt}
                     </button>
@@ -194,11 +191,10 @@ export default function DonatePage() {
                   <button
                     type="button"
                     onClick={() => setPaymentMethod("card")}
-                    className={`py-3 rounded-xl border text-[13px] font-medium flex items-center justify-center gap-2 transition-all cursor-pointer ${
-                      paymentMethod === "card"
-                        ? "bg-white border-zinc-950 text-zinc-950 shadow-sm"
-                        : "bg-white border-zinc-200 text-zinc-600 hover:border-zinc-300"
-                    }`}
+                    className={`py-3 rounded-xl border text-[13px] font-medium flex items-center justify-center gap-2 transition-all cursor-pointer ${paymentMethod === "card"
+                      ? "bg-white border-zinc-950 text-zinc-950 shadow-sm"
+                      : "bg-white border-zinc-200 text-zinc-600 hover:border-zinc-300"
+                      }`}
                   >
                     <CreditCard className="h-4 w-4" />
                     <span>Credit Card</span>
@@ -206,11 +202,10 @@ export default function DonatePage() {
                   <button
                     type="button"
                     onClick={() => setPaymentMethod("bank")}
-                    className={`py-3 rounded-xl border text-[13px] font-medium flex items-center justify-center gap-2 transition-all cursor-pointer ${
-                      paymentMethod === "bank"
-                        ? "bg-white border-zinc-950 text-zinc-950 shadow-sm"
-                        : "bg-white border-zinc-200 text-zinc-600 hover:border-zinc-300"
-                    }`}
+                    className={`py-3 rounded-xl border text-[13px] font-medium flex items-center justify-center gap-2 transition-all cursor-pointer ${paymentMethod === "bank"
+                      ? "bg-white border-zinc-950 text-zinc-950 shadow-sm"
+                      : "bg-white border-zinc-200 text-zinc-600 hover:border-zinc-300"
+                      }`}
                   >
                     <Landmark className="h-4 w-4" />
                     <span>Bank Transfer</span>
@@ -223,7 +218,7 @@ export default function DonatePage() {
                 <h4 className="text-[14px] font-semibold text-zinc-900">
                   Donor Information
                 </h4>
-                
+
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block text-[12px] font-semibold text-zinc-600 mb-1">

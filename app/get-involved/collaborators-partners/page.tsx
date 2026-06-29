@@ -63,11 +63,11 @@ export default function CollaboratorsPartnersPage() {
               <p className="text-[15px] text-body-gray font-light mb-8 max-w-3xl leading-relaxed">
                 {block.desc}
               </p>
-              
+
               {/* Partner List in clearly visible font and list format */}
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 list-none pl-0">
+              <ul className="grid grid-cols-1 gap-4 list-none pl-0">
                 {block.list.map((partner, pIdx) => (
-                  <li 
+                  <li
                     key={pIdx}
                     className="flex items-center gap-4 px-6 py-4 bg-zinc-50 border border-zinc-100 hover:border-primary-pink/30 hover:bg-zinc-100/50 rounded-2xl transition-all duration-200"
                   >
