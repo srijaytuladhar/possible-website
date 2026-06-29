@@ -7,8 +7,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl space-y-8">
         {/* Top bar: Brand Logo & Socials */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-6 border-b border-white/20">
-          <div className="bg-white px-4 py-2.5 rounded-xl w-fit">
-            <Image src="/logo.png" alt="Possible Logo" width={150} height={40} className="object-contain" />
+          <div className="w-fit">
+            <Image src="/logo.png" alt="Possible Logo" width={150} height={40} className="object-contain brightness-0 invert" />
           </div>
           <div className="flex items-center gap-4">
             <span className="text-[14px] text-white/90 font-medium">Follow us:</span>
@@ -38,9 +38,12 @@ export default function Footer() {
         </div>
 
         {/* Full-width Collaborative Statement */}
-        <div className="w-full flex justify-center">
-          <p className="text-[14px] leading-relaxed text-white/80 font-light text-justify text-center [text-align-last:center] text-balance max-w-6xl">
-            Possible is a collaboration between two independent organizations: Sambhav (Possible-Nepal), a Nepal-based non-governmental organization, and Possible-US, a U.S.-based nonprofit. While we operate independently, we maintain a mutually interdependent partnership with a shared mission to advance health innovation in Nepal.
+        <div className="w-full flex flex-col items-center gap-1.5">
+          <p className="text-[14px] leading-relaxed text-white/80 font-light text-justify [text-align-last:justify] max-w-5xl w-full">
+            Possible is a collaboration between two independent organizations: Sambhav (Possible-Nepal), a Nepal-based non-governmental organization, and Possible-US, a U.S.-based nonprofit.
+          </p>
+          <p className="text-[14px] leading-relaxed text-white/80 font-light text-justify [text-align-last:justify] max-w-5xl w-full">
+            While we operate independently, we maintain a mutually interdependent partnership with a shared mission to advance health innovation in Nepal.
           </p>
         </div>
 
