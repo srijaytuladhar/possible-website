@@ -1,35 +1,36 @@
 "use client";
 
-import { Handshake, Building2, GraduationCap } from "lucide-react";
+import { Handshake } from "lucide-react";
 
 export default function CollaboratorsPartnersPage() {
-  const collaboratorBlocks = [
-    {
-      title: "Governmental & National Advocacy Partners",
-      desc: "Working alongside federal authorities and human rights associations in Nepal to drive systemic policy translation.",
-      icon: Building2,
-      list: [
-        "Ministry of Health and Population Nepal",
-        "Nepal Health Research Council (NHRC)",
-        "WOREC (Women's Rehabilitation Center) Nepal",
-        "Nepal Disabled Women Association (NDWA)",
-        "Blue Diamond Society",
-        "Transcultural Psychosocial Organization (TPO) Nepal",
-        "Nyaya Health Nepal",
-      ],
-    },
-    {
-      title: "Global Health Agencies & Academic Institutions",
-      desc: "Partnering with global research universities and institutions to design, test, and validate clinical implementation models.",
-      icon: GraduationCap,
-      list: [
-        "World Health Organization (WHO)",
-        "National Institutes of Health (NIH) USA",
-        "University of California, San Francisco (UCSF)",
-        "Yale University",
-        "University of California, Los Angeles (UCLA)",
-      ],
-    },
+  const collaborators = [
+    "Ministry of Health and Food Safety",
+    "Department of Health Services, divisions and centers, Nepal",
+    "Nepal Health Research Council",
+    "World Health Organization",
+    "Chandragiri Municipality; Bardibas Municipality, Nepal",
+    "Dhulikhel Hospital, Kathmandu University Hospital",
+    "Bhimeshwor Municipality; Tamakoshi Rural Municipality; Baiteshwor Rural Municipality; Kalinchowk Rural Municipality, Dolakha, Nepal",
+    "Women’s Rehabilitation Centre (WOREC)",
+    "Nepal Disabled Women Association",
+    "Nyaya Health Nepal",
+    "National Institutes of Health, USA",
+    "University of California San Francisco",
+    "Wheaton College",
+    "Yale University",
+    "Arnhold Institute for Global Health at Icahn School of Medicine at Mt. Sinai",
+    "University of Connecticut",
+    "University of California, Los Angeles",
+    "Community Health Impact Coalition",
+    "SunyaEk",
+    "Dalit Lives Matters",
+    "Transcultural Psychosocial Organization Nepal (TPO Nepal)",
+    "Blue Diamond Society",
+    "Fusemachines Inc.",
+    "Weiss Asset Management Foundation",
+    "AutismCare Nepal Society",
+    "Hope Child Development Center",
+    "SVRI",
   ];
 
   return (
@@ -47,40 +48,23 @@ export default function CollaboratorsPartnersPage() {
         </p>
       </div>
 
-      <div className="space-y-12 animate-in fade-in duration-300">
-        {collaboratorBlocks.map((block, idx) => {
-          const IconComp = block.icon;
-          return (
-            <div key={idx} className="p-8 sm:p-10 bg-white border border-zinc-100 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-primary-pink/10 text-primary-pink rounded-xl">
-                  <IconComp className="h-6 w-6" />
-                </div>
-                <h2 className="text-xl sm:text-2xl font-semibold text-zinc-950 uppercase tracking-wide">
-                  {block.title}
-                </h2>
-              </div>
-              <p className="text-[15px] text-body-gray font-light mb-8 max-w-3xl leading-relaxed">
-                {block.desc}
-              </p>
-
-              {/* Partner List in clearly visible font and list format */}
-              <ul className="grid grid-cols-1 gap-4 list-none pl-0">
-                {block.list.map((partner, pIdx) => (
-                  <li
-                    key={pIdx}
-                    className="flex items-center gap-4 px-6 py-4 bg-zinc-50 border border-zinc-100 hover:border-primary-pink/30 hover:bg-zinc-100/50 rounded-2xl transition-all duration-200"
-                  >
-                    <div className="h-2 w-2 rounded-full bg-primary-pink shrink-0" />
-                    <span className="text-[16px] sm:text-[18px] font-semibold text-zinc-900 tracking-wide">
-                      {partner}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
+      <div className="animate-in fade-in duration-300">
+        <div className="p-8 sm:p-10 bg-white border border-zinc-100 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300">
+          {/* Partner List in clearly visible font and list format */}
+          <ul className="grid grid-cols-1 gap-4 list-none pl-0">
+            {collaborators.map((partner, pIdx) => (
+              <li
+                key={pIdx}
+                className="flex items-center gap-4 px-6 py-4 bg-zinc-50 border border-zinc-100 hover:border-primary-pink/30 hover:bg-zinc-100/50 rounded-2xl transition-all duration-200"
+              >
+                <div className="h-2 w-2 rounded-full bg-primary-pink shrink-0" />
+                <span className="text-[16px] sm:text-[18px] font-semibold text-zinc-900 tracking-wide">
+                  {partner}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

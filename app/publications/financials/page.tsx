@@ -11,29 +11,29 @@ export default function FinancialsPage() {
   const [activeTab, setActiveTab] = useState<"disclosures" | "reports">("disclosures");
 
   const financialReports = [
-    { title: "Fiscal Year 2024 Audited Financial Statements", desc: "Audited financial statements detailing funding sources (global grants, private donations) and program expenditures.", date: "September 24, 2024, 11:30 AM", type: "Audited Report", link: "/docs/financials-2024.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Conflict of Interest Policy & Disclosures", desc: "Our organizational policies for maintaining transparency, integrity, and handling potential conflicts of interest.", date: "July 12, 2024, 3:45 PM", type: "Policy", link: "/docs/conflict-of-interest-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2023 Audited Financial Statements", desc: "Independent auditor's report and complete balance sheet details for Sambhav and Possible US.", date: "October 18, 2023, 10:15 AM", type: "Audited Report", link: "/docs/financials-2023.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Annual Whistleblower & Transparency Policy", desc: "Policies ensuring safe channels for reporting misconduct and maintaining high corporate governance standards.", date: "May 09, 2023, 9:00 AM", type: "Policy", link: "/docs/whistleblower-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2022 Audited Financial Statements", desc: "Audited statement of activities, functional expenses, and cash flows.", date: "November 28, 2022, 2:30 PM", type: "Audited Report", link: "/docs/financials-2022.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Procurement and Grant Allocation Standards", desc: "Guidelines outlining competitive bidding requirements and sub-award allocation rules for regional partners.", date: "March 15, 2022, 4:00 PM", type: "Policy", link: "/docs/procurement-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2021 Audited Financial Statements", desc: "Annual statement detailing funding allocations and emergency pandemic response expenditures.", date: "December 05, 2021, 10:45 AM", type: "Audited Report", link: "/docs/financials-2021.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Executive Compensation & Board Governance Policy", desc: "Standard policies defining salary caps, board reviews, and independent member criteria.", date: "June 18, 2021, 1:15 PM", type: "Policy", link: "/docs/governance-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2020 Audited Financial Statements", desc: "Complete audited financial records highlighting program cost ratios and reserve funds.", date: "November 10, 2020, 3:30 PM", type: "Audited Report", link: "/docs/financials-2020.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Donor Privacy & Fund Allocation Standards", desc: "Policies protecting individual donor details and ensuring designated funds match field executions.", date: "January 20, 2020, 11:00 AM", type: "Policy", link: "/docs/donor-privacy-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2024 Audited Financial Statements", desc: "Audited financial statements detailing funding sources (global grants, private donations) and program expenditures.", date: "September 24, 2024, 11:30 AM", type: "Audited Report", link: "/docs/financials-2024.pdf", cover: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Conflict of Interest Policy & Disclosures", desc: "Our organizational policies for maintaining transparency, integrity, and handling potential conflicts of interest.", date: "July 12, 2024, 3:45 PM", type: "Policy", link: "/docs/conflict-of-interest-policy.pdf", cover: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2023 Audited Financial Statements", desc: "Independent auditor's report and complete balance sheet details for Sambhav and Possible US.", date: "October 18, 2023, 10:15 AM", type: "Audited Report", link: "/docs/financials-2023.pdf", cover: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Annual Whistleblower & Transparency Policy", desc: "Policies ensuring safe channels for reporting misconduct and maintaining high corporate governance standards.", date: "May 09, 2023, 9:00 AM", type: "Policy", link: "/docs/whistleblower-policy.pdf", cover: "https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2022 Audited Financial Statements", desc: "Audited statement of activities, functional expenses, and cash flows.", date: "November 28, 2022, 2:30 PM", type: "Audited Report", link: "/docs/financials-2022.pdf", cover: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Procurement and Grant Allocation Standards", desc: "Guidelines outlining competitive bidding requirements and sub-award allocation rules for regional partners.", date: "March 15, 2022, 4:00 PM", type: "Policy", link: "/docs/procurement-policy.pdf", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2021 Audited Financial Statements", desc: "Annual statement detailing funding allocations and emergency pandemic response expenditures.", date: "December 05, 2021, 10:45 AM", type: "Audited Report", link: "/docs/financials-2021.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Executive Compensation & Board Governance Policy", desc: "Standard policies defining salary caps, board reviews, and independent member criteria.", date: "June 18, 2021, 1:15 PM", type: "Policy", link: "/docs/governance-policy.pdf", cover: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2020 Audited Financial Statements", desc: "Complete audited financial records highlighting program cost ratios and reserve funds.", date: "November 10, 2020, 3:30 PM", type: "Audited Report", link: "/docs/financials-2020.pdf", cover: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Donor Privacy & Fund Allocation Standards", desc: "Policies protecting individual donor details and ensuring designated funds match field executions.", date: "January 20, 2020, 11:00 AM", type: "Policy", link: "/docs/donor-privacy-policy.pdf", cover: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&h=350&q=80" },
     // Archive items
-    { title: "Fiscal Year 2019 Audited Financial Statements", desc: "Audited statements detailing the financials of our clinical hospital operations support phase.", date: "October 14, 2019, 9:30 AM", type: "Audited Report", link: "/docs/financials-2019.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2019 Audited Financial Statements", desc: "Audited statements detailing the financials of our clinical hospital operations support phase.", date: "October 14, 2019, 9:30 AM", type: "Audited Report", link: "/docs/financials-2019.pdf", cover: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&h=350&q=80" },
     { title: "Independent Auditor Compliance Report 2019", desc: "Assessing internal controls, documentation standards, and federal reporting guidelines.", date: "August 12, 2019, 4:00 PM", type: "Audited Report", link: "/docs/compliance-2019.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2018 Audited Financial Statements", desc: "Balance sheet, program expense ratios, and independent auditor outcomes.", date: "May 20, 2018, 10:15 AM", type: "Audited Report", link: "/docs/financials-2018.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Conflict of Interest Policy Annual Disclosures 2018", desc: "Disclosures matching board and staff compliance guidelines.", date: "March 15, 2018, 9:00 AM", type: "Policy", link: "/docs/coi-2018.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2017 Audited Financial Statements", desc: "Complete audited records matching operational and emergency fund expenditures.", date: "November 10, 2017, 3:30 PM", type: "Audited Report", link: "/docs/financials-2017.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Asset Management and Disposal Policy Guidelines", desc: "Standards governing vehicle, clinic device, and infrastructure depreciation methods.", date: "September 09, 2017, 1:45 PM", type: "Policy", link: "/docs/asset-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2016 Audited Financial Statements", desc: "Audited statements of cash flows, functional activities, and regional support allocations.", date: "July 20, 2016, 2:15 PM", type: "Audited Report", link: "/docs/financials-2016.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Financial Reserves and Investment Policy Standards", desc: "Outlining board instructions regarding reserve targets and conservative asset allocations.", date: "April 18, 2016, 11:00 AM", type: "Policy", link: "/docs/reserve-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2015 Audited Financial Statements", desc: "audited results detailing early international donations and clinical startup funding.", date: "November 14, 2015, 10:00 AM", type: "Audited Report", link: "/docs/financials-2015.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Travel and Business Expense Reimbursement Guidelines", desc: "Policies defining standard rates, per diem limits, and travel receipt matching systems.", date: "August 12, 2015, 9:00 AM", type: "Policy", link: "/docs/travel-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2014 Audited Financial Statements", desc: "The original financial reports supporting the development of clinical trials protocols.", date: "May 20, 2014, 1:15 PM", type: "Audited Report", link: "/docs/financials-2014.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Signature Authority and Purchasing Approvals Guide", desc: "Organizational structure and spending limits for executive directors and board members.", date: "February 10, 2014, 10:30 AM", type: "Policy", link: "/docs/signature-policy.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" }
+    { title: "Fiscal Year 2018 Audited Financial Statements", desc: "Balance sheet, program expense ratios, and independent auditor outcomes.", date: "May 20, 2018, 10:15 AM", type: "Audited Report", link: "/docs/financials-2018.pdf", cover: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Conflict of Interest Policy Annual Disclosures 2018", desc: "Disclosures matching board and staff compliance guidelines.", date: "March 15, 2018, 9:00 AM", type: "Policy", link: "/docs/coi-2018.pdf", cover: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2017 Audited Financial Statements", desc: "Complete audited records matching operational and emergency fund expenditures.", date: "November 10, 2017, 3:30 PM", type: "Audited Report", link: "/docs/financials-2017.pdf", cover: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Asset Management and Disposal Policy Guidelines", desc: "Standards governing vehicle, clinic device, and infrastructure depreciation methods.", date: "September 09, 2017, 1:45 PM", type: "Policy", link: "/docs/asset-policy.pdf", cover: "https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2016 Audited Financial Statements", desc: "Audited statements of cash flows, functional activities, and regional support allocations.", date: "July 20, 2016, 2:15 PM", type: "Audited Report", link: "/docs/financials-2016.pdf", cover: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Financial Reserves and Investment Policy Standards", desc: "Outlining board instructions regarding reserve targets and conservative asset allocations.", date: "April 18, 2016, 11:00 AM", type: "Policy", link: "/docs/reserve-policy.pdf", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2015 Audited Financial Statements", desc: "audited results detailing early international donations and clinical startup funding.", date: "November 14, 2015, 10:00 AM", type: "Audited Report", link: "/docs/financials-2015.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Travel and Business Expense Reimbursement Guidelines", desc: "Policies defining standard rates, per diem limits, and travel receipt matching systems.", date: "August 12, 2015, 9:00 AM", type: "Policy", link: "/docs/travel-policy.pdf", cover: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Fiscal Year 2014 Audited Financial Statements", desc: "The original financial reports supporting the development of clinical trials protocols.", date: "May 20, 2014, 1:15 PM", type: "Audited Report", link: "/docs/financials-2014.pdf", cover: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&h=350&q=80" },
+    { title: "Signature Authority and Purchasing Approvals Guide", desc: "Organizational structure and spending limits for executive directors and board members.", date: "February 10, 2014, 10:30 AM", type: "Policy", link: "/docs/signature-policy.pdf", cover: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&h=350&q=80" }
   ];
 
   // Filter based on selected tab
@@ -69,7 +69,7 @@ export default function FinancialsPage() {
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 10;
   const totalPages = Math.ceil(olderReports.length / itemsPerPage);
   const paginatedOlderReports = olderReports.slice(
     (currentPage - 1) * itemsPerPage,
@@ -83,7 +83,7 @@ export default function FinancialsPage() {
         <h1 className="h1-hero text-primary-pink mb-3 uppercase tracking-wide">
           Financial Disclosure & Reports
         </h1>
-        <p className="text-subheading text-body-gray font-light">
+        <p className="text-subheading text-body-gray font-light" hidden>
           Access our audited financial statements, tax filings, conflict of interest disclosures, and governance policies.
         </p>
       </div>
@@ -95,11 +95,10 @@ export default function FinancialsPage() {
             setActiveTab("disclosures");
             setCurrentPage(1);
           }}
-          className={`flex-1 py-4 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-t-lg sm:rounded-tr-none sm:rounded-l-lg ${
-            activeTab === "disclosures"
-              ? "bg-primary-pink text-white shadow-inner"
-              : "bg-white text-primary-pink border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50/80"
-          }`}
+          className={`flex-1 py-4 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-t-lg sm:rounded-tr-none sm:rounded-l-lg ${activeTab === "disclosures"
+            ? "bg-primary-pink text-white shadow-inner"
+            : "bg-white text-primary-pink border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50/80"
+            }`}
         >
           Finance Disclosure
           {activeTab === "disclosures" && (
@@ -111,11 +110,10 @@ export default function FinancialsPage() {
             setActiveTab("reports");
             setCurrentPage(1);
           }}
-          className={`flex-1 py-4 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-b-lg sm:rounded-bl-none sm:rounded-r-lg ${
-            activeTab === "reports"
-              ? "bg-primary-pink text-white shadow-inner"
-              : "bg-white text-primary-pink hover:bg-zinc-50/80"
-          }`}
+          className={`flex-1 py-4 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-b-lg sm:rounded-bl-none sm:rounded-r-lg ${activeTab === "reports"
+            ? "bg-primary-pink text-white shadow-inner"
+            : "bg-white text-primary-pink hover:bg-zinc-50/80"
+            }`}
         >
           Financial Reports
           {activeTab === "reports" && (

@@ -22,7 +22,7 @@ export default function InteractivePresenceMap() {
         <div className="flex justify-center items-center bg-white p-4 sm:p-8 rounded-3xl border border-zinc-100 shadow-sm overflow-hidden">
           <div className="relative w-full max-w-5xl">
             <Image
-              src="/presence-maps.png"
+              src="/UpdatedHeatMap.png"
               alt="Innovation and Implementation Sites Map"
               width={1200}
               height={800}

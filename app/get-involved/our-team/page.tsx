@@ -159,20 +159,19 @@ function TeamPageContent() {
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
       {/* Page Header */}
       <div className="mb-8 text-center max-w-3xl mx-auto">
-        <h1 className={`h1-hero mb-3 uppercase tracking-wide transition-colors duration-300 ${
-          tabParam === "team-members" ? "text-primary-pink" :
+        <h1 className={`h1-hero mb-3 uppercase tracking-wide transition-colors duration-300 ${tabParam === "team-members" ? "text-primary-pink" :
           tabParam === "us-board" ? "text-accent-purple" : "text-secondary-blue"
-        }`}>
+          }`}>
           {tabParam === "team-members" ? "Team Members" :
             tabParam === "us-board" ? "Possible Board - US" : "Sambhav (Possible) Board - Nepal"}
         </h1>
-        <p className="text-subheading text-body-gray font-light">
+        <p className="text-subheading text-body-gray font-light" hidden>
           Meet the researchers, clinicians, and innovators co-designing care in Nepal.
         </p>
       </div>
 
       {/* Who We Are Intro */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-zinc-50 p-8 sm:p-10 rounded-3xl border border-zinc-100 mb-12">
+      <div hidden className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-zinc-50 p-8 sm:p-10 rounded-3xl border border-zinc-100 mb-12">
         <div className="lg:col-span-7 space-y-6">
           <p className="text-subheading text-zinc-900 leading-relaxed font-light">
             We are researchers and doers—health workers, clinicians, engineers, and advocates. Rooted in Nepal, we build and test innovations to strengthen healthcare delivery where it is needed most.
@@ -207,11 +206,10 @@ function TeamPageContent() {
       <div id="team-tabs" className="w-full max-w-5xl mx-auto flex flex-col sm:flex-row shadow-sm mb-16 rounded-lg border border-zinc-200 scroll-mt-24 bg-white relative">
         <button
           onClick={() => router.push("/get-involved/our-team?tab=nepal-board", { scroll: false })}
-          className={`flex-1 py-5 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-t-lg sm:rounded-tr-none sm:rounded-l-lg ${
-            tabParam === "nepal-board"
-              ? "bg-secondary-blue text-white shadow-inner"
-              : "bg-white text-secondary-blue border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50/80"
-          }`}
+          className={`flex-1 py-5 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-t-lg sm:rounded-tr-none sm:rounded-l-lg ${tabParam === "nepal-board"
+            ? "bg-secondary-blue text-white shadow-inner"
+            : "bg-white text-secondary-blue border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50/80"
+            }`}
         >
           Sambhav (Possible) Board - Nepal
           {tabParam === "nepal-board" && (
@@ -220,11 +218,10 @@ function TeamPageContent() {
         </button>
         <button
           onClick={() => router.push("/get-involved/our-team?tab=us-board", { scroll: false })}
-          className={`flex-1 py-5 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer ${
-            tabParam === "us-board"
-              ? "bg-accent-purple text-white shadow-inner"
-              : "bg-white text-accent-purple border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50/80"
-          }`}
+          className={`flex-1 py-5 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer ${tabParam === "us-board"
+            ? "bg-accent-purple text-white shadow-inner"
+            : "bg-white text-accent-purple border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50/80"
+            }`}
         >
           Possible Board - US
           {tabParam === "us-board" && (
@@ -233,11 +230,10 @@ function TeamPageContent() {
         </button>
         <button
           onClick={() => router.push("/get-involved/our-team?tab=team-members", { scroll: false })}
-          className={`flex-1 py-5 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-b-lg sm:rounded-bl-none sm:rounded-r-lg ${
-            tabParam === "team-members"
-              ? "bg-primary-pink text-white shadow-inner"
-              : "bg-white text-primary-pink hover:bg-zinc-50/80"
-          }`}
+          className={`flex-1 py-5 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-b-lg sm:rounded-bl-none sm:rounded-r-lg ${tabParam === "team-members"
+            ? "bg-primary-pink text-white shadow-inner"
+            : "bg-white text-primary-pink hover:bg-zinc-50/80"
+            }`}
         >
           Team Members
           {tabParam === "team-members" && (
@@ -285,10 +281,9 @@ function TeamPageContent() {
                 </div>
 
                 {/* Hover Details Overlay */}
-                <div className={`absolute inset-0 p-5 flex flex-col justify-center items-center text-white opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 rounded-2xl select-none pointer-events-none ${
-                  tabParam === "team-members" ? "bg-primary-pink/95" :
+                <div className={`absolute inset-0 p-5 flex flex-col justify-center items-center text-white opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 rounded-2xl select-none pointer-events-none ${tabParam === "team-members" ? "bg-primary-pink/95" :
                   tabParam === "us-board" ? "bg-accent-purple/95" : "bg-secondary-blue/95"
-                }`}>
+                  }`}>
                   <h4 className="text-[14px] font-bold text-center mb-0.5 line-clamp-1">
                     {member.name}
                   </h4>

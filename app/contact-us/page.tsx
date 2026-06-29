@@ -45,9 +45,9 @@ export default function ContactUs() {
   ];
 
   const emailGrid = [
-    { label: "General Inquiries", email: "answers@possiblehealth.org" },
-    { label: "Donations & Support", email: "donation@possiblehealth.org", desc: "For donations, wire instructions, tax receipts, and sponsorships." },
-    { label: "Research & Innovation", email: "research@possiblehealth.org", desc: "For clinical datasets, research partnerships, and research-related enquiries." },
+    { label: "General Inquiries", email: "answers@possiblehealth.org", desc: "" },
+    { label: "Donations & Support", email: "donation@possiblehealth.org", desc: "" },
+    { label: "Research & Innovation", email: "research@possiblehealth.org", desc: "" },
   ];
 
   const closeFormModal = () => {
@@ -147,7 +147,9 @@ export default function ContactUs() {
           {emailGrid.map((item, idx) => (
             <div key={idx} className="p-5 border border-zinc-100 bg-zinc-50/50 rounded-xl space-y-2">
               <h4 className="text-[14px] font-semibold text-zinc-950">{item.label}</h4>
-              <p className="text-[13px] text-body-gray font-light leading-relaxed min-h-[50px]">{item.desc}</p>
+              {item.desc ? (
+                <p className="text-[13px] text-body-gray font-light leading-relaxed min-h-[50px]">{item.desc}</p>
+              ) : null}
               <a
                 href={`mailto:${item.email}`}
                 className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-secondary-blue hover:text-secondary-blue/80 transition-colors"
