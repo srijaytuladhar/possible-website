@@ -17,7 +17,7 @@ export default function TraineeshipApprenticeshipPage() {
 
       {/* Page Header */}
       <div className="space-y-4">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/10 px-3.5 py-1 text-[13px] font-medium text-secondary-blue uppercase tracking-wider">
+        <span hidden className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/10 px-3.5 py-1 text-[13px] font-medium text-secondary-blue uppercase tracking-wider">
           Professional Training
         </span>
         <h1 className="h1-hero text-zinc-950 uppercase tracking-wide">
