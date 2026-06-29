@@ -2,13 +2,14 @@
 
 import { Layers, ChevronRight, Briefcase } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function WorkWithUsPage() {
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
       {/* Page Header */}
       <div className="mb-12 text-center max-w-3xl mx-auto">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/10 px-3.5 py-1 text-[13px] font-medium text-secondary-blue mb-4 uppercase tracking-wider">
+        <span hidden className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/10 px-3.5 py-1 text-[13px] font-medium text-secondary-blue mb-4 uppercase tracking-wider">
           Careers
         </span>
         <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
@@ -21,32 +22,44 @@ export default function WorkWithUsPage() {
 
       <div className="space-y-16 animate-in fade-in duration-300">
         {/* Available Openings (Prioritized at Top) */}
-        <div className="p-8 bg-zinc-50 border border-zinc-200/80 rounded-2xl space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary-pink/10 text-primary-pink rounded-lg">
+        <div className="p-8 bg-zinc-50 border border-zinc-200/80 rounded-2xl space-y-6 text-center">
+          <div className="flex flex-col items-center gap-3">
+            <div className="p-2.5 bg-primary-pink/10 text-primary-pink rounded-xl w-fit">
               <Briefcase className="h-5 w-5" />
             </div>
             <h2 className="text-xl font-semibold text-zinc-900">Vacancy / Available Openings</h2>
           </div>
-          <p className="text-[14px] text-body-gray font-light max-w-2xl">
+          <p className="text-[14px] text-body-gray font-light max-w-2xl mx-auto">
             We are always looking for passionate people to join our mission. Explore our open roles and specialized traineeship/apprenticeship pathways below:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto w-full">
             <button
               onClick={() => alert("There are currently no active job postings. Please check back later or subscribe to our newsletter.")}
-              className="flex items-center justify-between px-5 py-4 bg-white border border-zinc-200 hover:border-primary-pink rounded-xl text-[14.5px] text-zinc-800 font-medium hover:text-primary-pink transition-all duration-300 text-left group cursor-pointer shadow-sm"
+              className="flex items-center justify-center gap-2 px-5 py-4 bg-white border border-zinc-200 hover:border-primary-pink rounded-xl text-[14.5px] text-zinc-800 font-medium hover:text-primary-pink transition-all duration-300 text-center group cursor-pointer shadow-sm"
             >
               <span>View Open Job Postings</span>
               <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-primary-pink transition-transform group-hover:translate-x-1" />
             </button>
             <Link
               href="/get-involved/work-with-us/traineeship-apprenticeship"
-              className="flex items-center justify-between px-5 py-4 bg-white border border-zinc-200 hover:border-secondary-blue rounded-xl text-[14.5px] text-zinc-800 font-medium hover:text-secondary-blue transition-all duration-300 text-left group shadow-sm"
+              className="flex items-center justify-center gap-2 px-5 py-4 bg-white border border-zinc-200 hover:border-secondary-blue rounded-xl text-[14.5px] text-zinc-800 font-medium hover:text-secondary-blue transition-all duration-300 text-center group shadow-sm"
             >
               <span>Traineeship & Apprenticeship</span>
               <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-secondary-blue transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
+        </div>
+
+        {/* Team Banner Image */}
+        <div className="w-full flex justify-center my-2">
+          <Image
+            src="/Possible-Team.jpg"
+            alt="Possible Team"
+            width={1200}
+            height={800}
+            className="w-full h-auto rounded-3xl shadow-md border border-zinc-200/50"
+            priority
+          />
         </div>
 
         {/* Quote Block */}
@@ -66,7 +79,7 @@ export default function WorkWithUsPage() {
             </h3>
             <div className="h-0.5 w-16 bg-primary-pink mx-auto mt-3 rounded-full"></div>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
               "Champion Rigorous and Respectful Results",
@@ -74,8 +87,8 @@ export default function WorkWithUsPage() {
               "Foster Holistic Mentorship",
               "Accelerate Learning Curve"
             ].map((title, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="flex items-center justify-center p-6 bg-gradient-to-br from-[#FF5E97] via-primary-pink to-[#B91257] text-white rounded-2xl h-[130px] text-center shadow-lg shadow-primary-pink/15 hover:shadow-xl hover:shadow-primary-pink/25 hover:-translate-y-1 transition-all duration-300 cursor-default"
               >
                 <span className="text-[15px] sm:text-[16px] font-semibold leading-snug">
