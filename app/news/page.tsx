@@ -91,6 +91,7 @@ export default function NewsPage() {
     }
   ];
 
+  // const categories = ["All", "Field Updates", "Announcements", "Research"];
   const categories = ["All", "Field Updates", "Announcements", "Research"];
 
   const filteredArticles = activeCategory === "All"
@@ -113,7 +114,7 @@ export default function NewsPage() {
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             Back to Home
           </Link>
-          
+
           <div className="max-w-3xl space-y-4">
             <h1 className="h1-hero text-zinc-950 uppercase tracking-wide leading-tight">
               News
@@ -128,16 +129,15 @@ export default function NewsPage() {
       {/* Category Tabs & Grid */}
       <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex-1">
         {/* Category Filters */}
-        <div className="flex flex-wrap gap-2.5 mb-10 pb-4 border-b border-zinc-100">
+        <div className="flex flex-wrap gap-2.5 mb-10 pb-4 border-b border-zinc-100" hidden>
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-[13.5px] font-medium transition-all cursor-pointer border ${
-                activeCategory === cat
-                  ? "bg-zinc-950 text-white border-zinc-950 shadow-sm"
-                  : "bg-white text-body-gray border-zinc-200 hover:border-zinc-300 hover:text-zinc-950"
-              }`}
+              className={`px-5 py-2.5 rounded-full text-[13.5px] font-medium transition-all cursor-pointer border ${activeCategory === cat
+                ? "bg-zinc-950 text-white border-zinc-950 shadow-sm"
+                : "bg-white text-body-gray border-zinc-200 hover:border-zinc-300 hover:text-zinc-950"
+                }`}
             >
               {cat}
             </button>
@@ -176,15 +176,15 @@ export default function NewsPage() {
                       {article.readTime}
                     </span>
                   </div>
-                  
+
                   <h3 className="text-[17px] sm:text-[19px] font-bold text-zinc-900 leading-snug group-hover:text-primary-pink transition-colors mb-3">
                     {article.title}
                   </h3>
-                  
+
                   <p className="text-[13.5px] text-body-gray leading-relaxed font-light mb-6">
                     {article.desc}
                   </p>
-                  
+
                   <div className="mt-auto pt-4 border-t border-zinc-100 flex justify-between items-center text-xs font-semibold text-secondary-blue group-hover:underline">
                     <span>Read Article</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -242,13 +242,13 @@ export default function NewsPage() {
       {selectedArticle && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           {/* Clickable Backdrop overlay */}
-          <div 
+          <div
             className="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-200"
             onClick={() => setSelectedArticle(null)}
           />
-          
+
           <div className="bg-white rounded-3xl w-full max-w-3xl max-h-[90vh] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 relative border border-zinc-100 flex flex-col z-10">
-            
+
             {/* Modal Image Header */}
             <div className="relative h-64 sm:h-80 w-full bg-zinc-100 shrink-0">
               <Image
@@ -265,7 +265,7 @@ export default function NewsPage() {
               >
                 <X className="h-5 w-5" />
               </button>
-              
+
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
                 <h2 className="text-xl sm:text-3xl font-extrabold leading-tight">{selectedArticle.title}</h2>
               </div>
@@ -300,7 +300,7 @@ export default function NewsPage() {
                     aria-label="Share on Facebook"
                   >
                     <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                      <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
                     </svg>
                   </button>
                   <button
@@ -309,7 +309,7 @@ export default function NewsPage() {
                     aria-label="Share on X"
                   >
                     <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                   </button>
                   <button
@@ -318,7 +318,7 @@ export default function NewsPage() {
                     aria-label="Share on LinkedIn"
                   >
                     <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                     </svg>
                   </button>
                   <button
@@ -327,7 +327,7 @@ export default function NewsPage() {
                     aria-label="Share on YouTube"
                   >
                     <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                     </svg>
                   </button>
                 </div>

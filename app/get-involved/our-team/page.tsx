@@ -2,7 +2,6 @@
 
 import { useState, useEffect, Suspense, useRef } from "react";
 import Image from "next/image";
-import { Users, X } from "lucide-react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 const nepalBoardMembers = [
@@ -98,10 +97,9 @@ const usBoardMembers = [
 function TeamPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const tabParam = searchParams.get("tab") || "team-members";
+  const tabParam = searchParams.get("tab") || "nepal-board";
 
   const [teamMembers, setTeamMembers] = useState<any[]>([]);
-  const [selectedMember, setSelectedMember] = useState<any | null>(null);
   const [imageFallbacks, setImageFallbacks] = useState<Record<string, string>>({});
   const isFirstMount = useRef(true);
 
@@ -152,21 +150,19 @@ function TeamPageContent() {
   const activeMembers = getActiveMembers();
 
   const tabs = [
-    { key: "team-members", label: "Team Members" },
+    { key: "nepal-board", label: "Shambhav (Possible) Board - Nepal" },
     { key: "us-board", label: "Possible Board - US" },
-    { key: "nepal-board", label: "Shambhav (Possible) Board - Nepal" }
+    { key: "team-members", label: "Team Members" }
   ];
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
       {/* Page Header */}
       <div className="mb-8 text-center max-w-3xl mx-auto">
-        {/* <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/10 px-3.5 py-1 text-[13px] font-medium text-primary-pink mb-4 uppercase tracking-wider">
-          Our Team
-        </span> */}
-        <h1 className={`h1-hero mb-3 uppercase tracking-wide transition-colors duration-300 ${tabParam === "team-members" ? "text-primary-pink" :
+        <h1 className={`h1-hero mb-3 uppercase tracking-wide transition-colors duration-300 ${
+          tabParam === "team-members" ? "text-primary-pink" :
           tabParam === "us-board" ? "text-accent-purple" : "text-secondary-blue"
-          }`}>
+        }`}>
           {tabParam === "team-members" ? "Team Members" :
             tabParam === "us-board" ? "Possible Board - US" : "Sambhav (Possible) Board - Nepal"}
         </h1>
@@ -175,12 +171,9 @@ function TeamPageContent() {
         </p>
       </div>
 
-      {/* Who We Are Intro (Visible on all tabs, above chips) */}
+      {/* Who We Are Intro */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-zinc-50 p-8 sm:p-10 rounded-3xl border border-zinc-100 mb-12">
         <div className="lg:col-span-7 space-y-6">
-          {/* <span className="inline-flex items-center gap-1 bg-primary-pink/10 px-3 py-1 rounded-full text-xs font-semibold text-primary-pink uppercase tracking-wider">
-            Who We Are
-          </span> */}
           <p className="text-subheading text-zinc-900 leading-relaxed font-light">
             We are researchers and doers—health workers, clinicians, engineers, and advocates. Rooted in Nepal, we build and test innovations to strengthen healthcare delivery where it is needed most.
           </p>
@@ -210,42 +203,51 @@ function TeamPageContent() {
         </div>
       </div>
 
-      {/* Tabs Banner */}
-      <div id="team-tabs" className="w-full max-w-5xl mx-auto flex flex-col sm:flex-row overflow-hidden shadow-sm mb-16 rounded-lg border border-zinc-150 scroll-mt-24">
+      {/* Tabs Banner (No overflow-hidden so the indicator arrow shows, and custom highlights to easily distinguish active/inactive tabs) */}
+      <div id="team-tabs" className="w-full max-w-5xl mx-auto flex flex-col sm:flex-row shadow-sm mb-16 rounded-lg border border-zinc-200 scroll-mt-24 bg-white relative">
         <button
-          onClick={() => router.push("/get-involved/our-team?tab=team-members", { scroll: false })}
-          className={`flex-1 py-5 text-center text-white uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer bg-primary-pink ${tabParam === "team-members" ? "opacity-100" : "opacity-75 hover:opacity-90"
-            }`}
+          onClick={() => router.push("/get-involved/our-team?tab=nepal-board", { scroll: false })}
+          className={`flex-1 py-5 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-t-lg sm:rounded-tr-none sm:rounded-l-lg ${
+            tabParam === "nepal-board"
+              ? "bg-secondary-blue text-white shadow-inner"
+              : "bg-white text-secondary-blue border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50/80"
+          }`}
         >
-          Team Members
-          {tabParam === "team-members" && (
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-primary-pink z-10" />
+          Sambhav (Possible) Board - Nepal
+          {tabParam === "nepal-board" && (
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-secondary-blue z-10 animate-in fade-in duration-200" />
           )}
         </button>
         <button
           onClick={() => router.push("/get-involved/our-team?tab=us-board", { scroll: false })}
-          className={`flex-1 py-5 text-center text-white uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer bg-accent-purple ${tabParam === "us-board" ? "opacity-100" : "opacity-75 hover:opacity-90"
-            }`}
+          className={`flex-1 py-5 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer ${
+            tabParam === "us-board"
+              ? "bg-accent-purple text-white shadow-inner"
+              : "bg-white text-accent-purple border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50/80"
+          }`}
         >
           Possible Board - US
           {tabParam === "us-board" && (
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-accent-purple z-10" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-accent-purple z-10 animate-in fade-in duration-200" />
           )}
         </button>
         <button
-          onClick={() => router.push("/get-involved/our-team?tab=nepal-board", { scroll: false })}
-          className={`flex-1 py-5 text-center text-white uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer bg-secondary-blue ${tabParam === "nepal-board" ? "opacity-100" : "opacity-75 hover:opacity-90"
-            }`}
+          onClick={() => router.push("/get-involved/our-team?tab=team-members", { scroll: false })}
+          className={`flex-1 py-5 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-b-lg sm:rounded-bl-none sm:rounded-r-lg ${
+            tabParam === "team-members"
+              ? "bg-primary-pink text-white shadow-inner"
+              : "bg-white text-primary-pink hover:bg-zinc-50/80"
+          }`}
         >
-          Sambhav (Possible) Board - Nepal
-          {tabParam === "nepal-board" && (
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-secondary-blue z-10" />
+          Team Members
+          {tabParam === "team-members" && (
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-primary-pink z-10 animate-in fade-in duration-200" />
           )}
         </button>
       </div>
 
       <div className="space-y-16 animate-in fade-in duration-300">
-        {/* Team Roster Grid */}
+        {/* Team Roster Grid (3 columns per row for consistency) */}
         <div className="space-y-8">
           <div className="text-center">
             <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">
@@ -253,7 +255,7 @@ function TeamPageContent() {
             </h2>
             <div className="h-0.5 w-16 bg-primary-pink mx-auto mt-3 rounded-full"></div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {activeMembers.map((member) => (
               <div
                 key={member.id}
