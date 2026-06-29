@@ -7,6 +7,7 @@ export default function ContactUs() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [hoveredOffice, setHoveredOffice] = useState<number | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,25 +21,31 @@ export default function ContactUs() {
     {
       country: "Nepal Office",
       entity: "Sambhav (Possible), Nepal",
-      address: "Bhim Plaza, 1st Floor, Bhupi Sadak, Naxal 44600, Kathmandu, Nepal",
+      address: "Ward No 1, Bhim Plaza, Bhupi Sadak, Narayanchour, Naxal, Kathmandu, NPL",
       phone: "9822999300",
       phoneRaw: "+9779822999300",
       icon: MapPin,
       badgeColor: "bg-primary-pink/10 text-primary-pink",
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.186638069502!2d85.3283281762557!3d27.711545625026938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190bb4663df7%3A0xe510b64d1f2e247!2sBhim%20Plaza!5e0!3m2!1sen!2snp!4v1719638421832!5m2!1sen!2snp",
+      mapsLink: "https://maps.google.com/?q=Bhim+Plaza+Naxal+Kathmandu+Nepal",
+      hours: "Mon–Fri, 9:00 AM – 5:00 PM (except public holidays)"
     },
     {
       country: "U.S. Office",
       entity: "Possible US",
-      address: "99 Wall Street #4100, New York, NY 10005",
+      address: "99 Wall Street #4100,New York \n NY 10005",
       phone: "None (Email preferred)",
       phoneRaw: "",
       icon: Building,
       badgeColor: "bg-secondary-blue/10 text-secondary-blue",
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.4750953930815!2d-74.01111972343864!3d40.70642923789456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a16fa8a75e3%3A0x6b8bc6d3d9e875bd!2s99%20Wall%20St%20%234100%2C%20New%20York%2C%20NY%2010005!5e0!3m2!1sen!2sus!4v1719638487213!5m2!1sen!2sus",
+      mapsLink: "https://maps.google.com/?q=99+Wall+Street+New+York+NY+10005",
+      hours: ""
     },
   ];
 
   const emailGrid = [
-    { label: "General Inquiries", email: "answers@possiblehealth.org", desc: "For general inquiries, partnership questions, and collaborations." },
+    { label: "General Inquiries", email: "answers@possiblehealth.org" },
     { label: "Donations & Support", email: "donation@possiblehealth.org", desc: "For donations, wire instructions, tax receipts, and sponsorships." },
     { label: "Research & Innovation", email: "research@possiblehealth.org", desc: "For clinical datasets, research partnerships, and research-related enquiries." },
   ];
@@ -50,7 +57,7 @@ export default function ContactUs() {
 
   return (
     <div className="mx-auto max-w-4xl w-full px-6 sm:px-8 py-16 flex flex-col flex-1 space-y-16 animate-in fade-in duration-300">
-      
+
       {/* 1. Location Section */}
       <section className="space-y-6">
         <div className="flex items-center gap-3 border-b border-zinc-100 pb-3">
@@ -63,32 +70,65 @@ export default function ContactUs() {
             return (
               <div
                 key={idx}
-                className="p-6 bg-zinc-50 border border-zinc-100 rounded-2xl hover:border-zinc-200 transition-all duration-300"
+                onMouseEnter={() => setHoveredOffice(idx)}
+                onMouseLeave={() => setHoveredOffice(null)}
+                className="p-6 bg-zinc-50 border border-zinc-100 rounded-2xl hover:border-zinc-200 transition-all duration-300 flex flex-col justify-between min-h-[260px] shadow-sm hover:shadow-md relative overflow-hidden"
               >
-                <div className={`p-2.5 rounded-xl w-fit mb-4 ${office.badgeColor}`}>
-                  <Icon className="h-5 w-5" />
-                </div>
-                <span className="text-[12px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">
-                  {office.country}
-                </span>
-                <h3 className="text-[18px] font-semibold text-zinc-900 mb-3">
-                  {office.entity}
-                </h3>
-                <p className="text-[14px] text-body-gray leading-relaxed font-light mb-4 min-h-[50px]">
-                  {office.address}
-                </p>
-                {office.phoneRaw ? (
-                  <a
-                    href={`tel:${office.phoneRaw}`}
-                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors"
-                  >
-                    <Phone className="h-4 w-4" />
-                    <span>{office.phone}</span>
-                  </a>
+                {hoveredOffice === idx ? (
+                  /* Full-card Google Map Preview on hover */
+                  <div className="absolute inset-0 w-full h-full bg-zinc-100 animate-in fade-in duration-300">
+                    <iframe
+                      src={office.mapUrl}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen={false}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
                 ) : (
-                  <div className="inline-flex items-center gap-1.5 text-[14px] text-zinc-400">
-                    <Phone className="h-4 w-4 text-zinc-300" />
-                    <span>{office.phone}</span>
+                  /* Info view when not hovered */
+                  <div className="flex flex-col justify-between h-full w-full animate-in fade-in duration-200">
+                    <div>
+                      <div className={`p-2.5 rounded-xl w-fit mb-4 ${office.badgeColor}`}>
+                        <Icon className="h-5 w-5" />
+                      </div>
+
+                      <span className="text-[12px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">
+                        {office.country}
+                      </span>
+                      <h3 className="text-[18px] font-semibold text-zinc-900 mb-3">
+                        {office.entity}
+                      </h3>
+                      <p className="text-[14px] text-body-gray leading-relaxed font-light mb-4 whitespace-pre-line">
+                        {office.address}
+                      </p>
+                    </div>
+
+                    <div>
+                      {office.phoneRaw ? (
+                        <div className="space-y-1">
+                          <a
+                            href={`tel:${office.phoneRaw}`}
+                            className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors"
+                          >
+                            <Phone className="h-4 w-4" />
+                            <span>{office.phone}</span>
+                          </a>
+                          {office.hours && (
+                            <span className="block text-[11.5px] text-zinc-400 font-light italic mt-0.5">
+                              ({office.hours})
+                            </span>
+                          )}
+                        </div>
+                      ) : (
+                        <div className="inline-flex items-center gap-1.5 text-[14px] text-zinc-400">
+                          <Phone className="h-4 w-4 text-zinc-300" />
+                          <span>{office.phone}</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )}
               </div>
@@ -136,13 +176,13 @@ export default function ContactUs() {
       {isFormOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           {/* Clickable Backdrop overlay */}
-          <div 
+          <div
             className="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-200"
             onClick={closeFormModal}
           />
 
           <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 relative border border-zinc-100 flex flex-col z-10">
-            
+
             {/* Modal Header */}
             <div className="flex items-center justify-between px-6 py-4.5 border-b border-zinc-100 bg-zinc-50/80 backdrop-blur-sm">
               <h3 className="text-[17px] font-semibold text-zinc-900 uppercase tracking-wider">
