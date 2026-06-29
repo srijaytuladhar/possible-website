@@ -69,7 +69,7 @@ export default function FinancialsPage() {
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 4;
   const totalPages = Math.ceil(olderReports.length / itemsPerPage);
   const paginatedOlderReports = olderReports.slice(
     (currentPage - 1) * itemsPerPage,
@@ -81,7 +81,7 @@ export default function FinancialsPage() {
       {/* Page Header */}
       <div className="mb-8 text-center max-w-3xl mx-auto">
         <h1 className="h1-hero text-primary-pink mb-3 uppercase tracking-wide">
-          Financial Reports & Policies
+          Financial Disclosure & Reports
         </h1>
         <p className="text-subheading text-body-gray font-light">
           Access our audited financial statements, tax filings, conflict of interest disclosures, and governance policies.
@@ -95,11 +95,10 @@ export default function FinancialsPage() {
             setActiveTab("disclosures");
             setCurrentPage(1);
           }}
-          className={`px-6 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer ${
-            activeTab === "disclosures"
-              ? "bg-primary-pink text-white shadow-md shadow-primary-pink/20"
-              : "bg-white border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
-          }`}
+          className={`px-6 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer ${activeTab === "disclosures"
+            ? "bg-primary-pink text-white shadow-md shadow-primary-pink/20"
+            : "bg-white border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
+            }`}
         >
           Finance Disclosure
         </button>
@@ -108,11 +107,10 @@ export default function FinancialsPage() {
             setActiveTab("reports");
             setCurrentPage(1);
           }}
-          className={`px-6 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer ${
-            activeTab === "reports"
-              ? "bg-primary-pink text-white shadow-md shadow-primary-pink/20"
-              : "bg-white border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
-          }`}
+          className={`px-6 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer ${activeTab === "reports"
+            ? "bg-primary-pink text-white shadow-md shadow-primary-pink/20"
+            : "bg-white border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
+            }`}
         >
           Financial Reports
         </button>
@@ -237,11 +235,10 @@ export default function FinancialsPage() {
                   <button
                     key={page}
                     onClick={() => setCurrentPage(page)}
-                    className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-                      currentPage === page
-                        ? "bg-zinc-950 text-white"
-                        : "bg-white border border-zinc-200 hover:bg-zinc-50 text-zinc-600"
-                    }`}
+                    className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${currentPage === page
+                      ? "bg-zinc-950 text-white"
+                      : "bg-white border border-zinc-200 hover:bg-zinc-50 text-zinc-600"
+                      }`}
                   >
                     {page}
                   </button>
