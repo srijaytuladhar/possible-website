@@ -89,30 +89,38 @@ export default function FinancialsPage() {
       </div>
 
       {/* Tab Switcher Buttons */}
-      <div className="flex justify-center gap-4 mb-10">
+      <div className="w-full max-w-2xl mx-auto flex flex-col sm:flex-row shadow-sm mb-12 rounded-lg border border-zinc-200 bg-white relative">
         <button
           onClick={() => {
             setActiveTab("disclosures");
             setCurrentPage(1);
           }}
-          className={`px-6 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer ${activeTab === "disclosures"
-            ? "bg-primary-pink text-white shadow-md shadow-primary-pink/20"
-            : "bg-white border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
-            }`}
+          className={`flex-1 py-4 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-t-lg sm:rounded-tr-none sm:rounded-l-lg ${
+            activeTab === "disclosures"
+              ? "bg-primary-pink text-white shadow-inner"
+              : "bg-white text-primary-pink border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50/80"
+          }`}
         >
           Finance Disclosure
+          {activeTab === "disclosures" && (
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-primary-pink z-10 animate-in fade-in duration-200" />
+          )}
         </button>
         <button
           onClick={() => {
             setActiveTab("reports");
             setCurrentPage(1);
           }}
-          className={`px-6 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer ${activeTab === "reports"
-            ? "bg-primary-pink text-white shadow-md shadow-primary-pink/20"
-            : "bg-white border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
-            }`}
+          className={`flex-1 py-4 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-b-lg sm:rounded-bl-none sm:rounded-r-lg ${
+            activeTab === "reports"
+              ? "bg-primary-pink text-white shadow-inner"
+              : "bg-white text-primary-pink hover:bg-zinc-50/80"
+          }`}
         >
           Financial Reports
+          {activeTab === "reports" && (
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-primary-pink z-10 animate-in fade-in duration-200" />
+          )}
         </button>
       </div>
 
@@ -122,7 +130,7 @@ export default function FinancialsPage() {
           <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">
             Latest {activeTab === "reports" ? "Financial Reports" : "Disclosures"}
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {latestReports.map((item, idx) => (
               <div
                 key={idx}

@@ -59,7 +59,7 @@ export default function ResearchPapersPage() {
         {/* Latest Papers: Card Layout */}
         <div className="space-y-6">
           <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">Latest Research Papers</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {latestPapers.map((item, idx) => (
               <div
                 key={idx}
