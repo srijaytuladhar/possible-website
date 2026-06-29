@@ -33,13 +33,13 @@ export default function WorkWithUsPage() {
             We are always looking for passionate people to join our mission. Explore our open roles and specialized traineeship/apprenticeship pathways below:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto w-full">
-            <button
-              onClick={() => alert("There are currently no active job postings. Please check back later or subscribe to our newsletter.")}
-              className="flex items-center justify-center gap-2 px-5 py-4 bg-white border border-zinc-200 hover:border-primary-pink rounded-xl text-[14.5px] text-zinc-800 font-medium hover:text-primary-pink transition-all duration-300 text-center group cursor-pointer shadow-sm"
+            <Link
+              href="/get-involved/work-with-us/job-postings"
+              className="flex items-center justify-center gap-2 px-5 py-4 bg-white border border-zinc-200 hover:border-primary-pink rounded-xl text-[14.5px] text-zinc-800 font-medium hover:text-primary-pink transition-all duration-300 text-center group shadow-sm"
             >
               <span>View Open Job Postings</span>
               <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-primary-pink transition-transform group-hover:translate-x-1" />
-            </button>
+            </Link>
             <Link
               href="/get-involved/work-with-us/traineeship-apprenticeship"
               className="flex items-center justify-center gap-2 px-5 py-4 bg-white border border-zinc-200 hover:border-secondary-blue rounded-xl text-[14.5px] text-zinc-800 font-medium hover:text-secondary-blue transition-all duration-300 text-center group shadow-sm"
