@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Info, MapPin, Sparkles, AlertCircle } from "lucide-react";
+import { ArrowRight, Info, MapPin, Sparkles, AlertCircle, DraftingCompass, Beaker, TrendingUp } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
 import InteractivePresenceMap from "@/components/InteractivePresenceMap";
 
@@ -95,6 +95,101 @@ export default function Home() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3.5 — Three-Card Stage Summary */}
+      <section className="relative py-20 px-6 sm:px-8 bg-white border-b border-zinc-100 overflow-hidden">
+        <div className="absolute top-[10%] left-[-5%] w-[30rem] h-[30rem] rounded-full bg-radial from-primary-pink/5 to-transparent blur-3xl -z-10 pointer-events-none" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[30rem] h-[30rem] rounded-full bg-radial from-secondary-blue/5 to-transparent blur-3xl -z-10 pointer-events-none" />
+        
+        <div className="mx-auto max-w-7xl">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/10 px-3.5 py-1 text-[13px] font-semibold text-primary-pink mb-4 uppercase tracking-wider">
+              Our Methodology
+            </span>
+            <h2 className="h2-section text-zinc-950 font-extralight uppercase leading-tight tracking-wide">
+              The Three Stages of <br />
+              <span className="font-semibold text-primary-pink">Sustainable Health Innovation</span>
+            </h2>
+            <div className="h-1.5 w-20 bg-gradient-to-r from-primary-pink to-secondary-blue rounded-full mx-auto mt-4" />
+          </div>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1: Innovate */}
+            <Link
+              href="/solutions/innovate"
+              className="group p-8 bg-zinc-50 hover:bg-white border border-zinc-100 hover:border-primary-pink/30 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1.5 flex flex-col justify-between min-h-[320px] relative overflow-hidden"
+            >
+              <div className="space-y-6 relative z-10">
+                <div className="p-4 bg-primary-pink/10 text-primary-pink rounded-2xl w-fit group-hover:scale-110 transition-transform duration-300">
+                  <DraftingCompass className="h-6 w-6" />
+                </div>
+                <div className="space-y-3">
+                  <h3 className="h3-card font-bold text-zinc-900 uppercase group-hover:text-primary-pink transition-colors">
+                    1. Innovate
+                  </h3>
+                  <p className="text-[14.5px] text-body-gray leading-relaxed font-light">
+                    Co-designing customized healthcare interventions directly with local community groups, patients, and administrators to develop protocols.
+                  </p>
+                </div>
+              </div>
+              <div className="pt-6 border-t border-zinc-150 group-hover:border-primary-pink/20 flex items-center gap-2 text-primary-pink font-semibold text-[13.5px] uppercase tracking-wider relative z-10">
+                <span>Explore Innovation</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </Link>
+
+            {/* Card 2: Test */}
+            <Link
+              href="/solutions/test"
+              className="group p-8 bg-zinc-50 hover:bg-white border border-zinc-100 hover:border-secondary-blue/30 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1.5 flex flex-col justify-between min-h-[320px] relative overflow-hidden"
+            >
+              <div className="space-y-6 relative z-10">
+                <div className="p-4 bg-secondary-blue/10 text-secondary-blue rounded-2xl w-fit group-hover:scale-110 transition-transform duration-300">
+                  <Beaker className="h-6 w-6" />
+                </div>
+                <div className="space-y-3">
+                  <h3 className="h3-card font-bold text-zinc-900 uppercase group-hover:text-secondary-blue transition-colors">
+                    2. Test
+                  </h3>
+                  <p className="text-[14.5px] text-body-gray leading-relaxed font-light">
+                    Evaluating clinical models, tools, and platforms through rigorous scientific trials to prove efficacy, feasibility, and acceptability.
+                  </p>
+                </div>
+              </div>
+              <div className="pt-6 border-t border-zinc-150 group-hover:border-secondary-blue/20 flex items-center gap-2 text-secondary-blue font-semibold text-[13.5px] uppercase tracking-wider relative z-10">
+                <span>Explore Research & Trials</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </Link>
+
+            {/* Card 3: Scale */}
+            <Link
+              href="/solutions/scale"
+              className="group p-8 bg-zinc-50 hover:bg-white border border-zinc-100 hover:border-accent-purple/30 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1.5 flex flex-col justify-between min-h-[320px] relative overflow-hidden"
+            >
+              <div className="space-y-6 relative z-10">
+                <div className="p-4 bg-accent-purple/10 text-accent-purple rounded-2xl w-fit group-hover:scale-110 transition-transform duration-300">
+                  <TrendingUp className="h-6 w-6" />
+                </div>
+                <div className="space-y-3">
+                  <h3 className="h3-card font-bold text-zinc-900 uppercase group-hover:text-accent-purple transition-colors">
+                    3. Scale
+                  </h3>
+                  <p className="text-[14.5px] text-body-gray leading-relaxed font-light">
+                    Transitioning validated clinical and data workflows directly into government networks and municipal healthcare infrastructures for sustainability.
+                  </p>
+                </div>
+              </div>
+              <div className="pt-6 border-t border-zinc-150 group-hover:border-accent-purple/20 flex items-center gap-2 text-accent-purple font-semibold text-[13.5px] uppercase tracking-wider relative z-10">
+                <span>Explore Scale-Up</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </Link>
           </div>
         </div>
       </section>

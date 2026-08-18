@@ -56,13 +56,19 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl w-full px-6 sm:px-8 py-16 flex flex-col flex-1 space-y-16 animate-in fade-in duration-300">
+    <div className="mx-auto max-w-4xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1 space-y-16 animate-in fade-in duration-300 bg-white">
+      {/* Top Left Navigation Back & Pill */}
+      <div className="flex items-center gap-3 pb-6 border-b border-zinc-150">
+        <span className="inline-flex items-center rounded-full bg-primary-pink/10 text-primary-pink px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-wider shadow-sm">
+          Contact us
+        </span>
+      </div>
 
       {/* 1. Location Section */}
       <section className="space-y-6">
         <div className="flex items-center gap-3 border-b border-zinc-100 pb-3">
           <MapPin className="h-5 w-5 text-primary-pink" />
-          <h2 className="text-xl font-semibold text-zinc-950 uppercase tracking-wider">Locations</h2>
+          <h2 className="text-xl font-semibold text-zinc-950 uppercase tracking-wider">LOCATIONS</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {offices.map((office, idx) => {
@@ -141,7 +147,7 @@ export default function ContactUs() {
       <section className="space-y-6">
         <div className="flex items-center gap-3 border-b border-zinc-100 pb-3">
           <Mail className="h-5 w-5 text-secondary-blue" />
-          <h2 className="text-xl font-semibold text-zinc-950 uppercase tracking-wider">Email Enquiries</h2>
+          <h2 className="text-xl font-semibold text-zinc-950 uppercase tracking-wider">EMAIL ENQUIRIES</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {emailGrid.map((item, idx) => (

@@ -32,30 +32,34 @@ export default function Header() {
 
   const navItems: NavItem[] = [
     { name: "Home", href: "/" },
-    { name: "Solutions", href: "/solutions" },
     {
-      name: "Publications",
-      href: "/publications/impact-reports",
+      name: "Solutions",
+      href: "/solutions/innovate",
       submenu: [
-        { name: "Impact Reports", href: "/publications/impact-reports", tabKey: "impact-reports" },
-        { name: "Research Papers", href: "/publications/research-papers", tabKey: "research-papers" },
-        { name: "Research Briefs", href: "/publications/research-briefs", tabKey: "research-briefs" },
-        { name: "Financials", href: "/publications/financials", tabKey: "financials" },
+        { name: "Innovate", href: "/solutions/innovate", tabKey: "innovate" },
+        { name: "Test", href: "/solutions/test", tabKey: "test" },
+        { name: "Scale", href: "/solutions/scale", tabKey: "scale" },
+        { name: "Pipeline", href: "/solutions/pipeline", tabKey: "pipeline" },
       ],
     },
     {
-      name: "Get Involved",
+      name: "Team",
       href: "/get-involved/our-team",
       submenu: [
-        { name: "Team Members", href: "/get-involved/our-team", tabKey: "team-members" },
-        // { name: "Possible Board - US", href: "/get-involved/our-team?tab=us-board", tabKey: "us-board" },
-        // { name: "Shambhav (Possible) Board - Nepal", href: "/get-involved/our-team?tab=nepal-board", tabKey: "nepal-board" },
+        { name: "Team members", href: "/get-involved/our-team", tabKey: "team-members" },
+        { name: "Collaborators", href: "/get-involved/collaborators-partners", tabKey: "collaborators" },
         { name: "Work with us", href: "/get-involved/work-with-us", tabKey: "work-with-us" },
-        { name: "Collaborators & Partners", href: "/get-involved/collaborators-partners", tabKey: "collaborators-partners" },
       ],
     },
-    { name: "News", href: "/news" },
-    { name: "Contact Us", href: "/contact-us" },
+    {
+      name: "Newsroom",
+      href: "/news",
+      submenu: [
+        { name: "News", href: "/news", tabKey: "news" },
+        { name: "Annual Impact report", href: "/publications/impact-reports", tabKey: "impact-reports" },
+      ],
+    },
+    { name: "Contact", href: "/contact-us" },
   ];
 
   // Helper to determine if menu item is active (highlights in pink)
@@ -116,7 +120,7 @@ export default function Header() {
               {item.submenu && activeDropdown === item.name && (
                 <div
                   className={`absolute left-0 mt-0 w-52 rounded-xl border p-2 shadow-xl ring-1 ring-black/5 transition-all duration-200 animate-in fade-in slide-in-from-top-2 ${
-                    item.name === "Publications" || item.name === "Get Involved"
+                    item.name === "Solutions" || item.name === "Team" || item.name === "Newsroom"
                       ? "bg-primary-pink border-primary-pink text-white"
                       : "bg-white border-gray-100 text-body-gray"
                   }`}
@@ -126,7 +130,7 @@ export default function Header() {
                       key={sub.name}
                       href={sub.href}
                       className={`block rounded-lg px-4 py-2.5 font-equip text-[14px] transition-colors ${
-                        item.name === "Publications" || item.name === "Get Involved"
+                        item.name === "Solutions" || item.name === "Team" || item.name === "Newsroom"
                           ? "text-white/90 hover:bg-white/20 hover:text-white"
                           : "text-body-gray hover:bg-zinc-50 hover:text-primary-pink"
                       }`}

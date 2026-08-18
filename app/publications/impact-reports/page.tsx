@@ -68,6 +68,13 @@ export default function ImpactReportsPage() {
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
+      {/* Top Navigation & Pill Badge */}
+      <div className="flex items-center gap-3 mb-10 pb-6 border-b border-zinc-150">
+        <span className="inline-flex items-center rounded-full bg-primary-pink/10 text-primary-pink px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-wider shadow-sm">
+          Annual Impact Report
+        </span>
+      </div>
+
       {/* Page Header */}
       <div className="mb-12 text-center max-w-3xl mx-auto">
         <h1 className="h1-hero text-primary-pink mb-3 uppercase tracking-wide">
@@ -81,7 +88,7 @@ export default function ImpactReportsPage() {
       <div className="bg-zinc-100/70 p-8 sm:p-10 rounded-3xl border border-zinc-200/50 animate-in fade-in duration-300 space-y-16">
         {/* Latest Reports: Card Layout */}
         <div className="space-y-6">
-          <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">Latest Reports</h2>
+          <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">LATEST REPORTS</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {latestReports.map((item, idx) => (
               <div
@@ -136,7 +143,7 @@ export default function ImpactReportsPage() {
         {/* Older Reports: List Layout */}
         {olderReports.length > 0 && (
           <div className="space-y-6 border-t border-zinc-200/60 pt-10">
-            <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">Previous Reports</h2>
+            <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">PREVIOUS REPORTS</h2>
             <div className="bg-white border border-zinc-200/60 rounded-2xl overflow-hidden shadow-sm">
               <div className="divide-y divide-zinc-100">
                 {paginatedOlderReports.map((item, idx) => (

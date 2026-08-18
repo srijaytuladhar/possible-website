@@ -2,97 +2,9 @@
 
 import { useState, useEffect, Suspense, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
-
-const nepalBoardMembers = [
-  {
-    id: "np-1",
-    name: "Indira Basnett, MD, MPH",
-    role: "Board Chair",
-    image: "https://possiblehealth.org/wp-content/uploads/2021/11/Dr.-Indira.jpg",
-    bio: "Dr. Indira Basnett serves as the Board Chair for Sambhav (Possible) Nepal. She has decades of experience in health systems and medical governance in Nepal."
-  },
-  {
-    id: "np-2",
-    name: "Meeta Sainju Pradhan, PhD",
-    role: "Vice-Chair",
-    image: "https://possiblehealth.org/wp-content/uploads/2021/06/Meeta.jpg",
-    bio: "Dr. Meeta Sainju Pradhan serves as the Vice-Chair. She specializes in social science, developmental policy, and gender/equality research in healthcare access."
-  },
-  {
-    id: "np-3",
-    name: "Sushama Gautam",
-    role: "Board Secretary",
-    image: "https://possiblehealth.org/wp-content/uploads/2021/06/Sushama.jpg",
-    bio: "Sushama Gautam is the Board Secretary. She oversees governance compliance and coordinates organizational development strategies."
-  },
-  {
-    id: "np-4",
-    name: "Rajesh Parajuli, FCA",
-    role: "Board Treasurer",
-    image: "https://possiblehealth.org/wp-content/uploads/2021/06/Rajesh.jpg",
-    bio: "Rajesh Parajuli is a Fellow Chartered Accountant (FCA) and serves as the Board Treasurer, managing financial auditing controls and corporate governance."
-  },
-  {
-    id: "np-5",
-    name: "Prakash Nepali, LLM",
-    role: "Board Member",
-    image: "https://possiblehealth.org/wp-content/uploads/2021/06/Prakash.jpg",
-    bio: "Prakash Nepali holds a Master of Laws (LLM) and serves as a Board Member, advising the organization on legal frameworks, human rights, and compliance."
-  },
-  {
-    id: "np-6",
-    name: "Manish Prasai, MBA",
-    role: "Board Member",
-    image: "https://possiblehealth.org/wp-content/uploads/2021/06/Manish.jpg",
-    bio: "Manish Prasai serves as a Board Member. He brings business management expertise and strategic planning skills to the governance of Sambhav."
-  },
-  {
-    id: "np-7",
-    name: "Dewan Rai",
-    role: "Board Member",
-    image: "https://possiblehealth.org/wp-content/uploads/2022/10/Dewan-e1665413452132.jpg",
-    bio: "Dewan Rai is a Board Member and veteran journalist who advises the organization on media communication and public advocacy."
-  },
-  {
-    id: "np-8",
-    name: "Parbata Acharya",
-    role: "Board Member",
-    image: "https://possiblehealth.org/wp-content/uploads/2024/09/Parwata-Acharya_headshot.jpeg",
-    bio: "Parbata Acharya serves as a Board Member. She supports community engagement protocols and rural healthcare access models."
-  },
-  {
-    id: "np-9",
-    name: "Sita Mademba",
-    role: "Board Member",
-    image: "https://possiblehealth.org/wp-content/uploads/2024/09/Sita-Mademba.jpeg",
-    bio: "Sita Mademba is a Board Member who coordinates community-led monitoring systems and public health advocacy."
-  }
-];
-
-const usBoardMembers = [
-  {
-    id: "us-1",
-    name: "Duncan Maru, MD, PhD",
-    role: "Co-Founder & Board Member",
-    image: "https://possiblehealth.org/wp-content/uploads/2014/02/Duncan-Maru1-1.jpg",
-    bio: "Dr. Duncan Maru co-founded Possible and serves as a Board Member, advising on epidemiological research, clinical quality, and community care scaling."
-  },
-  {
-    id: "us-4",
-    name: "Kim Lipman-White",
-    role: "Board Member",
-    image: "https://possiblehealth.org/wp-content/uploads/2018/10/Kim-Photo-1.png",
-    bio: "Kim Lipman-White serves as a member of the US Board of Directors, providing oversight and guidance on fundraising and organizational strategy."
-  },
-  {
-    id: "us-3",
-    name: "Scott Halliday",
-    role: "Board Member & Advisor",
-    image: "https://possiblehealth.org/wp-content/uploads/2016/12/scott_308x308-1.jpg",
-    bio: "Scott Halliday serves as a board advisor, focusing on system infrastructure, logistics support, and governance compliance."
-  },
-];
+import { nepalBoardMembers, usBoardMembers } from "@/components/teamData";
 
 function TeamPageContent() {
   const router = useRouter();
@@ -253,9 +165,10 @@ function TeamPageContent() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {activeMembers.map((member) => (
-              <div
+              <Link
                 key={member.id}
-                className="group relative flex flex-col items-center p-6 bg-white border border-zinc-100 rounded-2xl shadow-sm hover:shadow-md hover:border-primary-pink/30 transition-all duration-300 overflow-hidden h-[290px]"
+                href={`/get-involved/our-team/${member.id}`}
+                className="group relative flex flex-col items-center p-6 bg-white border border-zinc-100 rounded-2xl shadow-sm hover:shadow-md hover:border-primary-pink/30 transition-all duration-300 overflow-hidden h-[290px] cursor-pointer"
               >
                 {/* Default Card View */}
                 <div className="flex flex-col items-center h-full justify-center transition-all duration-300 group-hover:scale-95">
@@ -281,21 +194,24 @@ function TeamPageContent() {
                 </div>
 
                 {/* Hover Details Overlay */}
-                <div className={`absolute inset-0 p-5 flex flex-col justify-center items-center text-white opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 rounded-2xl select-none pointer-events-none ${tabParam === "team-members" ? "bg-primary-pink/95" :
+                <div className={`absolute inset-0 p-5 flex flex-col justify-center items-center text-white opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 rounded-2xl ${tabParam === "team-members" ? "bg-primary-pink/95" :
                   tabParam === "us-board" ? "bg-accent-purple/95" : "bg-secondary-blue/95"
                   }`}>
                   <h4 className="text-[14px] font-bold text-center mb-0.5 line-clamp-1">
                     {member.name}
                   </h4>
-                  <span className="text-[10px] text-white/80 uppercase tracking-wider font-semibold text-center mb-3 line-clamp-1">
+                  <span className="text-[10px] text-white/80 uppercase tracking-wider font-semibold text-center mb-2 line-clamp-1">
                     {member.role}
                   </span>
-                  <div className="w-8 h-[1px] bg-white/30 mb-3 shrink-0"></div>
-                  <p className="text-[11.5px] leading-relaxed text-center font-light line-clamp-[6] text-white/90">
+                  <div className="w-8 h-[1px] bg-white/30 mb-2 shrink-0"></div>
+                  <p className="text-[11px] leading-relaxed text-center font-light line-clamp-[5] text-white/90 mb-3">
                     {member.bio}
                   </p>
+                  <span className="text-[10px] font-bold uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full text-white transition-all">
+                    View Profile & Share &rarr;
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
