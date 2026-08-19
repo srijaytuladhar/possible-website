@@ -98,7 +98,7 @@ export default function Header() {
                 <button
                   className={`flex items-center gap-1 font-equip font-medium text-[15px] md:text-[16px] py-2 transition-colors cursor-pointer ${isItemActive(item)
                       ? "text-primary-pink"
-                      : "text-body-gray hover:text-primary-pink"
+                      : "text-black hover:text-primary-pink"
                     }`}
                 >
                   {item.name}
@@ -109,7 +109,7 @@ export default function Header() {
                   href={item.href}
                   className={`font-equip font-medium text-[15px] md:text-[16px] py-2 transition-colors ${isItemActive(item)
                       ? "text-primary-pink"
-                      : "text-body-gray hover:text-primary-pink"
+                      : "text-black hover:text-primary-pink"
                     }`}
                 >
                   {item.name}
@@ -122,7 +122,7 @@ export default function Header() {
                   className={`absolute left-0 mt-0 w-52 rounded-xl border p-2 shadow-xl ring-1 ring-black/5 transition-all duration-200 animate-in fade-in slide-in-from-top-2 ${
                     item.name === "Solutions" || item.name === "Team" || item.name === "Newsroom"
                       ? "bg-primary-pink border-primary-pink text-white"
-                      : "bg-white border-gray-100 text-body-gray"
+                      : "bg-white border-gray-100 text-black"
                   }`}
                 >
                   {item.submenu.map((sub) => (
@@ -132,7 +132,7 @@ export default function Header() {
                       className={`block rounded-lg px-4 py-2.5 font-equip text-[14px] transition-colors ${
                         item.name === "Solutions" || item.name === "Team" || item.name === "Newsroom"
                           ? "text-white/90 hover:bg-white/20 hover:text-white"
-                          : "text-body-gray hover:bg-zinc-50 hover:text-primary-pink"
+                          : "text-black hover:bg-zinc-50 hover:text-primary-pink"
                       }`}
                     >
                       {sub.name}
@@ -148,7 +148,7 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-4">
           <button hidden
             onClick={() => window.dispatchEvent(new Event("toggle-accessibility"))}
-            className="inline-flex items-center justify-center h-[42px] w-[42px] rounded-full text-body-gray hover:text-primary-pink hover:bg-zinc-50 transition-colors border border-gray-200 cursor-pointer shrink-0"
+            className="inline-flex items-center justify-center h-[42px] w-[42px] rounded-full text-black hover:text-primary-pink hover:bg-zinc-50 transition-colors border border-gray-200 cursor-pointer shrink-0"
             aria-label="Toggle accessibility options"
           >
             <Eye className="h-5 w-5" />
@@ -166,7 +166,7 @@ export default function Header() {
         <div className="flex md:hidden items-center gap-3">
           <button
             onClick={() => window.dispatchEvent(new Event("toggle-accessibility"))}
-            className="inline-flex items-center justify-center h-[36px] w-[36px] rounded-full text-body-gray hover:text-primary-pink hover:bg-zinc-50 transition-colors border border-gray-200 cursor-pointer shrink-0"
+            className="inline-flex items-center justify-center h-[36px] w-[36px] rounded-full text-black hover:text-primary-pink hover:bg-zinc-50 transition-colors border border-gray-200 cursor-pointer shrink-0"
             aria-label="Toggle accessibility options"
           >
             <Eye className="h-4 w-4" />
@@ -180,7 +180,7 @@ export default function Header() {
           </Link>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="rounded-lg p-2 h-[36px] w-[36px] flex items-center justify-center text-body-gray hover:bg-zinc-50 hover:text-black focus:outline-none"
+            className="rounded-lg p-2 h-[36px] w-[36px] flex items-center justify-center text-black hover:bg-zinc-50 hover:text-black focus:outline-none"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -205,7 +205,7 @@ export default function Header() {
                           key={sub.name}
                           href={sub.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="py-2 font-equip text-[14px] text-body-gray hover:text-primary-pink"
+                          className="py-2 font-equip text-[14px] text-black hover:text-primary-pink"
                         >
                           {sub.name}
                         </Link>
@@ -218,7 +218,7 @@ export default function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`font-equip font-medium text-[16px] py-1 transition-colors ${pathname === item.href
                       ? "text-primary-pink"
-                      : "text-body-gray hover:text-primary-pink"
+                      : "text-black hover:text-primary-pink"
                       }`}
                   >
                     {item.name}

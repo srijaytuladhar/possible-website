@@ -82,6 +82,33 @@ export default function SolutionStageTemplate({
             const isActive = stageId === st.id;
             const isLast = index === stages.length - 1;
             
+            const getStageColors = (id: string) => {
+              if (id === "innovate") {
+                return {
+                  circle: "text-white bg-gradient-to-br from-primary-pink to-[#B91257] shadow-lg shadow-primary-pink/25 w-16 h-16 text-[18px]",
+                  label: "text-primary-pink"
+                };
+              }
+              if (id === "test") {
+                return {
+                  circle: "text-white bg-gradient-to-br from-secondary-blue to-[#008bb0] shadow-lg shadow-secondary-blue/25 w-16 h-16 text-[18px]",
+                  label: "text-secondary-blue"
+                };
+              }
+              if (id === "scale") {
+                return {
+                  circle: "text-white bg-gradient-to-br from-accent-purple to-[#581765] shadow-lg shadow-accent-purple/25 w-16 h-16 text-[18px]",
+                  label: "text-accent-purple"
+                };
+              }
+              return {
+                circle: "text-white bg-zinc-800 shadow-lg w-16 h-16 text-[18px]",
+                label: "text-zinc-800"
+              };
+            };
+
+            const colors = getStageColors(st.id);
+
             return (
               <div key={st.id} className="flex items-center flex-1 last:flex-initial">
                 {/* Circle */}
@@ -92,7 +119,7 @@ export default function SolutionStageTemplate({
                   <div
                     className={`rounded-full flex items-center justify-center font-bold transition-all duration-300 ${
                       isActive
-                        ? `text-white bg-radial from-primary-pink to-[#B91257] shadow-lg w-16 h-16 text-[18px]`
+                        ? colors.circle
                         : "bg-zinc-200 text-zinc-400 border border-transparent w-10 h-10 text-[14px] hover:bg-zinc-300 hover:text-zinc-600"
                     }`}
                   >
@@ -100,7 +127,7 @@ export default function SolutionStageTemplate({
                   </div>
                   <span
                     className={`absolute -bottom-6 font-equip text-[12px] uppercase tracking-wider font-bold transition-colors ${
-                      isActive ? "text-primary-pink" : "text-zinc-400 group-hover:text-zinc-600"
+                      isActive ? colors.label : "text-zinc-400 group-hover:text-zinc-600"
                     }`}
                   >
                     {st.label}
