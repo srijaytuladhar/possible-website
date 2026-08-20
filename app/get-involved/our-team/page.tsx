@@ -71,11 +71,16 @@ function TeamPageContent() {
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
       {/* Page Header */}
       <div className="mb-8 text-center max-w-3xl mx-auto">
-        <h1 className={`h1-hero mb-3 uppercase tracking-wide transition-colors duration-300 ${tabParam === "team-members" ? "text-primary-pink" :
+        <h1 className={`font-outfit text-3xl md:text-4xl font-extralight mb-3 uppercase tracking-wide transition-colors duration-300 ${tabParam === "team-members" ? "text-primary-pink" :
           tabParam === "us-board" ? "text-accent-purple" : "text-secondary-blue"
           }`}>
-          {tabParam === "team-members" ? "Team Members" :
-            tabParam === "us-board" ? "Possible Board - US" : "Sambhav (Possible) Board - Nepal"}
+          {tabParam === "team-members" ? (
+            <>Team <span className="font-semibold">Members</span></>
+          ) : tabParam === "us-board" ? (
+            <>Possible Board - <span className="font-semibold">US</span></>
+          ) : (
+            <>Sambhav (Possible) Board - <span className="font-semibold">Nepal</span></>
+          )}
         </h1>
         <p className="text-subheading text-body-gray font-light" hidden>
           Meet the researchers, clinicians, and innovators co-designing care in Nepal.
@@ -168,27 +173,27 @@ function TeamPageContent() {
               <Link
                 key={member.id}
                 href={`/get-involved/our-team/${member.id}`}
-                className="group relative flex flex-col items-center p-6 bg-white border border-zinc-100 rounded-2xl shadow-sm hover:shadow-md hover:border-primary-pink/30 transition-all duration-300 overflow-hidden h-[290px] cursor-pointer"
+                className="group relative flex flex-col items-center p-6 bg-white border border-zinc-100 rounded-2xl shadow-sm hover:shadow-md hover:border-primary-pink/30 transition-all duration-300 overflow-hidden h-[320px] cursor-pointer"
               >
                 {/* Default Card View */}
                 <div className="flex flex-col items-center h-full justify-center transition-all duration-300 group-hover:scale-95">
-                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-zinc-50 shadow-sm transition-all duration-300 group-hover:border-primary-pink/20 mb-4 bg-zinc-100">
+                  <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-zinc-50 shadow-sm transition-all duration-300 group-hover:border-primary-pink/20 mb-4 bg-zinc-100">
                     <Image
                       src={getMemberImage(member)}
                       alt={member.name}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 128px, 128px"
+                      sizes="(max-width: 768px) 160px, 160px"
                       onError={() => handleImageError(member.id)}
                     />
                   </div>
-                  <h4 className="text-[15px] font-semibold text-zinc-900 text-center line-clamp-1">
+                  <h4 className="text-[17px] font-outfit font-semibold text-zinc-900 text-center line-clamp-1">
                     {member.name}
                   </h4>
-                  <p className="text-[12.5px] text-body-gray font-light text-center mt-1 line-clamp-1">
+                  <p className="text-[13px] font-outfit text-body-gray font-light text-center mt-1 line-clamp-1">
                     {member.role}
                   </p>
-                  <span className="mt-3 text-[11px] font-medium text-secondary-blue">
+                  <span className="mt-3 text-[11px] font-outfit font-medium text-secondary-blue">
                     Hover for bio &rarr;
                   </span>
                 </div>

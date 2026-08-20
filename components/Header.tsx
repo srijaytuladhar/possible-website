@@ -125,19 +125,35 @@ export default function Header() {
                       : "bg-white border-gray-100 text-black"
                   }`}
                 >
-                  {item.submenu.map((sub) => (
-                    <Link
-                      key={sub.name}
-                      href={sub.href}
-                      className={`block rounded-lg px-4 py-2.5 font-equip text-[14px] transition-colors ${
-                        item.name === "Solutions" || item.name === "Team" || item.name === "Newsroom"
-                          ? "text-white/90 hover:bg-white/20 hover:text-white"
-                          : "text-black hover:bg-zinc-50 hover:text-primary-pink"
-                      }`}
-                    >
-                      {sub.name}
-                    </Link>
-                  ))}
+                  {item.submenu.map((sub) => {
+                    let customHoverClass = "text-white/90 hover:bg-white/20 hover:text-white";
+                    if (item.name === "Solutions") {
+                      if (sub.name === "Innovate") {
+                        customHoverClass = "text-white/90 hover:bg-[#ED2E84] hover:text-white";
+                      } else if (sub.name === "Test") {
+                        customHoverClass = "text-white/90 hover:bg-[#00BBE2] hover:text-white";
+                      } else if (sub.name === "Scale") {
+                        customHoverClass = "text-white/90 hover:bg-[#782888] hover:text-white";
+                      } else if (sub.name === "Pipeline") {
+                        customHoverClass = "text-white/90 hover:bg-[#EAB308] hover:text-white";
+                      }
+                    }
+                    return (
+                      <Link
+                        key={sub.name}
+                        href={sub.href}
+                        className={`block rounded-lg px-4 py-2.5 font-equip text-[14px] transition-colors ${
+                          item.name === "Solutions"
+                            ? customHoverClass
+                            : item.name === "Team" || item.name === "Newsroom"
+                            ? "text-white/90 hover:bg-white/20 hover:text-white"
+                            : "text-black hover:bg-zinc-50 hover:text-primary-pink"
+                        }`}
+                      >
+                        {sub.name}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>

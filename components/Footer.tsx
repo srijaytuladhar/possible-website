@@ -171,7 +171,7 @@ export default function Footer() {
             <Link href="/terms-of-use" className="text-white/85 hover:text-white transition-colors font-light">
               Terms of use
             </Link>
-            <Link href="#" className="text-white/85 hover:text-white transition-colors font-light">
+            <Link href="/sitemap" className="text-white/85 hover:text-white transition-colors font-light">
               Site Map
             </Link>
           </div>
