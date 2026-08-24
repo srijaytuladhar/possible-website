@@ -111,7 +111,7 @@ export default function SolutionsPage() {
                 </p>
               </div>
 
-              <div className="lg:w-2/3 w-full">
+              <div className="lg:w-2/3 w-full space-y-8">
                 {/* CASA Project Card */}
                 <div className="p-6 sm:p-8 bg-white border border-zinc-150 rounded-2xl shadow-xs space-y-6 hover:shadow-md transition-shadow">
                   <div className="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-zinc-100 pb-4">
@@ -145,6 +145,22 @@ export default function SolutionsPage() {
                       <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </a>
                   </div>
+                </div>
+
+                {/* CASA Autism Pilot Study Project Card */}
+                <div className="p-6 sm:p-8 bg-white border border-zinc-150 rounded-2xl shadow-xs space-y-6 hover:shadow-md transition-shadow">
+                  <div className="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-zinc-100 pb-4">
+                    <div>
+                      <h3 className="h3-card font-bold text-zinc-900 uppercase">
+                        CASA: Pilot study to evaluate the acceptability and feasibility of an mHealth app for enhancing Caregiver Assistance in Supporting children with Autism (CASA)
+                      </h3>
+                      <span className="text-xs text-primary-pink font-semibold uppercase tracking-wider">Pilot Study</span>
+                    </div>
+                  </div>
+
+                  <p className="text-[15px] text-body-gray leading-relaxed font-light">
+                    CASA is a mHealth app being developed with people with lived experience to support caregivers providing care to children with autism. CASA will provide simple, practical at-home guidance on communication, learning new skills, solving everyday challenges, and caring for caregivers' own well-being, based on guidance from the World Health Organization Caregiver Skills Training (WHO-CST). We will pilot test the app for three months with caregivers and therapists at two autism care centers in Nepal to understand how useful, easy to use, and suitable it is for caregivers.
+                  </p>
                 </div>
               </div>
             </div>

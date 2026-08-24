@@ -35,7 +35,7 @@ export default function HeroSlider() {
           </h1>
           
           <p className="text-subheading text-zinc-300 font-light max-w-2xl leading-relaxed">
-            We innovate, test, and scale the health solutions &mdash; until they&rsquo;re health workers&rsquo; practice and policy.
+            We innovate, test, and scale the health solutions - until they&rsquo;re health care workers&rsquo; everyday practice and national policy.
           </p>
           
           <div className="pt-4 flex flex-wrap gap-4">

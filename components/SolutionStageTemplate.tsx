@@ -8,9 +8,9 @@ export interface ProjectType {
   title: string;
   subtitle: string;
   description: string;
-  image: string;
-  linkText: string;
-  linkUrl: string;
+  image?: string;
+  linkText?: string;
+  linkUrl?: string;
 }
 
 export interface PublicationType {
@@ -26,6 +26,7 @@ interface SolutionStageTemplateProps {
   colorClass: string;
   badgeBgClass: string;
   project: ProjectType;
+  additionalProjects?: ProjectType[];
   publications: PublicationType[];
 }
 
@@ -36,6 +37,7 @@ export default function SolutionStageTemplate({
   colorClass,
   badgeBgClass,
   project,
+  additionalProjects,
   publications
 }: SolutionStageTemplateProps) {
   // 3-circle stage configuration
@@ -85,24 +87,24 @@ export default function SolutionStageTemplate({
             const getStageColors = (id: string) => {
               if (id === "innovate") {
                 return {
-                  circle: "border-primary-pink shadow-lg shadow-primary-pink/25 w-16 h-16",
+                  circle: "border-primary-pink shadow-lg shadow-primary-pink/25 w-28 h-28",
                   label: "text-primary-pink"
                 };
               }
               if (id === "test") {
                 return {
-                  circle: "border-secondary-blue shadow-lg shadow-secondary-blue/25 w-16 h-16",
+                  circle: "border-secondary-blue shadow-lg shadow-secondary-blue/25 w-28 h-28",
                   label: "text-secondary-blue"
                 };
               }
               if (id === "scale") {
                 return {
-                  circle: "border-accent-purple shadow-lg shadow-accent-purple/25 w-16 h-16",
+                  circle: "border-accent-purple shadow-lg shadow-accent-purple/25 w-28 h-28",
                   label: "text-accent-purple"
                 };
               }
               return {
-                circle: "border-zinc-800 shadow-lg w-16 h-16",
+                circle: "border-zinc-800 shadow-lg w-28 h-28",
                 label: "text-zinc-800"
               };
             };
@@ -120,7 +122,7 @@ export default function SolutionStageTemplate({
                     className={`rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden relative border-2 ${
                       isActive
                         ? `${colors.circle} border-current`
-                        : "bg-zinc-200 border-zinc-300 w-12 h-12 hover:bg-zinc-300 hover:border-zinc-400"
+                        : "bg-zinc-200 border-zinc-300 w-20 h-20 hover:bg-zinc-300 hover:border-zinc-400"
                     }`}
                   >
                     <Image
@@ -188,30 +190,76 @@ export default function SolutionStageTemplate({
             </div>
 
             {/* Project Image */}
-            <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-zinc-200 shadow-inner bg-zinc-100">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 800px"
-              />
-            </div>
+            {project.image && (
+              <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-zinc-200 shadow-inner bg-zinc-100">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 800px"
+                />
+              </div>
+            )}
 
             <p className="text-body text-body-gray leading-relaxed font-light">
               {project.description}
             </p>
 
-            <div className="pt-2">
-              <a
-                href={project.linkUrl}
-                className={`inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 px-6 py-3 font-equip font-semibold text-[14px] text-zinc-800 transition-all duration-300 group hover:border-current ${colorClass}`}
-              >
-                <span>{project.linkText}</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-            </div>
+            {project.linkUrl && (
+              <div className="pt-2">
+                <a
+                  href={project.linkUrl}
+                  className={`inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 px-6 py-3 font-equip font-semibold text-[14px] text-zinc-800 transition-all duration-300 group hover:border-current ${colorClass}`}
+                >
+                  <span>{project.linkText}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </div>
+            )}
           </div>
+
+          {/* Additional Projects */}
+          {additionalProjects?.map((proj, idx) => (
+            <div key={idx} className="p-8 bg-zinc-50 border border-zinc-150 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 space-y-6">
+              <div className="border-b border-zinc-200/60 pb-4">
+                <span className={`text-[12px] font-bold uppercase tracking-widest ${colorClass}`}>
+                  {proj.subtitle}
+                </span>
+                <h3 className="h3-card font-bold text-zinc-900 uppercase mt-1">
+                  {proj.title}
+                </h3>
+              </div>
+
+              {proj.image && (
+                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-zinc-200 shadow-inner bg-zinc-100">
+                  <Image
+                    src={proj.image}
+                    alt={proj.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 800px"
+                  />
+                </div>
+              )}
+
+              <p className="text-body text-body-gray leading-relaxed font-light">
+                {proj.description}
+              </p>
+
+              {proj.linkUrl && (
+                <div className="pt-2">
+                  <a
+                    href={proj.linkUrl}
+                    className={`inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 px-6 py-3 font-equip font-semibold text-[14px] text-zinc-800 transition-all duration-300 group hover:border-current ${colorClass}`}
+                  >
+                    <span>{proj.linkText}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </div>
+              )}
+            </div>
+          ))}
 
           {/* Publications Section */}
           {publications.length > 0 && (

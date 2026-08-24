@@ -25,6 +25,14 @@ export default function InnovatePage() {
     }
   ];
 
+  const additionalProjects: ProjectType[] = [
+    {
+      title: "CASA: Pilot study to evaluate the acceptability and feasibility of an mHealth app for enhancing Caregiver Assistance in Supporting children with Autism (CASA)",
+      subtitle: "Pilot Study",
+      description: "CASA is a mHealth app being developed with people with lived experience to support caregivers providing care to children with autism. CASA will provide simple, practical at-home guidance on communication, learning new skills, solving everyday challenges, and caring for caregivers' own well-being, based on guidance from the World Health Organization Caregiver Skills Training (WHO-CST). We will pilot test the app for three months with caregivers and therapists at two autism care centers in Nepal to understand how useful, easy to use, and suitable it is for caregivers."
+    }
+  ];
+
   return (
     <SolutionStageTemplate
       stageId="innovate"
@@ -33,6 +41,7 @@ export default function InnovatePage() {
       colorClass="text-primary-pink"
       badgeBgClass="bg-primary-pink/10"
       project={project}
+      additionalProjects={additionalProjects}
       publications={publications}
     />
   );

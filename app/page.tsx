@@ -66,7 +66,7 @@ export default function Home() {
               Our Process
             </span>
             <h2 className="h2-section text-zinc-950 uppercase tracking-wide">
-              How We Solve the Toughest Problems
+              How We Solve the Complex Problems
             </h2>
           </div>
 
@@ -84,7 +84,7 @@ export default function Home() {
           {/* Copy Below Image */}
           <div className="max-w-3xl text-center space-y-6">
             <p className="text-subheading text-zinc-900 leading-relaxed font-light text-justify sm:text-center px-4 sm:px-6">
-              We take on the health problems others call too complex &mdash; and run them through a process that works: co-design it with the people living it, test it until the evidence is undeniable, then scale it into permanent public systems. That's how suffering goes down for good, not just for the length of a grant.
+              We take on the health problems others either neglect or call too complex &mdash; and run them through a process that works: innovate it with the people with lived experience, test it until the evidence is undeniable, and scale into permanent public systems. That's how suffering goes down for good, not just for the length of a grant.
             </p>
             <div className="pt-2 flex justify-center">
               <Link
@@ -216,7 +216,7 @@ export default function Home() {
 
               <div className="space-y-4">
                 <p className="text-body text-body-gray leading-relaxed font-light text-justify sm:text-left">
-                  We're health workers, clinicians, engineers, and advocates who happen to also be rigorous researchers &mdash; not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, domestic violence, chronic disease, disability, and the gaps between them.
+                  We're health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers &mdash; not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. We don't just run a study, deliver an intervention/program, and move on. We build systems that last.
                 </p>
 
                 {/* Highlighted Provisional Copy Section */}
