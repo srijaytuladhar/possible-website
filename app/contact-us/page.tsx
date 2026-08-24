@@ -58,7 +58,7 @@ export default function ContactUs() {
   return (
     <div className="mx-auto max-w-4xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1 space-y-16 animate-in fade-in duration-300 bg-white">
       {/* Top Left Navigation Back & Pill */}
-      <div className="flex items-center gap-3 pb-6 border-b border-zinc-150">
+      <div className="flex items-center gap-3 pb-6">
         <span className="inline-flex items-center rounded-full bg-primary-pink/10 text-primary-pink px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-wider shadow-sm">
           Contact us
         </span>

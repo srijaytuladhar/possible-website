@@ -37,7 +37,7 @@ export default function CollaboratorsPartnersPage() {
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
       {/* Page Header */}
       <div className="mb-12 text-center max-w-3xl mx-auto">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/10 px-3.5 py-1 text-[13px] font-medium text-primary-pink mb-4 uppercase tracking-wider shadow-sm">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/10 px-3.5 py-1 text-[13px] font-medium text-secondary-blue mb-4 uppercase tracking-wider shadow-sm">
           Our Network
         </span>
         <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
@@ -55,7 +55,7 @@ export default function CollaboratorsPartnersPage() {
             {collaborators.map((partner, pIdx) => (
               <span
                 key={pIdx}
-                className="inline-flex items-center px-4.5 py-2.5 rounded-full text-[13.5px] sm:text-[14.5px] font-semibold bg-primary-pink/10 text-primary-pink border border-primary-pink/20 hover:bg-primary-pink hover:text-white hover:-translate-y-0.5 shadow-sm transition-all duration-300 cursor-default"
+                className="inline-flex items-center px-4.5 py-2.5 rounded-full text-[13.5px] sm:text-[14.5px] font-semibold bg-secondary-blue/10 text-secondary-blue border border-secondary-blue/20 hover:bg-secondary-blue hover:text-white hover:-translate-y-0.5 shadow-sm transition-all duration-300 cursor-default"
               >
                 {partner}
               </span>

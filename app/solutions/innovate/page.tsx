@@ -4,11 +4,11 @@ import SolutionStageTemplate, { ProjectType, PublicationType } from "@/component
 
 export default function InnovatePage() {
   const project: ProjectType = {
-    title: "Disability Intervention — CASA-Mina",
+    title: "Disability Intervention — CASA",
     subtitle: "Active Co-Design",
-    description: "A community-based disability support intervention that co-designs assistive care pathways directly with family caregivers in rural Nepal. CASA-Mina aims to integrate home-based rehabilitation workflows into municipal programs to enhance social inclusion, decrease stigma, and improve quality of life for children and adults with physical and cognitive disabilities.",
+    description: "A community-based disability support intervention that co-designs assistive care pathways directly with family caregivers in rural Nepal. CASA aims to integrate home-based rehabilitation workflows into municipal programs to enhance social inclusion, decrease stigma, and improve quality of life for children and adults with physical and cognitive disabilities.",
     image: "/health_process.jpg",
-    linkText: "Read CASA-Mina Study",
+    linkText: "Read CASA Study",
     linkUrl: "https://pubmed.ncbi.nlm.nih.gov/21394199/"
   };
 

@@ -69,7 +69,7 @@ export default function ImpactReportsPage() {
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
       {/* Top Navigation & Pill Badge */}
-      <div className="flex items-center gap-3 mb-10 pb-6 border-b border-zinc-150">
+      <div className="flex items-center gap-3 mb-10 pb-6 ">
         <span className="inline-flex items-center rounded-full bg-primary-pink/10 text-primary-pink px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-wider shadow-sm">
           Annual Impact Report
         </span>

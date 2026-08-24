@@ -112,11 +112,11 @@ export default function SolutionsPage() {
               </div>
 
               <div className="lg:w-2/3 w-full">
-                {/* CASA-Mina Project Card */}
+                {/* CASA Project Card */}
                 <div className="p-6 sm:p-8 bg-white border border-zinc-150 rounded-2xl shadow-xs space-y-6 hover:shadow-md transition-shadow">
                   <div className="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-zinc-100 pb-4">
                     <div>
-                      <h3 className="h3-card font-bold text-zinc-900 uppercase">Disability Intervention &mdash; CASA-Mina</h3>
+                      <h3 className="h3-card font-bold text-zinc-900 uppercase">Disability Intervention &mdash; CASA</h3>
                       <span className="text-xs text-primary-pink font-semibold uppercase tracking-wider">Active Co-Design</span>
                     </div>
                   </div>
@@ -125,11 +125,11 @@ export default function SolutionsPage() {
                   <div className="relative w-full h-48 bg-zinc-50 border border-dashed border-zinc-200 rounded-xl flex flex-col justify-center items-center gap-2 group overflow-hidden select-none">
                     <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-40" />
                     <ImageIcon className="h-8 w-8 text-primary-pink opacity-50 group-hover:scale-110 transition-transform" />
-                    <span className="text-[12px] font-medium text-body-gray uppercase tracking-wider">Photo Placeholder: CASA-Mina</span>
+                    <span className="text-[12px] font-medium text-body-gray uppercase tracking-wider">Photo Placeholder: CASA</span>
                   </div>
 
                   <p className="text-[15px] text-body-gray leading-relaxed font-light">
-                    A community-based disability support intervention that co-designs assistive care pathways directly with family caregivers in rural Nepal. CASA-Mina aims to integrate home-based rehabilitation workflows into municipal programs to enhance social inclusion, decrease stigma, and improve quality of life for children and adults with physical and cognitive disabilities.
+                    A community-based disability support intervention that co-designs assistive care pathways directly with family caregivers in rural Nepal. CASA aims to integrate home-based rehabilitation workflows into municipal programs to enhance social inclusion, decrease stigma, and improve quality of life for children and adults with physical and cognitive disabilities.
                   </p>
 
                   <div className="pt-2">
@@ -141,7 +141,7 @@ export default function SolutionsPage() {
                       className="inline-flex items-center gap-1.5 text-small font-semibold text-primary-pink hover:text-primary-pink/80 transition-colors group"
                     >
                       <FileText className="h-4 w-4" />
-                      <span>Read CASA-Mina Study (PubMed Placeholder)</span>
+                      <span>Read CASA Study (PubMed Placeholder)</span>
                       <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </a>
                   </div>

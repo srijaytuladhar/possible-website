@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   title: "Possible | Advancing Health Innovation in Nepal",
@@ -27,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-white text-zinc-950 selection:bg-primary-pink/10 selection:text-primary-pink">
+      <body className={`${poppins.variable} min-h-full flex flex-col bg-white text-zinc-950 selection:bg-primary-pink/10 selection:text-primary-pink`}>
         <LoadingScreen />
         <Header />
         <div className="flex flex-col flex-grow">

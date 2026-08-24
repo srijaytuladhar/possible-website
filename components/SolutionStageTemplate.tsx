@@ -40,9 +40,9 @@ export default function SolutionStageTemplate({
 }: SolutionStageTemplateProps) {
   // 3-circle stage configuration
   const stages = [
-    { id: "innovate", label: "Innovate", href: "/solutions/innovate" },
-    { id: "test", label: "Test", href: "/solutions/test" },
-    { id: "scale", label: "Scale", href: "/solutions/scale" }
+    { id: "innovate", label: "Innovate", href: "/solutions/innovate", image: "/health_process.jpg" },
+    { id: "test", label: "Test", href: "/solutions/test", image: "/who_we_are_team.jpg" },
+    { id: "scale", label: "Scale", href: "/solutions/scale", image: "/hero_complex_solve.jpg" }
   ];
 
   return (
@@ -74,7 +74,7 @@ export default function SolutionStageTemplate({
 
       {/* Stage Progress Indicator */}
       <div className="mb-16 bg-zinc-50 border border-zinc-100 p-8 rounded-3xl flex flex-col items-center">
-        <span className="text-[12px] font-bold text-zinc-400 uppercase tracking-widest mb-6">
+        <span className="text-[16px] font-extrabold text-zinc-800 uppercase tracking-wider mb-8 sm:text-[18px]">
           Development Lifecycle Progress
         </span>
         <div className="flex items-center justify-center w-full max-w-2xl">
@@ -85,24 +85,24 @@ export default function SolutionStageTemplate({
             const getStageColors = (id: string) => {
               if (id === "innovate") {
                 return {
-                  circle: "text-white bg-gradient-to-br from-primary-pink to-[#B91257] shadow-lg shadow-primary-pink/25 w-16 h-16 text-[18px]",
+                  circle: "border-primary-pink shadow-lg shadow-primary-pink/25 w-16 h-16",
                   label: "text-primary-pink"
                 };
               }
               if (id === "test") {
                 return {
-                  circle: "text-white bg-gradient-to-br from-secondary-blue to-[#008bb0] shadow-lg shadow-secondary-blue/25 w-16 h-16 text-[18px]",
+                  circle: "border-secondary-blue shadow-lg shadow-secondary-blue/25 w-16 h-16",
                   label: "text-secondary-blue"
                 };
               }
               if (id === "scale") {
                 return {
-                  circle: "text-white bg-gradient-to-br from-accent-purple to-[#581765] shadow-lg shadow-accent-purple/25 w-16 h-16 text-[18px]",
+                  circle: "border-accent-purple shadow-lg shadow-accent-purple/25 w-16 h-16",
                   label: "text-accent-purple"
                 };
               }
               return {
-                circle: "text-white bg-zinc-800 shadow-lg w-16 h-16 text-[18px]",
+                circle: "border-zinc-800 shadow-lg w-16 h-16",
                 label: "text-zinc-800"
               };
             };
@@ -114,16 +114,23 @@ export default function SolutionStageTemplate({
                 {/* Circle */}
                 <Link
                   href={st.href}
-                  className={`flex flex-col items-center justify-center transition-all duration-300 relative group`}
+                  className="flex flex-col items-center justify-center transition-all duration-300 relative group"
                 >
                   <div
-                    className={`rounded-full flex items-center justify-center font-bold transition-all duration-300 ${
+                    className={`rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden relative border-2 ${
                       isActive
-                        ? colors.circle
-                        : "bg-zinc-200 text-zinc-400 border border-transparent w-10 h-10 text-[14px] hover:bg-zinc-300 hover:text-zinc-600"
+                        ? `${colors.circle} border-current`
+                        : "bg-zinc-200 border-zinc-300 w-12 h-12 hover:bg-zinc-300 hover:border-zinc-400"
                     }`}
                   >
-                    {index + 1}
+                    <Image
+                      src={st.image}
+                      alt={st.label}
+                      fill
+                      className={`object-cover transition-all duration-300 ${
+                        isActive ? "scale-105 opacity-100 saturate-100" : "opacity-60 saturate-50 group-hover:opacity-100 group-hover:scale-105 group-hover:saturate-100"
+                      }`}
+                    />
                   </div>
                   <span
                     className={`absolute -bottom-6 font-equip text-[12px] uppercase tracking-wider font-bold transition-colors ${

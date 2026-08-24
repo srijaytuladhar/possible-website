@@ -119,36 +119,28 @@ export default function Header() {
               {/* Dropdown Menu */}
               {item.submenu && activeDropdown === item.name && (
                 <div
-                  className={`absolute left-0 mt-0 w-52 rounded-xl border p-2 shadow-xl ring-1 ring-black/5 transition-all duration-200 animate-in fade-in slide-in-from-top-2 ${
-                    item.name === "Solutions" || item.name === "Team" || item.name === "Newsroom"
-                      ? "bg-primary-pink border-primary-pink text-white"
-                      : "bg-white border-gray-100 text-black"
-                  }`}
+                  className="absolute left-0 mt-0 w-52 rounded-xl border p-2 shadow-xl ring-1 ring-black/5 transition-all duration-200 animate-in fade-in slide-in-from-top-2 bg-white border-gray-100 text-black"
                 >
                   {item.submenu.map((sub) => {
-                    let customHoverClass = "text-white/90 hover:bg-white/20 hover:text-white";
+                    let customHoverClass = "text-zinc-700 hover:bg-zinc-50 hover:text-primary-pink";
                     if (item.name === "Solutions") {
                       if (sub.name === "Innovate") {
-                        customHoverClass = "text-white/90 hover:bg-[#ED2E84] hover:text-white";
+                        customHoverClass = "text-zinc-700 hover:bg-primary-pink/10 hover:text-primary-pink";
                       } else if (sub.name === "Test") {
-                        customHoverClass = "text-white/90 hover:bg-[#00BBE2] hover:text-white";
+                        customHoverClass = "text-zinc-700 hover:bg-secondary-blue/10 hover:text-secondary-blue";
                       } else if (sub.name === "Scale") {
-                        customHoverClass = "text-white/90 hover:bg-[#782888] hover:text-white";
+                        customHoverClass = "text-zinc-700 hover:bg-accent-purple/10 hover:text-accent-purple";
                       } else if (sub.name === "Pipeline") {
-                        customHoverClass = "text-white/90 hover:bg-[#EAB308] hover:text-white";
+                        customHoverClass = "text-zinc-700 hover:bg-amber-50 hover:text-amber-600";
                       }
+                    } else {
+                      customHoverClass = "text-zinc-700 hover:bg-primary-pink/10 hover:text-primary-pink";
                     }
                     return (
                       <Link
                         key={sub.name}
                         href={sub.href}
-                        className={`block rounded-lg px-4 py-2.5 font-equip text-[14px] transition-colors ${
-                          item.name === "Solutions"
-                            ? customHoverClass
-                            : item.name === "Team" || item.name === "Newsroom"
-                            ? "text-white/90 hover:bg-white/20 hover:text-white"
-                            : "text-black hover:bg-zinc-50 hover:text-primary-pink"
-                        }`}
+                        className={`block rounded-lg px-4 py-2.5 font-equip text-[14px] transition-colors ${customHoverClass}`}
                       >
                         {sub.name}
                       </Link>

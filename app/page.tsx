@@ -38,14 +38,14 @@ export default function Home() {
                 <Sparkles className="h-3.5 w-3.5" />
                 Healthcare Equity
               </span>
-              
+
               <h2 className="h2-section text-zinc-950 font-extralight uppercase leading-tight tracking-wide">
                 Rooted in Community, <br />
                 <span className="font-semibold text-primary-pink">proven by evidence.</span>
               </h2>
-              
+
               <div className="h-1.5 w-20 bg-gradient-to-r from-primary-pink to-secondary-blue rounded-full" />
-              
+
               <p className="text-body text-body-gray leading-relaxed font-light text-justify sm:text-left">
                 A mother in the rural foothills of the Himalayas deserves the same shot at high-quality healthcare as a patient in Kathmandu or New York. We're building toward a world where that's not aspiration &mdash; it's how every health system works: rooted in community, proven by evidence, built to reach everyone.
               </p>
@@ -62,7 +62,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl flex flex-col items-center">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-purple/10 px-3.5 py-1 text-[13px] font-medium text-accent-purple mb-4 uppercase tracking-wider">
+            <span hidden className="inline-flex items-center gap-1.5 rounded-full bg-accent-purple/10 px-3.5 py-1 text-[13px] font-medium text-accent-purple mb-4 uppercase tracking-wider">
               Our Process
             </span>
             <h2 className="h2-section text-zinc-950 uppercase tracking-wide">
@@ -103,11 +103,11 @@ export default function Home() {
       <section className="relative py-20 px-6 sm:px-8 bg-white border-b border-zinc-100 overflow-hidden">
         <div className="absolute top-[10%] left-[-5%] w-[30rem] h-[30rem] rounded-full bg-radial from-primary-pink/5 to-transparent blur-3xl -z-10 pointer-events-none" />
         <div className="absolute bottom-[10%] right-[-5%] w-[30rem] h-[30rem] rounded-full bg-radial from-secondary-blue/5 to-transparent blur-3xl -z-10 pointer-events-none" />
-        
+
         <div className="mx-auto max-w-7xl">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/10 px-3.5 py-1 text-[13px] font-semibold text-primary-pink mb-4 uppercase tracking-wider">
+            <span hidden className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/10 px-3.5 py-1 text-[13px] font-semibold text-primary-pink mb-4 uppercase tracking-wider">
               Our Methodology
             </span>
             <h2 className="h2-section text-zinc-950 font-extralight uppercase leading-tight tracking-wide">
@@ -202,23 +202,23 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Column: Text Content */}
             <div className="lg:col-span-6 space-y-6 order-2 lg:order-1">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/10 px-4 py-1 text-[13px] font-semibold text-secondary-blue uppercase tracking-wider shadow-sm">
+              <span hidden className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/10 px-4 py-1 text-[13px] font-semibold text-secondary-blue uppercase tracking-wider shadow-sm">
                 <MapPin className="h-3.5 w-3.5" />
-                Who We Are
+                <b>Who We Are</b>
               </span>
-              
+
               <h2 className="h2-section text-zinc-950 font-extralight uppercase leading-tight tracking-wide">
-                Rigorous Researchers, <br />
-                <span className="font-semibold text-secondary-blue">neighbors building to last.</span>
+                WHO WE ARE, <br />
+                <span hidden className="font-semibold text-secondary-blue">neighbors building to last.</span>
               </h2>
-              
+
               <div className="h-1.5 w-20 bg-gradient-to-r from-secondary-blue to-accent-purple rounded-full" />
-              
+
               <div className="space-y-4">
                 <p className="text-body text-body-gray leading-relaxed font-light text-justify sm:text-left">
                   We're health workers, clinicians, engineers, and advocates who happen to also be rigorous researchers &mdash; not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, domestic violence, chronic disease, disability, and the gaps between them.
                 </p>
-                
+
                 {/* Highlighted Provisional Copy Section */}
                 <div className="relative p-4 rounded-2xl bg-amber-50/50 border border-amber-200/60 shadow-xs">
                   <div className="flex gap-2.5 items-start">
@@ -256,7 +256,7 @@ export default function Home() {
       {/* SECTION 5 — Our Operational Presence Map */}
       <div className="relative">
         <InteractivePresenceMap />
-        
+
         {/* Provisional Map Visual Info Bar */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-xs px-5 py-2.5 rounded-full border border-zinc-200 shadow-sm flex items-center gap-2 max-w-sm sm:max-w-md pointer-events-none select-none">
           <Info className="h-4 w-4 text-primary-pink shrink-0" />
