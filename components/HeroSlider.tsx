@@ -6,19 +6,19 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function HeroSlider() {
   return (
-    <section className="relative w-full overflow-hidden select-none bg-zinc-950 flex items-center min-h-[500px] md:min-h-[550px] lg:min-h-[600px] xl:min-h-[650px] md:aspect-[6.5/2.9] px-6 sm:px-8 py-16 sm:py-24">
+    <section className="relative w-full overflow-hidden select-none bg-zinc-950 flex items-center min-h-[520px] md:min-h-[580px] lg:min-h-[620px] xl:min-h-[660px] md:aspect-[6.5/2.9] px-6 sm:px-8 py-16 sm:py-24">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero_complex_solve.jpg"
+          src="/first-landing.jpg"
           alt="Too complex to solve is where we start"
           fill
-          className="object-cover object-center opacity-65 brightness-[0.85] transition-transform duration-[4000ms] scale-100"
+          className="object-cover object-center opacity-75 brightness-[0.9] transition-transform duration-[4000ms] scale-100"
           sizes="100vw"
           priority
         />
-        {/* Soft dark overlay to guarantee text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent" />
+        {/* Soft dark overlay to guarantee high contrast text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/30" />
       </div>
 
       {/* Hero Content Overlay */}
@@ -28,16 +28,16 @@ export default function HeroSlider() {
             <Sparkles className="h-3.5 w-3.5 fill-secondary-blue" />
             Healthcare Innovation
           </span>
-          
+
           <h1 className="h1-hero text-white font-extralight leading-tight uppercase tracking-wide">
             &ldquo;Too complex to solve&rdquo; <br />
             <span className="font-semibold text-primary-pink">is where we start.</span>
           </h1>
-          
-          <p className="text-subheading text-zinc-300 font-light max-w-2xl leading-relaxed">
-            We innovate, test, and scale the health solutions - until they&rsquo;re health care workers&rsquo; everyday practice and national policy.
+
+          <p className="text-subheading text-zinc-200 font-light max-w-2xl leading-relaxed">
+            We innovate, test, and scale the health solutions- until they&apos;re health workers&apos; practice and policy.
           </p>
-          
+
           <div className="pt-4 flex flex-wrap gap-4">
             <Link
               href="/solutions"
