@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, FileText, ArrowLeft, ExternalLink, Sparkles } from "lucide-react";
+import { FileText, ArrowLeft, ExternalLink } from "lucide-react";
 
 export interface PublicationType {
   title: string;
@@ -34,7 +34,7 @@ interface SolutionStageTemplateProps {
   stageId: "innovate" | "test" | "scale" | "pipeline";
   stageNumber: string;
   stageName: string;
-  stageSubtitle: string;
+  stageSubtitle?: string;
   colorClass: string;
   badgeBgClass: string;
   borderClass: string;
@@ -44,20 +44,17 @@ interface SolutionStageTemplateProps {
 
 export default function SolutionStageTemplate({
   stageId,
-  stageNumber,
   stageName,
-  stageSubtitle,
   colorClass,
-  badgeBgClass,
   borderClass,
   subSections,
   projects
 }: SolutionStageTemplateProps) {
+  // Only 3 stages in progress indicator (Pipeline removed per PDF Page 3)
   const stages = [
     { id: "innovate", label: "Innovate", href: "/solutions/innovate", image: "/health_process.jpg" },
     { id: "test", label: "Test", href: "/solutions/test", image: "/who_we_are_team.jpg" },
-    { id: "scale", label: "Scale", href: "/solutions/scale", image: "/hero_complex_solve.jpg" },
-    { id: "pipeline", label: "Pipeline", href: "/solutions/pipeline", image: "/hero_digital.png" }
+    { id: "scale", label: "Scale", href: "/solutions/scale", image: "/hero_complex_solve.jpg" }
   ];
 
   return (
@@ -74,12 +71,12 @@ export default function SolutionStageTemplate({
         </Link>
       </div>
 
-      {/* Stage Progress Indicator (Larger, wider, updated title & pink line per PDF Page 3 & 4) */}
+      {/* Stage Progress Indicator (Larger circles, only 3 stages per PDF Page 3) */}
       <div className="mb-14 bg-zinc-50/80 border border-zinc-150 p-6 sm:p-8 rounded-3xl flex flex-col items-center w-full max-w-5xl mx-auto">
         <h2 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 text-center uppercase tracking-wide mb-8 max-w-4xl leading-relaxed">
           Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of validated evidence.
         </h2>
-        <div className="flex items-center justify-center w-full max-w-4xl px-2 sm:px-6">
+        <div className="flex items-center justify-center w-full max-w-3xl px-2 sm:px-6">
           {stages.map((st, index) => {
             const isActive = stageId === st.id;
             const isLast = index === stages.length - 1;
@@ -87,25 +84,19 @@ export default function SolutionStageTemplate({
             const getStageColors = (id: string) => {
               if (id === "innovate") {
                 return {
-                  circle: "border-primary-pink shadow-lg shadow-primary-pink/20 ring-4 ring-primary-pink/15 w-20 h-20 sm:w-24 sm:h-24",
+                  circle: "border-primary-pink shadow-lg shadow-primary-pink/20 ring-4 ring-primary-pink/15 w-24 h-24 sm:w-28 sm:h-28",
                   label: "text-primary-pink font-bold"
                 };
               }
               if (id === "test") {
                 return {
-                  circle: "border-secondary-blue shadow-lg shadow-secondary-blue/20 ring-4 ring-secondary-blue/15 w-20 h-20 sm:w-24 sm:h-24",
+                  circle: "border-secondary-blue shadow-lg shadow-secondary-blue/20 ring-4 ring-secondary-blue/15 w-24 h-24 sm:w-28 sm:h-28",
                   label: "text-secondary-blue font-bold"
                 };
               }
-              if (id === "scale") {
-                return {
-                  circle: "border-accent-purple shadow-lg shadow-accent-purple/20 ring-4 ring-accent-purple/15 w-20 h-20 sm:w-24 sm:h-24",
-                  label: "text-accent-purple font-bold"
-                };
-              }
               return {
-                circle: "border-amber-600 shadow-lg shadow-amber-600/20 ring-4 ring-amber-500/15 w-20 h-20 sm:w-24 sm:h-24",
-                label: "text-amber-600 font-bold"
+                circle: "border-accent-purple shadow-lg shadow-accent-purple/20 ring-4 ring-accent-purple/15 w-24 h-24 sm:w-28 sm:h-28",
+                label: "text-accent-purple font-bold"
               };
             };
 
@@ -122,7 +113,7 @@ export default function SolutionStageTemplate({
                     className={`rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden relative border-2 ${
                       isActive
                         ? `${colors.circle} border-current`
-                        : "bg-zinc-200 border-zinc-300 w-14 h-14 sm:w-16 sm:h-16 hover:bg-zinc-300 hover:border-zinc-400"
+                        : "bg-zinc-200 border-zinc-300 w-18 h-18 sm:w-20 sm:h-20 hover:bg-zinc-300 hover:border-zinc-400"
                     }`}
                   >
                     <Image
@@ -135,7 +126,7 @@ export default function SolutionStageTemplate({
                     />
                   </div>
                   <span
-                    className={`mt-2 font-equip text-[11px] sm:text-[12px] uppercase tracking-wider transition-colors ${
+                    className={`mt-2 font-equip text-[12px] sm:text-[13px] uppercase tracking-wider transition-colors ${
                       isActive ? colors.label : "text-zinc-400 group-hover:text-zinc-600 font-medium"
                     }`}
                   >
@@ -145,7 +136,7 @@ export default function SolutionStageTemplate({
 
                 {/* Pink Connecting Line without arrowhead per PDF Page 3 */}
                 {!isLast && (
-                  <div className="flex-1 flex justify-center items-center px-2 sm:px-4">
+                  <div className="flex-1 flex justify-center items-center px-2 sm:px-6">
                     <div className="h-[3px] w-full bg-primary-pink rounded-full" />
                   </div>
                 )}
@@ -155,21 +146,15 @@ export default function SolutionStageTemplate({
         </div>
       </div>
 
-      {/* Stage Header Info Banner */}
-      <div className="max-w-4xl mx-auto w-full mb-12 space-y-4">
-        <span className={`inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase ${colorClass}`}>
-          <Sparkles className="h-3.5 w-3.5" /> Stage {stageNumber}
-        </span>
+      {/* Stage Header without Stage badge and without description per PDF Page 3 & 4 */}
+      <div className="max-w-4xl mx-auto w-full mb-12">
         <h1 className="text-3xl sm:text-4xl font-extralight uppercase tracking-wide leading-tight text-zinc-950">
           {stageName}
         </h1>
-        <div className={`h-1.5 w-20 rounded-full bg-current ${colorClass}`} />
-        <p className="text-body text-body-gray leading-relaxed font-light text-justify sm:text-left text-[16px] sm:text-[17px]">
-          {stageSubtitle}
-        </p>
+        <div className={`h-1.5 w-20 rounded-full bg-current ${colorClass} mt-3`} />
       </div>
 
-      {/* Full-width Solutions Content Layout (No constraining box, full width per PDF Page 3 & 4) */}
+      {/* Full-width Solutions Content Layout */}
       <div className="max-w-4xl mx-auto w-full space-y-16">
         {subSections && subSections.length > 0 ? (
           subSections.map((sub, sIdx) => (
@@ -215,15 +200,14 @@ export default function SolutionStageTemplate({
   );
 }
 
-/* Individual Full-Width Solution Item (Ordered: Heading -> Text -> Photo -> Learn More -> Related Publications) */
+/* Individual Full-Width Solution Item (Ordered: Heading -> Text -> Photo -> Learn More non-clickable header + list) */
 function SolutionBoxItem({
   project,
   colorClass,
-  borderClass
 }: {
   project: SolutionBoxType;
   colorClass: string;
-  borderClass: string;
+  borderClass?: string;
 }) {
   const paragraphs = Array.isArray(project.description)
     ? project.description
@@ -236,14 +220,14 @@ function SolutionBoxItem({
     >
       {/* 1. Heading: Subtitle & Title */}
       <div className="space-y-1 pb-2">
-        {project.subtitle && (
-          <span className={`text-[13px] font-bold uppercase tracking-wider block ${colorClass}`}>
-            {project.subtitle}
-          </span>
-        )}
         <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 uppercase leading-snug">
           {project.title}
         </h3>
+        {project.subtitle && (
+          <p className="text-[15px] sm:text-[16px] text-zinc-600 font-medium leading-relaxed">
+            {project.subtitle}
+          </p>
+        )}
       </div>
 
       {/* 2. Text / Description Paragraphs */}
@@ -268,24 +252,11 @@ function SolutionBoxItem({
         </div>
       )}
 
-      {/* 4. "Learn more" Link / Action */}
-      {project.linkUrl && (
-        <div className="pt-2">
-          <a
-            href={project.linkUrl}
-            className={`inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white hover:bg-zinc-50 px-6 py-3 font-equip font-semibold text-[14px] text-zinc-800 transition-all duration-300 group hover:border-current ${colorClass}`}
-          >
-            <span>{project.linkText || "Learn more"}</span>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-        </div>
-      )}
-
-      {/* 5. Related Publications (Per PDF Page 4 Item 1: changed to "Related Publications") */}
+      {/* 4. Non-clickable "Learn More" Publications Header & List per PDF Page 4 Item 4 */}
       {project.publications && project.publications.length > 0 && (
         <div className="pt-6 border-t border-zinc-100 space-y-4">
-          <h4 className="text-[14px] font-bold uppercase tracking-wider text-zinc-900 block">
-            Related Publications
+          <h4 className="text-[14px] font-bold uppercase tracking-wider text-zinc-900 select-none block">
+            Learn More
           </h4>
 
           <ul className="space-y-3 pl-1">

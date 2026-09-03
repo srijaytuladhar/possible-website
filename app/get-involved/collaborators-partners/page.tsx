@@ -32,7 +32,7 @@ export default function CollaboratorsPartnersPage() {
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
-      {/* Page Header without 'Our Network' badge and subtitle per PDF Page 5 */}
+      {/* Page Header */}
       <div className="mb-12 text-center max-w-3xl mx-auto">
         <h1 className="h1-hero text-zinc-950 uppercase tracking-wide">
           Our Collaborators & Partners
@@ -40,12 +40,12 @@ export default function CollaboratorsPartnersPage() {
       </div>
 
       <div className="animate-in fade-in duration-300 max-w-5xl mx-auto w-full">
-        {/* Partner List in justified pill badges without card outline and without hover effect per PDF Page 5 */}
-        <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
+        {/* Attractive Centered & Justified Pill Layout per PDF Page 7 */}
+        <div className="flex flex-wrap gap-3.5 justify-center items-center max-w-4xl mx-auto">
           {collaborators.map((partner, pIdx) => (
             <span
               key={pIdx}
-              className="inline-flex items-center px-4.5 py-2.5 rounded-full text-[13.5px] sm:text-[14.5px] font-semibold bg-secondary-blue/10 text-secondary-blue border border-secondary-blue/20 shadow-xs cursor-default text-left"
+              className="inline-flex items-center text-center justify-center px-5 py-2.5 rounded-full text-[13.5px] sm:text-[14.5px] font-medium bg-[#F0F9FD] text-[#0284C7] border border-[#BAE6FD]/80 shadow-2xs transition-colors cursor-default"
             >
               {partner}
             </span>

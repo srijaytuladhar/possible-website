@@ -72,9 +72,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column: Text Content */}
+            {/* Right Column: Text Content (Larger font size per PDF Page 1) */}
             <div className="lg:col-span-6 flex flex-col justify-center space-y-4">
-              <p className="text-body text-zinc-800 leading-relaxed font-light text-justify sm:text-left text-[17px] sm:text-[18px]">
+              <p className="text-zinc-900 leading-relaxed font-light text-justify sm:text-left text-[22px] sm:text-[25px] md:text-[27px]">
                 A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We&apos;re building toward a world where that&apos;s not aspiration &mdash; it&apos;s how every health system works: rooted in community, proven by evidence, built to reach everyone.
               </p>
             </div>
@@ -82,7 +82,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 4 — Three Stage Dynamic Process Boxes (Per PDF Page 1 & 2) */}
+      {/* SECTION 4 — Three Stage Dynamic Process Boxes (Brand colors & Scale title per PDF Page 1) */}
       <section className="relative py-20 px-6 sm:px-8 bg-white border-b border-zinc-100 overflow-hidden">
         <div className="absolute top-[10%] left-[-5%] w-[30rem] h-[30rem] rounded-full bg-radial from-primary-pink/5 to-transparent blur-3xl -z-10 pointer-events-none" />
         <div className="absolute bottom-[10%] right-[-5%] w-[30rem] h-[30rem] rounded-full bg-radial from-secondary-blue/5 to-transparent blur-3xl -z-10 pointer-events-none" />
@@ -96,14 +96,14 @@ export default function Home() {
             <div className="h-1.5 w-20 bg-gradient-to-r from-primary-pink to-secondary-blue rounded-full mx-auto mt-6" />
           </div>
 
-          {/* 3 Connected Process Boxes matching PDF Page 2 */}
+          {/* 3 Connected Process Boxes with exact brand colors (Innovate Pink, Test Blue, Scale Purple) */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 lg:gap-6 max-w-5xl mx-auto">
-            {/* Box 1: Innovate */}
+            {/* Box 1: Innovate (Primary Pink) */}
             <Link
               href="/solutions/innovate"
-              className="w-full md:flex-1 p-6 sm:p-7 rounded-2xl bg-[#EDF9F6] border-2 border-[#52B788] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center min-h-[210px] justify-center group"
+              className="w-full md:flex-1 p-6 sm:p-7 rounded-2xl bg-[#FDF2F7] border-2 border-primary-pink shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center min-h-[210px] justify-center group"
             >
-              <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 group-hover:text-[#2D6A4F] transition-colors mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-primary-pink mb-3">
                 Innovate
               </h3>
               <p className="text-[14.5px] text-zinc-700 leading-relaxed font-light">
@@ -112,16 +112,16 @@ export default function Home() {
             </Link>
 
             {/* Connecting Arrow 1 */}
-            <div className="hidden md:flex items-center justify-center text-zinc-500 shrink-0">
+            <div className="hidden md:flex items-center justify-center text-zinc-400 shrink-0">
               <ArrowRight className="h-6 w-6 stroke-[2.5]" />
             </div>
 
-            {/* Box 2: Test */}
+            {/* Box 2: Test (Secondary Blue) */}
             <Link
               href="/solutions/test"
-              className="w-full md:flex-1 p-6 sm:p-7 rounded-2xl bg-[#FFF9E6] border-2 border-[#E0A96D] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center min-h-[210px] justify-center group"
+              className="w-full md:flex-1 p-6 sm:p-7 rounded-2xl bg-[#F0FBFD] border-2 border-secondary-blue shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center min-h-[210px] justify-center group"
             >
-              <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 group-hover:text-[#B07D3E] transition-colors mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-secondary-blue mb-3">
                 Test
               </h3>
               <p className="text-[14.5px] text-zinc-700 leading-relaxed font-light">
@@ -130,17 +130,17 @@ export default function Home() {
             </Link>
 
             {/* Connecting Arrow 2 */}
-            <div className="hidden md:flex items-center justify-center text-zinc-500 shrink-0">
+            <div className="hidden md:flex items-center justify-center text-zinc-400 shrink-0">
               <ArrowRight className="h-6 w-6 stroke-[2.5]" />
             </div>
 
-            {/* Box 3: Integrate */}
+            {/* Box 3: Scale (Accent Purple, renamed to Scale per PDF Page 1) */}
             <Link
               href="/solutions/scale"
-              className="w-full md:flex-1 p-6 sm:p-7 rounded-2xl bg-[#FDF2F4] border-2 border-[#C97A8E] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center min-h-[210px] justify-center group"
+              className="w-full md:flex-1 p-6 sm:p-7 rounded-2xl bg-[#F8F2F9] border-2 border-accent-purple shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center min-h-[210px] justify-center group"
             >
-              <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 group-hover:text-[#9B3B52] transition-colors mb-3">
-                Integrate
+              <h3 className="text-xl sm:text-2xl font-bold text-accent-purple mb-3">
+                Scale
               </h3>
               <p className="text-[14.5px] text-zinc-700 leading-relaxed font-light">
                 Integrate into permanent public health systems and national policy for lasting change.
@@ -150,21 +150,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 5 — WHO WE ARE (Pink box banner, quote removed per PDF Page 2) */}
+      {/* SECTION 5 — WHO WE ARE (Pink box banner aligned with text column per PDF Page 2) */}
       <section className="relative py-20 px-6 sm:px-8 bg-zinc-50 border-b border-zinc-100 overflow-hidden" id="who-we-are">
         <div className="absolute bottom-[-10%] left-[-5%] w-[40rem] h-[40rem] rounded-full bg-radial from-primary-pink/5 to-transparent blur-3xl -z-10 pointer-events-none" />
 
-        <div className="mx-auto max-w-7xl space-y-12">
-          {/* Solid Pink Box Banner matching PDF Page 2 */}
-          <div className="w-full bg-primary-pink py-4 px-6 rounded-2xl shadow-sm text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-wide">
-              Who we are
-            </h2>
-          </div>
-
+        <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Column: Text Content */}
+            {/* Left Column: Pink Box Banner + Text Content */}
             <div className="lg:col-span-6 space-y-6">
+              <div className="w-full bg-primary-pink py-4 px-6 rounded-2xl shadow-sm text-center">
+                <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-wide">
+                  Who we are
+                </h2>
+              </div>
               <p className="text-body text-zinc-700 leading-relaxed font-light text-justify sm:text-left text-[16px] sm:text-[17px]">
                 We&apos;re health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers &mdash; not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. We don&apos;t just run a study, deliver an intervention/program, and move on. We build systems that last.
               </p>

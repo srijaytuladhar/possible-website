@@ -10,14 +10,15 @@ export default function Footer() {
           
           {/* Column 1: Description & Socials */}
           <div className="md:col-span-6 lg:col-span-6 flex flex-col gap-5">
-            <div className="flex items-center">
-              <Image
-                src="/logo.png"
-                alt="Possible Logo"
-                width={160}
-                height={42}
-                className="object-contain brightness-0 invert"
-              />
+            <div className="flex items-center gap-1.5">
+              <span className="text-[28px] font-bold tracking-tight text-white font-equip leading-none">
+                possible
+              </span>
+              <svg viewBox="0 0 110 110" className="w-6 h-6 shrink-0 -mt-2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 10,40 H 70 V 100 H 40 V 70 H 10 Z" fill="#ED2E84" />
+                <path d="M 40,10 H 70 V 40 H 100 V 70 H 40 Z" fill="#00BBE2" />
+                <rect x="40" y="40" width="30" height="30" fill="#782888" />
+              </svg>
             </div>
             <p className="text-[14px] leading-relaxed text-white/80 font-light text-justify max-w-xl">
               Possible is a collaboration between two independent organizations: Sambhav (Possible), a Nepal-based non-governmental organization, and Possible, a U.S.-based nonprofit. While we operate independently, we maintain a mutually interdependent partnership with a shared mission to advance health innovation in Nepal.

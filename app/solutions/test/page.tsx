@@ -6,8 +6,7 @@ export default function TestPage() {
   const subSections: SolutionSubSectionType[] = [
     {
       subSectionId: "design-to-test",
-      subSectionTitle: "2.1. DESIGN TO TEST",
-      subSectionSubtitle: "Interventions and digital platforms currently undergoing active trial protocol design, pilot feasibility testing, or formative evaluations.",
+      subSectionTitle: "DESIGN TO TEST",
       projects: [
         {
           id: "include",
@@ -76,13 +75,48 @@ export default function TestPage() {
     },
     {
       subSectionId: "tested-and-ready-for-scale",
-      subSectionTitle: "2.2. TESTED AND READY FOR SCALE-UP",
-      subSectionSubtitle: "Interventions with completed pilot trials, validated protocols, and active randomized trials preparing for national municipal adoption.",
+      subSectionTitle: "TESTED AND READY FOR SCALE-UP",
       projects: [
         {
+          id: "become",
+          title: "BECOME",
+          subtitle: "Bringing integrated mental health and NCD care closer to home",
+          description: "Expanding Nepal’s national community health worker program to deliver home-based care for chronic conditions and mental health. BECOME brings evidence-based behavioral support for common mental health conditions and non-communicable diseases into communities through trained, full time, trained, supervised, and digitally enabled CHWs. The intervention combines stress reduction, behavioral activation, and motivational interviewing to support people with conditions such as depression, anxiety, hypertension, and diabetes. CHWs conduct screening, behavioral intervention, and follow-up for diabetes, hypertension, depression, and anxiety, supported by the Community Health Information System (CHIS) for data-driven care.",
+          publications: [
+            {
+              title: "A type II hybrid implementation-effectiveness study of the BECOME intervention: integrating Behavioral Community-Based Approaches for Mental Health and Non-Communicable Diseases delivered by community health workers - study protocol for a stepped wedge cluster randomized controlled trial. doi: 10.1186/s13063-026-09457-1.",
+              link: "https://doi.org/10.1186/s13063-026-09457-1"
+            },
+            {
+              title: "Cross-cultural adaptation of motivational interviewing for use in rural Nepal. BMC Psychol. doi: 10.1186/s40359-021-00557-y.",
+              link: "https://doi.org/10.1186/s40359-021-00557-y"
+            }
+          ]
+        },
+        {
+          id: "commit",
+          title: "COMMIT",
+          subtitle: "Improving treatment compliance using mHealth app",
+          description: "COMMIT is a mHealth app designed with people with lived experience, health care workers and government to support health care providers in motivating patients to stay engaged in their treatment and care. We have tested this app through the network of our community health workers among young people living with HIV, patients with depression in different stages, and have observed improved treatment compliance over the time.",
+          publications: [
+            {
+              title: "Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing to improve adherence to care among youth living with HIV in rural Nepal. doi: 10.3126/journal.pgph.0002911.",
+              link: "https://doi.org/10.3126/journal.pgph.0002911"
+            },
+            {
+              title: "Cross-cultural adaptation of motivational interviewing for use in rural Nepal. BMC Psychol. doi: 10.1186/s40359-021-00557-y.",
+              link: "https://doi.org/10.1186/s40359-021-00557-y"
+            },
+            {
+              title: "Acharya B, Sigdel K., Khatri R, Rimal P, Shrestha S, Sharma D, Shrestha J & Sapkota S (2024). Improving the quality of global mental health services with digital tools: Best practices and lessons learned from rural Nepal. Journal of Technology in Behavioral Science.",
+              link: "https://doi.org/10.1007/s41347-024-00389-8"
+            }
+          ]
+        },
+        {
           id: "milap",
-          title: "MILAP for intimate partner violence and mental health",
-          subtitle: "Family-based intervention for IPV & depression",
+          title: "MILAP",
+          subtitle: "For intimate partner violence and mental health",
           description: [
             "Women in low- and middle-income countries like Nepal often live in multi-generational households where IPV dynamics is influenced by multiple key family members.",
             "MILAP is a family-based intervention that engages women, their husbands and mothers-in-law (MILs) to reduce IPV and mental well-being among married women. It comprises nine sessions on how to improve communication, manage stress and difficult emotions, and build healthier relationships. After two successful pilot studies, we are now testing MILAP through a randomized controlled trial with 300 families in Nepal. This five-year study, funded by the National Institute of Mental Health, will help us understand the impact of MILAP, and prepare for a larger scale."
@@ -110,69 +144,6 @@ export default function TestPage() {
               link: "https://doi.org/10.1007/s00737-025-01643-5"
             }
           ]
-        },
-        {
-          id: "become",
-          title: "BECOME",
-          subtitle: "Bringing integrated mental health and NCD care closer to home",
-          description: "Expanding Nepal’s national community health worker program to deliver home-based care for chronic conditions and mental health. BECOME brings evidence-based behavioral support for common mental health conditions and non-communicable diseases into communities through trained, full time, trained, supervised, and digitally enabled CHWs. The intervention combines stress reduction, behavioral activation, and motivational interviewing to support people with conditions such as depression, anxiety, hypertension, and diabetes. CHWs conduct screening, behavioral intervention, and follow-up for diabetes, hypertension, depression, and anxiety, supported by the Community Health Information System (CHIS) for data-driven care.",
-          publications: [
-            {
-              title: "A type II hybrid implementation-effectiveness study of the BECOME intervention: integrating Behavioral Community-Based Approaches for Mental Health and Non-Communicable Diseases delivered by community health workers - study protocol for a stepped wedge cluster randomized controlled trial. doi: 10.1186/s13063-026-09457-1.",
-              link: "https://doi.org/10.1186/s13063-026-09457-1"
-            },
-            {
-              title: "Cross-cultural adaptation of motivational interviewing for use in rural Nepal. BMC Psychol. doi: 10.1186/s40359-021-00557-y.",
-              link: "https://doi.org/10.1186/s40359-021-00557-y"
-            },
-            {
-              title: "Strengthening Community Health Systems Through Longitudinal Care",
-              link: "/solutions/scale#longitudinal-care"
-            }
-          ]
-        },
-        {
-          id: "commit",
-          title: "COMMIT",
-          subtitle: "Improving treatment compliance using mHealth app",
-          description: "COMMIT is a mHealth app designed with people with lived experience, health care workers and government to support health care providers in motivating patients to stay engaged in their treatment and care. We have tested this app through the network of our community health workers among young people living with HIV, patients with depression in different stages, and have observed improved treatment compliance over the time.",
-          publications: [
-            {
-              title: "Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing to improve adherence to care among youth living with HIV in rural Nepal. doi: 10.3126/journal.pgph.0002911.",
-              link: "https://doi.org/10.3126/journal.pgph.0002911"
-            },
-            {
-              title: "Cross-cultural adaptation of motivational interviewing for use in rural Nepal. BMC Psychol. doi: 10.1186/s40359-021-00557-y.",
-              link: "https://doi.org/10.1186/s40359-021-00557-y"
-            },
-            {
-              title: "Acharya B, Sigdel K., Khatri R, Rimal P, Shrestha S, Sharma D, Shrestha J & Sapkota S (2024). Improving the quality of global mental health services with digital tools: Best practices and lessons learned from rural Nepal. Journal of Technology in Behavioral Science.",
-              link: "https://doi.org/10.1007/s41347-024-00389-8"
-            }
-          ]
-        },
-        {
-          id: "perinatal-mh",
-          title: "Perinatal-MH",
-          subtitle: "Integrating perinatal mental health into Community Health Worker-led longitudinal care",
-          description: [
-            "Perinatal mental health is a major yet persistently neglected global health gap. Yet many women remain undetected and untreated due to limited screening, specialist capacity, and weak integration of mental health into routine perinatal care. Longitudinal community health worker (CHW) programs provide an opportunity to integrate mental health support into routine care and reach women across the perinatal period. We integrated the WHO Thinking Healthy Programme (THP), an evidence-based intervention for perinatal depression, into an existing CHW-delivered longitudinal care model in rural Nepal. Rather than delivering mental health care as a separate service, the approach embeds THP within ongoing contacts between CHWs and women, supporting continuity of care while reducing the stigma associated with seeking mental health services.",
-            "We evaluated this integrated model to assess its feasibility, acceptability, and potential to strengthen access to perinatal mental health care through existing community-based longitudinal care systems."
-          ],
-          publications: [
-            {
-              title: "Addressing challenges for psychotherapy supervision in global mental health through experiential learnings from rural Nepal. doi: 10.1186/s12982-025-00645-z.",
-              link: "https://doi.org/10.1186/s12982-025-00645-z"
-            },
-            {
-              title: "\"Now that they come to our doorsteps to teach us these things...\": postpartum contraception outcomes from a pre-post effectiveness-implementation study of an integrated community health worker intervention in rural Nepal. doi: 10.1186/s12978-025-02225-5.",
-              link: "https://doi.org/10.1186/s12978-025-02225-5"
-            },
-            {
-              title: "Beyond Maternal and Child Health: Refining CHW Models for Chronic and Life course Approaches to Care; Current Opinion in Epidemiology and Public Health [awaiting to go online]",
-              link: "https://pubmed.ncbi.nlm.nih.gov/?term=Possible+Health+Nepal+CHW"
-            }
-          ]
         }
       ]
     }
@@ -183,7 +154,6 @@ export default function TestPage() {
       stageId="test"
       stageNumber="2"
       stageName="TEST"
-      stageSubtitle="Evaluating clinical models, tools, and platforms through rigorous scientific trials to prove efficacy, feasibility, and acceptability before scaling into government health systems."
       colorClass="text-secondary-blue"
       badgeBgClass="bg-secondary-blue/10"
       borderClass="border-secondary-blue/20"
