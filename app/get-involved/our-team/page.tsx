@@ -173,7 +173,7 @@ function TeamPageContent() {
               <Link
                 key={member.id}
                 href={`/get-involved/our-team/${member.id}`}
-                className="group relative flex flex-col items-center p-6 bg-white border border-zinc-100 rounded-2xl shadow-sm hover:shadow-md hover:border-primary-pink/30 transition-all duration-300 overflow-hidden h-[320px] cursor-pointer"
+                className="group relative flex flex-col items-center p-6 bg-white rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 overflow-hidden h-[320px] cursor-pointer"
               >
                 {/* Default Card View */}
                 <div className="flex flex-col items-center h-full justify-center transition-all duration-300 group-hover:scale-95">

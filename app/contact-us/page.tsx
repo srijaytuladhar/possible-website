@@ -30,18 +30,6 @@ export default function ContactUs() {
       mapsLink: "https://maps.google.com/?q=Bhim+Plaza+Naxal+Kathmandu+Nepal",
       hours: "Mon–Fri, 9:00 AM – 5:00 PM (except public holidays)"
     },
-    {
-      country: "U.S. Office",
-      entity: "Possible US",
-      address: "99 Wall Street #4100,New York \n NY 10005",
-      phone: "None (Email preferred)",
-      phoneRaw: "",
-      icon: Building,
-      badgeColor: "bg-secondary-blue/10 text-secondary-blue",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.4750953930815!2d-74.01111972343864!3d40.70642923789456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a16fa8a75e3%3A0x6b8bc6d3d9e875bd!2s99%20Wall%20St%20%234100%2C%20New%20York%2C%20NY%2010005!5e0!3m2!1sen!2sus!4v1719638487213!5m2!1sen!2sus",
-      mapsLink: "https://maps.google.com/?q=99+Wall+Street+New+York+NY+10005",
-      hours: ""
-    },
   ];
 
   const emailGrid = [
@@ -57,20 +45,13 @@ export default function ContactUs() {
 
   return (
     <div className="mx-auto max-w-4xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1 space-y-16 animate-in fade-in duration-300 bg-white">
-      {/* Top Left Navigation Back & Pill */}
-      <div className="flex items-center gap-3 pb-6">
-        <span className="inline-flex items-center rounded-full bg-primary-pink/10 text-primary-pink px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-wider shadow-sm">
-          Contact us
-        </span>
-      </div>
-
       {/* 1. Location Section */}
       <section className="space-y-6">
         <div className="flex items-center gap-3 border-b border-zinc-100 pb-3">
           <MapPin className="h-5 w-5 text-primary-pink" />
           <h2 className="text-xl font-semibold text-zinc-950 uppercase tracking-wider">LOCATIONS</h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 max-w-lg gap-6">
           {offices.map((office, idx) => {
             const Icon = office.icon;
             return (

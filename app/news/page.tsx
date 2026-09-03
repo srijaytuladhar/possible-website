@@ -110,18 +110,18 @@ export default function NewsPage() {
       {/* News Landing Hero Section */}
       <div className="bg-zinc-50 border-b border-zinc-100 py-16 px-6 sm:px-8">
         <div className="mx-auto max-w-7xl flex flex-col items-start relative">
-          <Link href="/" className="inline-flex items-center gap-2 text-[14px] text-body-gray hover:text-primary-pink transition-colors mb-8 w-fit group">
-            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-            Back to Home
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary-pink text-white shadow-sm hover:bg-primary-pink/90 hover:scale-105 transition-all mb-8 shrink-0 cursor-pointer"
+            aria-label="Back to home"
+          >
+            <ArrowLeft className="h-5 w-5 stroke-[2.5]" />
           </Link>
 
-          <div className="max-w-3xl space-y-4">
+          <div className="max-w-3xl">
             <h1 className="h1-hero text-zinc-950 uppercase tracking-wide leading-tight">
               News
             </h1>
-            <p className="text-subheading text-body-gray font-light max-w-2xl leading-relaxed">
-              Stay up to date with the latest from Possible, our clinical trials in Nepal, technology milestones, and global partnership initiatives.
-            </p>
           </div>
         </div>
       </div>

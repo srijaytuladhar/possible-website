@@ -63,37 +63,23 @@ export default function SolutionStageTemplate({
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1 bg-white animate-in fade-in duration-300">
       
-      {/* Top Left Navigation Back & Pill */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-zinc-100">
-        <div className="flex items-center gap-3">
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-zinc-200 hover:border-zinc-300 text-zinc-500 hover:text-zinc-800 transition-colors bg-white shrink-0"
-            aria-label="Back to home"
-          >
-            <ArrowLeft className="h-4 w-4" />
-          </Link>
-          <span className={`inline-flex items-center rounded-full ${badgeBgClass} ${colorClass} px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-wider shadow-sm`}>
-            {stageNumber}. {stageName}
-          </span>
-        </div>
-
-        {/* Back to all solutions */}
+      {/* Top Left Navigation Back (Pink circle button per PDF Page 3, All solutions hidden) */}
+      <div className="flex items-center justify-between gap-4 mb-8 pb-4">
         <Link
-          href="/solutions"
-          className="inline-flex items-center gap-1.5 font-equip text-[14px] font-semibold text-zinc-600 hover:text-primary-pink transition-colors"
+          href="/"
+          className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary-pink text-white shadow-sm hover:bg-primary-pink/90 hover:scale-105 transition-all shrink-0 cursor-pointer"
+          aria-label="Back to home"
         >
-          <span>All Solutions Overview</span>
-          <ArrowRight className="h-4 w-4" />
+          <ArrowLeft className="h-5 w-5 stroke-[2.5]" />
         </Link>
       </div>
 
-      {/* Stage Progress Indicator */}
-      <div className="mb-14 bg-zinc-50/80 border border-zinc-150 p-6 sm:p-8 rounded-3xl flex flex-col items-center">
-        <span className="text-[14px] sm:text-[16px] font-extrabold text-zinc-800 uppercase tracking-wider mb-6">
-          Development Lifecycle Stage
-        </span>
-        <div className="flex items-center justify-center w-full max-w-3xl">
+      {/* Stage Progress Indicator (Larger, wider, updated title & pink line per PDF Page 3 & 4) */}
+      <div className="mb-14 bg-zinc-50/80 border border-zinc-150 p-6 sm:p-8 rounded-3xl flex flex-col items-center w-full max-w-5xl mx-auto">
+        <h2 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 text-center uppercase tracking-wide mb-8 max-w-4xl leading-relaxed">
+          Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of validated evidence.
+        </h2>
+        <div className="flex items-center justify-center w-full max-w-4xl px-2 sm:px-6">
           {stages.map((st, index) => {
             const isActive = stageId === st.id;
             const isLast = index === stages.length - 1;
@@ -157,12 +143,10 @@ export default function SolutionStageTemplate({
                   </span>
                 </Link>
 
-                {/* Arrow connector */}
+                {/* Pink Connecting Line without arrowhead per PDF Page 3 */}
                 {!isLast && (
                   <div className="flex-1 flex justify-center items-center px-2 sm:px-4">
-                    <div className="h-[2px] w-full bg-zinc-200 relative">
-                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 border-zinc-300 rotate-45" />
-                    </div>
+                    <div className="h-[3px] w-full bg-primary-pink rounded-full" />
                   </div>
                 )}
               </div>
@@ -171,86 +155,67 @@ export default function SolutionStageTemplate({
         </div>
       </div>
 
-      {/* Main Content Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-        
-        {/* Left Column: Stage Intro Sticky Header */}
-        <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
-          <div className="space-y-3">
-            <span className={`inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase ${colorClass}`}>
-              <Sparkles className="h-3.5 w-3.5" /> Stage {stageNumber}
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-extralight uppercase tracking-wide leading-tight text-zinc-950">
-              {stageName}
-            </h1>
-          </div>
-          <div className={`h-1.5 w-20 rounded-full bg-current ${colorClass}`} />
-          <p className="text-body text-body-gray leading-relaxed font-light text-justify sm:text-left">
-            {stageSubtitle}
-          </p>
+      {/* Stage Header Info Banner */}
+      <div className="max-w-4xl mx-auto w-full mb-12 space-y-4">
+        <span className={`inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase ${colorClass}`}>
+          <Sparkles className="h-3.5 w-3.5" /> Stage {stageNumber}
+        </span>
+        <h1 className="text-3xl sm:text-4xl font-extralight uppercase tracking-wide leading-tight text-zinc-950">
+          {stageName}
+        </h1>
+        <div className={`h-1.5 w-20 rounded-full bg-current ${colorClass}`} />
+        <p className="text-body text-body-gray leading-relaxed font-light text-justify sm:text-left text-[16px] sm:text-[17px]">
+          {stageSubtitle}
+        </p>
+      </div>
 
-          <div className="p-5 rounded-2xl bg-zinc-50 border border-zinc-200/70 space-y-3">
-            <h4 className="text-[13px] font-bold uppercase tracking-wider text-zinc-800">
-              Stage Highlights
-            </h4>
-            <p className="text-[13px] text-zinc-600 leading-relaxed font-light">
-              Solutions developed within this stage engage directly with healthcare workers, affected families, and government partners to ensure sustainable institutionalization.
-            </p>
-          </div>
-        </div>
-
-        {/* Right Column: Solution Boxes List */}
-        <div className="lg:col-span-8 space-y-10">
-          
-          {/* Subsections rendering if present (e.g. Test stage: 2.1 and 2.2) */}
-          {subSections && subSections.length > 0 ? (
-            subSections.map((sub, sIdx) => (
-              <div key={sIdx} id={sub.subSectionId} className="space-y-8 scroll-mt-28">
-                <div className="border-b border-zinc-200/80 pb-3">
-                  <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 uppercase tracking-wide">
-                    {sub.subSectionTitle}
-                  </h2>
-                  {sub.subSectionSubtitle && (
-                    <p className="text-[14px] text-body-gray font-light mt-1">
-                      {sub.subSectionSubtitle}
-                    </p>
-                  )}
-                </div>
-
-                <div className="space-y-8">
-                  {sub.projects.map((proj, pIdx) => (
-                    <SolutionBoxItem
-                      key={pIdx}
-                      project={proj}
-                      colorClass={colorClass}
-                      borderClass={borderClass}
-                    />
-                  ))}
-                </div>
+      {/* Full-width Solutions Content Layout (No constraining box, full width per PDF Page 3 & 4) */}
+      <div className="max-w-4xl mx-auto w-full space-y-16">
+        {subSections && subSections.length > 0 ? (
+          subSections.map((sub, sIdx) => (
+            <div key={sIdx} id={sub.subSectionId} className="space-y-12 scroll-mt-28">
+              <div className="border-b border-zinc-200 pb-3">
+                <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 uppercase tracking-wide">
+                  {sub.subSectionTitle}
+                </h2>
+                {sub.subSectionSubtitle && (
+                  <p className="text-[15px] text-body-gray font-light mt-1.5">
+                    {sub.subSectionSubtitle}
+                  </p>
+                )}
               </div>
-            ))
-          ) : (
-            /* Flat projects rendering (Innovate, Scale, Pipeline) */
-            <div className="space-y-8">
-              {projects?.map((proj, pIdx) => (
-                <SolutionBoxItem
-                  key={pIdx}
-                  project={proj}
-                  colorClass={colorClass}
-                  borderClass={borderClass}
-                />
-              ))}
-            </div>
-          )}
 
-        </div>
+              <div className="space-y-14">
+                {sub.projects.map((proj, pIdx) => (
+                  <SolutionBoxItem
+                    key={pIdx}
+                    project={proj}
+                    colorClass={colorClass}
+                    borderClass={borderClass}
+                  />
+                ))}
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="space-y-14">
+            {projects?.map((proj, pIdx) => (
+              <SolutionBoxItem
+                key={pIdx}
+                project={proj}
+                colorClass={colorClass}
+                borderClass={borderClass}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
     </div>
   );
 }
 
-/* Individual Solution Box Component matching the Whiteboard format */
+/* Individual Full-Width Solution Item (Ordered: Heading -> Text -> Photo -> Learn More -> Related Publications) */
 function SolutionBoxItem({
   project,
   colorClass,
@@ -267,79 +232,78 @@ function SolutionBoxItem({
   return (
     <div
       id={project.id}
-      className={`p-6 sm:p-8 bg-white border ${borderClass} rounded-3xl shadow-xs hover:shadow-md transition-all duration-300 space-y-6 scroll-mt-28`}
+      className="space-y-6 scroll-mt-28 pb-12 border-b border-zinc-200 last:border-b-0"
     >
-      {/* Box Header: Subtitle & Title */}
-      <div className="border-b border-zinc-100 pb-4 space-y-1">
+      {/* 1. Heading: Subtitle & Title */}
+      <div className="space-y-1 pb-2">
         {project.subtitle && (
-          <span className={`text-[12.5px] font-bold uppercase tracking-wider block ${colorClass}`}>
+          <span className={`text-[13px] font-bold uppercase tracking-wider block ${colorClass}`}>
             {project.subtitle}
           </span>
         )}
-        <h3 className="h3-card font-bold text-zinc-950 uppercase leading-snug">
+        <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 uppercase leading-snug">
           {project.title}
         </h3>
       </div>
 
-      {/* Optional Project Image */}
-      {project.image && (
-        <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-zinc-200 shadow-inner bg-zinc-100">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 800px"
-          />
-        </div>
-      )}
-
-      {/* Description Paragraphs */}
-      <div className="space-y-3">
+      {/* 2. Text / Description Paragraphs */}
+      <div className="space-y-4">
         {paragraphs.map((para, i) => (
-          <p key={i} className="text-body text-body-gray leading-relaxed font-light text-justify sm:text-left">
+          <p key={i} className="text-body text-zinc-700 leading-relaxed font-light text-justify sm:text-left text-[16px] sm:text-[17px]">
             {para}
           </p>
         ))}
       </div>
 
-      {/* CTA Link if specified */}
+      {/* 3. Photo / Image */}
+      {project.image && (
+        <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-zinc-200 shadow-sm bg-zinc-100">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 900px"
+          />
+        </div>
+      )}
+
+      {/* 4. "Learn more" Link / Action */}
       {project.linkUrl && (
-        <div className="pt-1">
+        <div className="pt-2">
           <a
             href={project.linkUrl}
-            className={`inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 px-5 py-2.5 font-equip font-semibold text-[13.5px] text-zinc-800 transition-all duration-300 group hover:border-current ${colorClass}`}
+            className={`inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white hover:bg-zinc-50 px-6 py-3 font-equip font-semibold text-[14px] text-zinc-800 transition-all duration-300 group hover:border-current ${colorClass}`}
           >
-            <span>{project.linkText || "Explore Details"}</span>
+            <span>{project.linkText || "Learn more"}</span>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       )}
 
-      {/* Read More (Not clickable header) / Publications List */}
+      {/* 5. Related Publications (Per PDF Page 4 Item 1: changed to "Related Publications") */}
       {project.publications && project.publications.length > 0 && (
-        <div className="pt-4 border-t border-zinc-100 space-y-3">
-          {/* Non-clickable header specified in Whiteboard */}
-          <span className="text-[13px] font-bold uppercase tracking-wider text-zinc-800 select-none block">
-            Learn More:
-          </span>
+        <div className="pt-6 border-t border-zinc-100 space-y-4">
+          <h4 className="text-[14px] font-bold uppercase tracking-wider text-zinc-900 block">
+            Related Publications
+          </h4>
 
-          <ul className="space-y-2.5 pl-1">
+          <ul className="space-y-3 pl-1">
             {project.publications.map((pub, idx) => (
               <li key={idx} className="flex gap-3 items-start group">
                 <div className={`p-1.5 rounded-md bg-zinc-100 shrink-0 mt-0.5 group-hover:bg-primary-pink/10 transition-colors ${colorClass}`}>
-                  <FileText className="h-3.5 w-3.5" />
+                  <FileText className="h-4 w-4" />
                 </div>
                 <div className="flex-1">
                   <a
                     href={pub.link}
                     target={pub.link.startsWith("http") ? "_blank" : "_self"}
                     rel={pub.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="text-[13.5px] font-medium text-zinc-800 hover:text-primary-pink transition-colors leading-relaxed inline-flex items-start gap-1"
+                    className="text-[14.5px] font-medium text-zinc-800 hover:text-primary-pink transition-colors leading-relaxed inline-flex items-start gap-1.5"
                   >
                     <span>{idx + 1}. {pub.title}</span>
                     {pub.link.startsWith("http") && (
-                      <ExternalLink className="h-3 w-3 shrink-0 mt-1 opacity-60 group-hover:opacity-100" />
+                      <ExternalLink className="h-3.5 w-3.5 shrink-0 mt-1 opacity-60 group-hover:opacity-100" />
                     )}
                   </a>
                 </div>

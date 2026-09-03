@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function HeroSlider() {
   return (
@@ -24,11 +24,6 @@ export default function HeroSlider() {
       {/* Hero Content Overlay */}
       <div className="relative z-10 mx-auto max-w-7xl w-full">
         <div className="max-w-3xl space-y-6 animate-in fade-in slide-in-from-top-4 duration-1000">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/20 px-4 py-1 text-[13px] font-semibold text-secondary-blue tracking-wider uppercase backdrop-blur-xs">
-            <Sparkles className="h-3.5 w-3.5 fill-secondary-blue" />
-            Healthcare Innovation
-          </span>
-
           <h1 className="h1-hero text-white font-extralight leading-tight uppercase tracking-wide">
             &ldquo;Too complex to solve&rdquo; <br />
             <span className="font-semibold text-primary-pink">is where we start.</span>
@@ -43,7 +38,7 @@ export default function HeroSlider() {
               href="/solutions"
               className="inline-flex items-center gap-2 rounded-full bg-primary-pink px-8 py-4 font-equip font-semibold text-[15px] text-white shadow-lg shadow-primary-pink/30 hover:bg-primary-pink/90 hover:shadow-primary-pink/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
             >
-              <span>Explore Our Solutions</span>
+              <span>Our solutions</span>
               <ArrowRight className="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>

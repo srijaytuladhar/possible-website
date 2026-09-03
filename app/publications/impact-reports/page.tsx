@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
-import { BarChart3, Download, Eye } from "lucide-react";
+import { BarChart3, Download, Eye, ArrowLeft } from "lucide-react";
 import ReportViewerModal from "@/components/ReportViewerModal";
 
 export default function ImpactReportsPage() {
@@ -68,21 +69,22 @@ export default function ImpactReportsPage() {
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
-      {/* Top Navigation & Pill Badge */}
-      <div className="flex items-center gap-3 mb-10 pb-6 ">
-        <span className="inline-flex items-center rounded-full bg-primary-pink/10 text-primary-pink px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-wider shadow-sm">
-          Annual Impact Report
-        </span>
+      {/* Top Navigation: Pink circle back arrow button per PDF Page 7 */}
+      <div className="flex items-center gap-3 mb-8">
+        <Link
+          href="/"
+          className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary-pink text-white shadow-sm hover:bg-primary-pink/90 hover:scale-105 transition-all shrink-0 cursor-pointer"
+          aria-label="Back to home"
+        >
+          <ArrowLeft className="h-5 w-5 stroke-[2.5]" />
+        </Link>
       </div>
 
-      {/* Page Header */}
+      {/* Page Header without subtitle per PDF Page 7 */}
       <div className="mb-12 text-center max-w-3xl mx-auto">
         <h1 className="h1-hero text-primary-pink mb-3 uppercase tracking-wide">
           Impact Reports
         </h1>
-        <p className="text-subheading text-body-gray font-light">
-          Detailed reviews of our yearly milestones, organizational goals, and community health indicators in Nepal.
-        </p>
       </div>
 
       <div className="bg-zinc-100/70 p-8 sm:p-10 rounded-3xl border border-zinc-200/50 animate-in fade-in duration-300 space-y-16">

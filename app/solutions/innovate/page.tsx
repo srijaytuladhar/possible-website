@@ -6,10 +6,22 @@ export default function InnovatePage() {
   const projects: SolutionBoxType[] = [
     {
       id: "casa",
-      title: "CASA",
-      subtitle: "Supporting caregivers of children with Autism",
+      title: "DISABILITY INTERVENTION — CASA",
+      subtitle: "ACTIVE CO-DESIGN",
       description: "CASA is a mobile health app being developed with caregivers, health care workers and experts, to support caregivers of children with autism. It will provide simple, practical tips that caregivers can use at home to help children communicate, learn new skills, manage everyday challenges, and take care of their own well-being. We will test the app for three months with caregivers and therapists at two autism care centers in Nepal to understand if it is acceptable and feasible to use.",
-      image: "/health_process.jpg"
+      image: "/health_process.jpg",
+      linkText: "Learn more",
+      linkUrl: "/publications/research-papers",
+      publications: [
+        {
+          title: "Co-designing home-based disability care pathways with family caregivers in rural Nepal: A qualitative co-design protocol",
+          link: "https://doi.org/10.1136/bmjgh-2024-placeholder"
+        },
+        {
+          title: "Community-led rehabilitation protocols for pediatric cognitive disabilities in low-resource settings",
+          link: "https://doi.org/10.1016/S2214-109X(24)placeholder"
+        }
+      ]
     },
     {
       id: "srhr-disabilities",

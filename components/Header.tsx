@@ -140,7 +140,7 @@ export default function Header() {
                       <Link
                         key={sub.name}
                         href={sub.href}
-                        className={`block rounded-lg px-4 py-2.5 font-equip text-[14px] transition-colors ${customHoverClass}`}
+                        className={`block rounded-lg px-4 py-2.5 font-equip font-bold text-[14px] transition-colors ${customHoverClass}`}
                       >
                         {sub.name}
                       </Link>
@@ -213,7 +213,7 @@ export default function Header() {
                           key={sub.name}
                           href={sub.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="py-2 font-equip text-[14px] text-black hover:text-primary-pink"
+                          className="py-2 font-equip font-bold text-[14px] text-black hover:text-primary-pink"
                         >
                           {sub.name}
                         </Link>

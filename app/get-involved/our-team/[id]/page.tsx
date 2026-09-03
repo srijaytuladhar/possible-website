@@ -93,19 +93,19 @@ export default function TeamMemberDetailPage({ params }: { params: Promise<{ id:
   return (
     <div className="mx-auto max-w-4xl w-full px-6 sm:px-8 py-16 flex flex-col flex-1 bg-white animate-in fade-in duration-300">
       
-      {/* Back navigation */}
+      {/* Back navigation: Bold pink arrow button per PDF Page 5 */}
       <div className="mb-10">
         <Link
           href="/get-involved/our-team"
-          className="inline-flex items-center gap-2 text-[14px] font-semibold text-zinc-500 hover:text-primary-pink transition-colors"
+          className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary-pink text-white shadow-sm hover:bg-primary-pink/90 hover:scale-105 transition-all shrink-0 cursor-pointer"
+          aria-label="Back to team roster"
         >
-          <ArrowLeft className="h-4 w-4" />
-          <span>Back to Team Roster</span>
+          <ArrowLeft className="h-5 w-5 stroke-[2.5]" />
         </Link>
       </div>
 
-      {/* Profile Detail Block */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start bg-zinc-50 border border-zinc-150 p-8 sm:p-10 rounded-3xl shadow-sm">
+      {/* Profile Detail Block: Outer outline removed per PDF Page 5 */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start bg-zinc-50 p-8 sm:p-10 rounded-3xl shadow-xs">
         
         {/* Profile Image & Share (cols 1-4) */}
         <div className="md:col-span-4 flex flex-col items-center gap-6">
@@ -119,20 +119,20 @@ export default function TeamMemberDetailPage({ params }: { params: Promise<{ id:
             />
           </div>
 
-          {/* Share Profile button */}
+          {/* Share Profile button: Pink background & 'Share Profile' per PDF Page 4 */}
           <button
             onClick={handleShare}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 hover:border-primary-pink hover:text-primary-pink px-5 py-2.5 font-equip font-semibold text-[13px] text-zinc-700 shadow-xs transition-all w-full cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-pink hover:bg-primary-pink/90 text-white px-5 py-2.5 font-equip font-semibold text-[13px] shadow-sm hover:shadow-md transition-all w-full cursor-pointer"
           >
             {copied ? (
               <>
-                <Check className="h-4 w-4 text-emerald-500" />
-                <span className="text-emerald-600 font-semibold">Link Copied!</span>
+                <Check className="h-4 w-4 text-white" />
+                <span className="text-white font-semibold">Copied!</span>
               </>
             ) : (
               <>
                 <Share2 className="h-4 w-4" />
-                <span>Share Profile Link</span>
+                <span>Share Profile</span>
               </>
             )}
           </button>
@@ -149,11 +149,9 @@ export default function TeamMemberDetailPage({ params }: { params: Promise<{ id:
             </p>
           </div>
 
+          {/* Bio text with 'Biography' header removed per PDF Page 5 */}
           <div className="space-y-4">
-            <h3 className="text-[13px] font-bold text-zinc-400 uppercase tracking-widest">
-              Biography
-            </h3>
-            <p className="text-body text-body-gray leading-relaxed font-light text-justify sm:text-left whitespace-pre-line">
+            <p className="text-body text-zinc-700 leading-relaxed font-light text-justify sm:text-left whitespace-pre-line text-[16px] sm:text-[17px]">
               {member.bio}
             </p>
           </div>

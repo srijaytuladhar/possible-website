@@ -205,7 +205,7 @@ export default function SolutionsPage() {
                   {/* Learn More / Publications */}
                   <div className="pt-4 border-t border-zinc-100 space-y-2.5">
                     <span className="text-xs font-bold uppercase tracking-wider text-zinc-800 select-none block">
-                      Learn More:
+                      Related Publications:
                     </span>
                     <ul className="space-y-2">
                       <li className="flex items-start gap-2 text-xs">

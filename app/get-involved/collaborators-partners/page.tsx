@@ -1,16 +1,18 @@
 "use client";
 
-import { Handshake } from "lucide-react";
-
 export default function CollaboratorsPartnersPage() {
   const collaborators = [
     "Ministry of Health and Food Safety",
     "Department of Health Services, divisions and centers, Nepal",
     "Nepal Health Research Council",
     "World Health Organization",
-    "Chandragiri Municipality; Bardibas Municipality, Nepal",
+    "Chandragiri Municipality, Nepal",
+    "Bardibas Municipality, Nepal",
     "Dhulikhel Hospital, Kathmandu University Hospital",
-    "Bhimeshwor Municipality; Tamakoshi Rural Municipality; Baiteshwor Rural Municipality; Kalinchowk Rural Municipality, Dolakha, Nepal",
+    "Bhimeshwor Municipality, Dolakha, Nepal",
+    "Tamakoshi Rural Municipality, Dolakha, Nepal",
+    "Baiteshwor Rural Municipality, Dolakha, Nepal",
+    "Kalinchowk Rural Municipality, Dolakha, Nepal",
     "Women’s Rehabilitation Centre (WOREC)",
     "Nepal Disabled Women Association",
     "Nyaya Health Nepal",
@@ -26,41 +28,28 @@ export default function CollaboratorsPartnersPage() {
     "Dalit Lives Matters",
     "Transcultural Psychosocial Organization Nepal (TPO Nepal)",
     "Blue Diamond Society",
-    "Fusemachines Inc.",
-    "Weiss Asset Management Foundation",
-    "AutismCare Nepal Society",
-    "Hope Child Development Center",
-    "SVRI",
   ];
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
-      {/* Page Header */}
+      {/* Page Header without 'Our Network' badge and subtitle per PDF Page 5 */}
       <div className="mb-12 text-center max-w-3xl mx-auto">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary-blue/10 px-3.5 py-1 text-[13px] font-medium text-secondary-blue mb-4 uppercase tracking-wider shadow-sm">
-          Our Network
-        </span>
-        <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
+        <h1 className="h1-hero text-zinc-950 uppercase tracking-wide">
           Our Collaborators & Partners
         </h1>
-        <p className="text-subheading text-body-gray font-light">
-          We work in close cooperation with government agencies, national advocacy groups, and global health research universities.
-        </p>
       </div>
 
-      <div className="animate-in fade-in duration-300">
-        <div className="p-8 sm:p-10 bg-zinc-50 border border-zinc-150 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300">
-          {/* Partner List in premium pill badge format */}
-          <div className="flex flex-wrap gap-3 justify-center">
-            {collaborators.map((partner, pIdx) => (
-              <span
-                key={pIdx}
-                className="inline-flex items-center px-4.5 py-2.5 rounded-full text-[13.5px] sm:text-[14.5px] font-semibold bg-secondary-blue/10 text-secondary-blue border border-secondary-blue/20 hover:bg-secondary-blue hover:text-white hover:-translate-y-0.5 shadow-sm transition-all duration-300 cursor-default"
-              >
-                {partner}
-              </span>
-            ))}
-          </div>
+      <div className="animate-in fade-in duration-300 max-w-5xl mx-auto w-full">
+        {/* Partner List in justified pill badges without card outline and without hover effect per PDF Page 5 */}
+        <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
+          {collaborators.map((partner, pIdx) => (
+            <span
+              key={pIdx}
+              className="inline-flex items-center px-4.5 py-2.5 rounded-full text-[13.5px] sm:text-[14.5px] font-semibold bg-secondary-blue/10 text-secondary-blue border border-secondary-blue/20 shadow-xs cursor-default text-left"
+            >
+              {partner}
+            </span>
+          ))}
         </div>
       </div>
     </div>

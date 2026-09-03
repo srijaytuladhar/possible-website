@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -9,11 +10,17 @@ export default function Footer() {
           
           {/* Column 1: Description & Socials */}
           <div className="md:col-span-6 lg:col-span-6 flex flex-col gap-5">
-            <h2 className="text-[20px] font-bold tracking-wider font-equip uppercase">
-              POSSIBLE
-            </h2>
+            <div className="flex items-center">
+              <Image
+                src="/logo.png"
+                alt="Possible Logo"
+                width={160}
+                height={42}
+                className="object-contain brightness-0 invert"
+              />
+            </div>
             <p className="text-[14px] leading-relaxed text-white/80 font-light text-justify max-w-xl">
-              Possible is a collaboration between two independent organizations: Sambhav (Possible-Nepal), a Nepal-based non-governmental organization, and Possible-US, a U.S.-based nonprofit. While we operate independently, we maintain a mutually interdependent partnership with a shared mission to advance health innovation in Nepal.
+              Possible is a collaboration between two independent organizations: Sambhav (Possible), a Nepal-based non-governmental organization, and Possible, a U.S.-based nonprofit. While we operate independently, we maintain a mutually interdependent partnership with a shared mission to advance health innovation in Nepal.
             </p>
             
             {/* Social Icons */}
