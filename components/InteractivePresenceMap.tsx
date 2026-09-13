@@ -57,7 +57,7 @@ export default function InteractivePresenceMap() {
               showLabels={false}
               showTooltip={true}
               renderTooltip={(districtName) => (
-                <div className="px-3 py-1.5 text-xs font-semibold text-white bg-zinc-900 rounded-lg shadow-md border border-zinc-800">
+                <div className="px-3.5 py-1.5 text-xs font-semibold text-white bg-[#782888] rounded-full shadow-md border border-[#782888]/80">
                   {districtName}
                 </div>
               )}

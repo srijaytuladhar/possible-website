@@ -58,7 +58,7 @@ export default function WorkWithUsPage() {
                 Mentorship and Support
               </h3>
               <p className="text-[14.5px] text-zinc-600 leading-relaxed font-light">
-                Our advisors, deeply familiar with Nepal’s health system and global best practices, provide coaching to support you on your career journey..
+                Our advisors, deeply familiar with Nepal’s health system and global best practices, provide coaching to support you on your career journey.
               </p>
             </div>
 
@@ -109,30 +109,30 @@ export default function WorkWithUsPage() {
         </div>
 
         {/* Available Openings */}
-        <div className="p-8 bg-zinc-50 border border-zinc-200/80 rounded-2xl space-y-6 text-center max-w-4xl mx-auto w-full">
+        <div className="p-8 sm:p-10 bg-zinc-50 border border-zinc-200/80 rounded-3xl space-y-6 text-center max-w-4xl mx-auto w-full shadow-xs">
           <div className="flex flex-col items-center gap-3">
-            <div className="p-2.5 bg-primary-pink/10 text-primary-pink rounded-xl w-fit">
-              <Briefcase className="h-5 w-5" />
+            <div className="p-3 bg-primary-pink/10 text-primary-pink rounded-2xl w-fit shadow-xs">
+              <Briefcase className="h-6 w-6" />
             </div>
-            <h2 className="text-xl font-semibold text-zinc-900">Vacancy / Available Openings</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-zinc-900">Vacancy / Available Openings</h2>
           </div>
-          <p className="text-[14px] text-body-gray font-light max-w-2xl mx-auto">
+          <p className="text-[14.5px] text-body-gray font-light max-w-2xl mx-auto leading-relaxed">
             We are always looking for passionate people to join our mission. Explore our open roles and specialized traineeship/apprenticeship pathways below:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto w-full">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto w-full pt-2">
             <Link
               href="/get-involved/work-with-us/job-postings"
-              className="flex items-center justify-center gap-2 px-5 py-4 bg-white border border-zinc-200 hover:border-primary-pink rounded-xl text-[14.5px] text-zinc-800 font-medium hover:text-primary-pink transition-all duration-300 text-center group shadow-sm"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-200 bg-white hover:border-primary-pink hover:bg-primary-pink text-zinc-800 hover:text-white px-7 py-3.5 text-[14.5px] font-medium transition-all duration-300 shadow-2xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 group w-full sm:w-auto"
             >
               <span>View Open Job Postings</span>
-              <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-primary-pink transition-transform group-hover:translate-x-1" />
+              <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-white transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="/get-involved/work-with-us/traineeship-apprenticeship"
-              className="flex items-center justify-center gap-2 px-5 py-4 bg-white border border-zinc-200 hover:border-secondary-blue rounded-xl text-[14.5px] text-zinc-800 font-medium hover:text-secondary-blue transition-all duration-300 text-center group shadow-sm"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-200 bg-white hover:border-primary-pink hover:bg-primary-pink text-zinc-800 hover:text-white px-7 py-3.5 text-[14.5px] font-medium transition-all duration-300 shadow-2xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 group w-full sm:w-auto"
             >
               <span>Traineeship & Apprenticeship</span>
-              <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-secondary-blue transition-transform group-hover:translate-x-1" />
+              <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-white transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>

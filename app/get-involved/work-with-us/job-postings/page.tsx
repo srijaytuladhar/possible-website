@@ -9,10 +9,10 @@ export default function JobPostingsPage() {
       {/* Back Link */}
       <Link
         href="/get-involved/work-with-us"
-        className="inline-flex items-center gap-2 text-[14px] text-body-gray hover:text-primary-pink transition-colors w-fit group"
+        className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary-pink text-white shadow-sm hover:bg-primary-pink/90 hover:scale-105 transition-all shrink-0 cursor-pointer"
+        aria-label="Back to Careers"
       >
-        <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-        Back to Careers
+        <ArrowLeft className="h-5 w-5 stroke-[2.5]" />
       </Link>
 
       {/* Page Header */}
