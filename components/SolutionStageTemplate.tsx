@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FileText, ArrowLeft, ExternalLink } from "lucide-react";
@@ -26,6 +27,7 @@ export interface SolutionBoxType {
 export interface SolutionSubSectionType {
   subSectionId?: string;
   subSectionTitle: string;
+  tabLabel?: string;
   subSectionSubtitle?: string;
   badge?: string;
   projects: SolutionBoxType[];
@@ -53,6 +55,28 @@ export default function SolutionStageTemplate({
   projects,
   introText
 }: SolutionStageTemplateProps) {
+  const [activeSubTab, setActiveSubTab] = useState<string>(
+    subSections && subSections.length > 0 ? subSections[0].subSectionId || "0" : ""
+  );
+
+  useEffect(() => {
+    if (!subSections || subSections.length === 0) return;
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    const matchedSub = subSections.find((s) => s.subSectionId === hash);
+    if (matchedSub && matchedSub.subSectionId) {
+      setActiveSubTab(matchedSub.subSectionId);
+      return;
+    }
+    const parentSub = subSections.find((s) => s.projects.some((p) => p.id === hash));
+    if (parentSub && parentSub.subSectionId) {
+      setActiveSubTab(parentSub.subSectionId);
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 150);
+    }
+  }, [subSections]);
   // 3 stages in exact requested order: Scale -> Test -> Innovate
   const stages = [
     { id: "scale", label: "Scale", href: "/solutions/scale", image: "/hero_complex_solve.jpg" },
@@ -169,41 +193,70 @@ export default function SolutionStageTemplate({
         )}
       </div>
 
+      {/* Sub-section Tabs when multiple subSections exist (e.g. Designed to test / Tested and ready for scale-up) */}
+      {subSections && subSections.length > 1 && (
+        <div className="max-w-4xl mx-auto w-full mb-12">
+          <div className="flex flex-wrap items-center gap-2 p-1.5 bg-zinc-100/90 rounded-2xl border border-zinc-200/80 w-full sm:w-auto shadow-2xs">
+            {subSections.map((sub, sIdx) => {
+              const tabId = sub.subSectionId || String(sIdx);
+              const isActive = activeSubTab === tabId;
+              const displayLabel = sub.tabLabel || sub.subSectionTitle.replace(/^\d+\.\d+\s+/, "");
+              return (
+                <button
+                  key={sIdx}
+                  type="button"
+                  onClick={() => setActiveSubTab(tabId)}
+                  className={`flex-1 sm:flex-initial px-6 py-3 rounded-xl font-equip text-[14px] sm:text-[15px] font-bold tracking-wide transition-all duration-300 cursor-pointer text-center ${
+                    isActive
+                      ? "bg-white text-secondary-blue shadow-sm border border-secondary-blue/20"
+                      : "text-zinc-600 hover:text-zinc-900 hover:bg-white/60"
+                  }`}
+                >
+                  {displayLabel}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Full-width Solutions Content Layout */}
       <div className="max-w-4xl mx-auto w-full space-y-16">
         {subSections && subSections.length > 0 ? (
-          subSections.map((sub, sIdx) => (
-            <div key={sIdx} id={sub.subSectionId} className="space-y-12 scroll-mt-28">
-              <div className="border-b border-zinc-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 uppercase tracking-wide">
-                    {sub.subSectionTitle}
-                  </h2>
-                  {sub.subSectionSubtitle && (
-                    <p className="text-[15px] text-body-gray font-light mt-1.5">
-                      {sub.subSectionSubtitle}
-                    </p>
+          subSections
+            .filter((sub, sIdx) => (subSections.length > 1 ? (sub.subSectionId || String(sIdx)) === activeSubTab : true))
+            .map((sub, sIdx) => (
+              <div key={sIdx} id={sub.subSectionId} className="space-y-12 scroll-mt-28 animate-in fade-in duration-300">
+                <div className="border-b border-zinc-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-wide">
+                      {sub.subSectionTitle}
+                    </h2>
+                    {sub.subSectionSubtitle && (
+                      <p className="text-[15px] text-body-gray font-light mt-1.5">
+                        {sub.subSectionSubtitle}
+                      </p>
+                    )}
+                  </div>
+                  {sub.badge && (
+                    <span className="px-3.5 py-1 rounded-full text-[12px] font-semibold tracking-wider uppercase bg-secondary-blue/10 text-secondary-blue w-fit">
+                      {sub.badge}
+                    </span>
                   )}
                 </div>
-                {sub.badge && (
-                  <span className="px-3.5 py-1 rounded-full text-[12px] font-semibold tracking-wider uppercase bg-zinc-100 text-zinc-700 w-fit">
-                    {sub.badge}
-                  </span>
-                )}
-              </div>
 
-              <div className="space-y-14">
-                {sub.projects.map((proj, pIdx) => (
-                  <SolutionBoxItem
-                    key={pIdx}
-                    project={proj}
-                    colorClass={colorClass}
-                    borderClass={borderClass}
-                  />
-                ))}
+                <div className="space-y-14">
+                  {sub.projects.map((proj, pIdx) => (
+                    <SolutionBoxItem
+                      key={pIdx}
+                      project={proj}
+                      colorClass={colorClass}
+                      borderClass={borderClass}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))
+            ))
         ) : (
           <div className="space-y-14">
             {projects?.map((proj, pIdx) => (

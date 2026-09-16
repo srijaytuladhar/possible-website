@@ -6,7 +6,8 @@ export default function TestPage() {
   const subSections: SolutionSubSectionType[] = [
     {
       subSectionId: "tested-and-ready-for-scale",
-      subSectionTitle: "2.1 Tested and Ready for Scale-Up",
+      subSectionTitle: "2.1 Tested and ready for scale-up",
+      tabLabel: "Tested and ready for scale-up",
       subSectionSubtitle: "Interventions validated through rigorous clinical and implementation trials, prepared for integration into national health systems.",
       badge: "Scale Readiness",
       projects: [
@@ -91,7 +92,7 @@ export default function TestPage() {
         },
         {
           id: "perinatal-mh",
-          title: "Perinatal-MH",
+          title: "PERINATAL-MH",
           subtitle: "Integrating perinatal mental health into Community Health Worker-led longitudinal care",
           description: [
             "Perinatal mental health is a major yet persistently neglected global health gap; many women remain undetected and untreated due to limited screening, specialist capacity, and weak integration of mental health into routine perinatal care.",
@@ -129,7 +130,8 @@ export default function TestPage() {
     },
     {
       subSectionId: "designed-to-test",
-      subSectionTitle: "2.2 Designed to Test",
+      subSectionTitle: "2.2 Designed to test",
+      tabLabel: "Designed to test",
       subSectionSubtitle: "Actively undergoing co-design, adaptation, and multi-site pilot evaluation across primary healthcare facilities.",
       badge: "Active Testing",
       projects: [
@@ -159,7 +161,7 @@ export default function TestPage() {
         },
         {
           id: "psupp",
-          title: "P-SuPP",
+          title: "P-SUPP",
           subtitle: "Reimagining suicide care for scale in primary health care",
           description: [
             "Southeast Asia has the highest suicide mortality rate globally, at 17.7 deaths per 100,000 population (WHO, 2019). In Nepal, suicide ideation is highly prevalent, yet help-seeking remains extremely low, highlighting an urgent need to strengthen access to effective suicide care within primary health care.",
@@ -201,7 +203,7 @@ export default function TestPage() {
         },
         {
           id: "chissa",
-          title: "Chissa",
+          title: "CHISSA",
           subtitle: "Advancing suicide prevention through personalized digital support",
           description: [
             "Chissa advances suicide prevention through personalized, just-in-time digital support. Named after a colloquial expression of love and admiration used within Nepali GBMSM communities, \"Chissa\" reflects a compassionate, community-centered approach to suicide prevention.",
