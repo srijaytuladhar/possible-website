@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,6 +10,12 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-poppins",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-cormorant",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className={`${poppins.variable} min-h-full flex flex-col bg-white text-zinc-950 selection:bg-primary-pink/10 selection:text-primary-pink`}>
+      <body className={`${poppins.variable} ${cormorant.variable} min-h-full flex flex-col bg-white text-zinc-950 selection:bg-primary-pink/10 selection:text-primary-pink`}>
         <LoadingScreen />
         <Header />
         <div className="flex flex-col flex-grow">

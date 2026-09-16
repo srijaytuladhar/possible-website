@@ -156,9 +156,9 @@ export default function SolutionStageTemplate({
         </div>
       </div>
 
-      {/* Stage Header */}
-      <div className="max-w-4xl mx-auto w-full mb-10">
-        <h1 className="text-3xl sm:text-4xl font-extralight uppercase tracking-wide leading-tight text-zinc-950">
+      {/* Stage Header with distinct editorial serif typography */}
+      <div className="max-w-4xl mx-auto w-full mb-12">
+        <h1 className="font-serif font-light text-4xl sm:text-5xl uppercase tracking-wider leading-tight text-zinc-950">
           {stageName}
         </h1>
         <div className={`h-1.5 w-20 rounded-full bg-current ${colorClass} mt-3`} />

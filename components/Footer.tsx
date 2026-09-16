@@ -39,30 +39,6 @@ export default function Footer() {
                 </svg>
               </a>
 
-              {/* Instagram */}
-              <a 
-                href="https://www.instagram.com/possiblehealth" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="hover:opacity-80 transition-opacity" 
-                aria-label="Instagram"
-              >
-                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-                  <defs>
-                    <radialGradient id="instaGrad" cx="30%" cy="107%" r="130%">
-                      <stop offset="0" stopColor="#fdf497" />
-                      <stop offset="0.05" stopColor="#fdf497" />
-                      <stop offset="0.45" stopColor="#fd5949" />
-                      <stop offset="0.6" stopColor="#d6249f" />
-                      <stop offset="1" stopColor="#285AEB" />
-                    </radialGradient>
-                  </defs>
-                  <rect width="24" height="24" rx="6" fill="url(#instaGrad)" />
-                  <path d="M12 6.8c1.7 0 1.9 0 2.6.1.6.03.95.13 1.17.22.3.1.5.25.74.48.23.23.38.44.48.74.1.22.18.56.22 1.17.03.7.03.9.03 2.6s0 1.9-.1 2.6c-.03.6-.13.95-.22 1.17-.1.3-.25.5-.48.74-.23.23-.44.38-.74.48-.22.1-.56.18-1.17.22-.7.03-.9.03-2.6.03s-1.9 0-2.6-.1c-.6-.03-.95-.13-1.17-.22-.3-.1-.5-.25-.74-.48-.23-.23-.38-.44-.48-.74-.1-.22-.18-.56-.22-1.17-.03-.7-.03-.9-.03-2.6s0-1.9.1-2.6c.03-.6.13-.95.22-1.17.1-.3.25-.5.48-.74.23-.23.44-.38.74-.48.22-.1.56-.18 1.17-.22.7-.03.9-.03 2.6-.03zm0-1.2c-1.7 0-1.9 0-2.6.03-.7.03-1.2.14-1.63.3-.45.18-.83.42-1.2.8-.38.37-.62.75-.8 1.2-.17.43-.28.93-.3 1.63C5.4 9.1 5.4 9.3 5.4 11s0 1.9.03 2.6c.03.7.14 1.2.3 1.63.18.45.42.83.8 1.2.37.38.75.62 1.2.8.43.17.93.28 1.63.3.7.03.9.03 2.6.03s1.9 0 2.6-.03c.7-.03 1.2-.14 1.63-.3.45-.18.83-.42 1.2-.8.38-.37.62-.75.8-1.2.17-.43.28-.93.3-1.63.03-.7.03-.9.03-2.6s0-1.9-.03-2.6c-.03-.7-.14-1.2-.3-1.63-.18-.45-.42-.83-.8-1.2-.37-.38-.75-.62-1.2-.8-.43-.17-.93-.28-1.63-.3-.7-.03-.9-.03-2.6-.03z" fill="white" />
-                  <path d="M12 8.7a2.3 2.3 0 1 0 0 4.6 2.3 2.3 0 0 0 0-4.6zm0-1.2a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" fill="white" />
-                  <circle cx="15.65" cy="8.35" r="0.55" fill="white" />
-                </svg>
-              </a>
 
               {/* LinkedIn */}
               <a 
@@ -135,7 +111,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/solutions/scale" className="text-[15px] text-white/85 hover:text-white transition-colors font-light">
-                  Programs
+                  Solutions
                 </Link>
               </li>
               <li>

@@ -155,7 +155,7 @@ export default function Home() {
         <div className="absolute bottom-[-10%] left-[-5%] w-[40rem] h-[40rem] rounded-full bg-radial from-primary-pink/5 to-transparent blur-3xl -z-10 pointer-events-none" />
 
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column: Pink Box Banner + Text Content */}
             <div className="lg:col-span-6 space-y-6">
               <div className="w-full bg-primary-pink py-4 px-6 rounded-2xl shadow-sm text-center">

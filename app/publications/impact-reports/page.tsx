@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { BarChart3, Download, Eye, ArrowLeft } from "lucide-react";
+import { Download, Eye, ArrowLeft } from "lucide-react";
 import ReportViewerModal from "@/components/ReportViewerModal";
 
 export default function ImpactReportsPage() {
@@ -90,7 +90,7 @@ export default function ImpactReportsPage() {
       <div className="bg-zinc-100/70 p-8 sm:p-10 rounded-3xl border border-zinc-200/50 animate-in fade-in duration-300 space-y-16">
         {/* Latest Reports: Card Layout */}
         <div className="space-y-6">
-          <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">LATEST REPORTS</h2>
+          <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">LATEST</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {latestReports.map((item, idx) => (
               <div
@@ -145,7 +145,7 @@ export default function ImpactReportsPage() {
         {/* Older Reports: List Layout */}
         {olderReports.length > 0 && (
           <div className="space-y-6 border-t border-zinc-200/60 pt-10">
-            <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">PREVIOUS REPORTS</h2>
+            <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">PREVIOUS</h2>
             <div className="bg-white border border-zinc-200/60 rounded-2xl overflow-hidden shadow-sm">
               <div className="divide-y divide-zinc-100">
                 {paginatedOlderReports.map((item, idx) => (

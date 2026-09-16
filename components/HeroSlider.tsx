@@ -4,13 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+// HERO BACKGROUND IMAGE:
+// Drop your new image file in /public/ and set the filename here:
+const HERO_IMAGE_SRC = "/first-landing.jpg";
+
 export default function HeroSlider() {
   return (
     <section className="relative w-full overflow-hidden select-none bg-zinc-950 flex items-center min-h-[520px] md:min-h-[580px] lg:min-h-[620px] xl:min-h-[660px] md:aspect-[6.5/2.9] px-6 sm:px-8 py-16 sm:py-24">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/first-landing.jpg"
+          src={HERO_IMAGE_SRC}
           alt="Too complex to solve is where we start"
           fill
           className="object-cover object-center opacity-75 brightness-[0.9] transition-transform duration-[4000ms] scale-100"

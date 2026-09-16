@@ -45,7 +45,7 @@ export default function ContactUs() {
   ];
 
   const emailGrid = [
-    { label: "General Inquiries", email: "answers@possiblehealth.org", desc: "" },
+    { label: "General Enquiries", email: "answers@possiblehealth.org", desc: "" },
     { label: "Donations & Support", email: "donation@possiblehealth.org", desc: "" },
     { label: "Research & Innovation", email: "research@possiblehealth.org", desc: "" },
   ];
@@ -105,8 +105,8 @@ export default function ContactUs() {
                       </p>
                     </div>
 
-                    <div>
-                      {office.phoneRaw ? (
+                    {office.phoneRaw ? (
+                      <div>
                         <div className="space-y-1">
                           <a
                             href={`tel:${office.phoneRaw}`}
@@ -121,13 +121,8 @@ export default function ContactUs() {
                             </span>
                           )}
                         </div>
-                      ) : (
-                        <div className="inline-flex items-center gap-1.5 text-[14px] text-zinc-400">
-                          <Phone className="h-4 w-4 text-zinc-300" />
-                          <span>{office.phone}</span>
-                        </div>
-                      )}
-                    </div>
+                      </div>
+                    ) : null}
                   </div>
                 )}
               </div>

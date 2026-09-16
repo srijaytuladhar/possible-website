@@ -10,6 +10,7 @@
   --font-outfit: var(--font-poppins), sans-serif;
   --font-equip: var(--font-poppins), sans-serif;
   --font-equip-thin: var(--font-poppins), sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
 }
 
 :root {
