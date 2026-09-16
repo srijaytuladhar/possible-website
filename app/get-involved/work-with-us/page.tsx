@@ -4,6 +4,10 @@ import { ChevronRight, Briefcase, CheckCircle2, ArrowRight, ArrowDown } from "lu
 import Link from "next/link";
 import Image from "next/image";
 
+// HERO BACKGROUND IMAGE SLOT:
+// Replace with the real photo from the client drive folder once file is provided
+const WORK_WITH_US_HERO_IMAGE = "/Possible-Team.jpg";
+
 export default function WorkWithUsPage() {
   const learningCurvePoints = [
     { label: "Policy translation", text: "Move research into national public health policy." },
@@ -27,7 +31,7 @@ export default function WorkWithUsPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/Possible-Team.jpg"
+            src={WORK_WITH_US_HERO_IMAGE}
             alt="Possible Team Collaborating in Nepal"
             fill
             className="object-cover object-center opacity-75 brightness-[0.9]"

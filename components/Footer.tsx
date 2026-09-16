@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Column 1: Description & Socials */}
           <div className="md:col-span-6 lg:col-span-6 flex flex-col gap-5">
             <div className="flex items-center gap-1.5">
-              <span className="text-[28px] font-bold tracking-tight text-white font-equip leading-none">
+              <span className="text-[28px] font-normal tracking-tight text-white font-equip leading-none">
                 possible
               </span>
               <svg viewBox="0 0 110 110" className="w-6 h-6 shrink-0 -mt-2" fill="none" xmlns="http://www.w3.org/2000/svg">

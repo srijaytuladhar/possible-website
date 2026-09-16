@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { User, ArrowUpRight, X } from "lucide-react";
 import {
   usBoardMembers,
@@ -218,6 +218,7 @@ function MemberBioModal({
 
 function TeamPageContent() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const router = useRouter();
   const searchParams = useSearchParams();
   const tabParam = searchParams.get("tab") || "us-board";
   const isFirstMount = useRef(true);
