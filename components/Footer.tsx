@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -135,7 +134,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/solutions/innovate" className="text-[15px] text-white/85 hover:text-white transition-colors font-light">
+                <Link href="/solutions/scale" className="text-[15px] text-white/85 hover:text-white transition-colors font-light">
                   Programs
                 </Link>
               </li>

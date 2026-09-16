@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X, ChevronDown, Heart, Eye } from "lucide-react";
 
@@ -20,7 +20,6 @@ interface NavItem {
 
 export default function Header() {
   const pathname = usePathname();
-  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -34,11 +33,11 @@ export default function Header() {
     { name: "Home", href: "/" },
     {
       name: "Solutions",
-      href: "/solutions/innovate",
+      href: "/solutions/scale",
       submenu: [
-        { name: "Innovate", href: "/solutions/innovate", tabKey: "innovate" },
-        { name: "Test", href: "/solutions/test", tabKey: "test" },
         { name: "Scale", href: "/solutions/scale", tabKey: "scale" },
+        { name: "Test", href: "/solutions/test", tabKey: "test" },
+        { name: "Innovate", href: "/solutions/innovate", tabKey: "innovate" },
         { name: "Pipeline", href: "/solutions/pipeline", tabKey: "pipeline" },
       ],
     },

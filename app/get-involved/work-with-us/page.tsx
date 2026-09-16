@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, Briefcase, CheckCircle2 } from "lucide-react";
+import { ChevronRight, Briefcase, CheckCircle2, ArrowRight, ArrowDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,17 +12,74 @@ export default function WorkWithUsPage() {
     { label: "Co-design", text: "Co-create solutions with communities and governments." },
   ];
 
-  return (
-    <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
-      {/* Page Header without removed subtitle per PDF Page 8 */}
-      <div className="mb-12 text-center max-w-3xl mx-auto">
-        <h1 className="h1-hero text-zinc-950 uppercase tracking-wide">
-          Work With Us
-        </h1>
-      </div>
+  const scrollToVacancies = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.getElementById("vacancies");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
-      <div className="space-y-16 animate-in fade-in duration-300">
-        {/* "How will you thrive with us" Brought to top in attractive box per PDF Page 7 */}
+  return (
+    <div className="flex flex-col w-full bg-white">
+      {/* 1. Hero Section with Background Image & Dark Overlay matching Homepage */}
+      <section className="relative w-full overflow-hidden select-none bg-zinc-950 flex items-center min-h-[460px] md:min-h-[520px] px-6 sm:px-8 py-20">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/Possible-Team.jpg"
+            alt="Possible Team Collaborating in Nepal"
+            fill
+            className="object-cover object-center opacity-75 brightness-[0.9]"
+            sizes="100vw"
+            priority
+          />
+          {/* Soft dark overlay matching homepage hero */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/35" />
+        </div>
+
+        {/* Hero Content Overlay */}
+        <div className="relative z-10 mx-auto max-w-7xl w-full">
+          <div className="max-w-3xl space-y-6 animate-in fade-in slide-in-from-top-4 duration-700">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/20 border border-primary-pink/30 px-4 py-1 text-[13px] font-semibold text-primary-pink uppercase tracking-wider">
+              Careers & Opportunities
+            </span>
+
+            <h1 className="h1-hero text-white font-extralight leading-tight uppercase tracking-wide">
+              Work <span className="font-semibold text-primary-pink">With Us</span>
+            </h1>
+
+            <p className="text-subheading text-zinc-200 font-light max-w-2xl leading-relaxed">
+              Discover opportunities to collaborate, train, and build science-backed innovations to strengthen healthcare delivery where it is needed most.
+            </p>
+
+            <div className="pt-4 flex flex-wrap items-center gap-4">
+              {/* Pink CTA Button: Contact Us */}
+              <Link
+                href="/contact-us"
+                className="inline-flex items-center gap-2 rounded-full bg-primary-pink px-8 py-4 font-equip font-semibold text-[15px] text-white shadow-lg shadow-primary-pink/30 hover:bg-primary-pink/90 hover:shadow-primary-pink/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
+              >
+                <span>Contact Us</span>
+                <ArrowRight className="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" />
+              </Link>
+
+              {/* Vacancies In-Page Anchor Button */}
+              <a
+                href="#vacancies"
+                onClick={scrollToVacancies}
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 px-8 py-4 font-equip font-semibold text-[15px] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              >
+                <span>Vacancies</span>
+                <ArrowDown className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Main Body Content */}
+      <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-16 flex flex-col flex-1 space-y-16">
+        {/* "How will you thrive with us" */}
         <div className="space-y-8">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-light text-zinc-950 uppercase tracking-wider">
@@ -58,7 +115,7 @@ export default function WorkWithUsPage() {
                 Mentorship and Support
               </h3>
               <p className="text-[14.5px] text-zinc-600 leading-relaxed font-light">
-                Our advisors, deeply familiar with Nepal’s health system and global best practices, provide coaching to support you on your career journey..
+                Our advisors, deeply familiar with Nepal’s health system and global best practices, provide coaching to support you on your career journey.
               </p>
             </div>
 
@@ -87,56 +144,65 @@ export default function WorkWithUsPage() {
           </div>
         </div>
 
-        {/* Team Banner Image */}
-        <div className="w-full flex justify-center my-4">
-          <Image
-            src="/Possible-Team.jpg"
-            alt="Possible Team"
-            width={1200}
-            height={800}
-            className="w-full h-auto rounded-3xl shadow-sm border border-zinc-200/50"
-            priority
-          />
-        </div>
-
         {/* Quote Block */}
-        <div className="relative py-12 px-8 max-w-4xl mx-auto text-center bg-zinc-50/50 rounded-3xl border border-zinc-100/80 my-8">
+        <div className="relative py-12 px-8 max-w-4xl mx-auto text-center bg-zinc-50/70 rounded-3xl border border-zinc-100 my-8">
           <span className="absolute top-2 left-6 text-7xl font-serif text-primary-pink/20 select-none">“</span>
-          <p className="text-[20px] sm:text-[24px] font-light text-zinc-800 leading-relaxed italic relative z-10 px-4">
+          <p className="text-[20px] sm:text-[23px] font-light text-zinc-800 leading-relaxed italic relative z-10 px-4">
             If you thrive on creating an impact and want to join our mission to reduce suffering and improve lives by strengthening community care systems, join our team.
           </p>
           <span className="absolute bottom-2 right-6 text-7xl font-serif text-primary-pink/20 select-none">”</span>
         </div>
 
-        {/* Available Openings */}
-        <div className="p-8 bg-zinc-50 border border-zinc-200/80 rounded-2xl space-y-6 text-center max-w-4xl mx-auto w-full">
+        {/* 3. Vacancies List Section (In-Page Anchor Target: #vacancies) */}
+        <div id="vacancies" className="scroll-mt-28 p-8 sm:p-12 bg-zinc-50 border border-zinc-200/80 rounded-3xl space-y-8 text-center max-w-4xl mx-auto w-full shadow-xs">
           <div className="flex flex-col items-center gap-3">
-            <div className="p-2.5 bg-primary-pink/10 text-primary-pink rounded-xl w-fit">
-              <Briefcase className="h-5 w-5" />
+            <div className="p-3 bg-primary-pink/10 text-primary-pink rounded-2xl w-fit">
+              <Briefcase className="h-6 w-6" />
             </div>
-            <h2 className="text-xl font-semibold text-zinc-900">Vacancy / Available Openings</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 uppercase tracking-wide">
+              Vacancies & Openings
+            </h2>
+            <div className="h-0.5 w-16 bg-primary-pink rounded-full mx-auto" />
           </div>
-          <p className="text-[14px] text-body-gray font-light max-w-2xl mx-auto">
-            We are always looking for passionate people to join our mission. Explore our open roles and specialized traineeship/apprenticeship pathways below:
+
+          <p className="text-[15px] text-body-gray font-light max-w-2xl mx-auto leading-relaxed">
+            We are continuously looking for talented researchers, health practitioners, and operations experts. Explore our active postings and training pathways below:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto w-full">
+
+          {/* Current Postings Status Banner */}
+          <div className="p-6 bg-white border border-zinc-200/80 rounded-2xl text-center space-y-2">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-semibold bg-zinc-100 text-zinc-600 uppercase tracking-wider">
+              Current Status
+            </span>
+            <p className="text-[16px] font-medium text-zinc-700">
+              There are currently no active public vacancies open for applications.
+            </p>
+            <p className="text-[13px] text-zinc-500 font-light">
+              Interested in future positions or academic collaborations? You can share your CV with us at{" "}
+              <a href="mailto:research@possiblehealth.org" className="text-primary-pink font-medium hover:underline">
+                research@possiblehealth.org
+              </a>.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto w-full pt-2">
             <Link
               href="/get-involved/work-with-us/job-postings"
-              className="flex items-center justify-center gap-2 px-5 py-4 bg-white border border-zinc-200 hover:border-primary-pink rounded-xl text-[14.5px] text-zinc-800 font-medium hover:text-primary-pink transition-all duration-300 text-center group shadow-sm"
+              className="flex items-center justify-between px-6 py-4.5 bg-white border border-zinc-200 hover:border-primary-pink rounded-2xl text-[14.5px] text-zinc-800 font-medium hover:text-primary-pink transition-all duration-300 group shadow-2xs hover:shadow-sm"
             >
               <span>View Open Job Postings</span>
               <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-primary-pink transition-transform group-hover:translate-x-1" />
             </Link>
+
             <Link
               href="/get-involved/work-with-us/traineeship-apprenticeship"
-              className="flex items-center justify-center gap-2 px-5 py-4 bg-white border border-zinc-200 hover:border-secondary-blue rounded-xl text-[14.5px] text-zinc-800 font-medium hover:text-secondary-blue transition-all duration-300 text-center group shadow-sm"
+              className="flex items-center justify-between px-6 py-4.5 bg-white border border-zinc-200 hover:border-secondary-blue rounded-2xl text-[14.5px] text-zinc-800 font-medium hover:text-secondary-blue transition-all duration-300 group shadow-2xs hover:shadow-sm"
             >
               <span>Traineeship & Apprenticeship</span>
               <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-secondary-blue transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
-
       </div>
     </div>
   );

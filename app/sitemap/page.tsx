@@ -15,17 +15,17 @@ export default function SitemapPage() {
       title: "Our Solutions",
       links: [
         { name: "Solutions Hub (All Phases)", href: "/solutions" },
-        { name: "1. Innovate (CASA, Disability SRHR)", href: "/solutions/innovate" },
-        { name: "2. Test (INCLUDE, BECOME-D, Chissa, P-SuPP, MILAP, BECOME, COMMIT, Perinatal-MH)", href: "/solutions/test" },
-        { name: "3. Scale (Collaborative Care Model, Longitudinal Health System)", href: "/solutions/scale" },
-        { name: "4. Pipeline (Climate & Health, School Mental Health)", href: "/solutions/pipeline" },
+        { name: "1. Scale (Longitudinal Health System, Collaborative Care)", href: "/solutions/scale" },
+        { name: "2. Test (Tested for Scale & Designed to Test)", href: "/solutions/test" },
+        { name: "3. Innovate (CASA, Disability SRHR)", href: "/solutions/innovate" },
+        { name: "4. Pipeline (School Mental Health, AI Supportive Supervision)", href: "/solutions/pipeline" },
       ]
     },
     {
       title: "Team & Engagement",
       links: [
         { name: "Our Team", href: "/get-involved/our-team" },
-        { name: "Collaborators & Partners", href: "/get-involved/collaborators-partners" },
+        { name: "Collaborators", href: "/get-involved/collaborators-partners" },
         { name: "Work With Us", href: "/get-involved/work-with-us" },
       ]
     },

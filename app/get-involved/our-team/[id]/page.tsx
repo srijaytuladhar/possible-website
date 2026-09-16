@@ -4,43 +4,28 @@ import { useState, useEffect, use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Share2, Check, User } from "lucide-react";
-import { nepalBoardMembers, usBoardMembers } from "@/components/teamData";
-
-interface Member {
-  id: string;
-  name: string;
-  role: string;
-  image: string;
-  bio: string;
-}
+import { allTeamMembers, TeamMember } from "@/components/teamData";
 
 export default function TeamMemberDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
-  const [member, setMember] = useState<Member | null>(null);
+  const [member, setMember] = useState<TeamMember | null>(null);
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   useEffect(() => {
-    // 1. Check boards first (synchronously available)
-    const npMember = nepalBoardMembers.find((m) => m.id === id);
-    if (npMember) {
-      setMember(npMember);
+    const found = allTeamMembers.find((m) => m.id === id);
+    if (found) {
+      setMember(found);
       setLoading(false);
       return;
     }
 
-    const usMember = usBoardMembers.find((m) => m.id === id);
-    if (usMember) {
-      setMember(usMember);
-      setLoading(false);
-      return;
-    }
-
-    // 2. Fetch teamData.json for staff
+    // Fallback search in teamData.json if custom ID
     fetch("/teamData.json")
       .then((res) => res.json())
-      .then((data) => {
-        const staffMember = data.find((m: any) => m.id === id);
+      .then((data: TeamMember[]) => {
+        const staffMember = data.find((m) => m.id === id);
         if (staffMember) {
           setMember(staffMember);
         }
@@ -90,10 +75,12 @@ export default function TeamMemberDetailPage({ params }: { params: Promise<{ id:
     );
   }
 
+  const paragraphs = member.bio.split("\n\n");
+
   return (
     <div className="mx-auto max-w-4xl w-full px-6 sm:px-8 py-16 flex flex-col flex-1 bg-white animate-in fade-in duration-300">
       
-      {/* Back navigation: Bold pink arrow button per PDF Page 5 */}
+      {/* Back navigation */}
       <div className="mb-10">
         <Link
           href="/get-involved/our-team"
@@ -104,22 +91,30 @@ export default function TeamMemberDetailPage({ params }: { params: Promise<{ id:
         </Link>
       </div>
 
-      {/* Profile Detail Block: Outer outline removed per PDF Page 5 */}
+      {/* Profile Detail Block */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start bg-zinc-50 p-8 sm:p-10 rounded-3xl shadow-xs">
         
         {/* Profile Image & Share (cols 1-4) */}
         <div className="md:col-span-4 flex flex-col items-center gap-6">
-          <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-md bg-zinc-100 shrink-0">
-            <Image
-              src={member.image || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&h=200&q=80"}
-              alt={member.name}
-              fill
-              className="object-cover"
-              sizes="192px"
-            />
+          <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-md bg-zinc-100 shrink-0 flex items-center justify-center">
+            {member.image && !imgError ? (
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                className="object-cover"
+                sizes="192px"
+                onError={() => setImgError(true)}
+              />
+            ) : (
+              <div className="flex flex-col items-center justify-center text-zinc-400">
+                <User className="h-16 w-16 stroke-1 text-zinc-400" />
+                <span className="text-[11px] font-medium text-zinc-400 mt-1">Possible</span>
+              </div>
+            )}
           </div>
 
-          {/* Share Profile button: Pink background & 'Share Profile' per PDF Page 4 */}
+          {/* Share Profile button */}
           <button
             onClick={handleShare}
             className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-pink hover:bg-primary-pink/90 text-white px-5 py-2.5 font-equip font-semibold text-[13px] shadow-sm hover:shadow-md transition-all w-full cursor-pointer"
@@ -149,11 +144,16 @@ export default function TeamMemberDetailPage({ params }: { params: Promise<{ id:
             </p>
           </div>
 
-          {/* Bio text with 'Biography' header removed per PDF Page 5 */}
+          {/* Multi-paragraph bio text */}
           <div className="space-y-4">
-            <p className="text-body text-zinc-700 leading-relaxed font-light text-justify sm:text-left whitespace-pre-line text-[16px] sm:text-[17px]">
-              {member.bio}
-            </p>
+            {paragraphs.map((para, pIdx) => (
+              <p
+                key={pIdx}
+                className="text-body text-zinc-700 leading-relaxed font-light text-justify sm:text-left text-[16px] sm:text-[17px]"
+              >
+                {para}
+              </p>
+            ))}
           </div>
         </div>
 

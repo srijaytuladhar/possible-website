@@ -161,7 +161,7 @@ export default function ContactUs() {
         </div>
       </section>
 
-      {/* 3. Send Us a Message Button */}
+      {/* 3. Contact Us Button */}
       <div className="flex flex-col items-center justify-center pt-8 space-y-4">
         <div className="h-px w-24 bg-zinc-200" />
         <button
@@ -169,7 +169,7 @@ export default function ContactUs() {
           className="inline-flex items-center gap-2.5 rounded-full bg-primary-pink px-10 py-4.5 font-equip font-semibold text-[15px] text-white shadow-xl shadow-primary-pink/25 hover:bg-primary-pink/90 hover:shadow-primary-pink/35 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
         >
           <MessageSquare className="h-5 w-5 fill-white" />
-          <span>Send Us a Message</span>
+          <span>Contact Us</span>
         </button>
       </div>
 
@@ -187,7 +187,7 @@ export default function ContactUs() {
             {/* Modal Header */}
             <div className="flex items-center justify-between px-6 py-4.5 border-b border-zinc-100 bg-zinc-50/80 backdrop-blur-sm">
               <h3 className="text-[17px] font-semibold text-zinc-900 uppercase tracking-wider">
-                Send Us a Message
+                Contact Us
               </h3>
               <button
                 onClick={closeFormModal}

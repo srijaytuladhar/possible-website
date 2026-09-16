@@ -1,89 +1,274 @@
-export const nepalBoardMembers = [
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+}
+
+export const usBoardMembers: TeamMember[] = [
+  {
+    id: "us-1",
+    name: "Duncan Maru, MD, PhD",
+    role: "Co-founder and Advisor",
+    image: "https://possiblehealth.org/wp-content/uploads/2014/02/Duncan-Maru1-1.jpg",
+    bio: "Duncan Maru, MD, PhD, is a co-founder and currently serves as an advisor and board member. He previously served as Interim CEO. Duncan is currently a faculty member at Mount Sinai's Arnhold Institute of Global Health. Duncan previously practiced on the Complex Care Service at Boston Children's Hospital. Duncan graduated from Harvard College, received his MD/PhD from Yale University, and completed the Harvard Combined Internal Medicine-Pediatrics Program and the Brigham and Women's Global Health Equity Residency Program. Duncan's work as a doctor and epidemiologist has generated over 40 peer-reviewed articles. In 2015, he was named a Schwab Foundation Social Entrepreneur of the Year."
+  },
+  {
+    id: "us-2",
+    name: "Kim Lipman-White",
+    role: "Board Member",
+    image: "https://possiblehealth.org/wp-content/uploads/2018/10/Kim-Photo-1.png",
+    bio: "Kim supports the partnerships, finance, and people and culture teams of Possible in systems building. Kim brings development, strategy, and operations experience with several nonprofit organizations, including four years as an Operations and Logistics Manager for Orbis International's Flying Eye Hospital. Kim received her Master of Science in Global Health in Public Policy from the University of Edinburgh, and her Bachelor of Science in Biomedical Engineering from Columbia University."
+  },
+  {
+    id: "us-3",
+    name: "Scott Halliday, PhD",
+    role: "Board Member and Advisor",
+    image: "https://possiblehealth.org/wp-content/uploads/2016/12/scott_308x308-1.jpg",
+    bio: "Scott Halliday, PhD currently serves as a board member and advisor. Previously, Scott served as a Senior Implementation Research Manager. Scott is an Implementation Science Researcher with the Washington State Department of Children, Youth & Families. Scott holds a PhD in Implementation Science from the University of Washington, where he coordinated the Nepal Studies Initiative."
+  }
+];
+
+export const nepalBoardMembers: TeamMember[] = [
   {
     id: "np-1",
     name: "Indira Basnett, MD, MPH",
     role: "Board Chair",
     image: "https://possiblehealth.org/wp-content/uploads/2021/11/Dr.-Indira.jpg",
-    bio: "Dr. Indira Basnett serves as the Board Chair for Sambhav (Possible) Nepal. She has decades of experience in health systems and medical governance in Nepal."
+    bio: "Dr. Basnett is currently working as a freelance consultant. She has more than thirty eight years of working experience in Nepal's health sector; she started her career as medical officer in a public health facility; worked as Country Director of a reputed INGO, and Advisor in bilateral agencies working in the health sector, up to decision-making roles at the policy level in the Ministry of Health and Population and its divisions. Dr. Basnett worked for a long time with NSMP (Nepal Safer Motherhood Project, managed by OPTIONS and funded by DFID) due to her deep-rooted passion for reducing maternal mortality in Nepal. While working with bilateral agencies and INGOs, particularly in reproductive health, she achieved a successful record of accomplishments and obtained MoHP approval on a number of policies/guidelines. Before joining the Nepal Health Sector Support Program/DFID, she worked with Possible for a year, operationalizing the PPP model in two remote districts (Dolakha and Achham). She is a strong advocate of reproductive health rights; her major strengths include evidence-based advocacy for policy reform and translating reproductive health rights into practice. She serves as an author and reviewer for the peer-reviewed Reproductive Health Matters Journal."
   },
   {
     id: "np-2",
     name: "Meeta Sainju Pradhan, PhD",
     role: "Vice-Chair",
     image: "https://possiblehealth.org/wp-content/uploads/2021/06/Meeta.jpg",
-    bio: "Dr. Meeta Sainju Pradhan serves as the Vice-Chair. She specializes in social science, developmental policy, and gender/equality research in healthcare access."
+    bio: "Dr. Pradhan has had extensive experience in the development sector in Nepal, most recently as Director of the Himalayan Program of The Mountain Institute. Over the years she has held technical and senior management positions across management, design, monitoring, and evaluation of multi-sectoral development programs, as well as research on poverty alleviation, gender equality, and social inclusion. She has worked with the Mountain Institute, Care International Nepal, UNICEF Nepal, and the Makalu Barun National Park and Conservation Area Project, alongside freelance consulting work. She recently completed \"A Study on the State of Social Inclusion in Nepal,\" a national-level study led by the Central Department of Anthropology of Tribhuvan University, as a Team Leader and Gender Equality and Social Inclusion Advisor — work that will inform targeted policy interventions and Nepal's progress toward SDG 2030. She holds a Ph.D. from the University of Michigan, Ann Arbor, USA in Sociology."
   },
   {
     id: "np-3",
     name: "Sushama Gautam",
     role: "Board Secretary",
     image: "https://possiblehealth.org/wp-content/uploads/2021/06/Sushama.jpg",
-    bio: "Sushama Gautam is the Board Secretary. She oversees governance compliance and coordinates organizational development strategies."
+    bio: "Advocate Gautam serves as Litigation Officer of the Forum for Women, Law, and Development (FWLD). She completed her law degree from Nepal Law Campus, Kathmandu, and is currently pursuing an LL.M. in International and Criminal Law from Tribhuvan University. She began her career in Dang and served as District Legal Aid Officer of the Legal Aid Project of the Nepal Bar Association from 2059 to 2063 B.S. across different districts. She has expertise in gender justice, citizenship issues, and women's and children's rights, and has worked as a resource person on women's and children's rights."
   },
   {
     id: "np-4",
     name: "Rajesh Parajuli, FCA",
     role: "Board Treasurer",
     image: "https://possiblehealth.org/wp-content/uploads/2021/06/Rajesh.jpg",
-    bio: "Rajesh Parajuli is a Fellow Chartered Accountant (FCA) and serves as the Board Treasurer, managing financial auditing controls and corporate governance."
+    bio: "Mr. Parajuli is a Chartered Accountant and a member of ICAN since 2003. He has extensive experience leading and managing finance and governance in both charity and industrial sectors, with more than a decade leading I/NGOs as Finance Director and Executive Director. He also has wide-ranging knowledge of Nepal laws, including governance of the Social Welfare Council."
   },
   {
     id: "np-5",
     name: "Prakash Nepali, LLM",
     role: "Board Member",
     image: "https://possiblehealth.org/wp-content/uploads/2021/06/Prakash.jpg",
-    bio: "Prakash Nepali holds a Master of Laws (LLM) and serves as a Board Member, advising the organization on legal frameworks, human rights, and compliance."
+    bio: "Mr. Nepali is a lawyer who received his LLM from the Kathmandu School of Law in 2011 and currently works as a law practitioner and Legal Advisor for Samata Foundation. He has handled many human rights and social justice cases, and holds extensive experience in legal and policy research, including a benchmark study comparing UN guidelines with national measures, a study on affirmative action/inclusion, and research on government institutions (NDC, NHRC, NWC, and the Mechanism to End Caste-Based Discrimination and Untouchability) — landmark work for the Dalit community. He currently researches policy gaps affecting marginalized communities in Nepal, including the Dalit community, and lectures on Human Rights, Constitutional Law, and Business Law at Patan Nist College and Cosmos College."
   },
   {
     id: "np-6",
     name: "Manish Prasai, MBA",
     role: "Board Member",
     image: "https://possiblehealth.org/wp-content/uploads/2021/06/Manish.jpg",
-    bio: "Manish Prasai serves as a Board Member. He brings business management expertise and strategic planning skills to the governance of Sambhav."
+    bio: "Mr. Prasai has more than 20 years of experience in the disability sector. He is currently Program and Administrative Manager for the National Federation of Disabled Nepal (NFDN), overseeing all projects and programs NFDN implements under its various partnerships. He has led advocacy activities on disability issues at district, regional, and national levels and has contributed to drafting strategies and guidelines, including accessibility guidelines for the Government of Nepal. He holds an MBA and is currently pursuing an MPhil in Sociology from Tribhuvan University."
   },
   {
     id: "np-7",
     name: "Dewan Rai",
     role: "Board Member",
     image: "https://possiblehealth.org/wp-content/uploads/2022/10/Dewan-e1665413452132.jpg",
-    bio: "Dewan Rai is a Board Member and veteran journalist who advises the organization on media communication and public advocacy."
+    bio: "Dewan Rai is a Kathmandu-based journalist. He is joint editor of Everest Chronicle, a specialized journalism portal on mountains and mountain communities, and contributes to The Times (London) and Outside magazine from Nepal. He previously worked for The Himalayan Times, Nepali Times, The Kathmandu Post, and The Record, writing primarily on human rights, social justice, and mountains."
   },
   {
     id: "np-8",
     name: "Parbata Acharya",
     role: "Board Member",
     image: "https://possiblehealth.org/wp-content/uploads/2024/09/Parwata-Acharya_headshot.jpeg",
-    bio: "Parbata Acharya serves as a Board Member. She supports community engagement protocols and rural healthcare access models."
+    bio: "Parbata Acharya is a GESI (Gender, Equity and Social Inclusion) expert and consultant with extensive experience conducting GESI audits and formulating GESI policies, strategies, and guidelines. She has facilitated workshops and training at the municipal, district, government, and community level on gender-based violence, women's rights, legal awareness, and gender-responsive budget analysis. She has served as Central Vice Chair for Amnesty International Nepal for six years, holds a Master's degree in Economics, and is a lifelong member of the Nepal Red Cross Society."
   },
   {
     id: "np-9",
     name: "Sita Mademba",
     role: "Board Member",
     image: "https://possiblehealth.org/wp-content/uploads/2024/09/Sita-Mademba.jpeg",
-    bio: "Sita Mademba is a Board Member who coordinates community-led monitoring systems and public health advocacy."
+    bio: "Sita Mademba is a researcher and journalist working as a Senior Research Associate at the Social Science Baha, Kathmandu. Her research focuses on human trafficking, gender-based violence, migrant workers, identity politics, caste, and ethnicity in Nepal. As a journalist with over fifteen years of experience, she has worked across various media houses including BBC Nepali News. She holds an MPhil in Anthropology and an MA in Political Science, and has published articles and a book chapter featured in outlets including Kantipur, Nagarik, Himal Khabarpatrika, and Nepali Times."
   }
 ];
 
-export const usBoardMembers = [
+export const teamMembersData: TeamMember[] = [
   {
-    id: "us-1",
-    name: "Duncan Maru, MD, PhD",
-    role: "Co-Founder & Board Member",
-    image: "https://possiblehealth.org/wp-content/uploads/2014/02/Duncan-Maru1-1.jpg",
-    bio: "Dr. Duncan Maru co-founded Possible and serves as a Board Member, advising on epidemiological research, clinical quality, and community care scaling."
+    id: "tm-1",
+    name: "Navin Kumar Sah",
+    role: "Research Assistant",
+    image: "https://possiblehealth.org/wp-content/uploads/2024/07/Navin_sah.jpeg",
+    bio: "Navin Kumar Sah, currently working as a Research Assistant at Possible, is a public health professional from Madhesh Province, Nepal, with extensive experience in research coordination, field implementation, and community-based health interventions. He holds a Bachelor's degree in Public Health and is pursuing a Master's degree in Economics.\n\nNavin previously served as a Culture Coordinator at the Sambad Foundation and held coordination and consultancy roles with organizations including the Johns Hopkins Center for Communication Programs and the Social Development Center (SDC) in Mahottari, working on community resilience, disaster response, and child-marriage prevention. He also has experience in WASH initiatives and strong skills in project coordination, stakeholder engagement, and field management.\n\nOutside of work, Navin enjoys reading, traveling, and social initiatives promoting community development."
   },
   {
-    id: "us-4",
-    name: "Kim Lipman-White",
-    role: "Board Member",
-    image: "https://possiblehealth.org/wp-content/uploads/2018/10/Kim-Photo-1.png",
-    bio: "Kim Lipman-White serves as a member of the US Board of Directors, providing oversight and guidance on fundraising and organizational strategy."
+    id: "tm-2",
+    name: "Puskar Raj Paudel",
+    role: "Implementation Research Coordinator",
+    image: "https://possiblehealth.org/wp-content/uploads/2023/10/puskar_photo.jpg",
+    bio: "Puskar Raj Paudel holds a Master's degree in Sociology from Tribhuvan University and is pursuing an MPhil at Nepal Open University. He previously served as a Project Manager for the IMPACT TB Project, implemented by Birat Nepal Medical Trust (BNMT) Nepal in collaboration with the Liverpool School of Tropical Medicine (LSTM). He has worked across government and private health sectors on community-based studies, including RCTs, spanning maternal and child health, nutrition, tuberculosis control, disaster risk reduction, and local economic development. Outside work, he enjoys cycling and playing musical instruments."
   },
   {
-    id: "us-3",
-    name: "Scott Halliday",
-    role: "Board Member & Advisor",
-    image: "https://possiblehealth.org/wp-content/uploads/2016/12/scott_308x308-1.jpg",
-    bio: "Scott Halliday serves as a board advisor, focusing on system infrastructure, logistics support, and governance compliance."
+    id: "tm-3",
+    name: "Rajesh Kumar Jha",
+    role: "Mental Health Research Manager",
+    image: "https://possiblehealth.org/wp-content/uploads/2025/08/Rajesh-kumar-jha.jpg",
+    bio: "Rajesh Kumar Jha leads initiatives on manual development, capacity building training, supportive supervision, and wellbeing promotion among community health workers, ART counselors, and psychosocial counselors. He focuses on designing, implementing, and scaling behavioral and mental health interventions. A Mahendra Vidya Bhusan Award recipient, he holds a Master's degree in Clinical Psychology and brings over 26 years of experience with government agencies, NGOs/INGOs, and academic institutions across Nepal's Terai, Hill, and Mountain regions, working with survivors of gender-based violence, people living with HIV, conflict-affected children, ethnic minority communities, torture survivors, and returnee migrant workers. Outside of work, he enjoys listening to music and traveling."
   },
+  {
+    id: "tm-4",
+    name: "Kripa Sigdel",
+    role: "Assistant Scientist",
+    image: "https://possiblehealth.org/wp-content/uploads/2022/11/DSC_0268-1-scaled.jpg",
+    bio: "Kripa Sigdel is a psychologist and mental health researcher spanning research, academia, and social innovation in global mental health. As Assistant Scientist at Possible, she is the mental health expert across the research portfolio and co-investigator/study manager on projects designing behavioral interventions for mental health, suicidality, and non-communicable diseases. Before Possible, she was Research Coordinator on a Yale University–KUSMS collaborative study at Dhulikhel Hospital co-designing a suicide-prevention intervention. She is finishing her PhD on youth suicidality and social connectedness in Nepal.\n\nShe spent seven years as faculty teaching social psychology, research methodology, and clinical psychology, and co-founded Psychbigyaan Network Nepal (2014) and Mankaakura, Nepal's first digital mental-health counseling platform (2020). She also co-produced 'Manojigyasa,' a national radio program on mental health advocacy (2015, Ujyaalo Network), and holds a short-course credential in New Media and Journalism from the University of Washington. Outside of work, she enjoys advocating for mental health awareness, traveling, and sleep."
+  },
+  {
+    id: "tm-5",
+    name: "Rabina Dhakal",
+    role: "Data Manager",
+    image: "https://possiblehealth.org/wp-content/uploads/2026/03/Rabina-Photo-1.png",
+    bio: "Rabina Dhakal is a public health researcher with over a decade of experience in Research, Monitoring, Evaluation, and Learning, with expertise in quasi-experimental, longitudinal, mixed-methods, stepped-wedge, and cross-sectional research. She co-leads the data ecosystem at Possible and has worked with CARE Nepal, Foundation for Development Management, and JSI Nepal. She holds a Master of Public Health from the University of New South Wales, Australia. Outside of work, she enjoys music, gardening, and family time."
+  },
+  {
+    id: "tm-6",
+    name: "Soni Maharjan",
+    role: "Finance and Admin Assistant",
+    image: "https://possiblehealth.org/wp-content/uploads/2023/02/Headshot_Soni-Maharjan.jpg",
+    bio: "Soni began her finance career in 2016 and has built skills in finance operations, resource management, and problem solving. She holds a Master's degree and is a graduate of EmpowHER, a leadership program. She is passionate about developing her knowledge, contributing to impactful projects, and combining technical skill with empathy in her work."
+  },
+  {
+    id: "tm-7",
+    name: "Nisha Guragain",
+    role: "Research Assistant",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&h=300&q=80",
+    bio: "Nisha Guragain holds a Post-Basic Bachelor's degree in Nursing and has built a career spanning critical care, education, and research. Before Possible, she worked as an ICU nurse and nursing instructor. She started at Possible as a Research Outcome Assessor before moving into her current role. Outside work, she enjoys cooking and gardening."
+  },
+  {
+    id: "tm-8",
+    name: "Dr. Sabitri Sapkota Devkota",
+    role: "Executive Director",
+    image: "https://possiblehealth.org/wp-content/uploads/2026/06/Sapkota-Sabitri-Headshot-e1597751998763.png",
+    bio: "Dr. Sabitri Sapkota Devkota brings more than two decades of experience in research, training, M&E, and evidence-to-policy work, including senior leadership roles across organizations in Nepal and abroad. She has overseen international collaborative research and large mixed-methods studies on behavioral and implementation science in Nepal, Afghanistan, Bangladesh, Cambodia, Myanmar, and Singapore, with a research focus on women's and child health including sexual, reproductive, maternal, adolescent, and mental health. She has served as Research Ethics Liaison representing research organizations and participants.\n\nBefore becoming Executive Director, she was Director of Research at Possible, Director of Implementation Research for Nyaya Health Nepal, and Regional Research Advisor for Marie Stopes International (MSI), UK. She has a nursing background, a public health degree from Melbourne University, Australia, and a Ph.D. in Health Sciences from Hiroshima University, Japan."
+  },
+  {
+    id: "tm-9",
+    name: "Mina Shrestha",
+    role: "Associate Scientist",
+    image: "https://possiblehealth.org/wp-content/uploads/2024/11/Minabasnet.jpg",
+    bio: "Dr. Mina Shrestha co-leads capacity building of young researchers, research and innovation initiatives including grant writing, and dissemination of Possible's work. She completed postdoctoral training at the University of Houston College of Pharmacy (USA) leading opioid-related research, earned her Ph.D. in Health Services and Policy at the University of Iowa College of Public Health (USA), and completed a Master of Philosophy (Pharmacy) at the University of Sydney as an Australia Awards Scholar. She is a registered pharmacist in Nepal with research interests in evidence-based solutions for healthcare access and affordability, and experience writing NIH grant applications."
+  },
+  {
+    id: "tm-10",
+    name: "Bhubi Bista",
+    role: "People and Culture Executive",
+    image: "https://possiblehealth.org/wp-content/uploads/2023/10/DSC_0185-e1697157879785.png",
+    bio: "Bhubi leads the People & Culture function at Possible as PACE, serving as the focal point for employee welfare. Hailing from Darchula in Nepal's far-western province, she holds an MBA from Kathmandu University School of Management specializing in HR and Project Management, with over 10 years leading HR departments in IT, telecom, and fintech organizations in Nepal, plus HR consulting experience. Her expertise spans policy development, change management, performance management, and talent management. Beyond work, her passions include reading, painting, and traveling."
+  },
+  {
+    id: "tm-11",
+    name: "Kumar Tamang",
+    role: "Finance and Operations Manager",
+    image: "https://possiblehealth.org/wp-content/uploads/2021/11/Kumar-Tamang.jpg",
+    bio: "Kumar leads Possible's financials, operations, and procurement management. He previously worked with Winrock International and Helen Keller International, bringing more than eight years of experience in financial management, grants and sub-contracts management, procurement, and monitoring. Outside of work, Kumar loves to travel."
+  },
+  {
+    id: "tm-12",
+    name: "Dikshya Sharma",
+    role: "Senior Community Health Research Manager",
+    image: "https://possiblehealth.org/wp-content/uploads/2021/08/Dikshya-Sharma-scaled-1.jpg",
+    bio: "Dikshya Sharma leads implementation research collaborations and technical support for community health program development, rollout, and evaluation. She previously worked as an RME Officer for the MEOR Project under UKaid's Nepal Health Sector Support Program III, and on WASH and Maternal and Child Health programs. She completed her Bachelor's in Public Health at the Institute of Medicine (IOM), TUTH, and her Master's from Gadjah Mada University, Indonesia under a WHO/TDR scholarship. Outside of Possible, she enjoys traveling, reading fiction, gardening, and art."
+  },
+  {
+    id: "tm-13",
+    name: "Jene Shrestha",
+    role: "Qualitative and Intervention Research Coordinator",
+    image: "https://possiblehealth.org/wp-content/uploads/2022/07/Jene-Shrestha-scaled.jpg",
+    bio: "Jene Shrestha supports qualitative research methods across Possible's studies and partner sites. She previously worked at Beyond Beijing Committee on sexual and reproductive health advocacy, and at Nepal Fertility Care Center on adolescent health and menstrual hygiene programs. She holds a Master of Public Health (Health Promotion and Education) from Pokhara University and received a 2020 post-graduate research grant from the Nepal Health Research Council. Besides work, she loves traveling and reading novels."
+  },
+  {
+    id: "tm-14",
+    name: "Shuvam Sharma",
+    role: "Intervention Research Coordinator",
+    image: "https://possiblehealth.org/wp-content/uploads/2023/01/IMG_20221214_105809-1.jpg",
+    bio: "Shuvam supports coordination, rollout, and evaluation of interventions and implementation research at partner sites. She previously worked with the Nepal Health Research Council as a field researcher and with IPAS as a Research Assistant, and holds a Master's in Public Health (Epidemiology) from KLE University, India. Outside work, she enjoys cooking, traveling, reading novels, and watching movies."
+  },
+  {
+    id: "tm-15",
+    name: "Jyoti Nepal",
+    role: "Implementation Research Coordinator",
+    image: "https://possiblehealth.org/wp-content/uploads/2023/10/jyotipic.png",
+    bio: "Jyoti holds a Master's in Public Health from the Institute of Medicine, Tribhuvan University. Before Possible, she was a Research Project Coordinator at Dhulikhel Hospital-Kathmandu University Hospital, managing an mHealth intervention with Rutgers University, USA, and a birth cohort study. She brings clinical/nursing experience and has taught as a nursing instructor at Kathmandu University School of Medical Sciences. Besides work, she loves sketching, music, and movies."
+  },
+  {
+    id: "tm-16",
+    name: "Saugat Joshi",
+    role: "Qualitative Research Manager",
+    image: "https://possiblehealth.org/wp-content/uploads/2025/01/Saugat-Joshi.jpg",
+    bio: "Saugat, from Dhangadi in far-west Nepal, oversees the qualitative research methodology integrated into Possible's mixed-method research. He holds a Master's in Global Health from Thammasat University, Thailand, and over five years of experience in applied qualitative health research. His master's dissertation examined suicide due to domestic violence among women of reproductive age in Nepal. He previously contributed to PHASE Nepal and CREHPA. Besides work, he enjoys time with family and friends."
+  },
+  {
+    id: "tm-17",
+    name: "Shristi Tiwari",
+    role: "Qualitative Research Officer",
+    image: "https://possiblehealth.org/wp-content/uploads/2025/08/Shristi-Tiwari-Headshot-scaled.jpg",
+    bio: "Shristi Tiwari focuses on gathering qualitative insights to enhance intervention design, acceptability, feasibility, and impact. A DAAD scholar, she holds a Master's in International Health from Heidelberg University, Germany, with experience spanning multilateral organizations and academic institutions on health promotion, gender-based violence, healthcare access, and sexuality education. She has collaborated with the Government of Nepal, WHO, KOICA, and Kathmandu University. Beyond work, she enjoys exploring new cuisines."
+  },
+  {
+    id: "tm-18",
+    name: "Alisha Karki",
+    role: "Intervention Research Coordinator",
+    image: "https://possiblehealth.org/wp-content/uploads/2025/08/Alisha-karki.jpg",
+    bio: "Alisha Karki coordinates the co-design, adaptation, and testing of digital interventions improving care at ART centers, and contributes to perinatal health intervention development and data management systems. She holds a Master's in Public Health Nutrition from the Institute of Medicine (IOM). Besides work, Alisha enjoys sketching, traveling, and family time."
+  },
+  {
+    id: "tm-19",
+    name: "Aastha Kayastha",
+    role: "People and Culture Assistant",
+    image: "https://possiblehealth.org/wp-content/uploads/2025/08/Aastha-maharjan.jpg",
+    bio: "Aastha Kayastha holds an MBA in Project Management and HR Management from Kathmandu University School of Management, with hands-on experience in recruitment, onboarding, performance management, and HR operations. Before Possible, she volunteered with UN agencies and worked with DAI-USAID Karnali Water Activity and The Asia Foundation. Besides work, she describes herself as spiritual and philanthropic, and loves traveling, trying recipes, and reading."
+  },
+  {
+    id: "tm-20",
+    name: "Bhawani Yogi",
+    role: "Research Assistant",
+    image: "https://possiblehealth.org/wp-content/uploads/2024/07/Bhawani-Yogi.jpg",
+    bio: "Bhawani Yogi is a public health professional experienced in digital health projects — digitizing and implementing m-health solutions for community and facility-based programs. She is skilled in Community Health Toolkit (CHT), OpenHIE, NepalEHR, Commcare, and REDCap, and has contributed to training for initiatives like Nyano Nani (Baby Warmer). Beyond work, she enjoys writing, storytelling, poetry, and drama scriptwriting."
+  },
+  {
+    id: "tm-21",
+    name: "Ramkrishna Khatiwada",
+    role: "Information System Administrator",
+    image: "https://possiblehealth.org/wp-content/uploads/2025/09/Ramkrishna-khatiwada.jpg",
+    bio: "Ramkrishna Khatiwada manages networking, servers, and IT tools at Possible, ensuring smooth operation of IS applications and safeguarding organizational data. He holds a Bachelor's in Information Technology from Patan College for Professional Studies and is pursuing a Master's in Information Systems. Outside of work, he enjoys traveling and is an avid football fan."
+  },
+  {
+    id: "tm-22",
+    name: "Renasha Ghimire",
+    role: "Implementation Research Coordinator",
+    image: "https://possiblehealth.org/wp-content/uploads/2024/11/Renesha_ghimire.jpg",
+    bio: "Based at Possible's Dolakha research site, Renasha works on integrating a Suicide Prevention Package of Strategies into decentralized primary health care systems. She holds a master's in Clinical Psychology from the University of Delhi and has worked in community mental health since 2016 across Gorkha, Sindhuli, Morang, Nuwakot, and Bajhang. She previously was a Project Manager at United Mission to Nepal and coordinated the Group Problem Management Plus (PM+) RCT at TPO Nepal. In her leisure time, she enjoys time with friends, traveling, and music."
+  },
+  {
+    id: "tm-23",
+    name: "Prakash Pant",
+    role: "Research Data Manager",
+    image: "https://possiblehealth.org/wp-content/uploads/2024/11/prakashpant.jpg",
+    bio: "Prakash Pant, from far-western Nepal, oversees the data management system for Possible's intervention and implementation research. He holds a Bachelor's in Public Health and a Master's in Public Health from the University of the West of England (2016), with over a decade of experience in research, data management, M&E, and project management, including as MEL Advisor for USAID's Health and Hygiene Activity at DevWorks International. In his free time, he prefers family time, reading, and music."
+  },
+  {
+    id: "tm-24",
+    name: "Barsha Mainali",
+    role: "Finance Budget Officer",
+    image: "https://possiblehealth.org/wp-content/uploads/2026/03/Barsha-ji.jpg",
+    bio: "Barsha Mainali brings over seven years of experience in finance, budgeting, grant administration, and donor-funded project operations. A Semi-Qualified Chartered Accountant, she has worked with International IDEA, Chaitanya Academy, and S. Devkota & Company. Outside of work, she enjoys reading, traveling, and continuous learning."
+  }
+];
+
+export const allTeamMembers: TeamMember[] = [
+  ...usBoardMembers,
+  ...nepalBoardMembers,
+  ...teamMembersData
 ];

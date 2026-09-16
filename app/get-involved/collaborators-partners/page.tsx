@@ -1,19 +1,24 @@
 "use client";
 
-export default function CollaboratorsPartnersPage() {
+export default function CollaboratorsPage() {
   const collaborators = [
     "Ministry of Health and Food Safety",
-    "Department of Health Services, divisions and centers, Nepal",
+    "Department of Health Services",
+    "Nursing and Social Security Division",
+    "Epidemiology and Disease Control Division",
+    "National Centre for AIDS & STD Control",
     "Nepal Health Research Council",
+    "Social Welfare Council",
     "World Health Organization",
-    "Chandragiri Municipality, Nepal",
-    "Bardibas Municipality, Nepal",
     "Dhulikhel Hospital, Kathmandu University Hospital",
-    "Bhimeshwor Municipality, Dolakha, Nepal",
-    "Tamakoshi Rural Municipality, Dolakha, Nepal",
-    "Baiteshwor Rural Municipality, Dolakha, Nepal",
-    "Kalinchowk Rural Municipality, Dolakha, Nepal",
-    "Women’s Rehabilitation Centre (WOREC)",
+    "Kathmandu University School of Medical Sciences",
+    "Chandragiri Municipality, Chandragiri",
+    "Bardibas Municipality, Mahottari",
+    "Bhimeshwor Municipality, Dolakha",
+    "Tamakoshi Rural Municipality, Dolakha",
+    "Baiteshwor Rural Municipality, Dolakha",
+    "Kalinchowk Rural Municipality, Dolakha",
+    "Women's Rehabilitation Centre (WOREC)",
     "Nepal Disabled Women Association",
     "Nyaya Health Nepal",
     "National Institutes of Health, USA",
@@ -31,25 +36,31 @@ export default function CollaboratorsPartnersPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
+    <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 md:py-16 flex flex-col flex-1 bg-white">
       {/* Page Header */}
-      <div className="mb-12 text-center max-w-3xl mx-auto">
+      <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto">
         <h1 className="h1-hero text-zinc-950 uppercase tracking-wide">
-          Our Collaborators & Partners
+          Collaborators
         </h1>
+        <div className="h-1 w-16 bg-primary-pink mx-auto mt-4 rounded-full" />
       </div>
 
-      <div className="animate-in fade-in duration-300 max-w-5xl mx-auto w-full">
-        {/* Attractive Centered & Justified Pill Layout per PDF Page 7 */}
-        <div className="flex flex-wrap gap-3.5 justify-center items-center max-w-4xl mx-auto">
-          {collaborators.map((partner, pIdx) => (
-            <span
-              key={pIdx}
-              className="inline-flex items-center text-center justify-center px-5 py-2.5 rounded-full text-[13.5px] sm:text-[14.5px] font-medium bg-[#F0F9FD] text-[#0284C7] border border-[#BAE6FD]/80 shadow-2xs transition-colors cursor-default"
-            >
-              {partner}
-            </span>
-          ))}
+      {/* Clean Bulleted List in Responsive 2-Column Grid */}
+      <div className="animate-in fade-in duration-300 max-w-4xl mx-auto w-full">
+        <div className="bg-zinc-50/70 border border-zinc-200/70 rounded-3xl p-8 sm:p-12 shadow-xs">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+            {collaborators.map((partner, pIdx) => (
+              <li
+                key={pIdx}
+                className="flex items-start gap-3.5 group"
+              >
+                <span className="w-2 h-2 rounded-full bg-primary-pink mt-2.5 shrink-0 group-hover:scale-125 transition-transform" />
+                <span className="text-[15.5px] sm:text-[16.5px] text-zinc-800 font-light leading-relaxed group-hover:text-zinc-950 transition-colors">
+                  {partner}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
