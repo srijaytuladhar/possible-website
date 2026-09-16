@@ -4,6 +4,11 @@ import { ArrowRight } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
 import InteractivePresenceMap from "@/components/InteractivePresenceMap";
 
+// Image slots for upcoming client photos:
+const PROCESS_SECTION_IMAGE = "/health_process.jpg"; // Photo below hero text (to be replaced with provided file)
+const HIMALAYA_SECTION_IMAGE = "/second-landing.jpg"; // Section 3 Himalaya-themed photo (to be replaced with provided file)
+const TEAM_SECTION_IMAGE = "/who_we_are_team.jpg"; // Section 5 group around table photo (to be replaced with provided file)
+
 export default function Home() {
   return (
     <div className="flex flex-col w-full bg-white">
@@ -25,7 +30,7 @@ export default function Home() {
           {/* Image */}
           <div className="relative w-full max-w-4xl aspect-[6.5/4.3] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group mb-10">
             <Image
-              src="/health_process.jpg"
+              src={PROCESS_SECTION_IMAGE}
               alt="Community healthcare co-design process in Nepal"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-101"
@@ -62,7 +67,7 @@ export default function Home() {
             <div className="lg:col-span-6">
               <div className="relative w-full aspect-[6/4.5] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group">
                 <Image
-                  src="/second-landing.jpg"
+                  src={HIMALAYA_SECTION_IMAGE}
                   alt="A mother in rural foothills of the Himalayas receiving healthcare consultation"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-102"
@@ -172,7 +177,7 @@ export default function Home() {
             <div className="lg:col-span-6">
               <div className="relative w-full aspect-[4.5/3] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-white group">
                 <Image
-                  src="/who_we_are_team.jpg"
+                  src={TEAM_SECTION_IMAGE}
                   alt="Possible team of researchers, clinicians, and advocates collaborating"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-102"

@@ -228,3 +228,17 @@ body {
   text-decoration: underline !important;
 }
 
+/* Nepal Map Tooltip Purple Theme (#782888) */
+.nepal-map-container [role="tooltip"] {
+  background-color: #782888 !important;
+  background: #782888 !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 24px rgba(120, 40, 136, 0.4) !important;
+  border-radius: 12px !important;
+  padding: 8px 14px !important;
+  min-width: auto !important;
+  color: #ffffff !important;
+  font-family: var(--font-poppins), sans-serif !important;
+}
+
+

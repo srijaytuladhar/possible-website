@@ -39,7 +39,7 @@ export default function HeroSlider() {
 
           <div className="pt-4 flex flex-wrap gap-4">
             <Link
-              href="/solutions"
+              href="/solutions/scale"
               className="inline-flex items-center gap-2 rounded-full bg-primary-pink px-8 py-4 font-equip font-semibold text-[15px] text-white shadow-lg shadow-primary-pink/30 hover:bg-primary-pink/90 hover:shadow-primary-pink/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
             >
               <span>Our solutions</span>

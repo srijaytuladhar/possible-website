@@ -44,7 +44,7 @@ export default function InteractivePresenceMap() {
 
         {/* Clean Centered Nepal Map Container (Clean map without side/bottom cards or numbers per PDF Page 2) */}
         <div className="w-full max-w-5xl bg-white p-6 sm:p-10 rounded-3xl border border-zinc-150/70 shadow-xs flex items-center justify-center">
-          <div className="w-full max-w-4xl flex items-center justify-center">
+          <div className="w-full max-w-4xl flex items-center justify-center nepal-map-container">
             <NepalMap
               data={mapData}
               colorMode="flat"
@@ -57,7 +57,7 @@ export default function InteractivePresenceMap() {
               showLabels={false}
               showTooltip={true}
               renderTooltip={(districtName) => (
-                <div className="px-3.5 py-1.5 text-xs font-semibold text-white bg-[#782888] rounded-full shadow-md border border-[#782888]/80">
+                <div className="text-xs font-semibold text-white tracking-wide select-none">
                   {districtName}
                 </div>
               )}
