@@ -159,13 +159,13 @@ export default function WorkWithUsPage() {
             <div className="p-3 bg-primary-pink/10 text-primary-pink rounded-2xl w-fit">
               <Briefcase className="h-6 w-6" />
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 uppercase tracking-wide">
+            <h2 hidden className="text-2xl sm:text-3xl font-bold text-zinc-900 uppercase tracking-wide">
               Vacancies & Openings
             </h2>
             <div className="h-0.5 w-16 bg-primary-pink rounded-full mx-auto" />
           </div>
 
-          <p className="text-[15px] text-body-gray font-light max-w-2xl mx-auto leading-relaxed">
+          <p hidden className="text-[15px] text-body-gray font-light max-w-2xl mx-auto leading-relaxed">
             We are continuously looking for talented researchers, health practitioners, and operations experts. Explore our active postings and training pathways below:
           </p>
 
@@ -190,7 +190,7 @@ export default function WorkWithUsPage() {
               href="/get-involved/work-with-us/job-postings"
               className="flex items-center justify-between px-6 py-4.5 bg-white border border-zinc-200 hover:border-primary-pink rounded-2xl text-[14.5px] text-zinc-800 font-medium hover:text-primary-pink transition-all duration-300 group shadow-2xs hover:shadow-sm"
             >
-              <span>View Open Job Postings</span>
+              <span>Vacancies</span>
               <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-primary-pink transition-transform group-hover:translate-x-1" />
             </Link>
 
@@ -198,7 +198,7 @@ export default function WorkWithUsPage() {
               href="/get-involved/work-with-us/traineeship-apprenticeship"
               className="flex items-center justify-between px-6 py-4.5 bg-white border border-zinc-200 hover:border-secondary-blue rounded-2xl text-[14.5px] text-zinc-800 font-medium hover:text-secondary-blue transition-all duration-300 group shadow-2xs hover:shadow-sm"
             >
-              <span>Traineeship & Apprenticeship</span>
+              <span>Traineeship & Apprenticeship Opportunities</span>
               <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-secondary-blue transition-transform group-hover:translate-x-1" />
             </Link>
           </div>

@@ -11,7 +11,7 @@ export default function InnovatePage() {
       description: [
         "CASA is a mobile health app being developed with caregivers, health care workers, and experts to support caregivers of children with autism — providing simple, practical tips for communication, new skills, everyday challenges, and caregiver well-being. It will be tested for three months with caregivers and therapists at two autism care centers in Nepal to assess acceptability and feasibility."
       ],
-      image: "/health_process.jpg",
+      image: "/solutions_innovate/CASA.jpg",
       publications: [
         {
           title: "Caregiver skills training for families of children with developmental delays or disabilities.",
@@ -25,7 +25,7 @@ export default function InnovatePage() {
       description: [
         "Women with disabilities often face barriers to accessing sexual and reproductive health information and services. Possible worked alongside women with diverse disabilities, the Nepal Disabled Women's Association, and other stakeholders to understand these experiences and co-design an intervention grounded in their needs, priorities, and lived realities."
       ],
-      image: "/who_we_are_team.jpg"
+      image: "/solutions_innovate/Reimagining sexual and reproductive health services with women with disabilities.JPG"
     }
   ];
 

@@ -18,7 +18,7 @@ export default function TestPage() {
             "Women in low- and middle-income countries like Nepal often live in multi-generational households where IPV dynamics are influenced by multiple key family members (Pun et al., 2019; Shai et al., 2019). MILAP is a family-based intervention engaging women, their husbands, and mothers-in-law (MILs) to reduce IPV and improve mental well-being among married women. It comprises nine sessions on communication, stress and emotion management, and building healthier relationships.",
             "After two successful pilot studies, MILAP is now being tested through a randomized controlled trial with 300 families in Nepal — a five-year study funded by the National Institute of Mental Health."
           ],
-          image: "/who_we_are_team.jpg",
+          image: "/solutions_test/MILAP.jpg",
           publications: [
             {
               title: "A multi-component family intervention to lower depression and address intimate partner violence (MILAP) among young married women in Nepal: a study protocol for a randomized controlled trial.",
@@ -46,7 +46,7 @@ export default function TestPage() {
             "Expanding Nepal's national community health worker program to deliver home-based care for chronic conditions and mental health. BECOME brings evidence-based behavioral support for common mental health conditions and non-communicable diseases into communities through trained, full-time, supervised, and digitally enabled CHWs, combining stress reduction, behavioral activation, and motivational interviewing.",
             "CHWs conduct screening, behavioral intervention, and follow-up for diabetes, hypertension, depression, and anxiety, supported by the Community Health Information System (CHIS)."
           ],
-          image: "/hero_complex_solve.jpg",
+          image: "/solutions_test/BECOME.jpg",
           publications: [
             {
               title: "A type II hybrid implementation-effectiveness study of the BECOME intervention: integrating Behavioral Community-Based Approaches for Mental Health and Non-Communicable Diseases delivered by community health workers — study protocol for a stepped wedge cluster randomized controlled trial.",
@@ -73,7 +73,7 @@ export default function TestPage() {
           description: [
             "COMMIT is an mHealth app co-designed with people with lived experience, health care workers, and government to help providers motivate patients to stay engaged in treatment. Tested through the CHW network among young people living with HIV and patients with depression at different stages, with observed improvements in treatment compliance over time."
           ],
-          image: "/hero_digital.png",
+          image: "/solutions_test/COMMIT.jpg",
           publications: [
             {
               title: "Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing to improve adherence to care among youth living with HIV in rural Nepal.",
@@ -97,7 +97,7 @@ export default function TestPage() {
             "Perinatal mental health is a major yet persistently neglected global health gap; many women remain undetected and untreated due to limited screening, specialist capacity, and weak integration of mental health into routine perinatal care.",
             "This project integrated the WHO Thinking Healthy Programme (THP), an evidence-based intervention for perinatal depression, into an existing CHW-delivered longitudinal care model in rural Nepal — embedding THP within ongoing CHW–client contacts rather than as a separate service, supporting continuity of care while reducing stigma. The model was evaluated for feasibility, acceptability, and potential to strengthen access to perinatal mental health care."
           ],
-          image: "/second-landing.jpg",
+          image: "/solutions_test/Perinatal-MH.jpeg",
           publications: [
             {
               title: "Postpartum contraception outcomes from a pre-post effectiveness-implementation study of an integrated community health worker intervention in rural Nepal.",
@@ -141,7 +141,7 @@ export default function TestPage() {
             "About one-third of people living with HIV stop taking their medication because they fear others may find out about their HIV status (2022) — especially common among minority groups and people facing mental health challenges.",
             "INCLUDE is a digital tool co-designed with government and communities, including people with lived experience, to identify and reduce stigma in HIV clinics and address discrimination tied to gender, race, and mental health. Currently being tested in four HIV treatment centers to explore acceptability, feasibility, and usefulness."
           ],
-          image: "/hero_digital.png",
+          image: "/solutions_test/INCLUDE.jpg",
           publications: [
             {
               title: "Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing to improve adherence to care among youth living with HIV in rural Nepal.",
@@ -165,7 +165,7 @@ export default function TestPage() {
             "Southeast Asia has the highest suicide mortality rate globally, at 17.7 deaths per 100,000 population (WHO, 2019). In Nepal, suicide ideation is highly prevalent, yet help-seeking remains extremely low, highlighting an urgent need to strengthen access to effective suicide care within primary health care.",
             "This project reimagines how suicide care can be delivered at scale by adapting and strengthening the WHO mhGAP suicide management approach to local cultural and health-system context — starting with a qualitative formative evaluation of the mhGAP suicide module, followed by a co-designed, culturally grounded suicide management package integrating locally appropriate risk assessment and safety-planning strategies."
           ],
-          image: "/who_we_are_team.jpg"
+          image: "/solutions_test/P supp.JPG"
         },
         {
           id: "become-d",
@@ -175,7 +175,7 @@ export default function TestPage() {
             "A home-based behavioral care program co-created with an expert panel of clinicians, caregivers, community stakeholders, and people with lived experience, helping families manage dementia-related challenges and stress while improving quality of life and daily functioning.",
             "Early pilot implementation demonstrated acceptability and feasibility, with promising potential for further testing and scale-up."
           ],
-          image: "/mother_foothills.jpg",
+          image: "/solutions_test/BECOME D.jpg",
           publications: [
             {
               title: "A type II hybrid implementation-effectiveness study of the BECOME intervention: integrating Behavioral Community-Based Approaches for Mental Health and Non-Communicable Diseases delivered by community health workers — study protocol for a stepped wedge cluster randomized controlled trial.",
@@ -207,7 +207,7 @@ export default function TestPage() {
             "Chissa advances suicide prevention through personalized, just-in-time digital support. Named after a colloquial expression of love and admiration used within Nepali GBMSM communities, \"Chissa\" reflects a compassionate, community-centered approach to suicide prevention.",
             "An innovative digital tool designed to recognize changes in suicide risk and provide tailored support when it's needed most, co-created with GBMSM communities and local health partners, followed by pilot testing."
           ],
-          image: "/health_process.jpg",
+          image: "/solutions_test/CHISSA.JPG",
           publications: [
             {
               title: "Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men in Nepal: findings from an online national survey.",
