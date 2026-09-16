@@ -53,12 +53,11 @@ export default function SolutionStageTemplate({
   projects,
   introText
 }: SolutionStageTemplateProps) {
-  // 4 stages in exact requested order: Scale -> Test -> Innovate -> Pipeline
+  // 3 stages in exact requested order: Scale -> Test -> Innovate
   const stages = [
     { id: "scale", label: "Scale", href: "/solutions/scale", image: "/hero_complex_solve.jpg" },
     { id: "test", label: "Test", href: "/solutions/test", image: "/who_we_are_team.jpg" },
     { id: "innovate", label: "Innovate", href: "/solutions/innovate", image: "/health_process.jpg" },
-    { id: "pipeline", label: "Pipeline", href: "/solutions/pipeline", image: "/hero_digital.png" }
   ];
 
   return (
@@ -75,9 +74,9 @@ export default function SolutionStageTemplate({
         </Link>
       </div>
 
-      {/* Stage Progress Indicator (All 4 stages in order: Scale, Test, Innovate, Pipeline) */}
+      {/* Stage Progress Indicator (3 stages: Scale, Test, Innovate) */}
       <div className="mb-14 bg-zinc-50/80 border border-zinc-150 p-6 sm:p-8 rounded-3xl flex flex-col items-center w-full max-w-5xl mx-auto">
-        <h2 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 text-center uppercase tracking-wide mb-8 max-w-4xl leading-relaxed">
+        <h2 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 text-center mb-8 max-w-4xl leading-relaxed">
           Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of validated evidence.
         </h2>
         <div className="flex items-center justify-center w-full max-w-4xl px-2 sm:px-6">
@@ -243,14 +242,16 @@ function SolutionBoxItem({
     >
       {/* 1. Heading: Subtitle & Title */}
       <div className="space-y-1.5 pb-2">
-        <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 uppercase leading-snug">
-          {project.title}
+        <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 leading-snug">
+          {project.subtitle ? (
+            <>
+              <span className="font-bold">{project.title}: </span>
+              <span className="font-medium text-zinc-700">{project.subtitle}</span>
+            </>
+          ) : (
+            project.title
+          )}
         </h3>
-        {project.subtitle && (
-          <p className="text-[15.5px] sm:text-[16.5px] text-zinc-600 font-medium leading-relaxed">
-            {project.subtitle}
-          </p>
-        )}
       </div>
 
       {/* 2. Text / Description Paragraphs */}
@@ -297,7 +298,7 @@ function SolutionBoxItem({
                       rel={isExternal ? "noopener noreferrer" : undefined}
                       className="text-[14.5px] font-medium text-zinc-800 hover:text-primary-pink transition-colors leading-relaxed inline-flex items-start gap-1.5"
                     >
-                      <span>{idx + 1}. {pub.title}</span>
+                      <span>{pub.title}</span>
                       {isExternal && (
                         <ExternalLink className="h-3.5 w-3.5 shrink-0 mt-1 opacity-60 group-hover:opacity-100" />
                       )}

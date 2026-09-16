@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   TrendingUp,
@@ -14,6 +14,17 @@ import {
 
 export default function SolutionsPage() {
   const [activePhase, setActivePhase] = useState<string>("all");
+
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash === "scale" || hash === "test" || hash === "innovate" || hash === "pipeline") {
+      setActivePhase(hash);
+      const el = document.getElementById(hash);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+      }
+    }
+  }, []);
 
   const phases = [
     { id: "all", name: "All Solutions", icon: GitFork, color: "bg-zinc-900 text-white" },
@@ -93,7 +104,7 @@ export default function SolutionsPage() {
         {/* PHASE 1: SCALE */}
         {/* ========================================================================= */}
         {(activePhase === "all" || activePhase === "scale") && (
-          <section className="scroll-mt-24 p-6 sm:p-10 rounded-3xl border border-accent-purple/20 bg-accent-purple/[0.01] relative overflow-hidden space-y-8">
+          <section id="scale" className="scroll-mt-24 p-6 sm:p-10 rounded-3xl border border-accent-purple/20 bg-accent-purple/[0.01] relative overflow-hidden space-y-8">
             <div className="absolute top-0 left-0 w-2.5 h-full bg-accent-purple" />
 
             <div className="flex flex-col lg:flex-row gap-8 items-start justify-between border-b border-zinc-100 pb-6">
@@ -121,7 +132,7 @@ export default function SolutionsPage() {
                   <span className="text-xs font-bold text-accent-purple uppercase tracking-wider">
                     Community Health Systems
                   </span>
-                  <h3 className="h3-card font-bold text-zinc-900 uppercase">
+                  <h3 className="h3-card font-bold text-zinc-900">
                     Strengthening community health system through longitudinal care: From pilot to scale
                   </h3>
                 </div>
@@ -148,7 +159,7 @@ export default function SolutionsPage() {
                   <span className="text-xs font-bold text-accent-purple uppercase tracking-wider">
                     Primary Care Mental Health
                   </span>
-                  <h3 className="h3-card font-bold text-zinc-900 uppercase">
+                  <h3 className="h3-card font-bold text-zinc-900">
                     Collaborative care for improving mental health care within primary health care settings
                   </h3>
                 </div>
@@ -402,7 +413,7 @@ export default function SolutionsPage() {
                   <span className="text-xs font-bold text-primary-pink uppercase tracking-wider">
                     Co-Designing Accessible Care
                   </span>
-                  <h3 className="h3-card font-bold text-zinc-900 uppercase">
+                  <h3 className="h3-card font-bold text-zinc-900">
                     Reimagining sexual and reproductive health services with women with disabilities
                   </h3>
                 </div>
