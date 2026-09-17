@@ -1,117 +1,258 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { Building2 } from "lucide-react";
+import { Landmark, GraduationCap, Users } from "lucide-react";
 
-interface Collaborator {
-  name: string;
-  logo?: string;
+interface CollaboratorSection {
+  id: string;
+  number: string;
+  badge: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  imageCaption: string;
+  icon: typeof Landmark;
+  theme: {
+    badge: string;
+    badgeOnDark: string;
+    iconBg: string;
+    iconText: string;
+    iconBorder: string;
+    accentLine: string;
+  };
+  collaborators: { name: string }[];
+  imagePosition: "right" | "left";
 }
 
-export default function CollaboratorsPage() {
-  // Collaborators list: logo files to be attached when provided by client
-  const collaborators: Collaborator[] = [
-    { name: "Ministry of Health and Food Safety", logo: undefined },
-    { name: "Department of Health Services", logo: undefined },
-    { name: "Nursing and Social Security Division", logo: undefined },
-    { name: "Epidemiology and Disease Control Division", logo: undefined },
-    { name: "National Centre for AIDS & STD Control", logo: undefined },
-    { name: "Nepal Health Research Council", logo: undefined },
-    { name: "Social Welfare Council", logo: undefined },
-    { name: "World Health Organization", logo: undefined },
-    { name: "Dhulikhel Hospital, Kathmandu University Hospital", logo: undefined },
-    { name: "Kathmandu University School of Medical Sciences", logo: undefined },
-    { name: "Chandragiri Municipality, Chandragiri", logo: undefined },
-    { name: "Bardibas Municipality, Mahottari", logo: undefined },
-    { name: "Bhimeshwor Municipality, Dolakha", logo: undefined },
-    { name: "Tamakoshi Rural Municipality, Dolakha", logo: undefined },
-    { name: "Baiteshwor Rural Municipality, Dolakha", logo: undefined },
-    { name: "Kalinchowk Rural Municipality, Dolakha", logo: undefined },
-    { name: "Women's Rehabilitation Centre (WOREC)", logo: undefined },
-    { name: "Nepal Disabled Women Association", logo: undefined },
-    { name: "Nyaya Health Nepal", logo: undefined },
-    { name: "National Institutes of Health, USA", logo: undefined },
-    { name: "University of California San Francisco", logo: undefined },
-    { name: "Wheaton College", logo: undefined },
-    { name: "Yale University", logo: undefined },
-    { name: "Arnhold Institute for Global Health at Icahn School of Medicine at Mt. Sinai", logo: undefined },
-    { name: "University of Connecticut", logo: undefined },
-    { name: "University of California, Los Angeles", logo: undefined },
-    { name: "Community Health Impact Coalition", logo: undefined },
-    { name: "SunyaEk", logo: undefined },
-    { name: "Dalit Lives Matters", logo: undefined },
-    { name: "Transcultural Psychosocial Organization Nepal (TPO Nepal)", logo: undefined },
-    { name: "Blue Diamond Society", logo: undefined },
-  ];
+const SECTIONS: CollaboratorSection[] = [
+  {
+    id: "government-public-health",
+    number: "01",
+    badge: "Public Sector Partners",
+    title: "Government & Health Systems",
+    description:
+      "Working alongside federal ministries, specialized divisions, municipal governments, and international health agencies to embed high-quality care into the public healthcare architecture.",
+    image: "/collaborators/Collaborators.jpg",
+    imageAlt: "Fieldwork and collaborative governance in Nepal",
+    imageCaption: "Fieldwork & Collaborative Governance",
+    icon: Landmark,
+    imagePosition: "right",
+    theme: {
+      badge: "bg-primary-pink/10 text-primary-pink border border-primary-pink/20",
+      badgeOnDark: "bg-primary-pink/90 text-white",
+      iconBg: "bg-primary-pink/10",
+      iconText: "text-primary-pink",
+      iconBorder: "border-primary-pink/20",
+      accentLine: "bg-primary-pink",
+    },
+    collaborators: [
+      { name: "Ministry of Health and Food Safety" },
+      { name: "Department of Health Services" },
+      { name: "Nursing and Social Security Division" },
+      { name: "Epidemiology and Disease Control Division" },
+      { name: "National Centre for AIDS & STD Control" },
+      { name: "Nepal Health Research Council" },
+      { name: "Social Welfare Council" },
+      { name: "World Health Organization" },
+      { name: "Chandragiri Municipality, Chandragiri" },
+      { name: "Bardibas Municipality, Mahottari" },
+      { name: "Bhimeshwor Municipality, Dolakha" },
+      { name: "Tamakoshi Rural Municipality, Dolakha" },
+      { name: "Baiteshwor Rural Municipality, Dolakha" },
+      { name: "Kalinchowk Rural Municipality, Dolakha" },
+    ],
+  },
+  {
+    id: "academic-research",
+    number: "02",
+    badge: "Research & Medical Partners",
+    title: "Academic & Medical Institutions",
+    description:
+      "Partnering with premier medical centers, universities, and global scientific institutes to conduct rigorous implementation research, clinical trials, and knowledge generation.",
+    image: "/collaborators/DH__0984.JPG",
+    imageAlt: "Clinical collaboration and medical care with Dhulikhel Hospital",
+    imageCaption: "Clinical Innovation & Research with Dhulikhel Hospital",
+    icon: GraduationCap,
+    imagePosition: "left",
+    theme: {
+      badge: "bg-secondary-blue/10 text-secondary-blue border border-secondary-blue/20",
+      badgeOnDark: "bg-secondary-blue/90 text-white",
+      iconBg: "bg-secondary-blue/10",
+      iconText: "text-secondary-blue",
+      iconBorder: "border-secondary-blue/20",
+      accentLine: "bg-secondary-blue",
+    },
+    collaborators: [
+      { name: "Dhulikhel Hospital, Kathmandu University Hospital" },
+      { name: "Kathmandu University School of Medical Sciences" },
+      { name: "National Institutes of Health, USA" },
+      { name: "University of California San Francisco" },
+      { name: "Wheaton College" },
+      { name: "Yale University" },
+      { name: "Arnhold Institute for Global Health at Icahn School of Medicine at Mt. Sinai" },
+      { name: "University of Connecticut" },
+      { name: "University of California, Los Angeles" },
+    ],
+  },
+  {
+    id: "community-advocacy",
+    number: "03",
+    badge: "Advocacy & Implementation Partners",
+    title: "Community & Civil Society Organizations",
+    description:
+      "Partnering with grassroots advocacy leaders, inclusion organizations, and community coalitions to ensure healthcare delivery is rights-based, culturally anchored, and equitable.",
+    image: "/collaborators/Lilaram school_BHW.jpg",
+    imageAlt: "Community health outreach and school-based engagement",
+    imageCaption: "Community Outreach & School Health Engagement",
+    icon: Users,
+    imagePosition: "right",
+    theme: {
+      badge: "bg-accent-purple/10 text-accent-purple border border-accent-purple/20",
+      badgeOnDark: "bg-accent-purple/90 text-white",
+      iconBg: "bg-accent-purple/10",
+      iconText: "text-accent-purple",
+      iconBorder: "border-accent-purple/20",
+      accentLine: "bg-accent-purple",
+    },
+    collaborators: [
+      { name: "Women's Rehabilitation Centre (WOREC)" },
+      { name: "Nepal Disabled Women Association" },
+      { name: "Nyaya Health Nepal" },
+      { name: "Community Health Impact Coalition" },
+      { name: "SunyaEk" },
+      { name: "Dalit Lives Matters" },
+      { name: "Transcultural Psychosocial Organization Nepal (TPO Nepal)" },
+      { name: "Blue Diamond Society" },
+    ],
+  },
+];
 
+export default function CollaboratorsPage() {
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 md:py-16 flex flex-col flex-1 bg-white">
       {/* Page Header */}
-      <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto space-y-4">
+      <div className="mb-14 md:mb-20 text-center max-w-3xl mx-auto space-y-4">
         <h1 className="h1-hero text-zinc-950 uppercase tracking-wide">
           Collaborators
         </h1>
         <div className="h-1 w-16 bg-primary-pink mx-auto rounded-full" />
         <p className="text-subheading text-zinc-600 font-light max-w-2xl mx-auto pt-2">
-          We collaborate with government ministries, international institutions, academic medical centers, and grassroots advocacy organizations.
+          We collaborate with government ministries, academic medical centers, global research universities, and grassroots advocacy organizations.
         </p>
       </div>
 
-      {/* Two-Column Layout (Column 1: Photo/Logo, Column 2: Collaborator Name — One Row Per Collaborator) */}
-      <div className="animate-in fade-in duration-300 max-w-4xl mx-auto w-full">
-        <div className="bg-white border border-zinc-200/80 rounded-3xl p-4 sm:p-8 shadow-xs divide-y divide-zinc-100">
-          {collaborators.map((partner, pIdx) => (
-            <CollaboratorRow key={pIdx} partner={partner} />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+      {/* 3 Sections in 2-Column Alternating Layout */}
+      <div className="space-y-16 md:space-y-24">
+        {SECTIONS.map((section) => {
+          const Icon = section.icon;
+          const isImageLeft = section.imagePosition === "left";
 
-function CollaboratorRow({ partner }: { partner: Collaborator }) {
-  const [imgError, setImgError] = useState(false);
+          // Text & Collaborator List Block
+          const TextContent = (
+            <div
+              className={`flex flex-col justify-between bg-zinc-50/70 border border-zinc-200/80 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xs ${
+                isImageLeft ? "order-1 lg:order-2" : "order-1"
+              }`}
+            >
+              <div>
+                {/* Section Header */}
+                <div className="flex items-center gap-2.5 mb-4">
+                  <span
+                    className={`inline-flex items-center px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider ${section.theme.badge}`}
+                  >
+                    {section.number} • {section.badge}
+                  </span>
+                </div>
 
-  // Extract initials for fallback avatar (e.g. "Ministry of Health..." -> "MH")
-  const initials = partner.name
-    .split(/\s+/)
-    .filter((w) => w.length > 2 && !["and", "for", "the", "with"].includes(w.toLowerCase()))
-    .slice(0, 2)
-    .map((w) => w[0].toUpperCase())
-    .join("");
+                <h2 className="text-2xl sm:text-3xl font-bold text-zinc-950 font-outfit tracking-tight">
+                  {section.title}
+                </h2>
+                <div className={`h-1 w-12 ${section.theme.accentLine} rounded-full mt-3 mb-4`} />
 
-  return (
-    <div className="py-4 sm:py-5 px-3 sm:px-4 flex items-center gap-4 sm:gap-6 hover:bg-zinc-50/80 rounded-2xl transition-all duration-200 group">
-      {/* Column 1: Photo / Logo Container */}
-      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border border-zinc-200/80 bg-zinc-100/80 shrink-0 overflow-hidden relative flex items-center justify-center shadow-2xs group-hover:border-primary-pink/30 group-hover:scale-102 transition-all">
-        {partner.logo && !imgError ? (
-          <Image
-            src={partner.logo}
-            alt={partner.name}
-            fill
-            className="object-contain p-2"
-            sizes="64px"
-            onError={() => setImgError(true)}
-          />
-        ) : (
-          <div className="flex flex-col items-center justify-center text-zinc-400 select-none">
-            {initials ? (
-              <span className="text-[13px] sm:text-[14px] font-bold text-zinc-500 tracking-wider group-hover:text-primary-pink transition-colors">
-                {initials}
-              </span>
-            ) : (
-              <Building2 className="h-6 w-6 text-zinc-400 group-hover:text-primary-pink transition-colors" />
-            )}
-          </div>
-        )}
-      </div>
+                <p className="text-[15px] sm:text-[15.5px] text-zinc-600 font-light leading-relaxed mb-6 sm:mb-8">
+                  {section.description}
+                </p>
 
-      {/* Column 2: Collaborator Name */}
-      <div className="flex-1">
-        <h3 className="text-[15.5px] sm:text-[17px] font-medium text-zinc-800 leading-snug group-hover:text-zinc-950 transition-colors">
-          {partner.name}
-        </h3>
+                {/* Collaborator Names List */}
+                <div className="space-y-2.5">
+                  {section.collaborators.map((collaborator, cIdx) => (
+                    <div
+                      key={cIdx}
+                      className="group flex items-center gap-3.5 p-3 sm:py-3.5 sm:px-4 rounded-2xl bg-white border border-zinc-200/80 hover:border-zinc-300 hover:bg-zinc-50/80 hover:shadow-xs transition-all duration-200"
+                    >
+                      <div
+                        className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border ${section.theme.iconBg} ${section.theme.iconText} ${section.theme.iconBorder} group-hover:scale-105 transition-transform shadow-2xs`}
+                      >
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span className="text-[14.5px] sm:text-[15.5px] font-medium text-zinc-800 group-hover:text-zinc-950 transition-colors leading-snug">
+                        {collaborator.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bottom Count Indicator */}
+              <div className="pt-6 mt-6 border-t border-zinc-200/70 flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                <span>{section.collaborators.length} Partners</span>
+                <span className="text-zinc-400">Possible Nepal</span>
+              </div>
+            </div>
+          );
+
+          // Image Block
+          const ImageContent = (
+            <div
+              className={`relative w-full h-[420px] sm:h-[500px] lg:h-auto min-h-[420px] lg:min-h-full rounded-3xl overflow-hidden border border-zinc-200/80 shadow-md group ${
+                isImageLeft ? "order-2 lg:order-1" : "order-2"
+              }`}
+            >
+              <Image
+                src={section.image}
+                alt={section.imageAlt}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-103"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority={section.id === "government-public-health"}
+              />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent pointer-events-none" />
+
+              {/* Caption Overlay */}
+              <div className="absolute bottom-0 inset-x-0 p-6 sm:p-8 text-white z-10">
+                <span
+                  className={`inline-block px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase backdrop-blur-md mb-2 shadow-sm ${section.theme.badgeOnDark}`}
+                >
+                  {section.badge}
+                </span>
+                <p className="text-base sm:text-lg font-medium text-white/95 leading-snug drop-shadow-xs">
+                  {section.imageCaption}
+                </p>
+              </div>
+            </div>
+          );
+
+          return (
+            <section
+              key={section.id}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch"
+            >
+              {isImageLeft ? (
+                <>
+                  {ImageContent}
+                  {TextContent}
+                </>
+              ) : (
+                <>
+                  {TextContent}
+                  {ImageContent}
+                </>
+              )}
+            </section>
+          );
+        })}
       </div>
     </div>
   );
