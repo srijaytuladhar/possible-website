@@ -13,7 +13,7 @@ export default function ScalePage() {
         "We are now working with the government and community-based partners to strengthen and evolve the model for national scale-up: refining delivery workflows, building the evidence base, and exploring how ProCHWs can extend beyond maternal and child health to provide a broader continuum of care across the life course.",
         "This isn't a parallel program, it's a government-owned system built to last."
       ],
-      image: "/health_process.jpg",
+      image: "/DH__0457.jpg",
       publications: [
         {
           title: "A Type II hybrid effectiveness-implementation study of an integrated CHW intervention to address maternal healthcare in rural Nepal.",
@@ -47,7 +47,7 @@ export default function ScalePage() {
       description: [
         "An integrated model that trains CHWs and clinicians to identify and manage depression and anxiety within primary care settings. Co-designed and tested in remote districts in Nepal, now informing WHO-endorsed national training manuals for scale-up."
       ],
-      image: "/hero_complex_solve.jpg",
+      image: "/DH__1913.jpg",
       publications: [
         {
           title: "Collaborative care model for depression in rural Nepal: a mixed-methods implementation research study.",

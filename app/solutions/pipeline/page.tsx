@@ -13,7 +13,7 @@ export default function PipelinePage() {
       description: [
         "Nearly half of all lifetime mental health conditions take root before adulthood, and in Nepal, nearly 7 million children sit in a classroom every school day. Possible is working with the government to position school nurses as the first line of mental health support for students, teachers, and parents. Still in its earliest stage — preparing to co-design with schools, nurses, and families before building the evidence base needed to reach national scale."
       ],
-      image: "/second-landing.jpg"
+      image: "/pipeline1.jpg"
     },
     {
       id: "ai-supportive-supervision",
@@ -22,7 +22,7 @@ export default function PipelinePage() {
         "Nepal has widened access to mental health care by training non-specialists to deliver it."
         /* TODO: awaiting remaining copy from client */
       ],
-      image: "/hero_digital.png"
+      image: "/pipeline2.jpg"
     }
   ];
 

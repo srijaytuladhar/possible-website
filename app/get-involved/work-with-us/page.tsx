@@ -45,21 +45,21 @@ export default function WorkWithUsPage() {
         {/* Hero Content Overlay */}
         <div className="relative z-10 mx-auto max-w-7xl w-full">
           <div className="max-w-3xl space-y-6 animate-in fade-in slide-in-from-top-4 duration-700">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/20 border border-primary-pink/30 px-4 py-1 text-[13px] font-semibold text-primary-pink uppercase tracking-wider">
+            <span hidden className="inline-flex items-center gap-1.5 rounded-full bg-primary-pink/20 border border-primary-pink/30 px-4 py-1 text-[13px] font-semibold text-primary-pink uppercase tracking-wider">
               Careers & Opportunities
             </span>
 
-            <h1 className="h1-hero text-white font-extralight leading-tight uppercase tracking-wide">
+            <h1 hidden className="h1-hero text-white font-extralight leading-tight uppercase tracking-wide">
               Work <span className="font-semibold text-primary-pink">With Us</span>
             </h1>
 
-            <p className="text-subheading text-zinc-200 font-light max-w-2xl leading-relaxed">
+            <p hidden className="text-subheading text-zinc-200 font-light max-w-2xl leading-relaxed">
               Discover opportunities to collaborate, train, and build science-backed innovations to strengthen healthcare delivery where it is needed most.
             </p>
 
             <div className="pt-4 flex flex-wrap items-center gap-4">
               {/* Pink CTA Button: Contact Us */}
-              <Link
+              <Link hidden
                 href="/contact-us"
                 className="inline-flex items-center gap-2 rounded-full bg-primary-pink px-8 py-4 font-equip font-semibold text-[15px] text-white shadow-lg shadow-primary-pink/30 hover:bg-primary-pink/90 hover:shadow-primary-pink/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
               >
@@ -169,7 +169,7 @@ export default function WorkWithUsPage() {
             <div className="h-0.5 w-16 bg-primary-pink rounded-full mx-auto" />
           </div>
 
-          <p className="text-[15px] text-body-gray font-light max-w-2xl mx-auto leading-relaxed">
+          <p hidden className="text-[15px] text-body-gray font-light max-w-2xl mx-auto leading-relaxed">
             We are continuously looking for talented researchers, health practitioners, and operations experts. Explore our active postings and training pathways below:
           </p>
 
@@ -183,8 +183,8 @@ export default function WorkWithUsPage() {
             </p>
             <p className="text-[13px] text-zinc-500 font-light">
               Interested in future positions or academic collaborations? You can share your CV with us at{" "}
-              <a href="mailto:research@possiblehealth.org" className="text-primary-pink font-medium hover:underline">
-                research@possiblehealth.org
+              <a href="mailto:recruitment@possiblehealth.org" className="text-primary-pink font-medium hover:underline">
+                recruitment@possiblehealth.org
               </a>.
             </p>
           </div>

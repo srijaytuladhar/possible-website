@@ -98,6 +98,34 @@ export const nepalBoardMembers: TeamMember[] = [
 
 export const teamMembersData: TeamMember[] = [
   {
+    id: "tm-8",
+    name: "Dr. Sabitri Sapkota Devkota",
+    role: "Executive Director",
+    image: "https://possiblehealth.org/wp-content/uploads/2026/06/Sapkota-Sabitri-Headshot-e1597751998763.png",
+    bio: "Dr. Sabitri Sapkota Devkota brings more than two decades of experience in research, training, M&E, and evidence-to-policy work, including senior leadership roles across organizations in Nepal and abroad. She has overseen international collaborative research and large mixed-methods studies on behavioral and implementation science in Nepal, Afghanistan, Bangladesh, Cambodia, Myanmar, and Singapore, with a research focus on women's and child health including sexual, reproductive, maternal, adolescent, and mental health. She has served as Research Ethics Liaison representing research organizations and participants.\n\nBefore becoming Executive Director, she was Director of Research at Possible, Director of Implementation Research for Nyaya Health Nepal, and Regional Research Advisor for Marie Stopes International (MSI), UK. She has a nursing background, a public health degree from Melbourne University, Australia, and a Ph.D. in Health Sciences from Hiroshima University, Japan."
+  },
+  {
+    id: "tm-9",
+    name: "Mina Shrestha",
+    role: "Associate Scientist",
+    image: "https://possiblehealth.org/wp-content/uploads/2024/11/Minabasnet.jpg",
+    bio: "Dr. Mina Shrestha co-leads capacity building of young researchers, research and innovation initiatives including grant writing, and dissemination of Possible's work. She completed postdoctoral training at the University of Houston College of Pharmacy (USA) leading opioid-related research, earned her Ph.D. in Health Services and Policy at the University of Iowa College of Public Health (USA), and completed a Master of Philosophy (Pharmacy) at the University of Sydney as an Australia Awards Scholar. She is a registered pharmacist in Nepal with research interests in evidence-based solutions for healthcare access and affordability, and experience writing NIH grant applications."
+  },
+  {
+    id: "tm-10",
+    name: "Bhubi Bista",
+    role: "People and Culture Executive",
+    image: "https://possiblehealth.org/wp-content/uploads/2023/10/DSC_0185-e1697157879785.png",
+    bio: "Bhubi leads the People & Culture function at Possible as PACE, serving as the focal point for employee welfare. Hailing from Darchula in Nepal's far-western province, she holds an MBA from Kathmandu University School of Management specializing in HR and Project Management, with over 10 years leading HR departments in IT, telecom, and fintech organizations in Nepal, plus HR consulting experience. Her expertise spans policy development, change management, performance management, and talent management. Beyond work, her passions include reading, painting, and traveling."
+  },
+  {
+    id: "tm-11",
+    name: "Kumar Tamang",
+    role: "Finance and Operations Manager",
+    image: "https://possiblehealth.org/wp-content/uploads/2021/11/Kumar-Tamang.jpg",
+    bio: "Kumar leads Possible's financials, operations, and procurement management. He previously worked with Winrock International and Helen Keller International, bringing more than eight years of experience in financial management, grants and sub-contracts management, procurement, and monitoring. Outside of work, Kumar loves to travel."
+  },
+  {
     id: "tm-1",
     name: "Navin Kumar Sah",
     role: "Research Assistant",
@@ -145,34 +173,6 @@ export const teamMembersData: TeamMember[] = [
     role: "Research Assistant",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&h=300&q=80",
     bio: "Nisha Guragain holds a Post-Basic Bachelor's degree in Nursing and has built a career spanning critical care, education, and research. Before Possible, she worked as an ICU nurse and nursing instructor. She started at Possible as a Research Outcome Assessor before moving into her current role. Outside work, she enjoys cooking and gardening."
-  },
-  {
-    id: "tm-8",
-    name: "Dr. Sabitri Sapkota Devkota",
-    role: "Executive Director",
-    image: "https://possiblehealth.org/wp-content/uploads/2026/06/Sapkota-Sabitri-Headshot-e1597751998763.png",
-    bio: "Dr. Sabitri Sapkota Devkota brings more than two decades of experience in research, training, M&E, and evidence-to-policy work, including senior leadership roles across organizations in Nepal and abroad. She has overseen international collaborative research and large mixed-methods studies on behavioral and implementation science in Nepal, Afghanistan, Bangladesh, Cambodia, Myanmar, and Singapore, with a research focus on women's and child health including sexual, reproductive, maternal, adolescent, and mental health. She has served as Research Ethics Liaison representing research organizations and participants.\n\nBefore becoming Executive Director, she was Director of Research at Possible, Director of Implementation Research for Nyaya Health Nepal, and Regional Research Advisor for Marie Stopes International (MSI), UK. She has a nursing background, a public health degree from Melbourne University, Australia, and a Ph.D. in Health Sciences from Hiroshima University, Japan."
-  },
-  {
-    id: "tm-9",
-    name: "Mina Shrestha",
-    role: "Associate Scientist",
-    image: "https://possiblehealth.org/wp-content/uploads/2024/11/Minabasnet.jpg",
-    bio: "Dr. Mina Shrestha co-leads capacity building of young researchers, research and innovation initiatives including grant writing, and dissemination of Possible's work. She completed postdoctoral training at the University of Houston College of Pharmacy (USA) leading opioid-related research, earned her Ph.D. in Health Services and Policy at the University of Iowa College of Public Health (USA), and completed a Master of Philosophy (Pharmacy) at the University of Sydney as an Australia Awards Scholar. She is a registered pharmacist in Nepal with research interests in evidence-based solutions for healthcare access and affordability, and experience writing NIH grant applications."
-  },
-  {
-    id: "tm-10",
-    name: "Bhubi Bista",
-    role: "People and Culture Executive",
-    image: "https://possiblehealth.org/wp-content/uploads/2023/10/DSC_0185-e1697157879785.png",
-    bio: "Bhubi leads the People & Culture function at Possible as PACE, serving as the focal point for employee welfare. Hailing from Darchula in Nepal's far-western province, she holds an MBA from Kathmandu University School of Management specializing in HR and Project Management, with over 10 years leading HR departments in IT, telecom, and fintech organizations in Nepal, plus HR consulting experience. Her expertise spans policy development, change management, performance management, and talent management. Beyond work, her passions include reading, painting, and traveling."
-  },
-  {
-    id: "tm-11",
-    name: "Kumar Tamang",
-    role: "Finance and Operations Manager",
-    image: "https://possiblehealth.org/wp-content/uploads/2021/11/Kumar-Tamang.jpg",
-    bio: "Kumar leads Possible's financials, operations, and procurement management. He previously worked with Winrock International and Helen Keller International, bringing more than eight years of experience in financial management, grants and sub-contracts management, procurement, and monitoring. Outside of work, Kumar loves to travel."
   },
   {
     id: "tm-12",

@@ -86,7 +86,7 @@ export default function SolutionStageTemplate({
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1 bg-white animate-in fade-in duration-300">
-      
+
       {/* Top Left Navigation Back */}
       <div className="flex items-center justify-between gap-4 mb-8 pb-4">
         <Link
@@ -107,7 +107,7 @@ export default function SolutionStageTemplate({
           {stages.map((st, index) => {
             const isActive = stageId === st.id;
             const isLast = index === stages.length - 1;
-            
+
             const getStageColors = (id: string) => {
               if (id === "scale") {
                 return {
@@ -143,25 +143,22 @@ export default function SolutionStageTemplate({
                   className="flex flex-col items-center justify-center transition-all duration-300 relative group"
                 >
                   <div
-                    className={`rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden relative border-2 ${
-                      isActive
-                        ? `${colors.circle} border-current`
-                        : "bg-zinc-200 border-zinc-300 w-16 h-16 sm:w-20 sm:h-20 hover:bg-zinc-300 hover:border-zinc-400"
-                    }`}
+                    className={`rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden relative border-2 ${isActive
+                      ? `${colors.circle} border-current`
+                      : "bg-zinc-200 border-zinc-300 w-16 h-16 sm:w-20 sm:h-20 hover:bg-zinc-300 hover:border-zinc-400"
+                      }`}
                   >
                     <Image
                       src={st.image}
                       alt={st.label}
                       fill
-                      className={`object-cover transition-all duration-300 ${
-                        isActive ? "scale-105 opacity-100 saturate-100" : "opacity-60 saturate-50 group-hover:opacity-100 group-hover:scale-105 group-hover:saturate-100"
-                      }`}
+                      className={`object-cover transition-all duration-300 ${isActive ? "scale-105 opacity-100 saturate-100" : "opacity-60 saturate-50 group-hover:opacity-100 group-hover:scale-105 group-hover:saturate-100"
+                        }`}
                     />
                   </div>
                   <span
-                    className={`mt-2 font-equip text-[11px] sm:text-[13px] uppercase tracking-wider transition-colors ${
-                      isActive ? colors.label : "text-zinc-400 group-hover:text-zinc-600 font-medium"
-                    }`}
+                    className={`mt-2 font-equip text-[11px] sm:text-[13px] uppercase tracking-wider transition-colors ${isActive ? colors.label : "text-zinc-400 group-hover:text-zinc-600 font-medium"
+                      }`}
                   >
                     {st.label}
                   </span>
@@ -195,8 +192,8 @@ export default function SolutionStageTemplate({
 
       {/* Sub-section Tabs when multiple subSections exist (e.g. Designed to test / Tested and ready for scale-up) */}
       {subSections && subSections.length > 1 && (
-        <div className="max-w-4xl mx-auto w-full mb-12">
-          <div className="flex flex-wrap items-center gap-2 p-1.5 bg-zinc-100/90 rounded-2xl border border-zinc-200/80 w-full sm:w-auto shadow-2xs">
+        <div className="max-w-4xl mx-auto w-full mb-12 flex justify-center">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 bg-zinc-100/90 rounded-2xl border border-zinc-200/80 w-full sm:w-auto shadow-2xs">
             {subSections.map((sub, sIdx) => {
               const tabId = sub.subSectionId || String(sIdx);
               const isActive = activeSubTab === tabId;
@@ -206,11 +203,10 @@ export default function SolutionStageTemplate({
                   key={sIdx}
                   type="button"
                   onClick={() => setActiveSubTab(tabId)}
-                  className={`flex-1 sm:flex-initial px-6 py-3 rounded-xl font-equip text-[14px] sm:text-[15px] font-bold tracking-wide transition-all duration-300 cursor-pointer text-center ${
-                    isActive
-                      ? "bg-white text-secondary-blue shadow-sm border border-secondary-blue/20"
-                      : "text-zinc-600 hover:text-zinc-900 hover:bg-white/60"
-                  }`}
+                  className={`flex-1 sm:flex-initial px-6 py-3 rounded-xl font-equip text-[14px] sm:text-[15px] font-bold tracking-wide transition-all duration-300 cursor-pointer text-center ${isActive
+                    ? "bg-white text-secondary-blue shadow-sm border border-secondary-blue/20"
+                    : "text-zinc-600 hover:text-zinc-900 hover:bg-white/60"
+                    }`}
                 >
                   {displayLabel}
                 </button>
@@ -228,7 +224,7 @@ export default function SolutionStageTemplate({
             .map((sub, sIdx) => (
               <div key={sIdx} id={sub.subSectionId} className="space-y-12 scroll-mt-28 animate-in fade-in duration-300">
                 <div className="border-b border-zinc-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div>
+                  <div hidden>
                     <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-wide">
                       {sub.subSectionTitle}
                     </h2>
@@ -239,7 +235,7 @@ export default function SolutionStageTemplate({
                     )}
                   </div>
                   {sub.badge && (
-                    <span className="px-3.5 py-1 rounded-full text-[12px] font-semibold tracking-wider uppercase bg-secondary-blue/10 text-secondary-blue w-fit">
+                    <span hidden className="px-3.5 py-1 rounded-full text-[12px] font-semibold tracking-wider uppercase bg-secondary-blue/10 text-secondary-blue w-fit">
                       {sub.badge}
                     </span>
                   )}
@@ -299,7 +295,7 @@ function SolutionBoxItem({
           {project.subtitle ? (
             <>
               <span className="font-bold">{project.title}: </span>
-              <span className="font-medium text-zinc-700">{project.subtitle}</span>
+              <span className="font-bold text-zinc-700">{project.subtitle}</span>
             </>
           ) : (
             project.title

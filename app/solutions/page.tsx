@@ -76,19 +76,18 @@ export default function SolutionsPage() {
             <button
               key={phase.id}
               onClick={() => setActivePhase(phase.id)}
-              className={`inline-flex items-center gap-2 px-5 py-3 rounded-full font-equip text-[13.5px] font-bold uppercase tracking-wider transition-all duration-300 border cursor-pointer ${
-                isActive
-                  ? phase.id === "scale"
-                    ? "bg-accent-purple text-white border-accent-purple shadow-md shadow-accent-purple/25 -translate-y-0.5"
-                    : phase.id === "test"
-                      ? "bg-secondary-blue text-white border-secondary-blue shadow-md shadow-secondary-blue/25 -translate-y-0.5"
-                      : phase.id === "innovate"
-                        ? "bg-primary-pink text-white border-primary-pink shadow-md shadow-primary-pink/25 -translate-y-0.5"
-                        : phase.id === "pipeline"
-                          ? "bg-amber-600 text-white border-amber-600 shadow-md shadow-amber-600/25 -translate-y-0.5"
-                          : "bg-zinc-900 text-white border-zinc-900 shadow-md -translate-y-0.5"
-                  : "bg-white text-zinc-700 border-zinc-200 hover:bg-zinc-50"
-              }`}
+              className={`inline-flex items-center gap-2 px-5 py-3 rounded-full font-equip text-[13.5px] font-bold uppercase tracking-wider transition-all duration-300 border cursor-pointer ${isActive
+                ? phase.id === "scale"
+                  ? "bg-accent-purple text-white border-accent-purple shadow-md shadow-accent-purple/25 -translate-y-0.5"
+                  : phase.id === "test"
+                    ? "bg-secondary-blue text-white border-secondary-blue shadow-md shadow-secondary-blue/25 -translate-y-0.5"
+                    : phase.id === "innovate"
+                      ? "bg-primary-pink text-white border-primary-pink shadow-md shadow-primary-pink/25 -translate-y-0.5"
+                      : phase.id === "pipeline"
+                        ? "bg-amber-600 text-white border-amber-600 shadow-md shadow-amber-600/25 -translate-y-0.5"
+                        : "bg-zinc-900 text-white border-zinc-900 shadow-md -translate-y-0.5"
+                : "bg-white text-zinc-700 border-zinc-200 hover:bg-zinc-50"
+                }`}
             >
               <Icon className="h-4 w-4" />
               <span>{phase.name}</span>
