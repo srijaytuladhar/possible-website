@@ -1,0 +1,200 @@
+First- Landing page:
+
+"Too complex to solve" is where we start.
+
+We innovate, test, and scale the health solutions- until they're health workers’ practice and policy.
+
+Second part in landing page:
+
+A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We're building toward a world where that's not aspiration — it's how every health system works: rooted in community, proven by evidence, built to reach everyone.
+
+OURSolutions
+
+INNOVATE
+
+CASA
+
+Supporting caregivers of children with Autism
+
+CASA is a mobile health app being developed with caregivers, health care workers and experts, to support caregivers of children with autism. It will provide simple, practical tips that caregivers can use at home to help children communicate, learn new skills, manage everyday challenges, and take care of their own well-being. We will test the app for three months with caregivers and therapists at two autism care centers in Nepal to understand if it is acceptable and feasible to use.
+
+Reimagining sexual and reproductive health services with women with disabilities
+
+Women with disabilities often face barriers to accessing sexual and reproductive health information and services. Possible worked alongside women with diverse disabilities, the Nepal Disabled Women’s Association, and other stakeholders to understand these experiences and co-design an intervention grounded in their needs, priorities, and lived realities.
+
+TEST
+
+2.1. DESIGN TO TEST
+
+INCLUDE
+
+Addressing intersectional stigma and improving HIV care
+
+About one-third of people living with HIV stop taking their medication because they fear others may find out about their HIV status [2022]. This is especially common among minority groups and people facing mental health challenges.
+
+INCLUDE is a digital tool co-designed with government and communities, including people with lived experiences to identify and reduce stigma in HIV clinics, improving care for people living with HIV and addressing discrimination tied to gender, race, and mental health. We are currently testing INCLUDE in four HIV treatment centers to explore if it is acceptable, feasible and helpful to use in improving HIV care and support.
+
+Learn More:
+
+Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing to improve adherence to care among youth living with HIV in rural Nepal. doi: 10.3126/journal.pgph.0002911.
+
+Acharya B, Sigdel K., Khatri R, Rimal P, Shrestha S, Sharma D, Shrestha J & Sapkota S (2024). Improving the quality of global mental health services with digital tools: Best practices and lessons learned from rural Nepal. Journal of Technology in Behavioral Science. https://doi.org/10.1007/s41347-024-00389-8
+
+BECOME-D
+
+Dementia support intervention for older adults and their caregivers at home
+
+A home-based behavioral care program developed to support older adults and their caregivers. It was co-created with an expert panel of advisors, comprising clinicians, caregivers, community stakeholders, and persons with lived experience. The program helps families manage dementia-related challenges and stress while improving quality of life and daily functioning. Early pilot implementation demonstrated its acceptability and feasibility, with promising potential for further testing and scale-up.
+
+Learn More:
+
+Link it with BECOME publications
+
+BECOME page
+
+Chissa
+
+Advancing suicide prevention through personalized digital support
+
+Chissa advances suicide prevention through personalized, just-in-time digital support. Named after a colloquial expression of love and admiration used within Nepali GBMSM communities, ‘Chissa’ reflects a compassionate, community-centered approach to suicide prevention.
+
+Chissa is an innovative digital tool designed to recognize changes in suicide risk and provide tailored support when it is needed most. We are co-creating this with GBMSM communities and local health partners, followed by pilot testing, to bring together digital innovation and community knowledge and make suicide prevention more timely, accessible, and responsive, with potential for scale in Nepal and beyond.
+
+Learn More:
+
+Paudel, K., Gautam, K., Pandey, A. et al. Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men in Nepal: findings from an online national survey. Sci Rep 15, 23087 (2025). https://doi.org/10.1038/s41598-025-92449-z
+
+Gautam K, Aguilar C, Paudel K, Dhakal M, Wickersham JA, Acharya B, Sapkota S, Deuba K, Shrestha R. Preferences for mHealth Intervention to Address Mental Health Challenges Among Men Who Have Sex With Men in Nepal: Qualitative Study. JMIR Hum Factors 2024;11:e56002; doi: 10.2196/56002; PMID: 38551632; PMCID: 11015371
+
+P-SuPP
+
+Reimagining suicide sare for scale in primary health care
+
+Southeast Asia has the highest suicide mortality rate globally, at 17.7 deaths per 100,000 population. In Nepal, suicide ideation is highly prevalent, yet help-seeking remains extremely low, highlighting an urgent need to strengthen access to effective suicide care within primary health care.
+
+This project is reimagining how suicide care can be delivered at scale by adapting and strengthening the WHO mhGAP suicide management approach to local cultural and health-system context. We first conducted a qualitative formative evaluation of the mhGAP suicide module in primary care settings and, together with key stakeholders, co-designed a culturally grounded suicide management package that integrates locally appropriate risk assessment and safety-planning strategies. By testing what works and how it can be implemented at scale, the project aims to support wider integration of suicide care into primary health care.
+
+2.2. TESTED AND READY FOR SCALE-UP
+
+SCALE
+
+MILAP for intimate partner violence and mental health
+
+Women in low- and middle-income countries like Nepal often live in multi-generational households where IPV dynamics is influenced by multiple key family members.
+
+MILAP is a family-based intervention that engages women, their husbands and mothers-in-law (MILs) to reduce IPV and mental well-being among married women. It comprises nine sessions on how to improve communication, manage stress and difficult emotions, and build healthier relationships. After two successful pilot studies, we are now testing MILAP through a randomized controlled trial with 300 families in Nepal. This five-year study, funded by the National Institute of Mental Health, will help us understand the impact of MILAP, and prepare for a larger scale.
+
+Learn More:
+
+A multi-component family intervention to lower depression and address intimate partner violence (MILAP) among young married women in Nepal: a study protocol for a randomized controlled trial. doi: 10.1186/s13063-026-09507-8.
+
+Supporting women who cannot leave an abusive relationship. doi:10.1016/S2215-0366(25)00400-6.
+
+Behind the Seen: Searching for Peace in a House With Violence. https://doi.org/10.7326/ANNALS-25-04504
+
+Ensuring Ethical Conduct and Safeguarding Participants’ Safety in a Randomized Controlled Trial of a Multi-component Family Intervention for Intimate Partner Violence and Depression in Nepal. https://elibrary.nhrc.gov.np/bitstream/20.500.14356/2888/1/11.Mina_MILAP_Invited%20Presentation_Possible.pdf
+
+Daughters-in-law's perceptions and experiences with MILAP, a family-based intervention to reduce intimate partner violence and improve mental health in Nepal. doi: 10.1007/s00737-025-01643-5.
+
+BECOME
+
+Bringing integrated mental health and NCD care closer to home
+
+Expanding Nepal’s national community health worker program to deliver home-based care for chronic conditions and mental health. BECOME brings evidence-based behavioral support for common mental health conditions and non-communicable diseases into communities through trained, full time, trained, supervised, and digitally enabled CHWs. The intervention combines stress reduction, behavioral activation, and motivational interviewing to support people with conditions such as depression, anxiety, hypertension, and diabetes. CHWs conduct screening, behavioral intervention, and follow-up for diabetes, hypertension, depression, and anxiety, supported by the Community Health Information System (CHIS) for data-driven care.
+
+Learn More:
+
+A type II hybrid implementation-effectiveness study of the BECOME intervention: integrating Behavioral Community-Based Approaches for Mental Health and Non-Communicable Diseases delivered by community health workers - study protocol for a stepped wedge cluster randomized controlled trial. doi: 10.1186/s13063-026-09457-1.
+
+Cross-cultural adaptation of motivational interviewing for use in rural Nepal. BMC Psychol. doi: 10.1186/s40359-021-00557-y.
+
+Also link to [Strengthening Community Health Systems Through Longitudinal Care]
+
+COMMIT
+
+Improving treatment compliance using mHealth app
+
+COMMIT is a mHealth app designed with people with lived experience, health care workers and government to support health care providers in motivating patients to stay engaged in their treatment and care. We have tested this app through the network of our community health workers among young people living with HIV, patients with depression in different stages, and have observed improved treatment compliance over the time.
+
+Learn More:
+
+Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing to improve adherence to care among youth living with HIV in rural Nepal. doi: 10.3126/journal.pgph.0002911.
+
+Cross-cultural adaptation of motivational interviewing for use in rural Nepal. BMC Psychol. doi: 10.1186/s40359-021-00557-y.
+
+Acharya B, Sigdel K., Khatri R, Rimal P, Shrestha S, Sharma D, Shrestha J & Sapkota S (2024). Improving the quality of global mental health services with digital tools: Best practices and lessons learned from rural Nepal. Journal of Technology in Behavioral Science. https://doi.org/10.1007/s41347-024-00389-8
+
+Perinatal-MH
+
+Integrating perinatal mental health into Community Health Worker-led longitudinal care
+
+Perinatal mental health is a major yet persistently neglected global health gap. Yet many women remain undetected and untreated due to limited screening, specialist capacity, and weak integration of mental health into routine perinatal care. Longitudinal community health worker (CHW) programs provide an opportunity to integrate mental health support into routine care and reach women across the perinatal period. We integrated the WHO Thinking Healthy Programme (THP), an evidence-based intervention for perinatal depression, into an existing CHW-delivered longitudinal care model in rural Nepal. Rather than delivering mental health care as a separate service, the approach embeds THP within ongoing contacts between CHWs and women, supporting continuity of care while reducing the stigma associated with seeking mental health services.
+
+We evaluated this integrated model to assess its feasibility, acceptability, and potential to strengthen access to perinatal mental health care through existing community-based longitudinal care systems.
+
+Related Publications: link it with CHW-delivered RMNCH care work
+
+Addressing challenges for psychotherapy supervision in global mental health through experiential learnings from rural Nepal. doi: 10.1186/s12982-025-00645-z.
+
+"Now that they come to our doorsteps to teach us these things...": postpartum contraception outcomes from a pre-post effectiveness-implementation study of an integrated community health worker intervention in rural Nepal. doi: 10.1186/s12978-025-02225-5.
+
+Beyond Maternal and Child Health: Refining CHW Models for Chronic and Life course Approaches to Care; Current Opinion in Epidemiology and Public Health [awaiting to go online)
+
+Collaborative care for improving mental health care within primary health care settings
+
+An integrated model that trains CHWs and clinicians to identify and manage depression and anxiety within primary care settings. This model is co-designed and tested in remote districts in Nepal, and is now informing WHO-endorsed national training manuals for scale-up.
+
+Learn More:
+
+Collaborative care model for depression in rural Nepal: a mixed-methods implementation research study. doi: 10.1136/bmjopen-2020-048481.
+
+Collaborative Care for Mental Health in Low- and Middle-Income Countries: A WHO Health Systems Framework Assessment of Three Programs. doi: 10.1176/appi.ps.201700232.
+
+Improving the Quality of Global Mental Health Services with Digital Tools: Best Practices and Lessons Learned from Rural Nepal. doi: 10.1007/s41347-024-00389-8.
+
+Evidence-based, multilevel interventions for sustained behaviour change. doi: 10.1016/S2214-109X(23)00372-8.
+
+Rimal P, Shrestha S, Khatri R, Sapkota S, Swar SB., Basnet M, Sigdel K, Jirel S & Acharya B (2025). Addressing challenges for psychotherapy supervision in global mental health through experiential learnings from rural Nepal. Discover Public Health, 22(1), 246. https://doi.org/10.1186/s12982-025-00645-z
+
+Strengthening community health system through longitudinal care
+
+From pilot to scale
+
+Too often, health systems reach families only when they seek care, leaving gaps in continuous support that could prevent illness, identify risks early, and address health needs before they become more serious. Pregnancies may go undetected until late, newborns may miss critical follow-up, and chronic conditions may remain unmanaged until they become emergencies- gaps that are costly to fix.
+
+ProCHWs- local, trained, supervised, salaried, full-time, and digitally enabled community health workers, closes that gap by bringing integrated, longitudinal care directly into the community. Possible, in collaboration with the government, designed the model, grounded in WHO’s guidelines for CHW programs and tested it as a national pilot focused initially on bundled maternal and child health services. The pilot generated evidence that community-based, longitudinal care improves access and outcomes- reducing home deliveries, catching high-risk pregnancies earlier, and increasing follow-up care- while remaining affordable within the public health system.
+
+We are now working with the government and community-based partners to strengthen and evolve the model for national scale-up: refining the delivery workflows, building the evidence base, and exploring how ProCHWs can extend beyond maternal and child health to provide a broader continuum of care across the life course.
+
+This isn't a parallel program, it's a government-owned system built to last.
+
+Learn More:
+
+A Type II hybrid effectiveness-implementation study of an integrated CHW intervention to address maternal healthcare in rural Nepal.  doi: 10.1371/journal.pgph.0001512.
+
+A Type II hybrid effectiveness-implementation study of an integrated CHW intervention to address maternal healthcare in rural Nepal. https://doi.org/10.1371/journal.pgph.0001512
+
+"Now that they come to our doorsteps to teach us these things…" - Postpartum contraception outcomes from a pre-post effectiveness-implementation study of an integrated community health worker intervention in rural Nepal. doi: 10.1186/s12978-025-02225-5
+
+The power of peers: an effectiveness evaluation of a cluster-controlled trial of group antenatal care in rural Nepal. doi: 10.1186/s12978-019-0820-8.
+
+Costing Analysis of a Pilot Community Health Worker Program in Rural Nepal. doi: 10.9745/GHSP-D-19-00393.
+
+Labour conditions in dual-cadre community health worker programs: a systematic review. https://www.thelancet.com/action/showPdf?pii=S2214-109X%2823%2900357-1
+
+Comparing two data collection methods to track vital events in maternal and child health via community health workers in rural Nepal. doi: 10.1186/s12963-022-00293-4.
+
+PIPELINE
+
+Bridging evidence and action: explore the culturally grounded solutions in our pipeline
+
+Addressing the intersection of climate and health
+
+Our working proposal aims to explore how extreme weather events can increase domestic violence and affect mental health. We will develop a brief family support program for families affected by these intersecting challenges. We will work with communities to design the program and test whether it is practical and helpful for families experiencing domestic violence after extreme weather events.
+
+Nurse-led mental health support for public schools
+
+Nearly half of all lifetime mental health conditions take root before adulthood,  and in Nepal, nearly 7 million children are sitting in a classroom every school day. We're working with the government to position school nurses as the first line of mental health support for students, teachers, and parents. This solution hasn't been piloted yet. It’s still in its earliest stage, preparing to co design with schools, nurses and families before we move ahead building the evidence needed to reach national scale.
+
+Layout of website
+

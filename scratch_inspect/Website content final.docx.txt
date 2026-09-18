@@ -1,0 +1,548 @@
+Change the order of sub menu of solutions.
+
+Scale
+
+Test
+
+Innovate
+
+Pipeline
+
+Change “Our collaborators” into “Collaborators”
+
+Design like this for collaborators page.
+
+Ministry of Health and Food Safety
+
+Department of Health Services
+
+Nursing and Social Security Division
+
+Epidemiology and Disease Control Division
+
+National Centre for AIDS & STD Control
+
+Nepal Health Research Council
+
+Social Welfare Council
+
+World Health Organization
+
+Dhulikhel Hospital, Kathmandu University Hospital
+
+Kathmandu University School of Medical Sciences
+
+Chandragiri Municipality, Chandragiri
+
+Bardibas Municipality, Mahottari
+
+Bhimeshwor Municipality, Dolakha
+
+Tamakoshi Rural Municipality, Dolakha
+
+Baiteshwor Rural Municipality, Dolakha
+
+Kalinchowk Rural Municipality, Dolakha
+
+Women’s Rehabilitation Centre (WOREC)
+
+Nepal Disabled Women Association
+
+Nyaya Health Nepal
+
+National Institutes of Health, USA
+
+University of California San Francisco
+
+Wheaton College
+
+Yale University
+
+Arnhold Institute for Global Health at Icahn School of Medicine at Mt. Sinai
+
+University of Connecticut
+
+University of California, Los Angeles
+
+Community Health Impact Coalition
+
+SunyaEk
+
+Dalit Lives Matters
+
+Transcultural Psychosocial Organization Nepal (TPO Nepal)
+
+Blue Diamond Society
+
+Team members
+
+Bio of Possible US board
+
+Duncan Maru, MD, PhD
+
+Co-founder and Advisor
+
+Duncan Maru, MD, PhD, is a co-founder and currently serves as an advisor and board member. He previously served as Interim CEO. Duncan is currently a faculty member at Mount Sinai’s Arnhold Institute of Global Health. Duncan previously practiced on the Complex Care Service at Boston Children’s Hospital. Duncan graduated from Harvard College, received his MD/PhD from Yale University, and completed the Harvard Combined Internal Medicine-Pediatrics Program and the Brigham and Women’s Global Health Equity Residency Program. Duncan’s work as a doctor and epidemiologist has generated over 40 peer-reviewed articles. In 2015, he was named a Schwab Foundation Social Entrepreneur of the Year.
+
+Kim Lipman-White
+
+Board Member
+
+Kim supports the partnerships, finance, and people and culture teams of Possible in systems building. Kim brings development, strategy, and operations experience with several nonprofit organizations, including four years as an Operations and Logistics Manager for Orbis International’s Flying Eye Hospital. Kim received her Master of Science in Global Health in Public Policy from the University of Edinburgh, and her Bachelor of Science in Biomedical Engineering from Columbia University.
+
+Scott Halliday
+
+Board Member and Advisor
+
+Scott Halliday, PhD currently serves as a board member and advisor. Previously, Scott served as a Senior Implementation Research Manager. Scott is an Implementation Science Researcher with the Washington State Department of Children, Youth & Families. Scott holds a PhD in Implementation Science from the University of Washington, where he coordinated the Nepal Studies Initiative.
+
+Bio of Nepal Board
+
+Indira Basnett, MD, MPH
+
+Board Chair
+
+Dr. Basnett is currently working as a freelance consultant. She has more than thirty eight years of working experience in Nepal’s health sector; she started her career as medical officer in a public health facility; worked as Country Director of reputed INGO, and Advisor in bilateral agencies working in health sector to decision making roles at the policy level in the Ministry of Health and Population and its divisions. Dr. Basnett worked long for NSMP (Nepal Safer Motherhood Project managed by OPTIONS and funded by DFID) due to her deep-rooted passion for the reduction of maternal mortality in Nepal. While working with bilateral agencies and INGO, particularly in reproductive health, she achieved a successful record of accomplishments and obtained MoHP approval on a number of policies/guidelines. Before joining Nepal Health Sector Support Program/DFID), she worked with Possible for a year engaging in operationalizing the PPP model in two remote districts (Dolakha and Acham). She is a strong advocate of reproductive health rights; her major strengths include evidence-based advocacy for policy reform and translating reproductive health rights in practices. She serves as an author, reviewer for peer review Reproductive Health Matters Journal.
+
+Meeta Sainju Pradhan, PhD
+
+Vice-Chair
+
+Dr. Pradhan has had extensive experience in the development sector in Nepal, most recently as the Director of the Himalayan Program of The Mountain Institute. Over the years Dr. Pradhan has held technical and senior management positions, gathering experiences in management, design, monitoring, and evaluation of multi-sectoral development programs as well as research focusing on poverty alleviation, gender equality, and social inclusion. She has worked with the Mountain Institute and Care International in Nepal, UNICEF Country Office in Nepal, and with the Makalu Barun National Park and Conservation Area Project. Additionally, she has also engaged in freelance consulting work as a development professional and researcher. Dr. Pradhan has recently completed a research project entitled “A Study on the State of Social Inclusion in Nepal” – a national level study being implemented by the Central Department of Anthropology of Tribhuvan University in Nepal, as one of the Team Leaders and Gender Equality and Social Inclusion Advisor. There are four key outcomes from this project which will contribute tremendously, not only for targeted policy interventions but also for monitoring Nepal’s progress towards the SDG 2030. She holds a Ph.D. from the University of Michigan, Ann Arbor, USA in Sociology.
+
+Sushama Gautam
+
+Board Secretary
+
+Advocate Gautam is serving as Litigation officer of Forum for Women, Law, and Development (FWLD). Ms. Gautam completed her Law degree from Nepal Law Campus, Kathmandu. She is currently pursuing LL.M. in International and Criminal Law from Tribhuvan University, Nepal.  She started her profession from Dang and had served as District Legal aid officer of Legal Aid Project of Nepal Bar Association from 2059 to 2063 B.S. in different districts. She has expertise on gender justice, citizenship issues, and women and children rights, and has also worked as a resource person in the area of Women’s and Children’s rights.
+
+Rajesh Parajuli, FCA
+
+Board Treasurer
+
+Mr. Parajuli is a Chartered Accountant and a member of ICAN since 2003. He has extensive experience in leading and managing finance and governance both in Charity and Industrial Sectors as part of his professional career. He has more than a decade of experience leading I/NGOs as Finance Director and Executive Director. He also has a wide range of experience and knowledge of Nepal laws, including governance of the Social Welfare Council.
+
+Prakash Nepali, LLM
+
+Board Member
+
+Mr. Nepali is a lawyer by profession. He has received an LLM degree from the Kathmandu School of Law in 2011; is currently engaging as a law practitioner and working in the capacity of Legal Advisor for Samata Foundation. Mr. Nepali had handled many cases regarding human rights violations and social justice. He is engaged in the litigation process of various cases concerning to establishment of social justice. Besides that he has gained extensive experience in legal and policy research fields- have conducted more than five research works which are landmark initiatives for the Dalit community: benchmark study on UN guideline comparing with the national measures, a study of affirmative action/inclusion, and study relating government institution (NDC, NHRC, NWC and Mechanism to End Caste Based Discrimination and Untouchability) are the major areas of his research. Currently, he is engaged in researching policy gaps (Constitution and existing laws) in terms of the rights of marginalized communities of Nepal, including the Dalit community. Additionally, Mr. Nepali is engaged in Patan Nist College and Cosmos College as a lecturer of Human Rights, Constitutional Law, and Business Law respectively.
+
+6. Manish Prasai, MBA
+
+Board Member
+
+Mr. Prasai has more than 20 years of experience working in the disability sector undertaking various roles and responsibilities. Currently, he is Program and Administrative Manager for the National Federation of Disabled Nepal (NFDN), the national umbrella organization of persons with disabilities. He oversees all the projects and programs that NFDN has been implementing under various partnerships. Mr. Prasai has led various advocacy-related activities on disability issues at district, regional and national levels, and engaged with various stakeholders, including the government of Nepal.  He has played a key role in advocating the rights of people living with disabilities and has contributed to drafting strategies and guidelines, including accessibility guidelines for the Government of Nepal.  Mr. Prasai has an MBA degree and is currently pursuing MPhil in Sociology from Tribhuvan University.
+
+7. Dewan Rai
+
+Board Member
+
+Dewan Rai is a journalist based in Kathmandu. He is a joint editor of Everest Chronicle, a specialized journalism portal on mountains and mountain communities, and contributes to The Times in London, and Outside magazine from Nepal. Formerly, he worked for national dailies —  The Himalayan Times, Nepali Times, The Kathmandu Post, and The Record. He writes primarily on issues related to human rights, social justice, and mountains.
+
+8. Parbata Acharya
+
+Board Member
+
+Parbata Acharya is a dedicated GESI (Gender, Equity and Social Inclusion) expert and consultant with extensive experience in conducting GESI audits, formulating GESI policies, strategies, and guidelines. With a strong background in advocacy and policy formulation, she has conducted training and workshops at the municipal, district, government and community level. She has facilitated workshops and trainings on gender-based violence (GBV), women’s rights, legal awareness for women, and developed gender responsive budget (GRB) analysis for local governments. She has been serving as the Central Vice Chair for Amnesty International, Nepal for the past six years. She holds a Master’s degree in Economics and is a lifelong member of the Nepal Red Cross Society.
+
+9. Sita Mademba
+
+Board Member
+
+Sita Mademba is a researcher and journalist, working as a Senior Research Associate at the Social Science Baha, Kathmandu, Nepal. Her main areas of interest include human-trafficking, gender-based violence, migrant workers, identity politics, caste, and ethnicity in Nepal. As a journalist, she has over fifteen years of experience, having worked in various media houses, including BBC Nepali News. She holds an MPhil in anthropology and an MA in Political Science. Ms. Mademba has published several articles and a book chapter, with her work featured in various national dailies and magazines notably, Kantipur, Nagarik, Himal Khabarpatrika, and Nepali Times
+
+Bio of team members
+
+Navin Kumar Sah
+
+Research Assistant
+
+Navin Kumar Sah currently working as a Research Assistant at Possible is a public health professional from Madhesh Province, Nepal. He has extensive experience in research coordination, field implementation, and community-based health interventions. Sah holds a Bachelor’s degree in Public Health and is currently pursuing a Master’s degree in Economics, giving him a unique multidisciplinary perspective that bridges public health practice with economic and development insights.Navin's professional journey reflects a strong commitment to research, community development, and social impact. He previously served as a Culture Coordinator at the Sambad Foundation and has held various coordination and consultancy roles with organizations such as the Johns Hopkins Center for Communication Programs and the Social Development Center (SDC) in Mahottari. His involvement in projects focused on community resilience, disaster response, and the prevention of child marriage highlights his dedication to creating meaningful and lasting social change.In addition, Navin has experience in WASH (Water, Sanitation, and Hygiene) initiatives and possesses strong skills in project coordination, stakeholder engagement, and field management. He brings operational expertise to research implementation, advancing evidence-based practices to improve community health outcomes.Outside of his professional pursuits, Navin enjoys reading, traveling, and actively engaging in social initiatives that promote community development and positive social change.
+
+Puskar Raj Paudel
+
+Implementation Research Coordinator
+
+Puskar Raj Paudel , Implementation Research Coordinator at Possible holds a Master’s degree in Sociology from Tribhuvan University and is currently pursuing an MPhil at Nepal Open University.He has a strong background in public health and community development, having previously served as a Project Manager for the IMPACT TB Project implemented by Birat Nepal Medical Trust (BNMT) Nepal, collaboratively led by the Liverpool School of Tropical Medicine (LSTM). Throughout his career, Puskar has worked extensively across both the government and private health sectors, specializing in conducting community-based studies, including Randomized Controlled Trials (RCTs). specializing in community-based research, including Randomized Controlled Trials (RCTs). His diverse expertise spans maternal and child health, nutrition, tuberculosis control, disaster risk reduction, and local economic development through small business initiatives. Through his work, he has contributed to strengthening health systems and improving community well-being.Outside his professional life, he enjoys cycling and playing musical instruments.
+
+Rajesh Kumar Jha
+
+Mental Health Research Manager
+
+Rajesh Kumar Jha is a Mental Health Research Manager at Possible, where he leads initiatives focused on manual development, capacity building training, supportive supervision, and the promotion of wellbeing among community health workers ,ART counselors and psychosocial counselors. He focuses on designing, implementing, and scaling behavioral and mental health interventions to strengthen community-based care systems. A Mahendra Vidya Bhusan Award recipient, Jha holds a Master’s degree in Clinical Psychology and brings over 26 years of experience working with government agencies, NGOs/INGOs, and academic institutions. He has extensive expertise in psychosocial and mental health programming, with field experience across Nepal’s Terai, Hill, and Mountain regions. Throughout his career, he has worked with diverse populations, including survivors of gender-based violence, people living with HIV, conflict-affected children, ethnic minority communities, torture survivors, and returnee migrant workers. He also has strong expertise in project management, training, mentoring, and research, contributing to evidence-based mental health and psychosocial support initiatives. Outside of work, he enjoys listening to music and traveling.
+
+Kripa Sigdel
+
+Assistant Scientist
+
+Kripa Sigdel is a psychologist and mental health researcher whose work spans research, academia, and social innovation in global mental health. As Assistant Scientist at Possible, she serves as the mental health expert across the organization's research portfolio and as a co-investigator and study manager on multiple projects that design behavioral interventions for mental health, suicidality, and non-communicable diseases and test them in real-world settings in Nepal.With over a decade of experience in psychology and mental health research, her work centers on designing and implementing behavioral interventions, partnering closely with communities to test them, and generating evidence to inform policy. Before joining Possible, she served as Research Coordinator on a Yale University-KUSMS collaborative study at Dhulikhel Hospital to co-design a suicide-prevention intervention for low-resource settings. Also, she is currently in the final year of her PhD, where her research explores youth suicidality and social connectedness in Nepal.Alongside her research, Sigdel is committed to academia and clinical practice. She spent seven years as faculty, teaching social psychology, research methodology, and clinical psychology at University Campuses. She has also led several of Nepal's notable mental health innovations: as co-founder and director, she helped build Psychbigyaan Network Nepal, a youth-led organization, in 2014, and Mankaakura, the country's first digital platform for mental health counseling, in 2020; she also co-produced and presented 'Manojigyasa', a national radio program dedicated to mental health advocacy, in 2015 through Ujyaalo Network. She holds a short-course credential in New Media and Journalism from the University of Washington, completed through a US embassy-sponsored program.Outside of work, she enjoys advocating for mental health awareness, traveling, and catching up on sleep.
+
+Rabina Dhakal
+
+Data Manager
+
+Rabina Dhakal is a public health researcher with over a decade of experience in Research, Monitoring, Evaluation, and learning. She has strong expertise in quantitative research, including experience on quasi-experimental and longitudinal studies, as well as mixed-methods research, stepped-wedge designs, and cross-sectional studies. She has led numerous evaluations, surveys, and research initiatives, always with a focus on using data to develop practical, real-world solutions that promote more equitable healthcare, particularly in Nepal and other low- and middle-income countries. At Possible she co-leads data ecosystem.She is also deeply interested in translating research into actionable tools and ideas that policymakers and communities can meaningfully use. Rabina brings valuable experience from organizations such as CARE Nepal, Foundation for Development Management, and JSI, Nepal among others. Academically, she holds a Master of Public Health from the University of New South Wales, Australia. Outside of work, Rabina enjoys listening to music, gardening, and spending quality time with her family.
+
+Soni Maharjan
+
+Finance and Admin Assistant
+
+My career began in 2016, when I stepped into the field of finance and started building my skills in finance operations. What began as a professional pursuit quickly grew into a passion for learning, problem solving, and creating value through resource management. Over the years, I have continued to grow, guided by curiosity, resilience, and a commitment to meaningful work.I hold a Master’s degree, which has provided me with a strong academic foundation, and I am also a graduate of EmpowHER, a leadership program that helped me strengthen my confidence, voice, and ability to lead with purpose. These experiences have shaped my journey, teaching me the importance of inclusivity, adaptability, and continuous learning.While I may not call myself an expert, I am deeply passionate about developing my knowledge, contributing to impactful projects, and leaving a positive footprint through my work. I believe in combining technical skills with empathy and vision, ensuring that every step I take adds value not only to my career but also to the people and communities I engage with.Beyond finance, I am motivated by opportunities to grow as a leader, collaborate with diverse teams, and embrace challenges that push me to think differently. My journey is still unfolding, and I am excited to continue learning, evolving, and making a difference.
+
+Nisha Guragain
+
+Research Assistant
+
+Nisha Guragain is a Research Assistant at Possible, she brings a strong foundation in both clinical practice and academic nursing. She holds a Post-Basic Bachelor's degree in Nursing and has built a diverse career spanning critical care, education, and research. Before joining Possible, she worked as an ICU nurse and a nursing instructor. She started her research career at Possible as a Research Outcome Assessor, which later led to her current role as a Research Assistant.Her experience in critical patient care, combined with her interest in training future healthcare professionals, gives her a well-rounded perspective that enhances her research work.Outside her work, Nisha enjoys cooking and gardening.
+
+Dr. Sabitri Sapkota Devkota
+
+Executive Director
+
+Dr. Sabitri Sapkota Devkota brings more than two decades of experience in research, training, monitoring, and evaluation, and evidence to policy. She served in senior leadership and management positions contributing to the visioning and strategic direction of various organizations in Nepal and outside in the last 10 years. She had overseen international collaborative research projects and led the implementation of large mixed-methods research studies on behavioral and implementation science in low- and middle-income countries, including Nepal, Afghanistan, Bangladesh, Cambodia, Myanmar, and Singapore. Her interest and research works are around women’s and child health that includes sexual, Reproductive, Maternal, Adolescent, and mental health. Sabitri worked very closely with international and institutional research ethics committees as Research Ethics Liaison to represent research interests, priorities, and ethical challenges of the research organizations and participants. She is passionate about creating a culture of evidence-based decision-making within the organization and beyond. She believes in team collaboration and a participatory approach in order to co-generate the evidence and bring impact on people’s lives through the research work.Prior to joining our team as Executive Director, she worked as Director of Research at Possible, and Director of Implementation Research for Nyaya Health Nepal, leading implementation research and evidence to policy work, and as Regional Research Advisor for Marie Stopes International (MSI), UK strengthening MSl’s in-country capacity of research, monitoring and evaluation in Asia and Asia-pacific region. Sabitri has a nursing background, a degree in public health from Melbourne University, Australia, and a Ph.D. in Health Sciences from Hiroshima University, Japan.
+
+Mina Shrestha
+
+Associate Scientist
+
+As an Associate Scientist at Possible, Dr. Mina Shrestha co-leads capacity building of our young researchers, research and innovation initiatives, including grant writing, and disseminating our work and impact. Mina is a health service researcher with extensive training and experience in conducting impact evaluation and implementation sciences, using mixed-method approaches. She completed her postdoctoral training at the University of Houston College of Pharmacy (USA) where she led opioid-related research projects, some of which aimed to find effective ways to prevent opioid misuse and minimize associated health risks. She earned her Ph.D. in Health Services and Policy at the University of Iowa College of Public Health (USA) with a dissertation focused on evaluating the impact of healthcare payment models on physicians’ behavior. Before that, she completed her Master of Philosophy (Pharmacy) at the University of Sydney as an Australia Awards Scholar. Her Master’s thesis evaluated the implementation of medicine procurement practice in hospital pharmacies in Nepal and Australia.Mina is a registered pharmacist in Nepal. Her primary research interest is in finding evidence-based solutions to healthcare challenges, particularly those related to access and affordability. She brings a unique set of skills to our team, including experience in writing NIH grant applications, a global network of researchers, and valuable mentorship experience.
+
+Bhubi Bista
+
+People and Culture Executive
+
+Bhubi leads the People & Culture function at Possible as a People and Culture Executive (PACE). In this role, she serves as the focal point for the employees’ welfare and contributes to the leadership and management team.Hailing from the rugged landscapes of Darchula in the far western province of Nepal, Bhubi brings a wealth of expertise and context to this role. She holds an MBA from Kathmandu University School of Management with specializations in Human Resource Management and Project Management.She has over 10 years of experience leading HR departments in IT, Telecommunication, and Fintech organizations in Nepal. She has also worked as an HR consultant for numerous private and non-profit organizations. Her areas of expertise include policy development and implementation, change management, performance management, and talent management.Bhubi describes herself as an optimistic individual who excels at teamwork. She is dedicated to helping her colleagues bring out their best by fostering a positive and healthy work environment for all. Beyond her professional achievements, Bhubi’s passions include reading, painting, and traveling.
+
+Kumar Tamang
+
+Finance and Operations Manager
+
+Kumar is currently working as Finance and Operations Manager and leads the organization’s financials, operations, and procurement management. Prior to joining Possible, Kumar worked in different capacities in various INGOs including Winrock International and Helen Keller international. He has more than eight years of experience in financial management, grants, and sub-contracts management, procurement, and monitoring. In his previous roles, he led and contributed to the development of guidelines for organization finances, operations, grants, and contract management ensuring compliance with donor and organization policies. He prides himself on his ability to work in a team and maintain effective working relationships in a multicultural environment. Outside of work, Kumar loves to travel.
+
+Dikshya Sharma
+
+Senior Community Health Research Manager
+
+Dikshya Sharama is currently working as Senior Community Health Research Manager, where she leads the implementation research collaborations and the technical support of the development, roll-out, and evaluations of community health programs to our partners. Prior to joining Possible, she worked as Research, Monitoring, and Evaluation Officer for Monitoring, Evaluation, and Operational Research (MEOR) Project for UKaid’s Nepal Health Sector Support Program III. She was involved in designing and implementation of operational research studies within MEOR. She has also worked to implement community health programs on WASH and Maternal and Child Health before. Her journey as public health personnel started with the Institute of Medicine (IOM), TUTH, where she completed her Bachelor’s Degree in Public Health. Later she pursued her Master’s degree from Gadjah Mada University, Indonesia under the WHO/TDR scholarship for a special postgraduate program of implementation research on tropical diseases.Outside of Possible, she is usually seen traveling, reading fictions, gardening, and doing arts.
+
+Jene Shrestha
+
+Qualitative and Intervention Coordinator
+
+Jene Shrestha is working as Qualitative and Intervention Research Coordinator in Possible. In this role, she supports the application of qualitative research methods across research studies within Possible and their partner sites. She previously worked at Beyond Beijing Committee focusing on evidence-based advocacy for sexual and reproductive health and rights and women’s issues. Prior to that, her work at Nepal Fertility Care Center focused on adolescent health and menstrual hygiene management program at district levels. She has engaged in the development and administration of qualitative research tools, transcription and translation of data, and data analysis. Jene graduated from Pokhara University with a Master of Public Health (Health Promotion and Education). In 2020, she also received a post-graduate research grant from Nepal Health Research Council to study, “Barriers to Utilization of Postnatal Care Services: Mothers and Health Providers Perspective.” Besides work, she loves traveling and reading novels.
+
+Shuvam Sharma
+
+Intervention Research Coordinator
+
+As Possible’s Intervention Research Coordinator, Shuvam supports the coordination, rollout and evaluation of interventions and implementation research at our partner sites. Prior to joining Possible, she worked with the Nepal Health Research Council as a field researcher and with IPAS as a Research Assistant. Shuvam holds Masters in Public Health (Epidemiology) degree from KLE University, India.Outside work, Shuvam is passionate about cooking, traveling, reading novels, and watching movies.
+
+Jyoti Nepal
+
+Implementation Research Coordinator
+
+Jyoti is an Implementation Research Coordinator at Possible. She holds a Master’s in Public Health from the Institute of Medicine, Tribhuvan University. Before joining Possible, she served as a Research Project Coordinator at Dhulikhel Hospital-Kathmandu University Hospital. In this capacity, she played a significant role in managing an mHealth intervention project in collaboration with Rutgers University, USA, and was actively engaged in a birth cohort study. Jyoti also brings clinical experience from her nursing background and has made contributions as a nursing instructor at Kathmandu University School of Medical Sciences.Besides work, she loves sketching and has a fondness for music and movies.
+
+Saugat Joshi
+
+Qualitative Research Manager
+
+Saugat, originally from Dhangadi in the far-west region of Nepal, oversees the qualitative research methodology integrated into the mixed-method implementation and intervention research conducted at Possible, as Qualitative Research Manager. With over five years of experience in applied qualitative health research and a Master’s degree in Global Health from Thammasat University, Thailand, he brings a grounded contextual exposure to our team. Saugat has implemented and managed qualitative health research using community and participatory-based approaches. His master’s dissertation delved into the issue of suicide due to domestic violence among women of reproductive age in Nepal. Before joining Possible, Saugat contributed to organizations such as PHASE Nepal and the Center for Research on Environment, Health, and Population Activities (CREHPA) in Nepal. His recent research experience has spanned across health, poverty, and the well-being of marginalized populations, particularly in urban informal settings, social determinants of health, gender, maternal health, and health systems. Besides work, he likes spending quality time with family and friends and cherishing meaningful connections.
+
+Shristi Tiwari
+
+Qualitative Reseach Officer
+
+Shristi Tiwari is currently working as a Qualitative Research Officer at Possible, focusing on gathering insights and feedback through qualitative methods to enhance intervention design, acceptability, feasibility, implementation, and overall impact.Deutscher Akademischer Austauschdienst (DAAD) scholar, Shristi holds a Master’s degree in International Health from Heidelberg University, Germany. Her career spans diverse roles in multilateral organizations and academic institutions, with a focus on capacity building, research, and policy evaluation. Her work has covered critical areas such as health promotion, gender-based violence, healthcare access, comprehensive sexuality education, and healthcare systems strengthening.She has collaborated with esteemed organizations such as Government of Nepal, WHO, KOICA, and Kathmandu University, contributing to public health interventions and program evaluations. Her experience working closely with government entities, NGOs, and academic institutions has helped her support with meaningful improvements in the communities she serves.Beyond her professional achievements, Tiwari has a keen interest in exploring new cuisines and enjoys trying foods from around the world, reflecting her curiosity and appreciation for diverse cultures.
+
+Alisha Karki
+
+Intervention Research Coordinator
+
+Alisha Karki is currently working as an Intervention Research Coordinator at Possible. She is primarily responsible for coordinating the co-design, adaptation, and testing of the digital intervention aimed at improving care at ART centers. In addition, she contributes to the development and testing of perinatal health interventions and supports the establishment and maintenance of the data management system required for this work.Karki is an emerging public health professional with foundational experience in research and program support, and developing skills in mixed-method and participatory research design. She holds a Master’s degree in Public Health Nutrition from the Institute of Medicine (IOM) and is passionate about applying evidence-based approaches to community health projects. Karki is skilled at assisting with data management, contributing to evidence translation into practical strategies, and supporting interventions aimed at vulnerable populations.Besides work, Alisha enjoys sketching, travelling and spending quality time with her family.
+
+Aastha Kayastha
+
+People and Culture Assistant
+
+Aastha Kayastha is currently working as a People and Culture Assistant at Possible. Kayastha holds an MBA degree in Project Management and Human Resource Management from Kathmandu University School of Management.She brings hands-on experience in recruitment, onboarding, performance management, and streamlining HR operations, and she actively advocates for diversity and inclusivity within the organization.Before joining Possible, she gained valuable experience volunteering with United Nations agencies and working with development organizations such as DAI-USAID Karnali Water Activity and The Asia Foundation. She is building strong skills in team management and collaboration, with a focus on applying people-centered approaches to support organizational growth and promote inclusive and respectful work culture.Besides work, Aastha describes herself as a spiritual and philanthropic individual who loves traveling, trying different recipes, and reading books.
+
+Bhawani Yogi
+
+Research Assistant
+
+Bhawani Yogi is currently working as Research Assistant at Possible and is Public Health Professional with a wealth of experience in pioneering Digital Health Projects aimed at digitizing and implementing m-health solutions for Community Health Programs and facility-based initiatives. She is skilled in Healthcare Information Technology, particularly in platforms such as Community Health Toolkit (CHT), OpenHIE, NepalEHR, Commcare, and REDCap. Her expertise includes designing and implementing Community Health Toolkit Training (CHT) and managing training manuals to scale Nepal Electronic Health Record (NepalEHR) in both public and private health facilities. She has contributed to trainings for initiatives like Nyano Nani (Baby Warmer) across various health facilities in Nepal. She is adept at developing program forms, validating processes, and creating instructional videos for mobile health applications to facilitate troubleshooting, issue resolution, and continuous learning among users. Beyond her professional endeavors, she enjoys engaging in creative pursuits such as writing, story-telling, poetry, and drama script writing.
+
+Ramkrishna Khatiwada
+
+Information System Administrator
+
+Ramkrishna Khatiwada works as the Information System Administrator at Possible. With half a decade of experience in Information Technology Sector, he specializes in networking, server management, and a wide range of IT tools. At Possible, he plays a critical role in ensuring the smooth functioning of all IS applications and system, including digital platforms, supporting users, and safeguarding the organization’s data and digital assets.Holding a Bachelor’s degree in Information Technology from Patan College for Professional Studies, he has developed strong analytical skills that complement his hands-on experience. Currently pursuing a Master’s degree in Information Systems, he continues to expand his knowledge and stay at the forefront of the rapidly evolving IT landscape.As an IT professional, he is deeply passionate about networking, servers, technical innovation and thrives on embracing new technologies and tackling challenges head-on.Outside of work, he enjoys traveling, exploring new destinations, and is an avid football fan.
+
+Renasha Ghimire
+
+Implementation Research Coordinator
+
+Renasha serves as the Implementation Research Coordinator at Possible. Primarily based at our research site in Dolakha, she is currently involved in an implementation research that aims to integrate a Suicide Prevention Package of Strategies into Decentralized Primary Health Care Systems.Renasha holds a master’s degree in clinical psychology from the University of Delhi. Since 2016, she has dedicated herself to community mental health, primarily working in rural areas such as Gorkha, Sindhuli, Morang, Nuwakot, and Bajhang, where she engaged with extremely vulnerable populations.Before joining Possible, she was a Project Manager at United Mission to Nepal where she implemented a task-sharing approach to enhance the capacity of health workers and improve primary healthcare in the field of mental health in Bajhang district. She played a pivotal role in a significant research endeavor, Group Problem Management Plus (PM+), coordinating its implementation in a Randomized Controlled Trial (RCT) at TPO Nepal. In her previous roles, she focused on building the capacity and competency of non-specialist workers and was involved in integrating mhGAP initiatives into primary healthcare services.Renasha’s research interests include cultural adaptation, Community-Based Participatory Research (CBPR), psychotherapy process and outcomes, mindfulness-based interventions, and transdiagnostic treatments aimed at enhancing resilience and quality of life. In her leisure time, she enjoys spending time with friends, traveling, and listening to music.
+
+Prakash Pant
+
+Research Data Manager
+
+Prakash Pant is an experienced Public health professional, hailing from the far-western region of Nepal and is currently working as Research Data Manager. At Possible, he primarily oversees the data management system for our intervention and implementation research, while also contributing to the overall organizational data management system and processes. By training, he is a Public Health professional, holding a Bachelor’s Degree in Public Health from Nepal. He earned his Master’s in Public Health from the University of the West of England in 2016. He brings more than a decade of experience in research, data management, M&E, and project management in the development sector. Prior to joining Possible, he worked as a Monitoring, Evaluation, and Learning (MEL) Advisor for USAID’s Health and Hygiene Activity at DevWorks International. He has also worked with One Heart Worldwide, Terre des Hommes, Abt Global, HealthRight International, and RTI International, supporting and contributing to their research and data management systems. Prakash has supported research projects with national and international universities and I/NGOs. One notable example is the “Feasibility and Effectiveness of Teacher Corps for Children’s Mental Health Promotion and Violence Prevention” project. He is passionate about leveraging his data skills and expertise to improve the quality of healthcare services and drive impactful health interventions in Nepal, close to our organizational vision and mission. Prakash brings his lived exposure and experience of the country’s varied cultures and contexts from rural and hard-to-reach areas. In his free time, he prefers spending time with family and friends, reading, and listening to music.
+
+Barsha Mainali
+
+Finance Budget Officer
+
+Barsha Mainali serves as a Finance and Budget Officer at Possible, bringing over seven years of experience in finance, budgeting, grant administration, and donor-funded project operations across NGOs, INGOs, and the private sector. She is a Semi-Qualified Chartered Accountant with strong expertise in financial reporting, donor compliance, sub-award administration, procurement, and partner financial management. Barsha has worked with International IDEA, Chaitanya Academy, and S. Devkota & Company, gaining deep experience in ERP-based accounting systems and audit processes. She is committed to strengthening financial systems and supporting efficient, compliant operations with her detail-oriented and analytical approach. Outside of work, she enjoys reading, traveling, and continuous learning.
+
+Can we make this button dynamic, if there is vacancies then it will be highlighted if there is not vacancy it should be faded.Can we make this button dynamic, if there is vacancies then it will be highlighted if there is not vacancy it should be faded.Work with us
+
+Can we make this button dynamic, if there is vacancies then it will be highlighted if there is not vacancy it should be faded.
+
+Can we make this button dynamic, if there is vacancies then it will be highlighted if there is not vacancy it should be faded.
+
+Add background picture with black shade, just like the home page
+
+VacanciesVacancies
+
+Vacancies
+
+Vacancies
+
+Add button name “Vacancies”   If we click the vacancies button other there it should go to below in this section.
+
+Remove this Remove this Remove this Remove this
+
+Remove this
+
+Remove this
+
+Remove this
+
+Remove this
+
+Change this into Traineeship & Apprenticeship OpportunitiesChange this into Traineeship & Apprenticeship OpportunitiesChange View Open jobs postings into “Vacancies”Change View Open jobs postings into “Vacancies”
+
+Change this into Traineeship & Apprenticeship Opportunities
+
+Change this into Traineeship & Apprenticeship Opportunities
+
+Change View Open jobs postings into “Vacancies”
+
+Change View Open jobs postings into “Vacancies”
+
+Change Send Us a message into “Contact us”
+
+Tested and ready for scale upTested and ready for scale upDesign to testDesign to testIn test make design like thisBoth are clickable button and use test color, default should be load design to test but when the button is clicked it should be highlighted. Both are clickable button and use test color, default should be load design to test but when the button is clicked it should be highlighted.
+
+Tested and ready for scale up
+
+Tested and ready for scale up
+
+Design to test
+
+Design to test
+
+Both are clickable button and use test color, default should be load design to test but when the button is clicked it should be highlighted.
+
+Both are clickable button and use test color, default should be load design to test but when the button is clicked it should be highlighted.
+
+Solution page content (Add 1 photo in each project: photo attached in drive)
+
+SCALE
+
+Strengthening community health system through longitudinal care: From pilot to scale
+
+Too often, health systems reach families only when they seek care, leaving gaps in continuous support that could prevent illness, identify risks early, and address health needs before they become more serious. Pregnancies may go undetected until late, newborns may miss critical follow-up, and chronic conditions may remain unmanaged until they become emergencies- gaps that are costly to fix.
+
+ProCHWs- local, trained, supervised, salaried, full-time, and digitally enabled community health workers, closes that gap by bringing integrated, longitudinal care directly into the community. Possible, in collaboration with the government, designed the model, grounded in WHO’s guidelines for CHW programs and tested it as a national pilot focused initially on bundled maternal and child health services. The pilot generated evidence that community-based, longitudinal care improves access and outcomes- reducing home deliveries, catching high-risk pregnancies earlier, and increasing follow-up care- while remaining affordable within the public health system.
+
+We are now working with the government and community-based partners to strengthen and evolve the model for national scale-up: refining the delivery workflows, building the evidence base, and exploring how ProCHWs can extend beyond maternal and child health to provide a broader continuum of care across the life course.
+
+This isn't a parallel program, it's a government-owned system built to last.
+
+Learn More:
+
+A Type II hybrid effectiveness-implementation study of an integrated CHW intervention to address maternal healthcare in rural Nepal. https://doi.org/10.1371/journal.pgph.0001512
+
+Costing Analysis of a Pilot Community Health Worker Program in Rural Nepal. Costing Analysis of a Pilot Community Health Worker Program in Rural Nepal
+
+Postpartum contraception outcomes from a pre-post effectiveness-implementation study of an integrated community health worker intervention in rural Nepal. https://doi.org/10.1186/s12978-025-02225-5
+
+The power of peers: an effectiveness evaluation of a cluster-controlled trial of group antenatal care in rural Nepal. https://pmc.ncbi.nlm.nih.gov/articles/PMC6805428/
+
+Labour conditions in dual-cadre community health worker programs: a systematic review. https://www.thelancet.com/action/showPdf?pii=S2214-109X%2823%2900357-1
+
+Comparing two data collection methods to track vital events in maternal and child health via community health workers in rural Nepal. https://pmc.ncbi.nlm.nih.gov/articles/PMC9327361/
+
+Collaborative care for improving mental health care within primary health care settings
+
+An integrated model that trains CHWs and clinicians to identify and manage depression and anxiety within primary care settings. This model is co-designed and tested in remote districts in Nepal, and is now informing WHO-endorsed national training manuals for scale-up.
+
+Learn More:
+
+Collaborative care model for depression in rural Nepal: a mixed-methods implementation research study. https://bmjopen.bmj.com/content/11/8/e048481
+
+Collaborative Care for Mental Health in Low- and Middle-Income Countries: A WHO Health Systems Framework Assessment of Three Programs. https://pmc.ncbi.nlm.nih.gov/articles/PMC5790311/
+
+Improving the Quality of Global Mental Health Services with Digital Tools: Best Practices and Lessons Learned from Rural Nepal. https://doi.org/10.1007/s41347-024-00389-8
+
+Addressing challenges for psychotherapy supervision in global mental health through experiential learnings from rural Nepal. https://doi.org/10.1186/s12982-025-00645-z
+
+Evidence-based, multilevel interventions for sustained behaviour change. https://pubmed.ncbi.nlm.nih.gov/37858578/
+
+2. TEST
+
+2.1. TESTED AND READY FOR SCALE-UP
+
+MILAP for intimate partner violence and mental health
+
+Women in low- and middle-income countries like Nepal often live in multi-generational households where IPV dynamics is influenced by multiple key family members (Pun et al., 2019; Shai et al., 2019).
+
+MILAP is a family-based intervention that engages women, their husbands and mothers-in-law (MILs) to reduce IPV and mental well-being among married women. It comprises nine sessions on how to improve communication, manage stress and difficult emotions, and build healthier relationships. After two successful pilot studies, we are now testing MILAP through a randomized controlled trial with 300 families in Nepal. This five-year study, funded by the National Institute of Mental Health, will help us understand the impact of MILAP, and prepare for a larger scale.
+
+Learn More:
+
+A multi-component family intervention to lower depression and address intimate partner violence (MILAP) among young married women in Nepal: a study protocol for a randomized controlled trial. https://pubmed.ncbi.nlm.nih.gov/41680806/
+
+Supporting women who cannot leave an abusive relationship. https://pubmed.ncbi.nlm.nih.gov/41581524/
+
+Behind the Seen: Searching for Peace in a House With Violence. https://doi.org/10.7326/ANNALS-25-04504
+
+Daughters-in-law's perceptions and experiences with MILAP, a family-based intervention to reduce intimate partner violence and improve mental health in Nepal. https://pubmed.ncbi.nlm.nih.gov/41484672/
+
+BECOME: Bringing integrated mental health and NCD care closer to home
+
+Expanding Nepal’s national community health worker program to deliver home-based care for chronic conditions and mental health. BECOME brings evidence-based behavioral support for common mental health conditions and non-communicable diseases into communities through trained, full time, trained, supervised, and digitally enabled CHWs. The intervention combines stress reduction, behavioral activation, and motivational interviewing to support people with conditions such as depression, anxiety, hypertension, and diabetes. CHWs conduct screening, behavioral intervention, and follow-up for diabetes, hypertension, depression, and anxiety, supported by the Community Health Information System (CHIS) for data-driven care.
+
+Learn More:
+
+A type II hybrid implementation-effectiveness study of the BECOME intervention: integrating Behavioral Community-Based Approaches for Mental Health and Non-Communicable Diseases delivered by community health workers - study protocol for a stepped wedge cluster randomized controlled trial. https://pubmed.ncbi.nlm.nih.gov/41580851/
+
+Cross-cultural adaptation of motivational interviewing for use in rural Nepal. https://pubmed.ncbi.nlm.nih.gov/33794990/
+
+Evidence-based, multilevel interventions for sustained behaviour change. https://pubmed.ncbi.nlm.nih.gov/37858578/
+
+Also link to [Strengthening Community Health Systems Through Longitudinal Care]
+
+COMMIT: Improving treatment compliance using mHealth app
+
+COMMIT is a mHealth app designed with people with lived experience, health care workers and government to support health care providers in motivating patients to stay engaged in their treatment and care. We have tested this app through the network of our community health workers among young people living with HIV, patients with depression in different stages, and have observed improved treatment compliance over the time.
+
+Learn More:
+
+Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing to improve adherence to care among youth living with HIV in rural Nepal. https://pubmed.ncbi.nlm.nih.gov/38990929/
+
+Cross-cultural adaptation of motivational interviewing for use in rural Nepal. https://pubmed.ncbi.nlm.nih.gov/33794990/
+
+Improving the quality of global mental health services with digital tools: Best practices and lessons learned from rural Nepal. https://doi.org/10.1007/s41347-024-00389-8
+
+Perinatal-MH: Integrating perinatal mental health into Community Health Worker-led longitudinal care
+
+Perinatal mental health is a major yet persistently neglected global health gap. Yet many women remain undetected and untreated due to limited screening, specialist capacity, and weak integration of mental health into routine perinatal care. Longitudinal community health worker (CHW) programs provide an opportunity to integrate mental health support into routine care and reach women across the perinatal period. We integrated the WHO Thinking Healthy Programme (THP), an evidence-based intervention for perinatal depression, into an existing CHW-delivered longitudinal care model in rural Nepal. Rather than delivering mental health care as a separate service, the approach embeds THP within ongoing contacts between CHWs and women, supporting continuity of care while reducing the stigma associated with seeking mental health services.
+
+We evaluated this integrated model to assess its feasibility, acceptability, and potential to strengthen access to perinatal mental health care through existing community-based longitudinal care systems.
+
+Learn More:
+
+Postpartum contraception outcomes from a pre-post effectiveness-implementation study of an integrated community health worker intervention in rural Nepal. https://doi.org/10.1186/s12978-025-02225-5
+
+The power of peers: an effectiveness evaluation of a cluster-controlled trial of group antenatal care in rural Nepal. https://pmc.ncbi.nlm.nih.gov/articles/PMC6805428/
+
+Comparing two data collection methods to track vital events in maternal and child health via community health workers in rural Nepal. https://pmc.ncbi.nlm.nih.gov/articles/PMC9327361/
+
+Addressing challenges for psychotherapy supervision in global mental health through experiential learnings from rural Nepal. https://doi.org/10.1186/s12982-025-00645-z
+
+Beyond Maternal and Child Health: Refining CHW Models for Chronic and Life course Approaches to Care. Current Opinion in Epidemiology and Public Health [awaiting to go online)
+
+Also link to [Strengthening Community Health Systems Through Longitudinal Care]
+
+2.2. DESIGNED TO TEST
+
+INCLUDE: Addressing intersectional stigma and improving HIV care
+
+About one-third of people living with HIV stop taking their medication because they fear others may find out about their HIV status [2022]. This is especially common among minority groups and people facing mental health challenges.
+
+INCLUDE is a digital tool co-designed with government and communities, including people with lived experiences to identify and reduce stigma in HIV clinics, improving care for people living with HIV and addressing discrimination tied to gender, race, and mental health. We are currently testing INCLUDE in four HIV treatment centers to explore if it is acceptable, feasible and helpful to use in improving HIV care and support.
+
+Learn More:
+
+Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing to improve adherence to care among youth living with HIV in rural Nepal. https://pubmed.ncbi.nlm.nih.gov/38990929/
+
+Improving the quality of global mental health services with digital tools: Best practices and lessons learned from rural Nepal. Journal of Technology in Behavioral Science. https://doi.org/10.1007/s41347-024-00389-8
+
+Link for COMMIT Page
+
+P-SuPP: Reimagining suicide sare for scale in primary health care
+
+Southeast Asia has the highest suicide mortality rate globally, at 17.7 deaths per 100,000 population (WHO, 2019). In Nepal, suicide ideation is highly prevalent, yet help-seeking remains extremely low, highlighting an urgent need to strengthen access to effective suicide care within primary health care.
+
+This project is reimagining how suicide care can be delivered at scale by adapting and strengthening the WHO mhGAP suicide management approach to local cultural and health-system context. We first conducted a qualitative formative evaluation of the mhGAP suicide module in primary care settings and, together with key stakeholders, co-designed a culturally grounded suicide management package that integrates locally appropriate risk assessment and safety-planning strategies. By testing what works and how it can be implemented at scale, the project aims to support wider integration of suicide care into primary health care.
+
+BECOME-D: Dementia support intervention for older adults and their caregivers at home
+
+A home-based behavioral care program developed to support older adults and their caregivers. It was co-created with an expert panel of advisors, comprising clinicians, caregivers, community stakeholders, and persons with lived experience. The program helps families manage dementia-related challenges and stress while improving quality of life and daily functioning. Early pilot implementation demonstrated its acceptability and feasibility, with promising potential for further testing and scale-up.
+
+Learn More:
+
+A type II hybrid implementation-effectiveness study of the BECOME intervention: integrating Behavioral Community-Based Approaches for Mental Health and Non-Communicable Diseases delivered by community health workers - study protocol for a stepped wedge cluster randomized controlled trial. https://pubmed.ncbi.nlm.nih.gov/41580851/
+
+Add only text and hyperlink to the website in all fieldAdd only text and hyperlink to the website in all fieldCross-cultural adaptation of motivational interviewing for use in rural Nepal. https://pubmed.ncbi.nlm.nih.gov/33794990/
+
+Add only text and hyperlink to the website in all field
+
+Add only text and hyperlink to the website in all field
+
+Evidence-based, multilevel interventions for sustained behaviour change. https://pubmed.ncbi.nlm.nih.gov/37858578/
+
+Link to projectLink to project
+
+Link to project
+
+Link to project
+
+Link to BECOME page
+
+Link to CHW-led longitudinal care page
+
+Chissa: Advancing suicide prevention through personalized digital support
+
+Chissa advances suicide prevention through personalized, just-in-time digital support. Named after a colloquial expression of love and admiration used within Nepali GBMSM communities, ‘Chissa’ reflects a compassionate, community-centered approach to suicide prevention.
+
+Chissa is an innovative digital tool designed to recognize changes in suicide risk and provide tailored support when it is needed most. We are co-creating this with GBMSM communities and local health partners, followed by pilot testing, to bring together digital innovation and community knowledge and make suicide prevention more timely, accessible, and responsive, with potential for scale in Nepal and beyond.
+
+Learn More:
+
+Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men in Nepal: findings from an online national survey. https://doi.org/10.1038/s41598-025-92449-z
+
+Preferences for mHealth Intervention to Address Mental Health Challenges Among Men Who Have Sex With Men in Nepal: Qualitative Study.  https://pmc.ncbi.nlm.nih.gov/articles/PMC11015371/
+
+3. INNOVATE
+
+CASA: Supporting caregivers of children with Autism
+
+CASA is a mobile health app being developed with caregivers, health care workers and experts, to support caregivers of children with autism. It will provide simple, practical tips that caregivers can use at home to help children communicate, learn new skills, manage everyday challenges, and take care of their own well-being. We will test the app for three months with caregivers and therapists at two autism care centers in Nepal to understand if it is acceptable and feasible to use.
+
+Caregiver skills training for families of children with developmental delays or disabilities
+
+https://www.who.int/publications/i/item/9789240048836
+
+Reimagining sexual and reproductive health services with women with disabilities
+
+Women with disabilities often face barriers to accessing sexual and reproductive health information and services. Possible worked alongside women with diverse disabilities, the Nepal Disabled Women’s Association, and other stakeholders to understand these experiences and co-design an intervention grounded in their needs, priorities, and lived realities.
+
+4. PIPELINE
+
+Explore the culturally grounded solutions in our pipeline. We are actively seeking collaborative partners and resources to move these solutions into action. If you are interested in collaborating, please connect with us at research@possiblehealth.org
+
+Nurse-led mental health support for public schools
+
+Nearly half of all lifetime mental health conditions take root before adulthood,  and in Nepal, nearly 7 million children are sitting in a classroom every school day. We're working with the government to position school nurses as the first line of mental health support for students, teachers, and parents. This solution hasn't been piloted yet. It’s still in its earliest stage, preparing to co design with schools, nurses and families before we move ahead building the evidence needed to reach national scale.
+
+AI-assisted supportive supervision for non-specialist health workers
+
+Nepal has widened access to mental health care by training non-specialists to deliver it. It is evident that the health workers and communities doing this work refer to ongoing supportive
+

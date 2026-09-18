@@ -55,45 +55,43 @@ function TeamCard({
           onClick();
         }
       }}
-      className={`bg-white border border-zinc-200/80 rounded-3xl p-6 flex flex-col justify-between shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${colorClasses.border} group cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-primary-pink/30`}
+      className={`bg-white border border-zinc-200/80 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${colorClasses.border} group cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-primary-pink/30`}
     >
       <div className="space-y-4">
-        {/* Photo Container */}
-        <div className="relative w-full aspect-[4/3.4] rounded-2xl overflow-hidden border border-zinc-100 bg-zinc-100 flex items-center justify-center">
-          {member.image && !imgError ? (
-            <Image
-              src={member.image}
-              alt={member.name}
-              fill
-              className="object-cover object-top transition-transform duration-500 group-hover:scale-103"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              onError={() => setImgError(true)}
-            />
-          ) : (
-            <div className="flex flex-col items-center justify-center text-zinc-400 p-4">
-              <User className="h-14 w-14 stroke-[1.2]" />
-              <span className="text-[11px] font-medium text-zinc-400 mt-2 uppercase tracking-wider">Possible</span>
-            </div>
-          )}
+        {/* Top Row: Photo on left, Arrow button on right matching [IMG-08] */}
+        <div className="flex items-start justify-between gap-4">
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-zinc-100 bg-zinc-100 flex items-center justify-center shrink-0 shadow-2xs">
+            {member.image && !imgError ? (
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 96px, 96px"
+                onError={() => setImgError(true)}
+              />
+            ) : (
+              <div className="flex flex-col items-center justify-center text-zinc-400 p-2">
+                <User className="h-8 w-8 stroke-[1.2]" />
+                <span className="text-[9px] font-medium text-zinc-400 mt-1 uppercase tracking-wider">Possible</span>
+              </div>
+            )}
+          </div>
+
+          <span className={`p-2.5 rounded-full bg-zinc-100 text-zinc-400 ${colorClasses.btn} transition-all duration-200 shrink-0 mt-1 mr-1`}>
+            <ArrowUpRight className="h-4 w-4 stroke-[2.2]" />
+          </span>
         </div>
 
         {/* Name and Role Only */}
         <div className="space-y-1 pt-1">
-          <h3 className="text-xl font-bold font-outfit text-zinc-900 leading-snug group-hover:text-zinc-950">
+          <h3 className="text-lg sm:text-xl font-bold font-outfit text-zinc-900 leading-snug group-hover:text-zinc-950">
             {member.name}
           </h3>
-          <p className={`text-[13px] font-semibold tracking-wide uppercase ${colorClasses.role}`}>
+          <p className={`text-[12px] sm:text-[13px] font-semibold tracking-wider uppercase ${colorClasses.role}`}>
             {member.role}
           </p>
         </div>
-      </div>
-
-      {/* Subtle "Read Bio" Action indicator */}
-      <div className="pt-4 mt-3 border-t border-zinc-100 flex items-center justify-between text-zinc-500 text-xs font-semibold uppercase tracking-wider">
-        <span className="group-hover:text-zinc-900 transition-colors">Read Bio</span>
-        <span className="p-1.5 rounded-full bg-zinc-100 text-zinc-600 group-hover:bg-zinc-900 group-hover:text-white transition-all">
-          <ArrowUpRight className="h-3.5 w-3.5" />
-        </span>
       </div>
     </div>
   );
@@ -239,7 +237,7 @@ function TeamPageContent() {
 
   const tabs = [
     { key: "us-board", label: "Possible US Board", count: usBoardMembers.length, color: "purple" as const },
-    { key: "nepal-board", label: "Nepal Board", count: nepalBoardMembers.length, color: "blue" as const },
+    { key: "nepal-board", label: "Sambhav (Possible) Board – Nepal", count: nepalBoardMembers.length, color: "blue" as const },
     { key: "team-members", label: "Team Members", count: teamMembersData.length, color: "pink" as const }
   ];
 
@@ -261,11 +259,11 @@ function TeamPageContent() {
         <div className="h-1 w-20 bg-primary-pink mx-auto mt-4 rounded-full" />
       </div>
 
-      {/* Tabs Navigation in requested order: Possible US Board -> Nepal Board -> Team Members */}
+      {/* Tabs Navigation matching [IMG-08] */}
       <div id="team-tabs" className="w-full max-w-4xl mx-auto flex flex-col sm:flex-row shadow-xs mb-14 rounded-2xl border border-zinc-200 scroll-mt-24 bg-white relative overflow-hidden">
         <button
           onClick={() => router.push("/get-involved/our-team?tab=us-board", { scroll: false })}
-          className={`flex-1 py-4.5 px-4 text-center uppercase text-[13px] font-bold tracking-wider transition-all relative cursor-pointer ${
+          className={`flex-1 py-4.5 px-4 text-center uppercase text-[12.5px] sm:text-[13px] font-bold tracking-wider transition-all relative cursor-pointer ${
             tabParam === "us-board"
               ? "bg-accent-purple text-white shadow-inner"
               : "bg-white text-accent-purple border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50"
@@ -276,18 +274,19 @@ function TeamPageContent() {
 
         <button
           onClick={() => router.push("/get-involved/our-team?tab=nepal-board", { scroll: false })}
-          className={`flex-1 py-4.5 px-4 text-center uppercase text-[13px] font-bold tracking-wider transition-all relative cursor-pointer ${
+          className={`flex-1 py-4.5 px-4 text-center uppercase text-[12.5px] sm:text-[13px] font-bold tracking-wider transition-all relative cursor-pointer ${
             tabParam === "nepal-board"
               ? "bg-secondary-blue text-white shadow-inner"
               : "bg-white text-secondary-blue border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50"
           }`}
         >
-          Nepal Board ({nepalBoardMembers.length})
+          <span className="hidden md:inline">Sambhav (Possible) Board – Nepal</span>
+          <span className="md:hidden">Nepal Board</span> ({nepalBoardMembers.length})
         </button>
 
         <button
           onClick={() => router.push("/get-involved/our-team?tab=team-members", { scroll: false })}
-          className={`flex-1 py-4.5 px-4 text-center uppercase text-[13px] font-bold tracking-wider transition-all relative cursor-pointer ${
+          className={`flex-1 py-4.5 px-4 text-center uppercase text-[12.5px] sm:text-[13px] font-bold tracking-wider transition-all relative cursor-pointer ${
             tabParam === "team-members"
               ? "bg-primary-pink text-white shadow-inner"
               : "bg-white text-primary-pink hover:bg-zinc-50"
@@ -297,11 +296,11 @@ function TeamPageContent() {
         </button>
       </div>
 
-      {/* Active Section Title */}
+      {/* Active Section Title matching [IMG-08] */}
       <div className="mb-10 text-center">
-        <h2 className={`text-2xl sm:text-3xl font-light uppercase tracking-wide ${
-          activeColor === "purple" ? "text-accent-purple font-medium" :
-          activeColor === "blue" ? "text-secondary-blue font-medium" : "text-primary-pink font-medium"
+        <h2 className={`text-2xl sm:text-3xl font-bold uppercase tracking-wide ${
+          activeColor === "purple" ? "text-accent-purple" :
+          activeColor === "blue" ? "text-secondary-blue" : "text-primary-pink"
         }`}>
           {tabs.find((t) => t.key === tabParam)?.label}
         </h2>

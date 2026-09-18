@@ -17,6 +17,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/collaborators',
+        destination: '/get-involved/collaborators-partners',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
