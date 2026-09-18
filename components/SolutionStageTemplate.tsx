@@ -77,11 +77,12 @@ export default function SolutionStageTemplate({
       }, 150);
     }
   }, [subSections]);
-  // 3 stages in exact requested order: Scale -> Test -> Innovate
+  // 4 stages in exact requested order: Scale -> Test -> Innovate -> Pipeline
   const stages = [
     { id: "scale", label: "Scale", href: "/solutions/scale", image: "/hero_complex_solve.jpg" },
     { id: "test", label: "Test", href: "/solutions/test", image: "/who_we_are_team.jpg" },
     { id: "innovate", label: "Innovate", href: "/solutions/innovate", image: "/health_process.jpg" },
+    { id: "pipeline", label: "Pipeline", href: "/solutions/pipeline", image: "/pipeline1.jpg" },
   ];
 
   return (
