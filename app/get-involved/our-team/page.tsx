@@ -259,51 +259,43 @@ function TeamPageContent() {
         <div className="h-1 w-20 bg-primary-pink mx-auto mt-4 rounded-full" />
       </div>
 
-      {/* Tabs Navigation matching [IMG-08] */}
-      <div id="team-tabs" className="w-full max-w-4xl mx-auto flex flex-col sm:flex-row shadow-xs mb-14 rounded-2xl border border-zinc-200 scroll-mt-24 bg-white relative overflow-hidden">
-        <button
-          onClick={() => router.push("/get-involved/our-team?tab=us-board", { scroll: false })}
-          className={`flex-1 py-4.5 px-4 text-center uppercase text-[12.5px] sm:text-[13px] font-bold tracking-wider transition-all relative cursor-pointer ${
-            tabParam === "us-board"
-              ? "bg-accent-purple text-white shadow-inner"
-              : "bg-white text-accent-purple border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50"
-          }`}
-        >
-          Possible US Board ({usBoardMembers.length})
-        </button>
+      {/* Tabs Navigation in colored pill-tab style */}
+      <div id="team-tabs" className="w-full max-w-4xl mx-auto flex justify-center mb-14 scroll-mt-24">
+        <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 bg-zinc-100/90 rounded-full border border-zinc-200/80 shadow-2xs w-full sm:w-auto">
+          <button
+            onClick={() => router.push("/get-involved/our-team?tab=us-board", { scroll: false })}
+            className={`flex-1 sm:flex-initial px-6 py-2.5 sm:py-3 rounded-full font-equip text-[13px] sm:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer text-center ${
+              tabParam === "us-board"
+                ? "bg-accent-purple text-white shadow-sm"
+                : "text-zinc-600 hover:text-zinc-900 hover:bg-white/60"
+            }`}
+          >
+            Possible US Board ({usBoardMembers.length})
+          </button>
 
-        <button
-          onClick={() => router.push("/get-involved/our-team?tab=nepal-board", { scroll: false })}
-          className={`flex-1 py-4.5 px-4 text-center uppercase text-[12.5px] sm:text-[13px] font-bold tracking-wider transition-all relative cursor-pointer ${
-            tabParam === "nepal-board"
-              ? "bg-secondary-blue text-white shadow-inner"
-              : "bg-white text-secondary-blue border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50"
-          }`}
-        >
-          <span className="hidden md:inline">Sambhav (Possible) Board – Nepal</span>
-          <span className="md:hidden">Nepal Board</span> ({nepalBoardMembers.length})
-        </button>
+          <button
+            onClick={() => router.push("/get-involved/our-team?tab=nepal-board", { scroll: false })}
+            className={`flex-1 sm:flex-initial px-6 py-2.5 sm:py-3 rounded-full font-equip text-[13px] sm:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer text-center ${
+              tabParam === "nepal-board"
+                ? "bg-secondary-blue text-white shadow-sm"
+                : "text-zinc-600 hover:text-zinc-900 hover:bg-white/60"
+            }`}
+          >
+            <span className="hidden md:inline">Sambhav (Possible) Board – Nepal</span>
+            <span className="md:hidden">Nepal Board</span> ({nepalBoardMembers.length})
+          </button>
 
-        <button
-          onClick={() => router.push("/get-involved/our-team?tab=team-members", { scroll: false })}
-          className={`flex-1 py-4.5 px-4 text-center uppercase text-[12.5px] sm:text-[13px] font-bold tracking-wider transition-all relative cursor-pointer ${
-            tabParam === "team-members"
-              ? "bg-primary-pink text-white shadow-inner"
-              : "bg-white text-primary-pink hover:bg-zinc-50"
-          }`}
-        >
-          Team Members ({teamMembersData.length})
-        </button>
-      </div>
-
-      {/* Active Section Title matching [IMG-08] */}
-      <div className="mb-10 text-center">
-        <h2 className={`text-2xl sm:text-3xl font-bold uppercase tracking-wide ${
-          activeColor === "purple" ? "text-accent-purple" :
-          activeColor === "blue" ? "text-secondary-blue" : "text-primary-pink"
-        }`}>
-          {tabs.find((t) => t.key === tabParam)?.label}
-        </h2>
+          <button
+            onClick={() => router.push("/get-involved/our-team?tab=team-members", { scroll: false })}
+            className={`flex-1 sm:flex-initial px-6 py-2.5 sm:py-3 rounded-full font-equip text-[13px] sm:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer text-center ${
+              tabParam === "team-members"
+                ? "bg-primary-pink text-white shadow-sm"
+                : "text-zinc-600 hover:text-zinc-900 hover:bg-white/60"
+            }`}
+          >
+            Team Members ({teamMembersData.length})
+          </button>
+        </div>
       </div>
 
       {/* Team Cards Grid */}

@@ -77,13 +77,14 @@ export default function SolutionStageTemplate({
       }, 150);
     }
   }, [subSections]);
-  // 4 stages in exact requested order: Scale -> Test -> Innovate -> Pipeline
+  // 3 stages in exact requested order: Innovate -> Test -> Scale
   const stages = [
-    { id: "scale", label: "Scale", href: "/solutions/scale", image: "/hero_complex_solve.jpg" },
-    { id: "test", label: "Test", href: "/solutions/test", image: "/who_we_are_team.jpg" },
     { id: "innovate", label: "Innovate", href: "/solutions/innovate", image: "/health_process.jpg" },
-    { id: "pipeline", label: "Pipeline", href: "/solutions/pipeline", image: "/pipeline1.jpg" },
+    { id: "test", label: "Test", href: "/solutions/test", image: "/who_we_are_team.jpg" },
+    { id: "scale", label: "Scale", href: "/solutions/scale", image: "/hero_complex_solve.jpg" },
   ];
+
+  const showStandaloneHeading = stageName && stageId !== "scale" && stageId !== "test";
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1 bg-white animate-in fade-in duration-300">
@@ -99,7 +100,7 @@ export default function SolutionStageTemplate({
         </Link>
       </div>
 
-      {/* Stage Progress Indicator (3 stages: Scale, Test, Innovate) */}
+      {/* Stage Progress Indicator (3 stages: Innovate -> Test -> Scale) */}
       <div className="mb-14 bg-zinc-50/80 border border-zinc-150 p-6 sm:p-8 rounded-3xl flex flex-col items-center w-full max-w-5xl mx-auto">
         <h2 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 text-center mb-8 max-w-4xl leading-relaxed">
           Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of validated evidence.
@@ -122,15 +123,9 @@ export default function SolutionStageTemplate({
                   label: "text-secondary-blue font-bold"
                 };
               }
-              if (id === "innovate") {
-                return {
-                  circle: "border-primary-pink shadow-lg shadow-primary-pink/20 ring-4 ring-primary-pink/15 w-20 h-20 sm:w-24 sm:h-24",
-                  label: "text-primary-pink font-bold"
-                };
-              }
               return {
-                circle: "border-amber-600 shadow-lg shadow-amber-600/20 ring-4 ring-amber-600/15 w-20 h-20 sm:w-24 sm:h-24",
-                label: "text-amber-600 font-bold"
+                circle: "border-primary-pink shadow-lg shadow-primary-pink/20 ring-4 ring-primary-pink/15 w-20 h-20 sm:w-24 sm:h-24",
+                label: "text-primary-pink font-bold"
               };
             };
 
@@ -177,24 +172,26 @@ export default function SolutionStageTemplate({
         </div>
       </div>
 
-      {/* Stage Header with distinct editorial serif typography */}
-      <div className="max-w-4xl mx-auto w-full mb-12">
-        <h1 className="font-serif font-light text-4xl sm:text-5xl uppercase tracking-wider leading-tight text-zinc-950">
-          {stageName}
-        </h1>
-        <div className={`h-1.5 w-20 rounded-full bg-current ${colorClass} mt-3`} />
+      {/* Stage Header with distinct editorial serif typography (hidden on Scale and Test pages per feedback) */}
+      {showStandaloneHeading && (
+        <div className="max-w-4xl mx-auto w-full mb-12">
+          <h1 className="font-serif font-light text-4xl sm:text-5xl uppercase tracking-wider leading-tight text-zinc-950">
+            {stageName}
+          </h1>
+          <div className={`h-1.5 w-20 rounded-full bg-current ${colorClass} mt-3`} />
 
-        {introText && (
-          <p className="text-[16px] sm:text-[17px] text-zinc-700 leading-relaxed font-light mt-6 p-6 bg-zinc-50 rounded-2xl border border-zinc-150">
-            {introText}
-          </p>
-        )}
-      </div>
+          {introText && (
+            <p className="text-[16px] sm:text-[17px] text-zinc-700 leading-relaxed font-light mt-6 p-6 bg-zinc-50 rounded-2xl border border-zinc-150">
+              {introText}
+            </p>
+          )}
+        </div>
+      )}
 
-      {/* Sub-section Tabs when multiple subSections exist (e.g. Designed to test / Tested and ready for scale-up) */}
+      {/* Sub-section Tabs when multiple subSections exist (e.g. Tested and ready for scale-up / Designed to test) */}
       {subSections && subSections.length > 1 && (
         <div className="max-w-4xl mx-auto w-full mb-12 flex justify-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 bg-zinc-100/90 rounded-2xl border border-zinc-200/80 w-full sm:w-auto shadow-2xs">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 bg-zinc-100/90 rounded-full border border-zinc-200/80 w-full sm:w-auto shadow-2xs">
             {subSections.map((sub, sIdx) => {
               const tabId = sub.subSectionId || String(sIdx);
               const isActive = activeSubTab === tabId;
@@ -204,8 +201,8 @@ export default function SolutionStageTemplate({
                   key={sIdx}
                   type="button"
                   onClick={() => setActiveSubTab(tabId)}
-                  className={`flex-1 sm:flex-initial px-6 py-3 rounded-xl font-equip text-[14px] sm:text-[15px] font-bold tracking-wide transition-all duration-300 cursor-pointer text-center ${isActive
-                    ? "bg-white text-secondary-blue shadow-sm border border-secondary-blue/20"
+                  className={`flex-1 sm:flex-initial px-6 py-2.5 sm:py-3 rounded-full font-equip text-[13.5px] sm:text-[14.5px] font-semibold tracking-wide transition-all duration-300 cursor-pointer text-center ${isActive
+                    ? "bg-secondary-blue text-white shadow-sm"
                     : "text-zinc-600 hover:text-zinc-900 hover:bg-white/60"
                     }`}
                 >
@@ -224,23 +221,6 @@ export default function SolutionStageTemplate({
             .filter((sub, sIdx) => (subSections.length > 1 ? (sub.subSectionId || String(sIdx)) === activeSubTab : true))
             .map((sub, sIdx) => (
               <div key={sIdx} id={sub.subSectionId} className="space-y-12 scroll-mt-28 animate-in fade-in duration-300">
-                <div className="border-b border-zinc-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div hidden>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-wide">
-                      {sub.subSectionTitle}
-                    </h2>
-                    {sub.subSectionSubtitle && (
-                      <p className="text-[15px] text-body-gray font-light mt-1.5">
-                        {sub.subSectionSubtitle}
-                      </p>
-                    )}
-                  </div>
-                  {sub.badge && (
-                    <span hidden className="px-3.5 py-1 rounded-full text-[12px] font-semibold tracking-wider uppercase bg-secondary-blue/10 text-secondary-blue w-fit">
-                      {sub.badge}
-                    </span>
-                  )}
-                </div>
 
                 <div className="space-y-14">
                   {sub.projects.map((proj, pIdx) => (
