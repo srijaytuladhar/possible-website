@@ -234,16 +234,16 @@ export default function SolutionsPage() {
               </Link>
             </div>
 
-            {/* Sub-tab Pill Selector per IMG-06 */}
+            {/* Sub-tab Pill Selector */}
             <div className="flex justify-center">
-              <div className="inline-flex items-center p-1.5 rounded-full bg-zinc-100/90 border border-zinc-200">
+              <div className="inline-flex items-center p-1.5 rounded-full bg-zinc-100/90 border border-zinc-200 shadow-2xs">
                 <button
                   type="button"
                   onClick={() => setActiveTestSubTab("tested")}
                   className={`px-6 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer ${
                     activeTestSubTab === "tested"
-                      ? "bg-white text-secondary-blue border-2 border-secondary-blue shadow-xs"
-                      : "text-zinc-600 hover:text-zinc-950 border-2 border-transparent"
+                      ? "bg-secondary-blue text-white shadow-sm"
+                      : "text-zinc-600 hover:text-zinc-950 hover:bg-white/60"
                   }`}
                 >
                   Tested and ready for scale-up
@@ -253,8 +253,8 @@ export default function SolutionsPage() {
                   onClick={() => setActiveTestSubTab("designed")}
                   className={`px-6 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer ${
                     activeTestSubTab === "designed"
-                      ? "bg-white text-secondary-blue border-2 border-secondary-blue shadow-xs"
-                      : "text-zinc-600 hover:text-zinc-950 border-2 border-transparent"
+                      ? "bg-secondary-blue text-white shadow-sm"
+                      : "text-zinc-600 hover:text-zinc-950 hover:bg-white/60"
                   }`}
                 >
                   Designed to test

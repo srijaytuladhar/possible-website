@@ -15,38 +15,54 @@ export default function Home() {
       {/* SECTION 1 — Hero */}
       <HeroSlider />
 
-      {/* SECTION 2 — Sub-Hero: Himalayas / Rooted in Community */}
-      <section className="relative py-20 px-6 sm:px-8 overflow-hidden bg-zinc-50 border-b border-zinc-100">
+      {/* SECTION 2 — Sub-Hero: "Too complex to solve" is where we start */}
+      <section className="relative py-16 sm:py-20 px-6 sm:px-8 bg-zinc-50 border-b border-zinc-100 overflow-hidden">
         <div className="absolute top-[-10%] right-[-5%] w-[35rem] h-[35rem] rounded-full bg-radial from-secondary-blue/10 to-transparent blur-3xl -z-10 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.2] -z-20 pointer-events-none" />
 
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Column: Image */}
-            <div className="lg:col-span-6">
-              <div className="relative w-full aspect-[6/4.5] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group">
-                <Image
-                  src={HIMALAYA_SECTION_IMAGE}
-                  alt="A mother in rural foothills of the Himalayas receiving healthcare consultation"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-102"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-            </div>
+        <div className="mx-auto max-w-4xl text-center space-y-6">
+          <h2 className="h2-section text-zinc-950 uppercase tracking-wide leading-tight">
+            &ldquo;Too complex to solve&rdquo; is where we start.
+          </h2>
+          <p className="text-zinc-800 leading-relaxed font-light text-[18px] sm:text-[21px] md:text-[23px] max-w-3xl mx-auto">
+            We innovate, test, and scale the health solutions until they are health care workers&apos; everyday practice and national policy.
+          </p>
+        </div>
+      </section>
 
-            {/* Right Column: Text Content */}
-            <div className="lg:col-span-6 flex flex-col justify-center space-y-4">
-              <p className="text-zinc-900 leading-relaxed font-light text-justify sm:text-left text-[22px] sm:text-[25px] md:text-[27px]">
-                A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence, built to reach everyone.
-              </p>
-            </div>
+      {/* SECTION 3 — Process / Methodology Intro: How We Solve Complex Problems */}
+      <section className="relative py-20 px-6 sm:px-8 bg-white border-b border-zinc-100">
+        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.25] pointer-events-none" />
+
+        <div className="mx-auto max-w-7xl flex flex-col items-center">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <h2 className="h2-section text-zinc-950 uppercase tracking-wide">
+              How We Solve Complex Problems
+            </h2>
+          </div>
+
+          {/* Copy Above Image */}
+          <div className="max-w-3xl text-center mb-10">
+            <p className="text-subheading text-zinc-900 leading-relaxed font-light text-justify sm:text-center px-4 sm:px-6">
+              We take on the health problems others either neglect or call too complex and run them through a process that works: innovate it with the people with lived experience, experts, governments, and relevant stakeholders; test it until the evidence is proven and adaptable; and scale into public healthcare systems. That&apos;s how suffering goes down for good, not just for the length of a grant.
+            </p>
+          </div>
+
+          {/* Image */}
+          <div className="relative w-full max-w-3xl aspect-[6.5/4.3] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group">
+            <Image
+              src={PROCESS_SECTION_IMAGE}
+              alt="Community healthcare co-design process in Nepal"
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-101"
+              sizes="(max-width: 1024px) 100vw, 70vw"
+            />
           </div>
         </div>
       </section>
 
-      {/* SECTION 3 — Three Stage Dynamic Process Boxes (Innovate -> Test -> Scale per IMG-02) */}
+      {/* SECTION 4 — Three Stage Dynamic Process Boxes (Innovate -> Test -> Scale) */}
       <section className="relative py-20 px-6 sm:px-8 bg-white border-b border-zinc-100 overflow-hidden">
         <div className="absolute top-[10%] left-[-5%] w-[30rem] h-[30rem] rounded-full bg-radial from-primary-pink/5 to-transparent blur-3xl -z-10 pointer-events-none" />
         <div className="absolute bottom-[10%] right-[-5%] w-[30rem] h-[30rem] rounded-full bg-radial from-secondary-blue/5 to-transparent blur-3xl -z-10 pointer-events-none" />
@@ -113,49 +129,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 4 — Process / Methodology Intro: How We Solve Complex Problems (Mission Paragraph) */}
-      <section className="relative py-20 px-6 sm:px-8 bg-white border-b border-zinc-100">
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.25] pointer-events-none" />
+      {/* SECTION 5 — Mission / Himalayas / Rooted in Community */}
+      <section className="relative py-20 px-6 sm:px-8 overflow-hidden bg-zinc-50 border-b border-zinc-100">
+        <div className="absolute top-[-10%] right-[-5%] w-[35rem] h-[35rem] rounded-full bg-radial from-secondary-blue/10 to-transparent blur-3xl -z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.2] -z-20 pointer-events-none" />
 
-        <div className="mx-auto max-w-7xl flex flex-col items-center">
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="h2-section text-zinc-950 uppercase tracking-wide">
-              How We Solve Complex Problems
-            </h2>
-          </div>
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Column: Image */}
+            <div className="lg:col-span-6">
+              <div className="relative w-full aspect-[6/4.5] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group">
+                <Image
+                  src={HIMALAYA_SECTION_IMAGE}
+                  alt="A mother in rural foothills of the Himalayas receiving healthcare consultation"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-102"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
 
-          {/* Image (slightly reduced per client feedback) */}
-          <div className="relative w-full max-w-3xl aspect-[6.5/4.3] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group mb-10">
-            <Image
-              src={PROCESS_SECTION_IMAGE}
-              alt="Community healthcare co-design process in Nepal"
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-101"
-              sizes="(max-width: 1024px) 100vw, 70vw"
-            />
-          </div>
-
-          {/* Copy Below Image */}
-          <div className="max-w-3xl text-center space-y-6">
-            <p className="text-subheading text-zinc-900 leading-relaxed font-light text-justify sm:text-center px-4 sm:px-6">
-              We take on the health problems others either neglect or call too complex, and run them through a process that works: innovate it with the people with lived experience, experts, governments and relevant stakeholders, test it until the evidence is proven and adaptable, and scale into public healthcare systems. That&apos;s how suffering goes down for good, not just for the length of a grant.
-            </p>
-            <div className="pt-2 flex justify-center">
-              <Link
-                href="/solutions"
-                className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 px-6 py-3 font-equip font-semibold text-[14px] text-zinc-800 hover:text-primary-pink shadow-sm hover:shadow transition-all duration-300 group"
-              >
-                <span>Learn more about our solutions</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+            {/* Right Column: Text Content */}
+            <div className="lg:col-span-6 flex flex-col justify-center space-y-4">
+              <p className="text-zinc-900 leading-relaxed font-light text-justify sm:text-left text-[22px] sm:text-[25px] md:text-[27px]">
+                A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence, built to reach everyone.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5 — WHO WE ARE (Restyled matching How We Solve Complex Problems per IMG-01) */}
-      <section className="relative py-20 px-6 sm:px-8 bg-zinc-50 border-b border-zinc-100 overflow-hidden" id="who-we-are">
+      {/* SECTION 6 — WHO WE ARE */}
+      <section className="relative py-20 px-6 sm:px-8 bg-white border-b border-zinc-100 overflow-hidden" id="who-we-are">
         <div className="absolute bottom-[-10%] left-[-5%] w-[40rem] h-[40rem] rounded-full bg-radial from-primary-pink/5 to-transparent blur-3xl -z-10 pointer-events-none" />
 
         <div className="mx-auto max-w-7xl flex flex-col items-center">
@@ -178,14 +183,14 @@ export default function Home() {
             {/* Dark shade overlay behind text */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/40 flex items-center justify-center p-6 sm:p-12 md:p-14">
               <p className="text-white text-[16px] sm:text-[18px] md:text-[20px] font-light leading-relaxed text-center max-w-3xl drop-shadow-md">
-                We are health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers, not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them.
+                We are health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers, not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. We don&apos;t just co-design a project, test/deliver a program, and move on. We build systems that last.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 6 — Operational Presence Map */}
+      {/* SECTION 7 — Operational Presence Map */}
       <div className="relative">
         <InteractivePresenceMap />
       </div>
