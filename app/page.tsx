@@ -16,7 +16,7 @@ export default function Home() {
       <HeroSlider />
 
       {/* SECTION 2 — Sub-Hero: "Too complex to solve" is where we start */}
-      <section className="relative py-16 sm:py-20 px-6 sm:px-8 bg-zinc-50 border-b border-zinc-100 overflow-hidden">
+      <section hidden className="relative py-16 sm:py-20 px-6 sm:px-8 bg-zinc-50 border-b border-zinc-100 overflow-hidden">
         <div className="absolute top-[-10%] right-[-5%] w-[35rem] h-[35rem] rounded-full bg-radial from-secondary-blue/10 to-transparent blur-3xl -z-10 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.2] -z-20 pointer-events-none" />
 
