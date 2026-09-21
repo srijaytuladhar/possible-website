@@ -62,7 +62,7 @@ export default function TestPage() {
               link: "https://pubmed.ncbi.nlm.nih.gov/37858578/"
             },
             {
-              title: "Strengthening Community Health Systems Through Longitudinal Care",
+              title: "Strengthening Community Health Systems Through Longitudinal Care.",
               link: "/solutions/scale#longitudinal-care"
             }
           ]
@@ -192,11 +192,11 @@ export default function TestPage() {
               link: "https://pubmed.ncbi.nlm.nih.gov/37858578/"
             },
             {
-              title: "BECOME — Bringing integrated mental health and NCD care closer to home",
+              title: "BECOME — Bringing integrated mental health and NCD care closer to home.",
               link: "/solutions/test#become"
             },
             {
-              title: "Strengthening Community Health Systems Through Longitudinal Care (Scale Phase)",
+              title: "Strengthening Community Health Systems Through Longitudinal Care.",
               link: "/solutions/scale#longitudinal-care"
             }
           ]
