@@ -9,7 +9,7 @@ export default function InnovatePage() {
       title: "CASA",
       subtitle: "Supporting caregivers of children with Autism",
       description: [
-        "CASA is a mobile health app being developed with caregivers, health care workers, and experts to support caregivers of children with autism — providing simple, practical tips for communication, new skills, everyday challenges, and caregiver well-being. It will be tested for three months with caregivers and therapists at two autism care centers in Nepal to assess acceptability and feasibility."
+        "CASA is a mobile health app being developed with caregivers, health care workers and experts, to support caregivers of children with autism. It will provide simple, practical tips that caregivers can use at home to help children communicate, learn new skills, manage everyday challenges, and take care of their own well-being. We will test the app for three months with caregivers and therapists at two autism care centers in Nepal to understand if it is acceptable and feasible to use.Caregiver skills training for families of children with developmental delays or disabilities."
       ],
       image: "/solutions_innovate/CASA.jpg",
       publications: [
@@ -36,7 +36,7 @@ export default function InnovatePage() {
       id: "srhr-disabilities",
       title: "Reimagining sexual and reproductive health services with women with disabilities",
       description: [
-        "Women with disabilities often face barriers to accessing sexual and reproductive health information and services. Possible worked alongside women with diverse disabilities, the Nepal Disabled Women's Association, and other stakeholders to understand these experiences and co-design an intervention grounded in their needs, priorities, and lived realities."
+        "Women with disabilities often face barriers to accessing sexual and reproductive health information and services. Possible worked alongside women with diverse disabilities, the Nepal Disabled Women’s Association, and other stakeholders to understand these experiences and co-design an intervention grounded in their needs, priorities, and lived realities."
       ],
       image: "/solutions_innovate/Reimagining sexual and reproductive health services with women with disabilities.JPG"
     }

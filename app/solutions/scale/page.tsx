@@ -8,8 +8,8 @@ export default function ScalePage() {
       id: "longitudinal-care",
       title: "Strengthening community health system through longitudinal care: From pilot to scale",
       description: [
-        "Too often, health systems reach families only when they seek care, leaving gaps in continuous support that could prevent illness, identify risks early, and address health needs before they become more serious. Pregnancies may go undetected until late, newborns may miss critical follow-up, and chronic conditions may remain unmanaged until they become emergencies — gaps that are costly to fix.",
-        "ProCHWs — local, trained, supervised, salaried, full-time, and digitally enabled community health workers — close that gap by bringing integrated, longitudinal care directly into the community. Possible, in collaboration with the government, designed the model, grounded in WHO's guidelines for CHW programs, and tested it as a national pilot focused initially on bundled maternal and child health services. The pilot generated evidence that community-based, longitudinal care improves access and outcomes — reducing home deliveries, catching high-risk pregnancies earlier, and increasing follow-up care — while remaining affordable within the public health system.",
+        "Too often, health systems reach families only when they seek care, leaving gaps in continuous support that could prevent illness, identify risks early, and address health needs before they become more serious. Pregnancies may go undetected until late, newborns may miss critical follow-up, and chronic conditions may remain unmanaged until they become emergencies gaps that are costly to fix.",
+        "ProCHWs local, trained, supervised, salaried, full-time, and digitally enabled community health workers close that gap by bringing integrated, longitudinal care directly into the community. Possible, in collaboration with the government, designed the model, grounded in WHO's guidelines for CHW programs, and tested it as a national pilot focused initially on bundled maternal and child health services. The pilot generated evidence that community-based, longitudinal care improves access and outcomes reducing home deliveries, catching high-risk pregnancies earlier, and increasing follow-up care while remaining affordable within the public health system.",
         "We are now working with the government and community-based partners to strengthen and evolve the model for national scale-up: refining the delivery workflows, building the evidence base, and exploring how ProCHWs can extend beyond maternal and child health to provide a broader continuum of care across the life course.",
         "This isn't a parallel program, it's a government-owned system built to last."
       ],
@@ -45,7 +45,7 @@ export default function ScalePage() {
       id: "collaborative-care",
       title: "Collaborative care for improving mental health care within primary health care settings",
       description: [
-        "An integrated model that trains CHWs and clinicians to identify and manage depression and anxiety within primary care settings. Co-designed and tested in remote districts in Nepal, now informing WHO-endorsed national training manuals for scale-up."
+        "An integrated model that trains CHWs and clinicians to identify and manage depression and anxiety within primary care settings. Co-designed and tested in remote districts in Nepal, now informing WHO endorsed national training manuals for scale-up."
       ],
       image: "/DH__1913.jpg",
       publications: [
