@@ -62,7 +62,7 @@ export default function TestPage() {
               link: "https://pubmed.ncbi.nlm.nih.gov/37858578/"
             },
             {
-              title: "Cross-link: Strengthening Community Health Systems Through Longitudinal Care (Scale Phase)",
+              title: "Strengthening Community Health Systems Through Longitudinal Care (Scale Phase)",
               link: "/solutions/scale#longitudinal-care"
             }
           ]
