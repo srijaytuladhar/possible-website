@@ -25,7 +25,7 @@ export default function Home() {
             &ldquo;Too complex to solve&rdquo; is where we start.
           </h2>
           <p className="text-zinc-800 leading-relaxed font-light text-[18px] sm:text-[21px] md:text-[23px] max-w-3xl mx-auto">
-            We innovate, test, and scale the health solutions until they are health care workers&apos; everyday practice and national policy.
+            We innovate, test, and scale health solutions until they are health care workers&apos; everyday practice and national policy.
           </p>
         </div>
       </section>
@@ -45,7 +45,7 @@ export default function Home() {
           {/* Copy Above Image */}
           <div className="max-w-3xl text-center mb-10">
             <p className="text-subheading text-zinc-900 leading-relaxed font-light text-justify sm:text-center px-4 sm:px-6">
-              We take on the health problems others either neglect or call too complex and run them through a process that works: innovate it with the people with lived experience, experts, governments, and relevant stakeholders; test it until the evidence is proven and adaptable; and scale into public healthcare systems. That&apos;s how suffering goes down for good, not just for the length of a grant.
+              We take on the health problems others either neglect or call too complex and run them through a process that works: innovate them with people with lived experience, experts, governments and relavant stakeholders; test them until the evidence is proven and they are adaptable; and scale them into public healthcare systems.<strong> That&apos;s how suffering goes down for good, not just for the length of a grant.</strong>
             </p>
           </div>
 
@@ -152,7 +152,7 @@ export default function Home() {
             {/* Right Column: Text Content */}
             <div className="lg:col-span-6 flex flex-col justify-center space-y-4">
               <p className="text-zinc-900 leading-relaxed font-light text-justify sm:text-left text-[22px] sm:text-[25px] md:text-[27px]">
-                A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence, built to reach everyone.
+                A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence amd built to reach everyone.
               </p>
             </div>
           </div>
@@ -183,7 +183,7 @@ export default function Home() {
             {/* Dark shade overlay behind text */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/40 flex items-center justify-center p-6 sm:p-12 md:p-14">
               <p className="text-white text-[16px] sm:text-[18px] md:text-[20px] font-light leading-relaxed text-center max-w-3xl drop-shadow-md">
-                We are health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers, not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. <b>We don&apos;t just co-design a project, test/deliver a program, and move on. We build systems that last.</b>
+                We are health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers, not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. <strong>We don&apos;t just co-design a project, test/deliver a program, and move on. We build systems that last.</strong>
               </p>
             </div>
           </div>
