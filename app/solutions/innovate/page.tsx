@@ -9,7 +9,7 @@ export default function InnovatePage() {
       title: "CASA",
       subtitle: "Supporting caregivers of children with Autism",
       description: [
-        "CASA is a mobile health app being developed with caregivers, health care workers and experts, to support caregivers of children with autism. It will provide simple, practical tips that caregivers can use at home to help children communicate, learn new skills, manage everyday challenges, and take care of their own well-being. We will test the app for three months with caregivers and therapists at two autism care centers in Nepal to understand if it is acceptable and feasible to use.Caregiver skills training for families of children with developmental delays or disabilities."
+        "CASA is a mobile health app being developed with caregivers, health care workers and experts, to support caregivers of children with autism. It will provide simple, practical tips that caregivers can use at home to help children communicate, learn new skills, manage everyday challenges, and take care of their own well-being. We will test the app for three months with caregivers and therapists at two autism care centers in Nepal to understand if it is acceptable and feasible to use. Caregiver skills training for families of children with developmental delays or disabilities."
       ],
       image: "/solutions_innovate/CASA.jpg",
       publications: [
