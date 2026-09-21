@@ -183,7 +183,7 @@ export default function Home() {
             {/* Dark shade overlay behind text */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/40 flex items-center justify-center p-6 sm:p-12 md:p-14">
               <p className="text-white text-[16px] sm:text-[18px] md:text-[20px] font-light leading-relaxed text-center max-w-3xl drop-shadow-md">
-                We are health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers, not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. We don&apos;t just co-design a project, test/deliver a program, and move on. We build systems that last.
+                We are health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers, not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. <b>We don&apos;t just co-design a project, test/deliver a program, and move on. We build systems that last.</b>
               </p>
             </div>
           </div>

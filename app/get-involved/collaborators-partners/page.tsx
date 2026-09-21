@@ -2,13 +2,13 @@
 
 export default function CollaboratorsPage() {
   const collaborators = [
-    "Ministry of Health and Food Safety",
-    "Department of Health Services",
-    "Nursing and Social Security Division",
-    "Epidemiology and Disease Control Division",
+    "Ministry of Health and Food Safety, Nepal",
+    "Department of Health Services, Nepal",
+    "Nursing and Social Security Division, Nepal",
+    "Epidemiology and Disease Control Division, Nepal",
     "National Centre for AIDS & STD Control",
-    "Nepal Health Research Council",
-    "Social Welfare Council",
+    "Nepal Health Research Council, Nepal",
+    "Social Welfare Council, Nepal",
     "World Health Organization",
     "Dhulikhel Hospital, Kathmandu University Hospital",
     "Kathmandu University School of Medical Sciences",
