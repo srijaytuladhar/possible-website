@@ -4,14 +4,14 @@ import SolutionStageTemplate, { SolutionBoxType } from "@/components/SolutionSta
 
 export default function PipelinePage() {
   const introText =
-    "Explore the culturally grounded solutions in our pipeline. We are actively seeking collaborative partners and resources to move these solutions into action. If you're interested in collaborating, please connect with us at research@possiblehealth.org.";
+    "Explore the culturally grounded solutions in our pipeline. We are actively seeking collaborative partners and resources to move these solutions into action. If you are interested in collaborating, please connect with us at research@possiblehealth.org.";
 
   const projects: SolutionBoxType[] = [
     {
       id: "school-mental-health",
       title: "Nurse-led mental health support for public schools",
       description: [
-        "Nearly half of all lifetime mental health conditions take root before adulthood,  and in Nepal, nearly 7 million children are sitting in a classroom every school day. We're working with the government to position school nurses as the first line of mental health support for students, teachers, and parents. This solution hasn't been piloted yet. It’s still in its earliest stage, preparing to co design with schools, nurses and families before we move ahead building the evidence needed to reach national scale."
+        "Nearly half of all lifetime mental health conditions take root before adulthood,  and in Nepal, nearly 7 million children are sitting in a classroom every school day. We are working with the government to position school nurses as the first line of mental health support for students, teachers, and parents. This solution hasn't been piloted yet. It’s still in its earliest stage, preparing to co-design with schools, nurses and families before we move ahead building the evidence needed to reach national scale."
       ],
       image: "/pipeline1.jpg"
     },
