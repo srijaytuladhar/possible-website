@@ -218,7 +218,7 @@ function TeamPageContent() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
-  const tabParam = searchParams.get("tab") || "us-board";
+  const tabParam = searchParams.get("tab") || "team-members";
   const isFirstMount = useRef(true);
 
   // Smooth scroll handler on tab change (skipping initial mount)
@@ -236,65 +236,78 @@ function TeamPageContent() {
   }, [tabParam]);
 
   const tabs = [
-    { key: "us-board", label: "Possible US Board", count: usBoardMembers.length, color: "purple" as const },
-    { key: "nepal-board", label: "Sambhav (Possible) Board – Nepal", count: nepalBoardMembers.length, color: "blue" as const },
-    { key: "team-members", label: "Team Members", count: teamMembersData.length, color: "pink" as const }
+    {
+      key: "team-members",
+      label: "TEAM MEMBERS",
+      title: "TEAM MEMBERS",
+      colorHex: "#ED2E84",
+      bgClass: "bg-primary-pink",
+      activeColor: "pink" as const,
+      list: teamMembersData
+    },
+    {
+      key: "us-board",
+      label: "POSSIBLE BOARD – US",
+      title: "POSSIBLE BOARD – US",
+      colorHex: "#782888",
+      bgClass: "bg-accent-purple",
+      activeColor: "purple" as const,
+      list: usBoardMembers
+    },
+    {
+      key: "nepal-board",
+      label: "SAMBHAV (POSSIBLE) BOARD – NEPAL",
+      title: "SAMBHAV (POSSIBLE) BOARD – NEPAL",
+      colorHex: "#00BBE2",
+      bgClass: "bg-secondary-blue",
+      activeColor: "blue" as const,
+      list: nepalBoardMembers
+    }
   ];
 
-  const getActiveMembers = () => {
-    if (tabParam === "nepal-board") return { list: nepalBoardMembers, color: "blue" as const };
-    if (tabParam === "team-members") return { list: teamMembersData, color: "pink" as const };
-    return { list: usBoardMembers, color: "purple" as const };
-  };
-
-  const { list: activeMembers, color: activeColor } = getActiveMembers();
+  const currentTab = tabs.find((t) => t.key === tabParam) || tabs[0];
+  const activeMembers = currentTab.list;
+  const activeColor = currentTab.activeColor;
+  const activeTitle = currentTab.title;
 
   return (
-    <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 md:py-16 flex flex-col flex-1 bg-white">
-      {/* Page Header */}
-      <div className="mb-10 text-center max-w-3xl mx-auto">
-        <h1 className="h1-hero text-zinc-950 uppercase tracking-wide mb-3">
-          Our Team
+    <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-10 md:py-14 flex flex-col flex-1 bg-white">
+      {/* Section Header */}
+      <div className="mb-8 md:mb-10 text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-[40px] font-extralight uppercase tracking-[0.16em] sm:tracking-[0.2em] text-[#782888] font-equip">
+          {activeTitle}
         </h1>
-        <div className="h-1 w-20 bg-primary-pink mx-auto mt-4 rounded-full" />
       </div>
 
-      {/* Tabs Navigation in colored pill-tab style */}
-      <div id="team-tabs" className="w-full max-w-4xl mx-auto flex justify-center mb-14 scroll-mt-24">
-        <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 bg-zinc-100/90 rounded-full border border-zinc-200/80 shadow-2xs w-full sm:w-auto">
-          <button
-            onClick={() => router.push("/get-involved/our-team?tab=us-board", { scroll: false })}
-            className={`flex-1 sm:flex-initial px-6 py-2.5 sm:py-3 rounded-full font-equip text-[13px] sm:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer text-center ${
-              tabParam === "us-board"
-                ? "bg-accent-purple text-white shadow-sm"
-                : "text-zinc-600 hover:text-zinc-900 hover:bg-white/60"
-            }`}
-          >
-            Possible US Board ({usBoardMembers.length})
-          </button>
+      {/* Tabs Menu Bar */}
+      <div id="team-tabs" className="w-full max-w-5xl mx-auto mb-14 sm:mb-16 scroll-mt-28">
+        <div className="grid grid-cols-1 md:grid-cols-3 w-full shadow-xs">
+          {tabs.map((tab) => {
+            const isActive = tab.key === currentTab.key;
+            return (
+              <button
+                key={tab.key}
+                type="button"
+                onClick={() => router.push(`/get-involved/our-team?tab=${tab.key}`, { scroll: false })}
+                className={`relative py-4 sm:py-5 px-3 sm:px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all cursor-pointer select-none flex items-center justify-center ${tab.bgClass} ${
+                  isActive
+                    ? "brightness-100 z-10"
+                    : "brightness-95 hover:brightness-105 opacity-95 hover:opacity-100"
+                }`}
+              >
+                <span className="leading-snug">{tab.label}</span>
 
-          <button
-            onClick={() => router.push("/get-involved/our-team?tab=nepal-board", { scroll: false })}
-            className={`flex-1 sm:flex-initial px-6 py-2.5 sm:py-3 rounded-full font-equip text-[13px] sm:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer text-center ${
-              tabParam === "nepal-board"
-                ? "bg-secondary-blue text-white shadow-sm"
-                : "text-zinc-600 hover:text-zinc-900 hover:bg-white/60"
-            }`}
-          >
-            <span className="hidden md:inline">Sambhav (Possible) Board – Nepal</span>
-            <span className="md:hidden">Nepal Board</span> ({nepalBoardMembers.length})
-          </button>
-
-          <button
-            onClick={() => router.push("/get-involved/our-team?tab=team-members", { scroll: false })}
-            className={`flex-1 sm:flex-initial px-6 py-2.5 sm:py-3 rounded-full font-equip text-[13px] sm:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer text-center ${
-              tabParam === "team-members"
-                ? "bg-primary-pink text-white shadow-sm"
-                : "text-zinc-600 hover:text-zinc-900 hover:bg-white/60"
-            }`}
-          >
-            Team Members ({teamMembersData.length})
-          </button>
+                {/* Downward pointing active arrow indicator */}
+                {isActive && (
+                  <span
+                    className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-[12px] border-x-transparent border-t-[10px] sm:border-x-[14px] sm:border-t-[12px] z-20 pointer-events-none"
+                    style={{ borderTopColor: tab.colorHex }}
+                    aria-hidden="true"
+                  />
+                )}
+              </button>
+            );
+          })}
         </div>
       </div>
 
