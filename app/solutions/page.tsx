@@ -234,30 +234,50 @@ export default function SolutionsPage() {
               </Link>
             </div>
 
-            {/* Sub-tab Pill Selector */}
-            <div className="flex justify-center">
-              <div className="inline-flex items-center p-1.5 rounded-full bg-zinc-100/90 border border-zinc-200 shadow-2xs">
+            {/* Sub-tab Header & Menu Bar */}
+            <div className="w-full max-w-4xl mx-auto mb-14 sm:mb-16">
+              <div className="mb-8 md:mb-10 text-center">
+                <h3 className="text-2xl sm:text-3xl md:text-[34px] font-extralight uppercase tracking-[0.16em] sm:tracking-[0.2em] text-secondary-blue font-equip">
+                  {activeTestSubTab === "tested" ? "TESTED AND READY FOR SCALE-UP" : "DESIGNED TO TEST"}
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 w-full shadow-xs">
                 <button
                   type="button"
                   onClick={() => setActiveTestSubTab("tested")}
-                  className={`px-6 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer ${
+                  className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all cursor-pointer select-none flex items-center justify-center ${
                     activeTestSubTab === "tested"
-                      ? "bg-secondary-blue text-white shadow-sm"
-                      : "text-zinc-600 hover:text-zinc-950 hover:bg-white/60"
+                      ? "bg-secondary-blue brightness-100 z-10"
+                      : "bg-[#008ea8] hover:bg-[#009ebd] hover:brightness-105 opacity-95 hover:opacity-100"
                   }`}
                 >
-                  Tested and ready for scale-up
+                  <span className="leading-snug">TESTED AND READY FOR SCALE-UP</span>
+                  {activeTestSubTab === "tested" && (
+                    <span
+                      className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-[12px] border-x-transparent border-t-[10px] sm:border-x-[14px] sm:border-t-[12px] z-20 pointer-events-none"
+                      style={{ borderTopColor: "#00BBE2" }}
+                      aria-hidden="true"
+                    />
+                  )}
                 </button>
                 <button
                   type="button"
                   onClick={() => setActiveTestSubTab("designed")}
-                  className={`px-6 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer ${
+                  className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all cursor-pointer select-none flex items-center justify-center ${
                     activeTestSubTab === "designed"
-                      ? "bg-secondary-blue text-white shadow-sm"
-                      : "text-zinc-600 hover:text-zinc-950 hover:bg-white/60"
+                      ? "bg-secondary-blue brightness-100 z-10"
+                      : "bg-[#008ea8] hover:bg-[#009ebd] hover:brightness-105 opacity-95 hover:opacity-100"
                   }`}
                 >
-                  Designed to test
+                  <span className="leading-snug">DESIGNED TO TEST</span>
+                  {activeTestSubTab === "designed" && (
+                    <span
+                      className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-[12px] border-x-transparent border-t-[10px] sm:border-x-[14px] sm:border-t-[12px] z-20 pointer-events-none"
+                      style={{ borderTopColor: "#00BBE2" }}
+                      aria-hidden="true"
+                    />
+                  )}
                 </button>
               </div>
             </div>

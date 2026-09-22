@@ -188,25 +188,54 @@ export default function SolutionStageTemplate({
         </div>
       )}
 
-      {/* Sub-section Tabs when multiple subSections exist (e.g. Tested and ready for scale-up / Designed to test) */}
+      {/* Sub-section Header & Tabs Menu Bar when multiple subSections exist */}
       {subSections && subSections.length > 1 && (
-        <div className="max-w-4xl mx-auto w-full mb-12 flex justify-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 bg-zinc-100/90 rounded-full border border-zinc-200/80 w-full sm:w-auto shadow-2xs">
+        <div className="w-full max-w-4xl mx-auto mb-14 sm:mb-16 scroll-mt-28">
+          {/* Active Section Title */}
+          {(() => {
+            const currentSub = subSections.find((s, idx) => (s.subSectionId || String(idx)) === activeSubTab) || subSections[0];
+            const displayTitle = (currentSub.tabLabel || currentSub.subSectionTitle.replace(/^\d+\.\d+\s+/, "")).toUpperCase();
+            return (
+              <div className="mb-8 md:mb-10 text-center">
+                <h2 className="text-3xl sm:text-4xl md:text-[40px] font-extralight uppercase tracking-[0.16em] sm:tracking-[0.2em] text-secondary-blue font-equip">
+                  {displayTitle}
+                </h2>
+              </div>
+            );
+          })()}
+
+          {/* Contiguous Menu Bar */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 w-full shadow-xs">
             {subSections.map((sub, sIdx) => {
               const tabId = sub.subSectionId || String(sIdx);
               const isActive = activeSubTab === tabId;
-              const displayLabel = sub.tabLabel || sub.subSectionTitle.replace(/^\d+\.\d+\s+/, "");
+              const displayLabel = (sub.tabLabel || sub.subSectionTitle.replace(/^\d+\.\d+\s+/, "")).toUpperCase();
               return (
                 <button
                   key={sIdx}
                   type="button"
-                  onClick={() => setActiveSubTab(tabId)}
-                  className={`flex-1 sm:flex-initial px-6 py-2.5 sm:py-3 rounded-full font-equip text-[13.5px] sm:text-[14.5px] font-semibold tracking-wide transition-all duration-300 cursor-pointer text-center ${isActive
-                    ? "bg-secondary-blue text-white shadow-sm"
-                    : "text-zinc-600 hover:text-zinc-900 hover:bg-white/60"
-                    }`}
+                  onClick={() => {
+                    setActiveSubTab(tabId);
+                    if (sub.subSectionId) {
+                      window.history.replaceState(null, "", `#${sub.subSectionId}`);
+                    }
+                  }}
+                  className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all cursor-pointer select-none flex items-center justify-center ${
+                    isActive
+                      ? "bg-secondary-blue brightness-100 z-10"
+                      : "bg-[#008ea8] hover:bg-[#009ebd] hover:brightness-105 opacity-95 hover:opacity-100"
+                  }`}
                 >
-                  {displayLabel}
+                  <span className="leading-snug">{displayLabel}</span>
+
+                  {/* Downward pointing active arrow indicator */}
+                  {isActive && (
+                    <span
+                      className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-[12px] border-x-transparent border-t-[10px] sm:border-x-[14px] sm:border-t-[12px] z-20 pointer-events-none"
+                      style={{ borderTopColor: "#00BBE2" }}
+                      aria-hidden="true"
+                    />
+                  )}
                 </button>
               );
             })}
