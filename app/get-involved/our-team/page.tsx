@@ -246,15 +246,6 @@ function TeamPageContent() {
       list: teamMembersData
     },
     {
-      key: "us-board",
-      label: "POSSIBLE BOARD – US",
-      title: "POSSIBLE BOARD – US",
-      colorHex: "#782888",
-      bgClass: "bg-accent-purple",
-      activeColor: "purple" as const,
-      list: usBoardMembers
-    },
-    {
       key: "nepal-board",
       label: "SAMBHAV (POSSIBLE) BOARD – NEPAL",
       title: "SAMBHAV (POSSIBLE) BOARD – NEPAL",
@@ -262,22 +253,24 @@ function TeamPageContent() {
       bgClass: "bg-secondary-blue",
       activeColor: "blue" as const,
       list: nepalBoardMembers
+    },
+    {
+      key: "us-board",
+      label: "POSSIBLE BOARD – US",
+      title: "POSSIBLE BOARD – US",
+      colorHex: "#782888",
+      bgClass: "bg-accent-purple",
+      activeColor: "purple" as const,
+      list: usBoardMembers
     }
   ];
 
   const currentTab = tabs.find((t) => t.key === tabParam) || tabs[0];
   const activeMembers = currentTab.list;
   const activeColor = currentTab.activeColor;
-  const activeTitle = currentTab.title;
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-10 md:py-14 flex flex-col flex-1 bg-white">
-      {/* Section Header */}
-      <div className="mb-8 md:mb-10 text-center">
-        <h1 className="text-3xl sm:text-4xl md:text-[40px] font-extralight uppercase tracking-[0.16em] sm:tracking-[0.2em] text-[#782888] font-equip">
-          {activeTitle}
-        </h1>
-      </div>
 
       {/* Tabs Menu Bar */}
       <div id="team-tabs" className="w-full max-w-5xl mx-auto mb-14 sm:mb-16 scroll-mt-28">

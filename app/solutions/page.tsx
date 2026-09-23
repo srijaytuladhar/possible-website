@@ -234,14 +234,8 @@ export default function SolutionsPage() {
               </Link>
             </div>
 
-            {/* Sub-tab Header & Menu Bar */}
+            {/* Sub-tab Menu Bar */}
             <div className="w-full max-w-4xl mx-auto mb-14 sm:mb-16">
-              <div className="mb-8 md:mb-10 text-center">
-                <h3 className="text-2xl sm:text-3xl md:text-[34px] font-extralight uppercase tracking-[0.16em] sm:tracking-[0.2em] text-secondary-blue font-equip">
-                  {activeTestSubTab === "tested" ? "TESTED AND READY FOR SCALE-UP" : "DESIGNED TO TEST"}
-                </h3>
-              </div>
-
               <div className="grid grid-cols-1 sm:grid-cols-2 w-full shadow-xs">
                 <button
                   type="button"

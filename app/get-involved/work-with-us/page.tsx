@@ -2,57 +2,71 @@
 
 import { ChevronRight, Briefcase } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function WorkWithUsPage() {
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 md:py-16 flex flex-col flex-1 bg-white">
-      {/* Page Header */}
-      <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto">
-        <h1 className="h1-hero text-zinc-950 uppercase tracking-wide">
-          Work With Us
-        </h1>
-        <div className="h-1 w-16 bg-primary-pink mx-auto mt-4 rounded-full" />
+      {/* Page Hero Header with Image & Black Shade */}
+      <div className="relative w-full rounded-3xl overflow-hidden mb-12 md:mb-16 min-h-[220px] sm:min-h-[260px] md:min-h-[290px] flex items-center justify-center shadow-xs">
+        <Image
+          src="/who_we_are_team.jpg"
+          alt="Work With Us - Possible"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        {/* Black Shade Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* Content */}
+        <div className="relative z-10 text-center max-w-3xl mx-auto px-6 py-10">
+          <h1 className="h1-hero text-white uppercase tracking-wide drop-shadow-sm">
+            Work With Us
+          </h1>
+          <div className="h-1 w-16 bg-primary-pink mx-auto mt-4 rounded-full" />
+        </div>
       </div>
 
       <div className="space-y-16 animate-in fade-in duration-300">
-        {/* Value Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* Value Cards Grid (4 Cards: Rigor, Design Global Impact, Mentorship and Support, Accelerated Learning Curve) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {/* Card 1: Rigor. Respect. Results. */}
-          <div className="p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
+          <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
             <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
               Rigor. Respect. Results.
             </h3>
-            <p className="text-[14.5px] text-zinc-600 leading-relaxed font-light">
+            <p className="text-[14px] text-zinc-600 leading-relaxed font-light">
               We are defined by fierce rigor and deep respect. Our work is evidence-based, effective, and guided by core ethical values.
             </p>
           </div>
 
           {/* Card 2: Design Global Impact */}
-          <div className="p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
+          <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
             <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
               Design Global Impact
             </h3>
-            <p className="text-[14.5px] text-zinc-600 leading-relaxed font-light">
+            <p className="text-[14px] text-zinc-600 leading-relaxed font-light">
               Together, we design projects to reduce suffering at scale.
             </p>
           </div>
 
           {/* Card 3: Mentorship and Support */}
-          <div className="p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3 md:col-span-2 lg:col-span-1">
+          <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
             <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
               Mentorship and Support
             </h3>
-            <p className="text-[14.5px] text-zinc-600 leading-relaxed font-light">
+            <p className="text-[14px] text-zinc-600 leading-relaxed font-light">
               Our advisors, deeply familiar with Nepal’s health system and global best practices, provide coaching to support you on your career journey.
             </p>
           </div>
 
-          {/* Card 4: Accelerated Learning Curve with exact lettered list format */}
-          <div className="p-7 sm:p-8 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 md:col-span-2 lg:col-span-3 space-y-4">
-            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight">
+          {/* Card 4: Accelerated Learning Curve */}
+          <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
+            <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
               Accelerated learning curve
             </h3>
-            <ol className="space-y-2.5 text-[15px] sm:text-[16px] text-zinc-700 font-light pl-1">
+            <ol className="space-y-1.5 text-[14px] text-zinc-700 font-light pl-0.5">
               <li className="flex items-center gap-2">
                 <span className="font-semibold text-zinc-900">a.</span>
                 <span>Co-design</span>

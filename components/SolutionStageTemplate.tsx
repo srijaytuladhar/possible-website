@@ -84,7 +84,8 @@ export default function SolutionStageTemplate({
     { id: "scale", label: "Scale", href: "/solutions/scale", image: "/hero_complex_solve.jpg" },
   ];
 
-  const showStandaloneHeading = stageName && stageId !== "scale" && stageId !== "test";
+  const showStandaloneHeading =
+    stageName && stageId !== "scale" && stageId !== "test" && stageId !== "innovate";
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1 bg-white animate-in fade-in duration-300">
@@ -172,38 +173,27 @@ export default function SolutionStageTemplate({
         </div>
       </div>
 
-      {/* Stage Header with distinct editorial serif typography (hidden on Scale and Test pages per feedback) */}
+      {/* Stage Header (hidden on Scale, Test, and Innovate pages per feedback) */}
       {showStandaloneHeading && (
         <div className="max-w-4xl mx-auto w-full mb-12">
           <h1 className="font-serif font-light text-4xl sm:text-5xl uppercase tracking-wider leading-tight text-zinc-950">
             {stageName}
           </h1>
           <div className={`h-1.5 w-20 rounded-full bg-current ${colorClass} mt-3`} />
-
-          {introText && (
-            <p className="text-[16px] sm:text-[17px] text-zinc-700 leading-relaxed font-light mt-6 p-6 bg-zinc-50 rounded-2xl border border-zinc-150">
-              {introText}
-            </p>
-          )}
         </div>
       )}
 
-      {/* Sub-section Header & Tabs Menu Bar when multiple subSections exist */}
+      {introText && (
+        <div className="max-w-4xl mx-auto w-full mb-12">
+          <p className="text-[16px] sm:text-[17px] text-zinc-700 leading-relaxed font-light p-6 bg-zinc-50 rounded-2xl border border-zinc-150">
+            {introText}
+          </p>
+        </div>
+      )}
+
+      {/* Sub-section Tabs Menu Bar when multiple subSections exist */}
       {subSections && subSections.length > 1 && (
         <div className="w-full max-w-4xl mx-auto mb-14 sm:mb-16 scroll-mt-28">
-          {/* Active Section Title */}
-          {(() => {
-            const currentSub = subSections.find((s, idx) => (s.subSectionId || String(idx)) === activeSubTab) || subSections[0];
-            const displayTitle = (currentSub.tabLabel || currentSub.subSectionTitle.replace(/^\d+\.\d+\s+/, "")).toUpperCase();
-            return (
-              <div className="mb-8 md:mb-10 text-center">
-                <h2 className="text-3xl sm:text-4xl md:text-[40px] font-extralight uppercase tracking-[0.16em] sm:tracking-[0.2em] text-secondary-blue font-equip">
-                  {displayTitle}
-                </h2>
-              </div>
-            );
-          })()}
-
           {/* Contiguous Menu Bar */}
           <div className="grid grid-cols-1 sm:grid-cols-2 w-full shadow-xs">
             {subSections.map((sub, sIdx) => {

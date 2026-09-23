@@ -87,48 +87,55 @@ export default function FinancialsPage() {
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
-      {/* Page Header */}
-      <div className="mb-8 text-center max-w-3xl mx-auto">
-        <h1 className="h1-hero text-primary-pink mb-3 uppercase tracking-wide">
-          Financial Disclosure & Reports
-        </h1>
-        <p className="text-subheading text-body-gray font-light" hidden>
-          Access our audited financial statements, tax filings, conflict of interest disclosures, and governance policies.
-        </p>
-      </div>
+      {/* Tabs Menu Bar (Team Member's Style) */}
+      <div className="w-full max-w-4xl mx-auto mb-14 sm:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 w-full shadow-xs">
+          {/* Tab 1: Finance Disclosure */}
+          <button
+            type="button"
+            onClick={() => {
+              setActiveTab("disclosures");
+              setCurrentPage(1);
+            }}
+            className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all cursor-pointer select-none flex items-center justify-center bg-primary-pink ${
+              activeTab === "disclosures"
+                ? "brightness-100 z-10"
+                : "brightness-95 hover:brightness-105 opacity-95 hover:opacity-100"
+            }`}
+          >
+            <span className="leading-snug">Finance Disclosure</span>
+            {activeTab === "disclosures" && (
+              <span
+                className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-[12px] border-x-transparent border-t-[10px] sm:border-x-[14px] sm:border-t-[12px] z-20 pointer-events-none"
+                style={{ borderTopColor: "#ED2E84" }}
+                aria-hidden="true"
+              />
+            )}
+          </button>
 
-      {/* Tab Switcher Buttons */}
-      <div className="w-full max-w-2xl mx-auto flex flex-col sm:flex-row shadow-sm mb-12 rounded-lg border border-zinc-200 bg-white relative">
-        <button
-          onClick={() => {
-            setActiveTab("disclosures");
-            setCurrentPage(1);
-          }}
-          className={`flex-1 py-4 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-t-lg sm:rounded-tr-none sm:rounded-l-lg ${activeTab === "disclosures"
-            ? "bg-primary-pink text-white shadow-inner"
-            : "bg-white text-primary-pink border-b sm:border-b-0 sm:border-r border-zinc-200 hover:bg-zinc-50/80"
+          {/* Tab 2: Financial Reports */}
+          <button
+            type="button"
+            onClick={() => {
+              setActiveTab("reports");
+              setCurrentPage(1);
+            }}
+            className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all cursor-pointer select-none flex items-center justify-center bg-accent-purple ${
+              activeTab === "reports"
+                ? "brightness-100 z-10"
+                : "brightness-95 hover:brightness-105 opacity-95 hover:opacity-100"
             }`}
-        >
-          Finance Disclosure
-          {activeTab === "disclosures" && (
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-primary-pink z-10 animate-in fade-in duration-200" />
-          )}
-        </button>
-        <button
-          onClick={() => {
-            setActiveTab("reports");
-            setCurrentPage(1);
-          }}
-          className={`flex-1 py-4 text-center uppercase text-[12.5px] font-bold tracking-wider transition-all relative cursor-pointer rounded-b-lg sm:rounded-bl-none sm:rounded-r-lg ${activeTab === "reports"
-            ? "bg-primary-pink text-white shadow-inner"
-            : "bg-white text-primary-pink hover:bg-zinc-50/80"
-            }`}
-        >
-          Financial Reports
-          {activeTab === "reports" && (
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-primary-pink z-10 animate-in fade-in duration-200" />
-          )}
-        </button>
+          >
+            <span className="leading-snug">Financial Reports</span>
+            {activeTab === "reports" && (
+              <span
+                className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-[12px] border-x-transparent border-t-[10px] sm:border-x-[14px] sm:border-t-[12px] z-20 pointer-events-none"
+                style={{ borderTopColor: "#782888" }}
+                aria-hidden="true"
+              />
+            )}
+          </button>
+        </div>
       </div>
 
       <div className="bg-zinc-100/70 p-8 sm:p-10 rounded-3xl border border-zinc-200/50 animate-in fade-in duration-300 space-y-16">
