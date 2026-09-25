@@ -169,7 +169,7 @@ For the full unredacted publication, raw datasets, or partnership inquiries, ple
             <div className="relative h-48 sm:h-60 w-full mb-8 rounded-xl overflow-hidden bg-zinc-100 border border-zinc-150 shadow-inner">
               <Image
                 src={{
-                  impact: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&h=400&q=80",
+                  impact: "2025 AIR_.png",
                   financial: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&h=400&q=80",
                   brief: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&h=400&q=80",
                   paper: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&h=400&q=80",
