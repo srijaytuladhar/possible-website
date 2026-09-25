@@ -10,7 +10,7 @@ export default function WorkWithUsPage() {
       {/* Page Hero Header with Image & Black Shade */}
       <div className="relative w-full rounded-3xl overflow-hidden mb-12 md:mb-16 min-h-[220px] sm:min-h-[260px] md:min-h-[290px] flex items-center justify-center shadow-xs">
         <Image
-          src="/who_we_are_team.jpg"
+          src="/Possible_annual planning 2025.jpg"
           alt="Work With Us - Possible"
           fill
           priority
