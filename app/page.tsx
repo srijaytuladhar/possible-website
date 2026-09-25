@@ -61,7 +61,36 @@ export default function Home() {
           </div>
         </div>
       </section>
+ {/* SECTION 5 — Mission / Himalayas / Rooted in Community */}
+      <section className="relative py-20 px-6 sm:px-8 overflow-hidden bg-zinc-50 border-b border-zinc-100">
+        <div className="absolute top-[-10%] right-[-5%] w-[35rem] h-[35rem] rounded-full bg-radial from-secondary-blue/10 to-transparent blur-3xl -z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.2] -z-20 pointer-events-none" />
 
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Column: Image */}
+            <div className="lg:col-span-6">
+              <div className="relative w-full aspect-[6/4.5] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group">
+                <Image
+                  src={HIMALAYA_SECTION_IMAGE}
+                  alt="A mother in rural foothills of the Himalayas receiving healthcare consultation"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-102"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
+            {/* Right Column: Text Content */}
+            <div className="lg:col-span-6 flex flex-col justify-center space-y-4">
+              <p className="text-zinc-900 leading-relaxed font-light text-justify sm:text-left text-[22px] sm:text-[25px] md:text-[27px]">
+                A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence amd built to reach everyone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* SECTION 4 — Three Stage Dynamic Process Boxes (Innovate -> Test -> Scale) */}
       <section className="relative py-20 px-6 sm:px-8 bg-white border-b border-zinc-100 overflow-hidden">
         <div className="absolute top-[10%] left-[-5%] w-[30rem] h-[30rem] rounded-full bg-radial from-primary-pink/5 to-transparent blur-3xl -z-10 pointer-events-none" />
@@ -129,35 +158,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 5 — Mission / Himalayas / Rooted in Community */}
-      <section className="relative py-20 px-6 sm:px-8 overflow-hidden bg-zinc-50 border-b border-zinc-100">
-        <div className="absolute top-[-10%] right-[-5%] w-[35rem] h-[35rem] rounded-full bg-radial from-secondary-blue/10 to-transparent blur-3xl -z-10 pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.2] -z-20 pointer-events-none" />
-
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Column: Image */}
-            <div className="lg:col-span-6">
-              <div className="relative w-full aspect-[6/4.5] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group">
-                <Image
-                  src={HIMALAYA_SECTION_IMAGE}
-                  alt="A mother in rural foothills of the Himalayas receiving healthcare consultation"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-102"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-
-            {/* Right Column: Text Content */}
-            <div className="lg:col-span-6 flex flex-col justify-center space-y-4">
-              <p className="text-zinc-900 leading-relaxed font-light text-justify sm:text-left text-[22px] sm:text-[25px] md:text-[27px]">
-                A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence amd built to reach everyone.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+     
 
       {/* SECTION 6 — WHO WE ARE */}
       <section className="relative py-20 px-6 sm:px-8 bg-white border-b border-zinc-100 overflow-hidden" id="who-we-are">
