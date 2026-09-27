@@ -66,13 +66,7 @@ export default function Home() {
         <div className="absolute top-[-10%] right-[-5%] w-[35rem] h-[35rem] rounded-full bg-radial from-secondary-blue/10 to-transparent blur-3xl -z-10 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.2] -z-20 pointer-events-none" />
         
-{/* Text Content Below Image */}
-          <div className="max-w-4xl text-center">
-            <p className="text-zinc-900 leading-relaxed font-light text-[22px] sm:text-[25px] md:text-[27px]">
-              A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence amd built to reach everyone.
-            </p>
-          </div>
-        </div>
+
 
       
         <div className="mx-auto max-w-7xl flex flex-col items-center">
@@ -87,7 +81,13 @@ export default function Home() {
               priority
             />
           </div>
-
+{/* Text Content Below Image */}
+          <div className="max-w-4xl text-center">
+            <p className="text-zinc-900 leading-relaxed font-light text-[22px] sm:text-[25px] md:text-[27px]">
+              A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence amd built to reach everyone.
+            </p>
+          </div>
+        </div>
           
       </section>
       
