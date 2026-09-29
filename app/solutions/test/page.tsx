@@ -72,7 +72,7 @@ export default function TestPage() {
           title: "COMMIT",
           subtitle: "Improving treatment compliance using mHealth app",
           description: [
-            "COMMIT is an mHealth app co-designed with people with lived experience, health care workers, and government to help providers motivate patients to stay engaged in treatment. Tested through the CHW network among young people living with HIV and patients with depression at different stages, with observed improvements in treatment compliance over time."
+            "COMMIT is a mHealth app designed with people with lived experience, health care workers and government to support healthcare providers in motivating patients to stay engaged in their treatment and care. We have tested this app through the network of our community health workers among young people living with HIV, patients with depression in different stages, and have observed improved treatment compliance over the time."
           ],
           image: "/solutions_test/COMMIT.jpg",
           publications: [
@@ -92,11 +92,11 @@ export default function TestPage() {
         },
         {
           id: "perinatal-mh",
-          title: "PERINATAL-MH",
+          title: "PERINATAL-Mental Health",
           subtitle: "Integrating perinatal mental health into Community Health Worker-led longitudinal care",
           description: [
             "Perinatal mental health is a major yet persistently neglected global health gap.Yet many women remain undetected and untreated due to limited screening, specialist capacity, and weak integration of mental health into routine perinatal care.",
-            "Longitudinal community health worker(CHW) programs provide an opportunity to integrate mental health support into routine care and reach women across the perinatal period. We integrate mental health support into routine care and reach women across the preinatal period. We integrated the WHO Thinking Healthy Programme (THP), an evidence-based intervention for perinatal depression, into an existing CHW-delivered longitudinal care model in rural Nepal. Rather than delivering mental health care as a separate service, the approach embeds THP within ongoing contacts between CHWs and women, supporting continuity of care while reducing the stigma associated with seeking mental health services. We evaluated this integrated model to assess its feasibility, acceptability, and potential to strenghten access to perinatal mental health care through existing community-based longitudinal care systems."
+            "Longitudinal community health worker(CHW) programs provide an opportunity to integrate mental health support into routine care and reach women across the perinatal period. We integrated the WHO Thinking Healthy Programme (THP), an evidence-based intervention for perinatal depression, into an existing CHW-delivered longitudinal care model in rural Nepal. Rather than delivering mental health care as a separate service, the approach embeds THP within ongoing contacts between CHWs and women, supporting continuity of care while reducing the stigma associated with seeking mental health services. We evaluated this integrated model to assess its feasibility, acceptability, and potential to strenghten access to perinatal mental health care through existing community-based longitudinal care systems."
           ],
           image: "/solutions_test/Perinatal-MH.jpeg",
           publications: [
@@ -117,7 +117,7 @@ export default function TestPage() {
               link: "https://doi.org/10.1186/s12982-025-00645-z"
             },
             {
-              title: "Beyond Maternal and Child Health: Refining CHW Models for Chronic and Life Course Approaches to Care. Current Opinion in Epidemiology and Public Health (awaiting online publication).",
+              title: "Beyond Maternal and Child Health: Refining CHW Models for Chronic and Life Course Approaches to Care. Current Opinion in Epidemiology and Public Health Systems Through Longitudinal Care",
               link: "https://pubmed.ncbi.nlm.nih.gov/?term=Possible+Health+Nepal+CHW"
             },
             {
@@ -140,8 +140,8 @@ export default function TestPage() {
           title: "INCLUDE",
           subtitle: "Addressing intersectional stigma and improving HIV care",
           description: [
-            "About one-third of people living with HIV stop taking their medication because they fear others may find out about their HIV status (2022) especially common among minority groups and people facing mental health challenges.",
-            "INCLUDE is a digital tool co-designed with government and communities, including people with lived experience, to identify and reduce stigma in HIV clinics and address discrimination tied to gender, race, and mental health. Currently being tested in four HIV treatment centers to explore acceptability, feasibility, and usefulness."
+            "About one-third of people living with HIV stop taking their medication because they fear others may find out about their HIV status (NAP+N, 2022). This is especially common among minority groups and people facing mental health challenges.",
+            "INCLUDE is a digital tool co-designed with government and communities, including people with lived experiences to identify and reduce stigma in HIV clinics, improving care for people living with HIV and addressing discrimination tied to gender, race, and mental health. We are currently testing INCLUDE in four HIV treatment centers to explore if it is acceptable, feasible and helpful to use in improving HIV care and support."
           ],
           image: "/solutions_test/INCLUDE.jpg",
           publications: [
@@ -165,7 +165,7 @@ export default function TestPage() {
           subtitle: "Reimagining suicide care for scale in primary health care",
           description: [
             "Southeast Asia has the highest suicide mortality rate globally, at 17.7 deaths per 100,000 population (WHO, 2019). In Nepal, suicide ideation is highly prevalent, yet help-seeking remains extremely low, highlighting an urgent need to strengthen access to effective suicide care within primary health care.",
-            "This project is reimagining how suicide care can be delivered at scale by adapting and strengthening the WHO mhGAP suicide management approach to local cultural and health-system context. We first conducted a qualitative formative evaluation of the mhGAP suicide module, followed by a co-designed, culturally grounded suicide management package integrating locally appropriate risk assessment and safety-planning strategies."
+            "This project is reimagining how suicide care can be delivered at scale by adapting and strengthening the WHO mhGAP suicide management approach to local cultural and health-system context. We first conducted a qualitative formative evaluation of the mhGAP suicide module in primary care settings and together with key stakeholders, co-designed a culturally grounded suicide management package that integrates locally appropriate risk assessment and safety-planning strategies. By testing what works and how it can be implemented at scale, the project aims to support wider integration of suicide care into primary health care."
           ],
           image: "/solutions_test/P supp.JPG"
         },
@@ -174,7 +174,7 @@ export default function TestPage() {
           title: "BECOME-D",
           subtitle: "Dementia support intervention for older adults and their caregivers at home",
           description: [
-            "A home-based behavioral care program developed to support older adults and their caregivers.It was co-created with an expert panel of advisors, comprising clinicians, caregivers, community stakeholders, and persons with lived experience. The program helps families manage dementia-related challenges and stress while improving quality of life and daily functioning.",
+            "A home-based behavioral care program developed to support older adults and their caregivers. It was co-created with an expert panel of advisors, comprising clinicians, caregivers, community stakeholders, and persons with lived experience. The program helps families manage dementia-related challenges and stress while improving quality of life and daily functioning."
             "Early pilot implementation demonstrated acceptability and feasibility, with promising potential for further testing and scale-up."
           ],
           image: "/solutions_test/BECOME D.jpg",
@@ -203,7 +203,7 @@ export default function TestPage() {
         },
         {
           id: "chissa",
-          title: "CHISSA",
+          title: "Chissa",
           subtitle: "Advancing suicide prevention through personalized digital support",
           description: [
             "Chissa advances suicide prevention through personalized, just-in-time digital support. Named after a colloquial expression of love and admiration used within Nepali GBMSM communities, \"Chissa\" reflects a compassionate, community-centered approach to suicide prevention.",
@@ -212,13 +212,19 @@ export default function TestPage() {
           image: "/solutions_test/CHISSA.JPG",
           publications: [
             {
-              title: "Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men in Nepal: findings from an online national survey.",
-              link: "https://doi.org/10.1038/s41598-025-92449-z"
-            },
-            {
               title: "Preferences for mHealth Intervention to Address Mental Health Challenges Among Men Who Have Sex With Men in Nepal: Qualitative Study.",
               link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11015371/"
+            },
+             {
+              title: "Suicidal ideation, plan, and attempt among men who have sex with men in Nepal.",
+              link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10664887/"
             }
+            {
+              title: "Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men in Nepal: findings from an online national survey.",
+              link: "https://doi.org/10.1038/s41598-025-92449-z"
+            }
+             
+           
           ]
         }
       ]
