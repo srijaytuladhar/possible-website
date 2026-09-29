@@ -16,8 +16,8 @@ export default function TestPage() {
           title: "MILAP",
           subtitle: "For intimate partner violence and mental health",
           description: [
-            "Women in low- and middle-income countries like Nepal often live in multi-generational households where IPV dynamics are influenced by multiple key family members (Pun et al., 2019; Shai et al., 2019).", 
-            "MILAP is a family-based intervention engaging women, their husbands, and mothers-in-law (MILs) to reduce IPV and improve mental well-being among married women.",
+            "Women in low- and middle-income countries like Nepal have fewer options to leave abusive relationships and often live in multi-generational households where IPV dynamics is influenced by multiple key family members (Pun et al., 2019; Shai et al., 2019).", 
+            "MILAP is a family-based intervention engages women experiencing IPV, their husbands, and mothers-in-law (MILs) to reduce IPV and improve mental well-being among married women.",
             "It comprises nine sessions on communication, stress and emotion management, and building healthier relationships. After two successful pilot studies, MILAP is now being tested through a randomized controlled trial with 300 families in Nepal, a five-year study funded by the National Institute of Mental Health."
           ],
           image: "/solutions_test/MILAP.jpg",
@@ -45,8 +45,7 @@ export default function TestPage() {
           title: "BECOME",
           subtitle: "Bringing integrated mental health and NCD care closer to home",
           description: [
-            "Expanding Nepal's national community health worker program to deliver home-based care for chronic conditions and mental health. BECOME brings evidence-based behavioral support for common mental health conditions and non-communicable diseases into communities through trained, full-time, supervised, and digitally enabled CHWs, combining stress reduction, behavioral activation, and motivational interviewing.",
-            "CHWs conduct screening, behavioral intervention, and follow-up for diabetes, hypertension, depression, and anxiety, supported by the Community Health Information System (CHIS)."
+            "Expanding Nepal's national community health worker program to deliver home-based care for chronic conditions and mental health conditions and non-communicable diseases into communities through trained, full time, trained, supervises, and digitally enabled CHWs. The intervention combines stress reduction, behavioral activation, and digitally enabled CHWs.The intervention combines stress reduction, behavioral activation, and motivational interviewing to support people with conditions such as depression, anxiety, hypertension, depression, and anxiety, supported by the Community Health Information System (CHIS) for data-driven care."
           ],
           image: "/solutions_test/BECOME.jpg",
           publications: [
