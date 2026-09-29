@@ -62,7 +62,7 @@ export default function TestPage() {
               link: "https://pubmed.ncbi.nlm.nih.gov/37858578/"
             },
             {
-              title: "Strengthening Community Health Systems Through Longitudinal Care.",
+              title: "Strengthening community health system through longitudinal care: From pilot to scale",
               link: "/solutions/scale#longitudinal-care"
             }
           ]
