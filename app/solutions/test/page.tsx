@@ -50,7 +50,7 @@ export default function TestPage() {
           image: "/solutions_test/BECOME.jpg",
           publications: [
             {
-              title: "A type II hybrid implementation-effectiveness study of the BECOME intervention: integrating Behavioral Community-Based Approaches for Mental Health and Non-Communicable Diseases delivered by community health workers — study protocol for a stepped wedge cluster randomized controlled trial.",
+              title: "Strengthening Community Health Systems Through Longitudinal Care",
               link: "https://pubmed.ncbi.nlm.nih.gov/41580851/"
             },
             {
