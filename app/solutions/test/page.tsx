@@ -18,8 +18,7 @@ export default function TestPage() {
           description: [
             "Women in low- and middle-income countries like Nepal often live in multi-generational households where IPV dynamics are influenced by multiple key family members (Pun et al., 2019; Shai et al., 2019).", 
             "MILAP is a family-based intervention engaging women, their husbands, and mothers-in-law (MILs) to reduce IPV and improve mental well-being among married women.",
-            "It comprises nine sessions on communication, stress and emotion management, and building healthier relationships."
-            "After two successful pilot studies, MILAP is now being tested through a randomized controlled trial with 300 families in Nepal, a five-year study funded by the National Institute of Mental Health."
+            "It comprises nine sessions on communication, stress and emotion management, and building healthier relationships. After two successful pilot studies, MILAP is now being tested through a randomized controlled trial with 300 families in Nepal, a five-year study funded by the National Institute of Mental Health."
           ],
           image: "/solutions_test/MILAP.jpg",
           publications: [
