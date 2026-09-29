@@ -19,6 +19,10 @@ export default function ScalePage() {
           title: "A Type II hybrid effectiveness-implementation study of an integrated CHW intervention to address maternal healthcare in rural Nepal.",
           link: "https://doi.org/10.1371/journal.pgph.0001512"
         },
+          {
+          title: "Comparing two data collection methods to track vital events in maternal and child health via community health workers in rural Nepal.",
+          link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9327361/"
+        },
         {
           title: "Costing Analysis of a Pilot Community Health Worker Program in Rural Nepal.",
           link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7326517/"
@@ -34,11 +38,8 @@ export default function ScalePage() {
         {
           title: "Labour conditions in dual-cadre community health worker programs: a systematic review.",
           link: "https://www.thelancet.com/action/showPdf?pii=S2214-109X%2823%2900357-1"
-        },
-        {
-          title: "Comparing two data collection methods to track vital events in maternal and child health via community health workers in rural Nepal.",
-          link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9327361/"
         }
+      
       ]
     },
     {
