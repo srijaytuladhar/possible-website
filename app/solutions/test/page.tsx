@@ -174,7 +174,7 @@ export default function TestPage() {
           title: "BECOME-D",
           subtitle: "Dementia support intervention for older adults and their caregivers at home",
           description: [
-            "A home-based behavioral care program developed to support older adults and their caregivers. It was co-created with an expert panel of advisors, comprising clinicians, caregivers, community stakeholders, and persons with lived experience. The program helps families manage dementia-related challenges and stress while improving quality of life and daily functioning."
+            "A home-based behavioral care program developed to support older adults and their caregivers. It was co-created with an expert panel of advisors, comprising clinicians, caregivers, community stakeholders, and persons with lived experience. The program helps families manage dementia-related challenges and stress while improving quality of life and daily functioning.",
             "Early pilot implementation demonstrated acceptability and feasibility, with promising potential for further testing and scale-up."
           ],
           image: "/solutions_test/BECOME D.jpg",
@@ -218,7 +218,7 @@ export default function TestPage() {
              {
               title: "Suicidal ideation, plan, and attempt among men who have sex with men in Nepal.",
               link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10664887/"
-            }
+            },
             {
               title: "Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men in Nepal: findings from an online national survey.",
               link: "https://doi.org/10.1038/s41598-025-92449-z"

@@ -70,22 +70,23 @@ export default function Home() {
 
       
         <div className="mx-auto max-w-7xl flex flex-col items-center">
-          {/* Mountain Image - Full Width Above */}
-          <div className="relative w-full aspect-[16/9] md:aspect-[2/1] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group mb-8 sm:mb-10">
+          {/* Copy Above Image */}
+          <div className="max-w-3xl text-center mb-10">
+            <p className="text-zinc-900 leading-relaxed font-light text-[20px] sm:text-[23px] md:text-[25px] px-2 sm:px-4">
+              A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence amd built to reach everyone.
+            </p>
+          </div>
+
+          {/* Mountain Image */}
+          <div className="relative w-full max-w-3xl aspect-[6.5/4.3] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group">
             <Image
               src={HIMALAYA_SECTION_IMAGE}
               alt="Foothills of the Himalayas"
               fill
               className="object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-101"
-              sizes="(max-width: 1280px) 100vw, 1280px"
+              sizes="(max-width: 1024px) 100vw, 70vw"
               priority
             />
-          </div>
-{/* Text Content Below Image */}
-          <div className="max-w-4xl text-center">
-            <p className="text-zinc-900 leading-relaxed font-light text-[22px] sm:text-[25px] md:text-[27px]">
-              A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence amd built to reach everyone.
-            </p>
           </div>
         </div>
           
