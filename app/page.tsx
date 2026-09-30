@@ -80,7 +80,7 @@ export default function Home() {
           {/* Mountain Image */}
           <div className="relative w-full max-w-3xl aspect-[6.5/4.3] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group">
             <Image
-              src={HIMALAYA_SECTION_IMAGE}
+              src={public/New_Photo/a mother in rural foothills}
               alt="Foothills of the Himalayas"
               fill
               className="object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-101"
