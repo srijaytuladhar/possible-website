@@ -1,6 +1,6 @@
 "use client";
 
-import { X, Download, Printer, FileText, CheckCircle2, TrendingUp, Calendar, Tag, ShieldCheck } from "lucide-react";
+import { X, Download, Printer, FileText, CheckCircle2, TrendingUp, Calendar, Tag, ShieldCheck, ExternalLink } from "lucide-react";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 
@@ -10,6 +10,7 @@ interface Report {
   date: string;
   type: string;
   link: string;
+  pdfFilename?: string;
 }
 
 interface ReportViewerModalProps {
@@ -38,6 +39,8 @@ export default function ReportViewerModal({ isOpen, onClose, report, category }:
   }, [isOpen, onClose]);
 
   if (!isOpen || !report) return null;
+
+  const isPdf = Boolean(report.link && (report.link.startsWith("/annual-impact-report/") || report.link.toLowerCase().endsWith(".pdf")));
 
   // Theme matching based on category
   const theme = {
@@ -72,10 +75,25 @@ export default function ReportViewerModal({ isOpen, onClose, report, category }:
   }[category];
 
   const handlePrint = () => {
-    window.print();
+    if (isPdf) {
+      window.open(report.link, "_blank");
+    } else {
+      window.print();
+    }
   };
 
   const handleDownload = () => {
+    if (isPdf) {
+      const a = document.createElement("a");
+      a.href = report.link;
+      const downloadName = report.pdfFilename || report.link.split("/").pop() || `${report.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.pdf`;
+      a.download = downloadName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      return;
+    }
+
     const content = `
 POSSIBLE HEALTH PUBLICATION REPORT
 ==================================
@@ -120,38 +138,51 @@ For the full unredacted publication, raw datasets, or partnership inquiries, ple
       {/* Modal Container */}
       <div 
         ref={modalRef}
-        className="relative w-full max-w-4xl max-h-[90vh] flex flex-col bg-white rounded-3xl shadow-2xl border border-zinc-100 overflow-hidden z-10 animate-in zoom-in-95 duration-300"
+        className={`relative w-full ${isPdf ? "max-w-5xl h-[90vh]" : "max-w-4xl max-h-[90vh]"} flex flex-col bg-white rounded-3xl shadow-2xl border border-zinc-100 overflow-hidden z-10 animate-in zoom-in-95 duration-300`}
       >
         {/* Modal Header Toolbar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-100 bg-zinc-50/80 backdrop-blur-sm">
-          <div className="flex items-center gap-3">
-            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${theme.bg} ${theme.color} border ${theme.border}`}>
+        <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-100 bg-zinc-50/80 backdrop-blur-sm shrink-0">
+          <div className="flex items-center gap-3 min-w-0">
+            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${theme.bg} ${theme.color} border ${theme.border} shrink-0`}>
               <FileText className="h-3.5 w-3.5" />
               {theme.label}
             </span>
             <span className="hidden sm:inline text-xs text-zinc-400 font-medium">|</span>
-            <span className="hidden sm:inline text-xs text-zinc-500 font-semibold uppercase tracking-wider">{report.date} Publication</span>
+            <span className="text-xs sm:text-sm font-semibold text-zinc-900 truncate">
+              {report.title}
+            </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
+            {isPdf && (
+              <a
+                href={report.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-xl text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 transition-colors"
+                title="Open PDF in new tab"
+              >
+                <ExternalLink className="h-4.5 w-4.5" />
+              </a>
+            )}
             <button
               onClick={handlePrint}
-              className="p-2 rounded-xl text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 transition-colors"
+              className="p-2 rounded-xl text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 transition-colors cursor-pointer"
               title="Print Report"
             >
               <Printer className="h-4.5 w-4.5" />
             </button>
             <button
               onClick={handleDownload}
-              className="p-2 rounded-xl text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 transition-colors"
-              title="Download TXT Report"
+              className="p-2 rounded-xl text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 transition-colors cursor-pointer"
+              title={isPdf ? "Download PDF Report" : "Download TXT Report"}
             >
               <Download className="h-4.5 w-4.5" />
             </button>
             <div className="h-6 w-px bg-zinc-200 mx-1" />
             <button
               onClick={onClose}
-              className="p-2 rounded-xl text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100 transition-colors duration-200 hover:rotate-90"
+              className="p-2 rounded-xl text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100 transition-colors duration-200 hover:rotate-90 cursor-pointer"
               aria-label="Close modal"
             >
               <X className="h-5 w-5" />
@@ -159,11 +190,20 @@ For the full unredacted publication, raw datasets, or partnership inquiries, ple
           </div>
         </div>
 
-        {/* Modal Body / Report Paper */}
-        <div className="flex-1 overflow-y-auto bg-zinc-50/50 p-6 sm:p-10 md:p-12">
-          <div className="relative mx-auto max-w-3xl bg-white border border-zinc-200 rounded-2xl shadow-sm p-6 sm:p-10 md:p-12 print:border-none print:shadow-none overflow-hidden">
-            {/* Color Accent Bar */}
-            <div className={`absolute top-0 left-0 right-0 h-2.5 ${theme.accent}`} />
+        {/* Modal Body: If PDF, render iframe directly */}
+        {isPdf ? (
+          <div className="flex-1 w-full bg-zinc-100 relative overflow-hidden flex flex-col">
+            <iframe
+              src={`${report.link}#toolbar=1`}
+              className="w-full flex-1 border-0"
+              title={report.title}
+            />
+          </div>
+        ) : (
+          <div className="flex-1 overflow-y-auto bg-zinc-50/50 p-6 sm:p-10 md:p-12">
+            <div className="relative mx-auto max-w-3xl bg-white border border-zinc-200 rounded-2xl shadow-sm p-6 sm:p-10 md:p-12 print:border-none print:shadow-none overflow-hidden">
+              {/* Color Accent Bar */}
+              <div className={`absolute top-0 left-0 right-0 h-2.5 ${theme.accent}`} />
 
             {/* Document Cover Image */}
             <div className="relative h-48 sm:h-60 w-full mb-8 rounded-xl overflow-hidden bg-zinc-100 border border-zinc-150 shadow-inner">
@@ -335,6 +375,7 @@ For the full unredacted publication, raw datasets, or partnership inquiries, ple
             </div>
           </div>
         </div>
+      )}
 
         {/* Modal Footer */}
         <div className="px-6 py-4 border-t border-zinc-100 bg-zinc-50 flex justify-end gap-3">

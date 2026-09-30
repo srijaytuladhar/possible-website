@@ -11,29 +11,114 @@ export default function ImpactReportsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const reports = [
-    { title: "2025 Annual Impact Report", desc: "2025 Annual Impact Report", date: "November 18, 2025, 10:15 AM", type: "PDF Report", link: "/reports/annual-impact-2025.pdf", cover: "/2025 AIR_.png" },
-    { title: "2024 Annual Impact Report", desc: "2024 Annual Impact Report", date: "November 12, 2024, 10:15 AM", type: "PDF Report", link: "/reports/annual-impact-2024.pdf", cover: "/2024 AIR.png" },
-    { title: "2023 Annual Impact Report", desc: "2023 Annual Impact Report", date: "May 08, 2024, 4:45 PM", type: "PDF Report", link: "/reports/maternal-care-2024.pdf", cover: "/2023 AIR.png" },
-    { title: "2022 Annual Impact Report", desc: "2022 Annual Impact Report", date: "October 20, 2023, 9:00 AM", type: "PDF Report", link: "/reports/chis-pilot-2023.pdf", cover: "/2022 AIR.png" },
-    { title: "2021 Annual Impact Report", desc: "2021 Annual Impact Report", date: "August 14, 2023, 11:30 AM", type: "PDF Report", link: "/reports/chronic-disease-2023.pdf", cover: "/2021 AIR.png" },
-    { title: "2020 Annual Impact Report", desc: "2020 Annual Impact Report", date: "February 05, 2023, 3:15 PM", type: "PDF Report", link: "/reports/mental-health-2023.pdf", cover: "/2018 AIR.png" },
-    { title: "2019 Annual Impact Report", desc: "2019 Annual Impact Report", date: "December 15, 2022, 10:00 AM", type: "PDF Report", link: "/reports/annual-impact-2022.pdf", cover: "/2017 AIR.png" },
-    { title: "2018 Annual Impact Report", desc: "2018 Annual Impact Report", date: "June 22, 2022, 1:30 PM", type: "PDF Report", link: "/reports/maternal-child-2022.pdf", cover: "/2016 AIR.png" },
-    { title: "2017 Annual Impact Report", desc: "2017 Annual Impact Report", date: "September 09, 2021, 5:00 PM", type: "PDF Report", link: "/reports/covid-response-2021.pdf", cover: "/2015 AIR.png" },
-    //{ title: "2016 Annual Impact Report", desc: "2016 Annual Impact Report", date: "January 15, 2021, 11:00 AM", type: "PDF Report", link: "/reports/annual-impact-2021.pdf", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" },
-    // Archive items
-   // { title: "Non-Communicable Diseases (NCD) Care Protocol Assessment", desc: "Standardizing clinical treatment packages for community health workers.", date: "October 10, 2020, 2:15 PM", type: "PDF Report", link: "/reports/ncd-protocol-2020.pdf", cover: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&h=350&q=80" },
-    //{ title: "2020 Annual Impact Report", desc: "Yearly progress report highlighting our shift towards research-backed models.", date: "April 02, 2020, 9:45 AM", type: "PDF Report", link: "/reports/annual-impact-2020.pdf", cover: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&h=350&q=80" },
-    //{ title: "Maternal Health Community Follow-Up Study", desc: "Assessing post-partum home visits and child health monitoring guides.", date: "January 12, 2020, 11:00 AM", type: "PDF Report", link: "/reports/maternal-follow-2020.pdf", cover: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&h=350&q=80" },
-    //{ title: "2019 Annual Impact Report", desc: "Evaluating clinical services transition to municipal management platforms.", date: "November 14, 2019, 2:30 PM", type: "PDF Report", link: "/reports/annual-impact-2019.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    //{ title: "Achham Hospital Emergency Rehabilitation Study", desc: "A review of facility upgrades, medical supplies, and staffing benchmarks.", date: "August 09, 2019, 4:15 PM", type: "PDF Report", link: "/reports/achham-rehab-2019.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
-    //{ title: "Integrated Health Post Infrastructure Audit", desc: "Assessing diagnostics and pharmacy supply chains across partner sites.", date: "May 20, 2019, 10:00 AM", type: "PDF Report", link: "/reports/infrastructure-audit-2019.pdf", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" },
-    //{ title: "2018 Annual Impact & Metrics Overview", desc: "Reviewing patient referral loops, surgical statistics, and clinical indicators.", date: "December 15, 2018, 9:00 AM", type: "PDF Report", link: "/reports/annual-impact-2018.pdf", cover: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&h=350&q=80" },
-    //{ title: "Collaborative Mental Health Model: Implementation Brief", desc: "Training guidelines for counseling integration in non-specialist settings.", date: "October 08, 2018, 1:45 PM", type: "PDF Report", link: "/reports/mental-health-brief-2018.pdf", cover: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&h=350&q=80" },
-    //{ title: "Digital Health Dashboards: User Adoption Study", desc: "Evaluating clinic staff interaction with custom electronic records interfaces.", date: "July 12, 2018, 3:30 PM", type: "PDF Report", link: "/reports/dashboard-adoption-2018.pdf", cover: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&h=350&q=80" },
-    //{ title: "2017 Annual Impact Report", desc: "Summarizing hospital volume shifts and early results of community care trials.", date: "November 20, 2017, 11:30 AM", type: "PDF Report", link: "/reports/annual-impact-2017.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    //{ title: "Neonatal Health Outcomes & Interventions Report", desc: "Assessing neonatal survival rates and mid-wife training impact in rural districts.", date: "April 11, 2017, 1:15 PM", type: "PDF Report", link: "/reports/neonatal-outcomes-2017.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
-    //{ title: "2016 Annual Impact & Performance Assessment", desc: "Detailed records of clinical volume and public funding matching outcomes.", date: "December 14, 2016, 10:00 AM", type: "PDF Report", link: "/reports/annual-impact-2016.pdf", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" }
+    {
+      title: "2025 Annual Impact Report",
+      desc: "Our collective commitment to community-rooted healthcare, rigorous research, and public health system integration.",
+      date: "August 01, 2024 - July 31, 2025",
+      type: "PDF Report",
+      link: "/annual-impact-report/Possible_AIR-2025.pdf",
+      pdfFilename: "Possible_AIR-2025.pdf",
+      cover: "/annual-impact-report/thumbnails/Possible_AIR-2025.webp",
+    },
+    {
+      title: "2024 Annual Impact Report",
+      desc: "Reflecting on milestones achieved, expanding clinical co-design, and scaling durable public healthcare systems.",
+      date: "August 01, 2023 - July 31, 2024",
+      type: "PDF Report",
+      link: "/annual-impact-report/AIR-2024.pdf",
+      pdfFilename: "AIR-2024.pdf",
+      cover: "/annual-impact-report/thumbnails/AIR-2024.webp",
+    },
+    {
+      title: "2023 Annual Impact Report",
+      desc: "Pioneering evidence-driven healthcare delivery, expanding mental health models, and community health worker leadership.",
+      date: "August 01, 2022 - July 31, 2023",
+      type: "PDF Report",
+      link: "/annual-impact-report/AIR-2023.pdf",
+      pdfFilename: "AIR-2023.pdf",
+      cover: "/annual-impact-report/thumbnails/AIR-2023.webp",
+    },
+    {
+      title: "2022 Annual Impact Report",
+      desc: "Deepening municipal partnerships, expanding research trials, and scaling public-sector chronic care delivery.",
+      date: "August 01, 2021 - July 31, 2022",
+      type: "PDF Report",
+      link: "/annual-impact-report/AIR-2022.pdf",
+      pdfFilename: "AIR-2022.pdf",
+      cover: "/annual-impact-report/thumbnails/AIR-2022.webp",
+    },
+    {
+      title: "2021 Annual Impact Report",
+      desc: "Developing and testing family-based interventions, resilient health protocols, and COVID-19 pandemic response.",
+      date: "August 01, 2020 - July 31, 2021",
+      type: "PDF Report",
+      link: "/annual-impact-report/2021-Annual-Impact-Report.pdf",
+      pdfFilename: "2021-Annual-Impact-Report.pdf",
+      cover: "/annual-impact-report/thumbnails/2021-Annual-Impact-Report.webp",
+    },
+    {
+      title: "2018 Annual Impact Report",
+      desc: "10 Years of Possible: transforming rural healthcare delivery from hospital to home across far-western Nepal.",
+      date: "Fiscal Year 2017 - 2018",
+      type: "PDF Report",
+      link: "/annual-impact-report/AIR-FY18-1.pdf",
+      pdfFilename: "AIR-FY18-1.pdf",
+      cover: "/annual-impact-report/thumbnails/AIR-FY18-1.webp",
+    },
+    {
+      title: "2017 Annual Impact Report",
+      desc: "Transforming rural healthcare from hospital to home through integrated care delivery and electronic health records.",
+      date: "August 01, 2016 - July 31, 2017",
+      type: "PDF Report",
+      link: "/annual-impact-report/AIR_2017-1.pdf",
+      pdfFilename: "AIR_2017-1.pdf",
+      cover: "/annual-impact-report/thumbnails/AIR_2017-1.webp",
+    },
+    {
+      title: "2016 Annual Impact Report",
+      desc: "Bold commitments to high-quality, low-cost healthcare delivery, expanding clinical volume, and government partnerships.",
+      date: "August 01, 2015 - July 31, 2016",
+      type: "PDF Report",
+      link: "/annual-impact-report/Possible-2016-Annual-Impact-Report.pdf",
+      pdfFilename: "Possible-2016-Annual-Impact-Report.pdf",
+      cover: "/annual-impact-report/thumbnails/Possible-2016-Annual-Impact-Report.webp",
+    },
+    {
+      title: "2015 Annual Impact Report",
+      desc: "Overcoming unprecedented earthquake and operational challenges by solving relentlessly for the patient.",
+      date: "August 01, 2014 - July 31, 2015",
+      type: "PDF Report",
+      link: "/annual-impact-report/2015_Possible_Annual-Impact-Report.pdf",
+      pdfFilename: "2015_Possible_Annual-Impact-Report.pdf",
+      cover: "/annual-impact-report/thumbnails/2015_Possible_Annual-Impact-Report.webp",
+    },
+    {
+      title: "2014 Annual Impact Report",
+      desc: "Proving Possibility: delivering high-quality, low-cost healthcare and innovating durable rural health systems.",
+      date: "August 01, 2013 - July 31, 2014",
+      type: "PDF Report",
+      link: "/annual-impact-report/Possible_Annual-Impact-Report-1.pdf",
+      pdfFilename: "Possible_Annual-Impact-Report-1.pdf",
+      cover: "/annual-impact-report/thumbnails/Possible_Annual-Impact-Report-1.webp",
+    },
+    {
+      title: "2013 Annual Report",
+      desc: "Building a comprehensive, high-quality, low-cost health care delivery system for underserved populations in Achham.",
+      date: "August 01, 2012 - July 31, 2013",
+      type: "PDF Report",
+      link: "/annual-impact-report/Nyaya-Health-2013-Annual-Report-1.pdf",
+      pdfFilename: "Nyaya-Health-2013-Annual-Report-1.pdf",
+      cover: "/annual-impact-report/thumbnails/Nyaya-Health-2013-Annual-Report-1.webp",
+    },
+    {
+      title: "2011 Annual Report",
+      desc: "Community health worker leadership, grassroots healthcare delivery, and early impact in rural Nepal.",
+      date: "August 01, 2010 - July 31, 2011",
+      type: "PDF Report",
+      link: "/annual-impact-report/Nyaya-Health-2011-Annual-Report-1.pdf",
+      pdfFilename: "Nyaya-Health-2011-Annual-Report-1.pdf",
+      cover: "/annual-impact-report/thumbnails/Nyaya-Health-2011-Annual-Report-1.webp",
+    },
   ];
 
   const latestReports = reports.slice(0, 2);
@@ -44,23 +129,19 @@ export default function ImpactReportsPage() {
     setIsModalOpen(true);
   };
 
-  const handleDownload = (e: React.MouseEvent, title: string, date: string, desc: string) => {
+  const handleDownload = (e: React.MouseEvent, link: string, filename: string) => {
     e.preventDefault();
-    const content = `POSSIBLE HEALTH REPORT\n======================\nTitle: ${title}\nDate: ${date}\nDescription: ${desc}\n\nThis is a mock report document generated for preview purposes.\nFor the full official publication, please contact info@possiblehealth.org.\n`;
-    const blob = new Blob([content], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    a.href = url;
-    a.download = `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.txt`;
+    a.href = link;
+    a.download = filename;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
   };
 
-  // Pagination state
+  // Pagination state: 5 items per page for older reports
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 5;
   const totalPages = Math.ceil(olderReports.length / itemsPerPage);
   const paginatedOlderReports = olderReports.slice(
     (currentPage - 1) * itemsPerPage,
@@ -117,24 +198,31 @@ export default function ImpactReportsPage() {
                       <span>View Report</span>
                     </button>
                     <span className="text-zinc-300">|</span>
-                    <button
-                      onClick={(e) => handleDownload(e, item.title, item.date, item.desc)}
+                    <a
+                      href={item.link}
+                      download={item.pdfFilename}
+                      onClick={(e) => handleDownload(e, item.link, item.pdfFilename)}
                       className="inline-flex items-center gap-1.5 font-equip text-[13.5px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors cursor-pointer"
                     >
                       <Download className="h-4 w-4" />
                       <span>Download</span>
-                    </button>
+                    </a>
                   </div>
                 </div>
 
                 {/* Card Cover Image on the right */}
-                <div className="relative aspect-[3/4] w-full sm:w-32 rounded-xl overflow-hidden bg-zinc-200/50 border border-zinc-200/50 shrink-0 self-center shadow-sm">
+                <div
+                  onClick={() => openReport(item)}
+                  className="relative aspect-[3/4] w-full sm:w-36 rounded-xl overflow-hidden bg-zinc-50 border border-zinc-200/60 shrink-0 self-center shadow-md p-1 cursor-pointer group-hover:shadow-lg transition-all"
+                  title={`View ${item.title}`}
+                >
                   <Image
                     src={item.cover}
                     alt={item.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 200px"
+                    priority={idx === 0}
                   />
                 </div>
               </div>
@@ -151,7 +239,12 @@ export default function ImpactReportsPage() {
                 {paginatedOlderReports.map((item, idx) => (
                   <div key={idx} className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-zinc-50/50 transition-colors">
                     <div className="space-y-1 flex-1">
-                      <h4 className="text-[16px] font-semibold text-zinc-900">{item.title}</h4>
+                      <h4
+                        onClick={() => openReport(item)}
+                        className="text-[16px] font-semibold text-zinc-900 hover:text-primary-pink cursor-pointer transition-colors"
+                      >
+                        {item.title}
+                      </h4>
                       <p className="text-[13.5px] text-body-gray font-light max-w-3xl">{item.desc}</p>
                     </div>
 
@@ -164,21 +257,27 @@ export default function ImpactReportsPage() {
                         <span>View</span>
                       </button>
                       <span className="text-zinc-300">|</span>
-                      <button
-                        onClick={(e) => handleDownload(e, item.title, item.date, item.desc)}
+                      <a
+                        href={item.link}
+                        download={item.pdfFilename}
+                        onClick={(e) => handleDownload(e, item.link, item.pdfFilename)}
                         className="inline-flex items-center gap-1.5 text-[13.5px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors cursor-pointer"
                       >
                         <Download className="h-4 w-4" />
                         <span>Download</span>
-                      </button>
+                      </a>
 
                       {/* Thumbnail Cover Image on the right of the row */}
-                      <div className="relative aspect-[3/4] w-12 rounded overflow-hidden bg-zinc-100 border border-zinc-200/60 hidden md:block shrink-0 shadow-sm">
+                      <div
+                        onClick={() => openReport(item)}
+                        className="relative aspect-[3/4] w-12 rounded overflow-hidden bg-zinc-50 border border-zinc-200/60 hidden md:block shrink-0 shadow-sm p-0.5 cursor-pointer hover:shadow hover:scale-105 transition-all"
+                        title={`View ${item.title}`}
+                      >
                         <Image
                           src={item.cover}
                           alt={item.title}
                           fill
-                          className="object-cover"
+                          className="object-contain"
                           sizes="80px"
                         />
                       </div>

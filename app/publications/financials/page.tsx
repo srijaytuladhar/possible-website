@@ -1,14 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Award, Download, Eye, FileText } from "lucide-react";
 import ReportViewerModal from "@/components/ReportViewerModal";
 
-export default function FinancialsPage() {
+function FinancialsContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const tabParam = searchParams.get("tab");
+
   const [selectedReport, setSelectedReport] = useState<any | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<"disclosures" | "reports">("disclosures");
+  const [activeTab, setActiveTab] = useState<"disclosures" | "reports">(() => {
+    return tabParam === "reports" ? "reports" : "disclosures";
+  });
+
+  useEffect(() => {
+    if (tabParam === "reports") {
+      setActiveTab("reports");
+      setCurrentPage(1);
+    } else if (tabParam === "disclosures") {
+      setActiveTab("disclosures");
+      setCurrentPage(1);
+    }
+  }, [tabParam]);
+
+  const handleTabChange = (tab: "disclosures" | "reports") => {
+    setActiveTab(tab);
+    setCurrentPage(1);
+    router.replace(`/publications/financials?tab=${tab}`, { scroll: false });
+  };
 
   const financialReports = [
     { title: "Fiscal Year 2024 Audited Financial Statements", desc: "Audited financial statements detailing funding sources (global grants, private donations) and program expenditures.", date: "September 24, 2024, 11:30 AM", type: "Audited Report", link: "/docs/financials-2024.pdf", cover: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&h=350&q=80" },
@@ -90,20 +113,17 @@ export default function FinancialsPage() {
       {/* Tabs Menu Bar (Team Member's Style) */}
       <div className="w-full max-w-4xl mx-auto mb-14 sm:mb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 w-full shadow-xs">
-          {/* Tab 1: Finance Disclosure */}
+          {/* Tab 1: Financial Disclosure */}
           <button
             type="button"
-            onClick={() => {
-              setActiveTab("disclosures");
-              setCurrentPage(1);
-            }}
+            onClick={() => handleTabChange("disclosures")}
             className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all cursor-pointer select-none flex items-center justify-center bg-primary-pink ${
               activeTab === "disclosures"
                 ? "brightness-100 z-10"
                 : "brightness-95 hover:brightness-105 opacity-95 hover:opacity-100"
             }`}
           >
-            <span className="leading-snug">Finance Disclosure</span>
+            <span className="leading-snug">Financial Disclosure</span>
             {activeTab === "disclosures" && (
               <span
                 className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-[12px] border-x-transparent border-t-[10px] sm:border-x-[14px] sm:border-t-[12px] z-20 pointer-events-none"
@@ -116,10 +136,7 @@ export default function FinancialsPage() {
           {/* Tab 2: Financial Reports */}
           <button
             type="button"
-            onClick={() => {
-              setActiveTab("reports");
-              setCurrentPage(1);
-            }}
+            onClick={() => handleTabChange("reports")}
             className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all cursor-pointer select-none flex items-center justify-center bg-accent-purple ${
               activeTab === "reports"
                 ? "brightness-100 z-10"
@@ -285,5 +302,13 @@ export default function FinancialsPage() {
         category="financial"
       />
     </div>
+  );
+}
+
+export default function FinancialsPage() {
+  return (
+    <Suspense fallback={<div className="text-center py-20 text-zinc-500 font-light">Loading financials...</div>}>
+      <FinancialsContent />
+    </Suspense>
   );
 }
