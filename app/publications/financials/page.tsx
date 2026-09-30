@@ -1,83 +1,338 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import Link from "next/link";
 import Image from "next/image";
-import { Award, Download, Eye, FileText } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Download, Eye, ArrowLeft } from "lucide-react";
 import ReportViewerModal from "@/components/ReportViewerModal";
 
-export default function FinancialsPage() {
+function FinancialsContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const tabParam = searchParams.get("tab");
+
   const [selectedReport, setSelectedReport] = useState<any | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<"disclosures" | "reports">("disclosures");
+  const [activeTab, setActiveTab] = useState<"disclosures" | "reports">(() => {
+    return tabParam === "reports" ? "reports" : "disclosures";
+  });
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const financialReports = [
-    { title: "Fiscal Year 2024 Audited Financial Statements", desc: "Audited financial statements detailing funding sources (global grants, private donations) and program expenditures.", date: "September 24, 2024, 11:30 AM", type: "Audited Report", link: "/docs/financials-2024.pdf", cover: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Conflict of Interest Policy & Disclosures", desc: "Our organizational policies for maintaining transparency, integrity, and handling potential conflicts of interest.", date: "July 12, 2024, 3:45 PM", type: "Policy", link: "/docs/conflict-of-interest-policy.pdf", cover: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2023 Audited Financial Statements", desc: "Independent auditor's report and complete balance sheet details for Sambhav and Possible US.", date: "October 18, 2023, 10:15 AM", type: "Audited Report", link: "/docs/financials-2023.pdf", cover: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Annual Whistleblower & Transparency Policy", desc: "Policies ensuring safe channels for reporting misconduct and maintaining high corporate governance standards.", date: "May 09, 2023, 9:00 AM", type: "Policy", link: "/docs/whistleblower-policy.pdf", cover: "https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2022 Audited Financial Statements", desc: "Audited statement of activities, functional expenses, and cash flows.", date: "November 28, 2022, 2:30 PM", type: "Audited Report", link: "/docs/financials-2022.pdf", cover: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Procurement and Grant Allocation Standards", desc: "Guidelines outlining competitive bidding requirements and sub-award allocation rules for regional partners.", date: "March 15, 2022, 4:00 PM", type: "Policy", link: "/docs/procurement-policy.pdf", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2021 Audited Financial Statements", desc: "Annual statement detailing funding allocations and emergency pandemic response expenditures.", date: "December 05, 2021, 10:45 AM", type: "Audited Report", link: "/docs/financials-2021.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Executive Compensation & Board Governance Policy", desc: "Standard policies defining salary caps, board reviews, and independent member criteria.", date: "June 18, 2021, 1:15 PM", type: "Policy", link: "/docs/governance-policy.pdf", cover: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2020 Audited Financial Statements", desc: "Complete audited financial records highlighting program cost ratios and reserve funds.", date: "November 10, 2020, 3:30 PM", type: "Audited Report", link: "/docs/financials-2020.pdf", cover: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Donor Privacy & Fund Allocation Standards", desc: "Policies protecting individual donor details and ensuring designated funds match field executions.", date: "January 20, 2020, 11:00 AM", type: "Policy", link: "/docs/donor-privacy-policy.pdf", cover: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&h=350&q=80" },
-    // Archive items
-    { title: "Fiscal Year 2019 Audited Financial Statements", desc: "Audited statements detailing the financials of our clinical hospital operations support phase.", date: "October 14, 2019, 9:30 AM", type: "Audited Report", link: "/docs/financials-2019.pdf", cover: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Independent Auditor Compliance Report 2019", desc: "Assessing internal controls, documentation standards, and federal reporting guidelines.", date: "August 12, 2019, 4:00 PM", type: "Audited Report", link: "/docs/compliance-2019.pdf", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2018 Audited Financial Statements", desc: "Balance sheet, program expense ratios, and independent auditor outcomes.", date: "May 20, 2018, 10:15 AM", type: "Audited Report", link: "/docs/financials-2018.pdf", cover: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Conflict of Interest Policy Annual Disclosures 2018", desc: "Disclosures matching board and staff compliance guidelines.", date: "March 15, 2018, 9:00 AM", type: "Policy", link: "/docs/coi-2018.pdf", cover: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2017 Audited Financial Statements", desc: "Complete audited records matching operational and emergency fund expenditures.", date: "November 10, 2017, 3:30 PM", type: "Audited Report", link: "/docs/financials-2017.pdf", cover: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Asset Management and Disposal Policy Guidelines", desc: "Standards governing vehicle, clinic device, and infrastructure depreciation methods.", date: "September 09, 2017, 1:45 PM", type: "Policy", link: "/docs/asset-policy.pdf", cover: "https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2016 Audited Financial Statements", desc: "Audited statements of cash flows, functional activities, and regional support allocations.", date: "July 20, 2016, 2:15 PM", type: "Audited Report", link: "/docs/financials-2016.pdf", cover: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Financial Reserves and Investment Policy Standards", desc: "Outlining board instructions regarding reserve targets and conservative asset allocations.", date: "April 18, 2016, 11:00 AM", type: "Policy", link: "/docs/reserve-policy.pdf", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2015 Audited Financial Statements", desc: "audited results detailing early international donations and clinical startup funding.", date: "November 14, 2015, 10:00 AM", type: "Audited Report", link: "/docs/financials-2015.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Travel and Business Expense Reimbursement Guidelines", desc: "Policies defining standard rates, per diem limits, and travel receipt matching systems.", date: "August 12, 2015, 9:00 AM", type: "Policy", link: "/docs/travel-policy.pdf", cover: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2014 Audited Financial Statements", desc: "The original financial reports supporting the development of clinical trials protocols.", date: "May 20, 2014, 1:15 PM", type: "Audited Report", link: "/docs/financials-2014.pdf", cover: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Signature Authority and Purchasing Approvals Guide", desc: "Organizational structure and spending limits for executive directors and board members.", date: "February 10, 2014, 10:30 AM", type: "Policy", link: "/docs/signature-policy.pdf", cover: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&h=350&q=80" },
-    // Additional items to trigger pagination for itemsPerPage = 10
-    { title: "Fiscal Year 2013 Audited Financial Statements", desc: "Audited financial balance sheet and program execution details for fiscal year 2013.", date: "November 12, 2013, 3:30 PM", type: "Audited Report", link: "/docs/financials-2013.pdf", cover: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Records Retention and Protection Standards", desc: "Corporate guidelines outlining retention periods and secure disposal of legal and financial documents.", date: "September 05, 2013, 9:00 AM", type: "Policy", link: "/docs/retention-policy.pdf", cover: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2012 Audited Financial Statements", desc: "Audited statement of revenues, expenses, and cash flows during early clinical pilots.", date: "October 20, 2012, 10:15 AM", type: "Audited Report", link: "/docs/financials-2012.pdf", cover: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Intellectual Property and Data Sharing Policy", desc: "Guidelines regarding open science datasets sharing and publishing clinical research trial outcomes.", date: "July 15, 2012, 2:45 PM", type: "Policy", link: "/docs/data-sharing-policy.pdf", cover: "https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2011 Audited Financial Statements", desc: "The original financial reports supporting the development of clinical trials protocols.", date: "November 28, 2011, 2:30 PM", type: "Audited Report", link: "/docs/financials-2011.pdf", cover: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Information Security and Privacy Policy Guidelines", desc: "Data protection standards securing patient registries and cloud-based medical information systems.", date: "May 10, 2011, 1:15 PM", type: "Policy", link: "/docs/security-policy.pdf", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Fiscal Year 2010 Audited Financial Statements", desc: "Historical audited report detailing the early funding and start-up phases of Sambhav.", date: "December 05, 2010, 10:45 AM", type: "Audited Report", link: "/docs/financials-2010.pdf", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
-    { title: "Anti-Bribery and Anti-Corruption Policy Standards", desc: "Mandatory standards ensuring transparent relations with public departments and health post managers.", date: "June 18, 2010, 4:00 PM", type: "Policy", link: "/docs/corruption-policy.pdf", cover: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&h=350&q=80" }
+  useEffect(() => {
+    if (tabParam === "reports") {
+      setActiveTab("reports");
+      setCurrentPage(1);
+    } else if (tabParam === "disclosures") {
+      setActiveTab("disclosures");
+      setCurrentPage(1);
+    }
+  }, [tabParam]);
+
+  const handleTabChange = (tab: "disclosures" | "reports") => {
+    setActiveTab(tab);
+    setCurrentPage(1);
+    router.replace(`/publications/financials?tab=${tab}`, { scroll: false });
+  };
+
+  // Conflict of Interest / Financial Disclosures
+  const disclosureReports = [
+    {
+      title: "Financial Conflict of Interest (FCOI) Policy",
+      desc: "Policy of Nyaya Health (d/b/a Possible) to promote objectivity in research and ensure public trust by addressing financial conflicts of interest.",
+      date: "August 2021",
+      type: "Policy & Disclosure",
+      link: "/conflict-of-interest/FCOI Possible US.pdf",
+      pdfFilename: "FCOI Possible US.pdf",
+      cover: "/conflict-of-interest/thumbnails/FCOI Possible US.webp",
+    },
+    {
+      title: "Sambhav (Possible) Code of Conduct & HR Policy",
+      desc: "Human Resource By-Laws and ethical standards for Sambhav (Possible) operations, establishing organizational transparency, integrity, and conduct.",
+      date: "June 01, 2021",
+      type: "Code of Conduct",
+      link: "/conflict-of-interest/SAMBHAV_CODE-OF-CONDUCT.pdf",
+      pdfFilename: "SAMBHAV_CODE-OF-CONDUCT.pdf",
+      cover: "/conflict-of-interest/thumbnails/SAMBHAV_CODE-OF-CONDUCT.webp",
+    },
   ];
 
-  // Filter based on selected tab
-  const filteredReports = financialReports.filter(item => {
-    if (activeTab === "reports") {
-      return item.type === "Audited Report";
-    } else {
-      return item.type === "Policy";
-    }
-  });
+  // Financial Reports (Audited Statements & IRS Form 990 filings sorted descending)
+  const financialReports = [
+    {
+      title: "Fiscal Year 2025 Audited Financial Statements",
+      desc: "Audited financial statements detailing Nyaya Health / Possible US funding sources, global grants, and program expenditures for FY 2025.",
+      date: "Fiscal Year 2024 - 2025",
+      type: "Audited Report",
+      link: "/financial-report/Possible-2025-Audit-Report.pdf",
+      pdfFilename: "Possible-2025-Audit-Report.pdf",
+      cover: "/financial-report/thumbnails/Possible-2025-Audit-Report.webp",
+    },
+    {
+      title: "2025 Form 990: Return of Organization Exempt From Income Tax",
+      desc: "Nyaya Health (d/b/a Possible) IRS Form 990 public disclosure detailing governance, revenue, and programmatic investments for tax year 2025.",
+      date: "Tax Year 2025",
+      type: "IRS Form 990",
+      link: "/financial-report/2025-Nyaya-Health-990.pdf",
+      pdfFilename: "2025-Nyaya-Health-990.pdf",
+      cover: "/financial-report/thumbnails/2025-Nyaya-Health-990.webp",
+    },
+    {
+      title: "Fiscal Year 2024 Audited Financial Statements",
+      desc: "Independent auditor's report and complete statement of financial position, activities, and functional expenses for FY 2024.",
+      date: "Fiscal Year 2023 - 2024",
+      type: "Audited Report",
+      link: "/financial-report/Possible-2024-Audit-Report.pdf",
+      pdfFilename: "Possible-2024-Audit-Report.pdf",
+      cover: "/financial-report/thumbnails/Possible-2024-Audit-Report.webp",
+    },
+    {
+      title: "2024 Form 990: Return of Organization Exempt From Income Tax",
+      desc: "Nyaya Health (d/b/a Possible) IRS Form 990 annual public filing covering operations, program service accomplishments, and financials.",
+      date: "Tax Year 2024",
+      type: "IRS Form 990",
+      link: "/financial-report/2024-Nyaya-Health-990.pdf",
+      pdfFilename: "2024-Nyaya-Health-990.pdf",
+      cover: "/financial-report/thumbnails/2024-Nyaya-Health-990.webp",
+    },
+    {
+      title: "Fiscal Year 2023 Audited Financial Statements",
+      desc: "Audited financial statements and independent auditor's report for the fiscal year ended July 31, 2023.",
+      date: "August 01, 2022 - July 31, 2023",
+      type: "Audited Report",
+      link: "/financial-report/Nyaya-Health-Financial-Statements_July-31-2023-1.pdf",
+      pdfFilename: "Nyaya-Health-Financial-Statements_July-31-2023-1.pdf",
+      cover: "/financial-report/thumbnails/Nyaya-Health-Financial-Statements_July-31-2023-1.webp",
+    },
+    {
+      title: "2023 Form 990: Return of Organization Exempt From Income Tax",
+      desc: "IRS Form 990 filing reporting activities, governance, and financial metrics of Nyaya Health for the 2023 tax year.",
+      date: "Tax Year 2023",
+      type: "IRS Form 990",
+      link: "/financial-report/2023-Nyaya-990-Filing-1.pdf",
+      pdfFilename: "2023-Nyaya-990-Filing-1.pdf",
+      cover: "/financial-report/thumbnails/2023-Nyaya-990-Filing-1.webp",
+    },
+    {
+      title: "2022 Form 990: Return of Organization Exempt From Income Tax",
+      desc: "Official annual return for Nyaya Health providing public disclosure of charitable operations and financial resources in 2022.",
+      date: "Tax Year 2022",
+      type: "IRS Form 990",
+      link: "/financial-report/2022-Nyaya-Health-Form-990-1.pdf",
+      pdfFilename: "2022-Nyaya-Health-Form-990-1.pdf",
+      cover: "/financial-report/thumbnails/2022-Nyaya-Health-Form-990-1.webp",
+    },
+    {
+      title: "Fiscal Year 2021 Audited Financial Statements",
+      desc: "Audited statement of financial position, statement of activities, and notes to financial statements for the year ended July 31, 2021.",
+      date: "August 01, 2020 - July 31, 2021",
+      type: "Audited Report",
+      link: "/financial-report/Nyaya-Health-Financial-Statements_July-31-2021.pdf",
+      pdfFilename: "Nyaya-Health-Financial-Statements_July-31-2021.pdf",
+      cover: "/financial-report/thumbnails/Nyaya-Health-Financial-Statements_July-31-2021.webp",
+    },
+    {
+      title: "Fiscal Year 2021 Form 990 Tax Return",
+      desc: "Nyaya Health IRS Form 990 return covering the 2020–2021 fiscal period, detailing grants, executive compensation, and program expenditures.",
+      date: "Tax Year FY 2021",
+      type: "IRS Form 990",
+      link: "/financial-report/NYAYA-TAX-RETURN-FY21.pdf",
+      pdfFilename: "NYAYA-TAX-RETURN-FY21.pdf",
+      cover: "/financial-report/thumbnails/NYAYA-TAX-RETURN-FY21.webp",
+    },
+    {
+      title: "Fiscal Year 2020 Audited Financial Statements",
+      desc: "Audited financial statements and independent accountant's audit report for the fiscal year ended July 31, 2020.",
+      date: "August 01, 2019 - July 31, 2020",
+      type: "Audited Report",
+      link: "/financial-report/2020-Nyaya-Health-Financial-Statements_Final-1.pdf",
+      pdfFilename: "2020-Nyaya-Health-Financial-Statements_Final-1.pdf",
+      cover: "/financial-report/thumbnails/2020-Nyaya-Health-Financial-Statements_Final-1.webp",
+    },
+    {
+      title: "Fiscal Year 2020 Form 990 Tax Return",
+      desc: "IRS Form 990 filing for the period covering healthcare delivery, emergency pandemic response, and public charity filings.",
+      date: "Tax Year FY 2020",
+      type: "IRS Form 990",
+      link: "/financial-report/NYAYA-TAX-RETURN-FY20.pdf",
+      pdfFilename: "NYAYA-TAX-RETURN-FY20.pdf",
+      cover: "/financial-report/thumbnails/NYAYA-TAX-RETURN-FY20.webp",
+    },
+    {
+      title: "Fiscal Year 2019 Audited Financial Statements",
+      desc: "Audited financial report and statement of financial position for the fiscal year ended July 31, 2019.",
+      date: "August 01, 2018 - July 31, 2019",
+      type: "Audited Report",
+      link: "/financial-report/2019-Nyaya-Health-Financial-Statements_Final-Report.pdf",
+      pdfFilename: "2019-Nyaya-Health-Financial-Statements_Final-Report.pdf",
+      cover: "/financial-report/thumbnails/2019-Nyaya-Health-Financial-Statements_Final-Report.webp",
+    },
+    {
+      title: "Fiscal Year 2019 Form 990 Tax Return",
+      desc: "Public information return Form 990 filed with the IRS for fiscal year 2018–2019.",
+      date: "Tax Year FY 2019",
+      type: "IRS Form 990",
+      link: "/financial-report/NYAYA-TAX-RETURN-FY19.pdf",
+      pdfFilename: "NYAYA-TAX-RETURN-FY19.pdf",
+      cover: "/financial-report/thumbnails/NYAYA-TAX-RETURN-FY19.webp",
+    },
+    {
+      title: "Fiscal Year 2018 Audited Financial Statements",
+      desc: "Independent auditor's report and financial statements of Nyaya Health (d/b/a Possible) for the year ended July 31, 2018.",
+      date: "August 01, 2017 - July 31, 2018",
+      type: "Audited Report",
+      link: "/financial-report/Possible-Audit-FY18.pdf",
+      pdfFilename: "Possible-Audit-FY18.pdf",
+      cover: "/financial-report/thumbnails/Possible-Audit-FY18.webp",
+    },
+    {
+      title: "2018 Form 990: Return of Organization Exempt From Income Tax",
+      desc: "IRS Form 990 return for tax year 2018, reporting organizational structure, program expenses, and public disclosures.",
+      date: "Tax Year 2018",
+      type: "IRS Form 990",
+      link: "/financial-report/2018-990.pdf",
+      pdfFilename: "2018-990.pdf",
+      cover: "/financial-report/thumbnails/2018-990.webp",
+    },
+    {
+      title: "Fiscal Year 2017 Audited Financial Statements",
+      desc: "Complete audited financial records, balance sheets, and statement of cash flows for the year ended July 31, 2017.",
+      date: "August 01, 2016 - July 31, 2017",
+      type: "Audited Report",
+      link: "/financial-report/Possible-Audit-FY17-1.pdf",
+      pdfFilename: "Possible-Audit-FY17-1.pdf",
+      cover: "/financial-report/thumbnails/Possible-Audit-FY17-1.webp",
+    },
+    {
+      title: "Fiscal Year 2017 Form 990 Tax Return",
+      desc: "Nyaya Health IRS Form 990 filing for fiscal year 2017 reflecting rural healthcare program scaling in Nepal.",
+      date: "Tax Year FY 2017",
+      type: "IRS Form 990",
+      link: "/financial-report/Possible-FY-17-990-1.pdf",
+      pdfFilename: "Possible-FY-17-990-1.pdf",
+      cover: "/financial-report/thumbnails/Possible-FY-17-990-1.webp",
+    },
+    {
+      title: "Fiscal Year 2016 Audited Financial Statements",
+      desc: "Audited financial statements and report of independent certified public accountants for the year ended July 31, 2016.",
+      date: "August 01, 2015 - July 31, 2016",
+      type: "Audited Report",
+      link: "/financial-report/Possible-Audit-FY16-1-1.pdf",
+      pdfFilename: "Possible-Audit-FY16-1-1.pdf",
+      cover: "/financial-report/thumbnails/Possible-Audit-FY16-1-1.webp",
+    },
+    {
+      title: "Fiscal Year 2016 Form 990 Tax Return",
+      desc: "Public information return Form 990 filed with the IRS for fiscal year 2015–2016.",
+      date: "Tax Year FY 2016",
+      type: "IRS Form 990",
+      link: "/financial-report/fy2016-NYAYA-FINAL-990-1.pdf",
+      pdfFilename: "fy2016-NYAYA-FINAL-990-1.pdf",
+      cover: "/financial-report/thumbnails/fy2016-NYAYA-FINAL-990-1.webp",
+    },
+    {
+      title: "Fiscal Year 2015 Audited Financial Statements",
+      desc: "Audited financial statements covering the period August 1, 2014 through July 31, 2015, including earthquake emergency relief accounting.",
+      date: "August 01, 2014 - July 31, 2015",
+      type: "Audited Report",
+      link: "/financial-report/Possible-Audit-FY2015-080114-073115-1.pdf",
+      pdfFilename: "Possible-Audit-FY2015-080114-073115-1.pdf",
+      cover: "/financial-report/thumbnails/Possible-Audit-FY2015-080114-073115-1.webp",
+    },
+    {
+      title: "2015 Form 990: Return of Organization Exempt From Income Tax",
+      desc: "Nyaya Health IRS Form 990 public filing detailing program expenditures and earthquake response activities.",
+      date: "Tax Year 2015",
+      type: "IRS Form 990",
+      link: "/financial-report/2015-NYAYA-FINAL-990-1.pdf",
+      pdfFilename: "2015-NYAYA-FINAL-990-1.pdf",
+      cover: "/financial-report/thumbnails/2015-NYAYA-FINAL-990-1.webp",
+    },
+    {
+      title: "Fiscal Year 2014 Audited Financial Statements",
+      desc: "Independent audit report and balance sheet for Nyaya Health covering the fiscal year ended July 31, 2014.",
+      date: "August 01, 2013 - July 31, 2014",
+      type: "Audited Report",
+      link: "/financial-report/Possible-FY-2014-Audit-08.01.13-07.31.14-1.pdf",
+      pdfFilename: "Possible-FY-2014-Audit-08.01.13-07.31.14-1.pdf",
+      cover: "/financial-report/thumbnails/Possible-FY-2014-Audit-08.01.13-07.31.14-1.webp",
+    },
+    {
+      title: "Fiscal Year 2014 Form 990 Tax Return",
+      desc: "IRS Form 990 tax return for Nyaya Health detailing program costs and healthcare delivery metrics.",
+      date: "Tax Year FY 2014",
+      type: "IRS Form 990",
+      link: "/financial-report/NYAYA-FY-2014-990-Final-1.pdf",
+      pdfFilename: "NYAYA-FY-2014-990-Final-1.pdf",
+      cover: "/financial-report/thumbnails/NYAYA-FY-2014-990-Final-1.webp",
+    },
+    {
+      title: "Fiscal Year 2013 Audited Financial Statements",
+      desc: "Audited financial statements and independent audit results for the year ended July 31, 2013.",
+      date: "August 01, 2012 - July 31, 2013",
+      type: "Audited Report",
+      link: "/financial-report/Nyaya-Health-Audit-FY-2013-08-01-2012-07-31-2013-1.pdf",
+      pdfFilename: "Nyaya-Health-Audit-FY-2013-08-01-2012-07-31-2013-1.pdf",
+      cover: "/financial-report/thumbnails/Nyaya-Health-Audit-FY-2013-08-01-2012-07-31-2013-1.webp",
+    },
+    {
+      title: "Fiscal Year 2013 Form 990 Tax Return",
+      desc: "IRS Form 990 annual filing detailing contributions, grants, and clinical operation expenses in Achham.",
+      date: "Tax Year FY 2013",
+      type: "IRS Form 990",
+      link: "/financial-report/NYAYA-FY-2013-FORM-990-PUBLIC1-1.pdf",
+      pdfFilename: "NYAYA-FY-2013-FORM-990-PUBLIC1-1.pdf",
+      cover: "/financial-report/thumbnails/NYAYA-FY-2013-FORM-990-PUBLIC1-1.webp",
+    },
+    {
+      title: "Fiscal Year 2012 Audited Financial Statements",
+      desc: "Audited statement of financial position and activities for Nyaya Health during the period August 1, 2011 to July 31, 2012.",
+      date: "August 01, 2011 - July 31, 2012",
+      type: "Audited Report",
+      link: "/financial-report/Nyaya-Health-Audit-FY-2012-08012011-07312012-1.pdf",
+      pdfFilename: "Nyaya-Health-Audit-FY-2012-08012011-07312012-1.pdf",
+      cover: "/financial-report/thumbnails/Nyaya-Health-Audit-FY-2012-08012011-07312012-1.webp",
+    },
+    {
+      title: "2012 Form 990: Return of Organization Exempt From Income Tax",
+      desc: "IRS Form 990 public disclosure filing for Nyaya Health covering the 2012 financial year.",
+      date: "Tax Year 2012",
+      type: "IRS Form 990",
+      link: "/financial-report/PUBLIC-FINAL-990-2012-1-1.pdf",
+      pdfFilename: "PUBLIC-FINAL-990-2012-1-1.pdf",
+      cover: "/financial-report/thumbnails/PUBLIC-FINAL-990-2012-1-1.webp",
+    },
+    {
+      title: "2011 Form 990: Return of Organization Exempt From Income Tax",
+      desc: "Historical IRS Form 990 return documenting Nyaya Health's grassroots healthcare operations and early financial statements.",
+      date: "Tax Year 2011",
+      type: "IRS Form 990",
+      link: "/financial-report/PUBLIC-FINAL-990-2011-1.pdf",
+      pdfFilename: "PUBLIC-FINAL-990-2011-1.pdf",
+      cover: "/financial-report/thumbnails/PUBLIC-FINAL-990-2011-1.webp",
+    },
+  ];
 
-  const latestReports = filteredReports.slice(0, 2);
-  const olderReports = filteredReports.slice(2);
+  const activeReports = activeTab === "disclosures" ? disclosureReports : financialReports;
+  const latestReports = activeReports.slice(0, 2);
+  const olderReports = activeReports.slice(2);
 
   const openReport = (report: any) => {
     setSelectedReport(report);
     setIsModalOpen(true);
   };
 
-  const handleDownload = (e: React.MouseEvent, title: string, date: string, desc: string) => {
+  const handleDownload = (e: React.MouseEvent, link: string, filename: string) => {
     e.preventDefault();
-    const content = `POSSIBLE HEALTH REPORT\n======================\nTitle: ${title}\nDate: ${date}\nDescription: ${desc}\n\nThis is a mock report document generated for preview purposes.\nFor the full official publication, please contact info@possiblehealth.org.\n`;
-    const blob = new Blob([content], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    a.href = url;
-    a.download = `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.txt`;
+    a.href = link;
+    a.download = filename;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
   };
 
-  // Pagination state
-  const [currentPage, setCurrentPage] = useState(1);
+  // Pagination state: 10 items per page for older reports
   const itemsPerPage = 10;
   const totalPages = Math.ceil(olderReports.length / itemsPerPage);
   const paginatedOlderReports = olderReports.slice(
@@ -87,23 +342,31 @@ export default function FinancialsPage() {
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
-      {/* Tabs Menu Bar (Team Member's Style) */}
+      {/* Top Navigation: Pink circle back arrow button */}
+      <div className="flex items-center gap-3 mb-8">
+        <Link
+          href="/"
+          className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary-pink text-white shadow-sm hover:bg-primary-pink/90 hover:scale-105 transition-all shrink-0 cursor-pointer"
+          aria-label="Back to home"
+        >
+          <ArrowLeft className="h-5 w-5 stroke-[2.5]" />
+        </Link>
+      </div>
+
+      {/* Tabs Menu Bar */}
       <div className="w-full max-w-4xl mx-auto mb-14 sm:mb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 w-full shadow-xs">
-          {/* Tab 1: Finance Disclosure */}
+          {/* Tab 1: Financial Disclosure */}
           <button
             type="button"
-            onClick={() => {
-              setActiveTab("disclosures");
-              setCurrentPage(1);
-            }}
+            onClick={() => handleTabChange("disclosures")}
             className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all cursor-pointer select-none flex items-center justify-center bg-primary-pink ${
               activeTab === "disclosures"
                 ? "brightness-100 z-10"
                 : "brightness-95 hover:brightness-105 opacity-95 hover:opacity-100"
             }`}
           >
-            <span className="leading-snug">Finance Disclosure</span>
+            <span className="leading-snug">Financial Disclosure</span>
             {activeTab === "disclosures" && (
               <span
                 className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-[12px] border-x-transparent border-t-[10px] sm:border-x-[14px] sm:border-t-[12px] z-20 pointer-events-none"
@@ -116,10 +379,7 @@ export default function FinancialsPage() {
           {/* Tab 2: Financial Reports */}
           <button
             type="button"
-            onClick={() => {
-              setActiveTab("reports");
-              setCurrentPage(1);
-            }}
+            onClick={() => handleTabChange("reports")}
             className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all cursor-pointer select-none flex items-center justify-center bg-accent-purple ${
               activeTab === "reports"
                 ? "brightness-100 z-10"
@@ -142,7 +402,7 @@ export default function FinancialsPage() {
         {/* Latest Reports: Card Layout */}
         <div className="space-y-6">
           <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">
-            Latest {activeTab === "reports" ? "Financial Reports" : "Disclosures"}
+            Latest {activeTab === "reports" ? "Financial Reports" : "Financial Disclosures"}
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {latestReports.map((item, idx) => (
@@ -152,7 +412,10 @@ export default function FinancialsPage() {
               >
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-[17px] sm:text-[19px] font-semibold text-zinc-950 mb-3 group-hover:text-primary-pink transition-colors">
+                    <h3
+                      onClick={() => openReport(item)}
+                      className="text-[17px] sm:text-[19px] font-semibold text-zinc-950 mb-3 group-hover:text-primary-pink transition-colors cursor-pointer"
+                    >
                       {item.title}
                     </h3>
                     <p className="text-[13.5px] text-body-gray leading-relaxed font-light mb-6">
@@ -170,24 +433,31 @@ export default function FinancialsPage() {
                       <span>View Document</span>
                     </button>
                     <span className="text-zinc-300">|</span>
-                    <button
-                      onClick={(e) => handleDownload(e, item.title, item.date, item.desc)}
+                    <a
+                      href={item.link}
+                      download={item.pdfFilename}
+                      onClick={(e) => handleDownload(e, item.link, item.pdfFilename)}
                       className="inline-flex items-center gap-1.5 font-equip text-[13.5px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors cursor-pointer"
                     >
                       <Download className="h-4 w-4" />
                       <span>Download</span>
-                    </button>
+                    </a>
                   </div>
                 </div>
 
                 {/* Card Cover Image on the right */}
-                <div className="relative aspect-[3/4] w-full sm:w-32 rounded-xl overflow-hidden bg-zinc-200/50 border border-zinc-200/50 shrink-0 self-center shadow-sm">
+                <div
+                  onClick={() => openReport(item)}
+                  className="relative aspect-[3/4] w-full sm:w-36 rounded-xl overflow-hidden bg-zinc-50 border border-zinc-200/60 shrink-0 self-center shadow-md p-1 cursor-pointer group-hover:shadow-lg transition-all"
+                  title={`View ${item.title}`}
+                >
                   <Image
                     src={item.cover}
                     alt={item.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 200px"
+                    priority={idx === 0}
                   />
                 </div>
               </div>
@@ -206,7 +476,12 @@ export default function FinancialsPage() {
                 {paginatedOlderReports.map((item, idx) => (
                   <div key={idx} className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-zinc-50/50 transition-colors">
                     <div className="space-y-1 flex-1">
-                      <h4 className="text-[16px] font-semibold text-zinc-900">{item.title}</h4>
+                      <h4
+                        onClick={() => openReport(item)}
+                        className="text-[16px] font-semibold text-zinc-900 hover:text-primary-pink cursor-pointer transition-colors"
+                      >
+                        {item.title}
+                      </h4>
                       <p className="text-[13.5px] text-body-gray font-light max-w-3xl">{item.desc}</p>
                     </div>
 
@@ -219,21 +494,27 @@ export default function FinancialsPage() {
                         <span>View</span>
                       </button>
                       <span className="text-zinc-300">|</span>
-                      <button
-                        onClick={(e) => handleDownload(e, item.title, item.date, item.desc)}
+                      <a
+                        href={item.link}
+                        download={item.pdfFilename}
+                        onClick={(e) => handleDownload(e, item.link, item.pdfFilename)}
                         className="inline-flex items-center gap-1.5 text-[13.5px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors cursor-pointer"
                       >
                         <Download className="h-4 w-4" />
                         <span>Download</span>
-                      </button>
+                      </a>
 
                       {/* Thumbnail Cover Image on the right of the row */}
-                      <div className="relative aspect-[3/4] w-12 rounded overflow-hidden bg-zinc-100 border border-zinc-200/60 hidden md:block shrink-0 shadow-sm">
+                      <div
+                        onClick={() => openReport(item)}
+                        className="relative aspect-[3/4] w-12 rounded overflow-hidden bg-zinc-50 border border-zinc-200/60 hidden md:block shrink-0 shadow-sm p-0.5 cursor-pointer hover:shadow hover:scale-105 transition-all"
+                        title={`View ${item.title}`}
+                      >
                         <Image
                           src={item.cover}
                           alt={item.title}
                           fill
-                          className="object-cover"
+                          className="object-contain"
                           sizes="80px"
                         />
                       </div>
@@ -257,10 +538,11 @@ export default function FinancialsPage() {
                   <button
                     key={page}
                     onClick={() => setCurrentPage(page)}
-                    className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${currentPage === page
-                      ? "bg-zinc-950 text-white"
-                      : "bg-white border border-zinc-200 hover:bg-zinc-50 text-zinc-600"
-                      }`}
+                    className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
+                      currentPage === page
+                        ? "bg-zinc-950 text-white"
+                        : "bg-white border border-zinc-200 hover:bg-zinc-50 text-zinc-600"
+                    }`}
                   >
                     {page}
                   </button>
@@ -282,8 +564,16 @@ export default function FinancialsPage() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         report={selectedReport}
-        category="financial"
+        category={activeTab === "disclosures" ? "brief" : "financial"}
       />
     </div>
+  );
+}
+
+export default function FinancialsPage() {
+  return (
+    <Suspense fallback={<div className="text-center py-20 text-zinc-500 font-light">Loading financials...</div>}>
+      <FinancialsContent />
+    </Suspense>
   );
 }

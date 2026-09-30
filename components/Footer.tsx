@@ -129,12 +129,12 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-2.5">
               <li>
-                <Link href="/publications/financials" className="text-[15px] text-white/85 hover:text-white transition-colors font-light">
+                <Link href="/publications/financials?tab=reports" className="text-[15px] text-white/85 hover:text-white transition-colors font-light">
                   Financials
                 </Link>
               </li>
               <li>
-                <Link href="/publications/financials" className="text-[15px] text-white/85 hover:text-white transition-colors font-light">
+                <Link href="/publications/financials?tab=disclosures" className="text-[15px] text-white/85 hover:text-white transition-colors font-light">
                   Conflict of Interest (COI)
                 </Link>
               </li>
