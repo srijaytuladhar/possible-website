@@ -73,7 +73,7 @@ export default function Home() {
           {/* Copy Above Image */}
           <div className="max-w-3xl text-left mb-10">
             <p className="text-zinc-900 leading-relaxed font-light text-[20px] sm:text-[23px] md:text-[25px] px-2 sm:px-4">
-              A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence amd built to reach everyone.
+              A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence and built to reach everyone.
             </p>
           </div>
 
@@ -127,7 +127,7 @@ export default function Home() {
                 Test
               </h3>
               <p className="text-[14.5px] text-zinc-700 leading-relaxed font-light">
-                Prove it works, adapt it and test until the evidence is
+                Prove it works, adapt it and test until the evidence is <br />
                 established.
               </p>
             </Link>
