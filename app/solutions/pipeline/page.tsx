@@ -1,6 +1,6 @@
 "use client";
 
-import SolutionStageTemplate, { SolutionBoxType } from "@/components/SolutionStageTemplate";
+/*import SolutionStageTemplate, { SolutionBoxType } from "@/components/SolutionStageTemplate";*/
 
 export default function PipelinePage() {
   const introText =
