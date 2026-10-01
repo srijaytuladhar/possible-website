@@ -19,7 +19,7 @@ export default function InnovatePage() {
         }
       ]
     },
-    {
+    /*{
       id: "caregiver-skills-training",
       title: "Caregiver skills training for families of children with developmental delays or disabilities",
       description: [
@@ -31,7 +31,7 @@ export default function InnovatePage() {
           link: "https://www.who.int/publications/i/item/9789240048836"
         }
       ]
-    },
+    },*/
     {
       id: "srhr-disabilities",
       title: "Reimagining sexual and reproductive health services with women with disabilities",
