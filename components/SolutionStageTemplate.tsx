@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FileText, ArrowLeft, ExternalLink } from "lucide-react";
@@ -16,7 +16,7 @@ export interface SolutionBoxType {
   id?: string;
   title: string;
   subtitle?: string;
-  description: string | string[];
+  description: ReactNode | ReactNode[];
   image?: string;
   badge?: string;
   linkText?: string;
@@ -282,7 +282,9 @@ function SolutionBoxItem({
 }) {
   const paragraphs = Array.isArray(project.description)
     ? project.description
-    : project.description.split("\n\n");
+    : typeof project.description === "string"
+      ? project.description.split("\n\n")
+      : [project.description];
 
   return (
     <div
