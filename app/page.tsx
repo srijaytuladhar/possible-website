@@ -109,7 +109,7 @@ export default function Home() {
                 Innovate
               </h3>
               <p className="text-[14.5px] text-zinc-700 leading-relaxed font-light">
-                Innovate health solutions with people with lived experience, health workers, local communities and governments.
+               Innovate health solutions with local communities and governments.
               </p>
             </Link>
 
@@ -127,7 +127,7 @@ export default function Home() {
                 Test
               </h3>
               <p className="text-[14.5px] text-zinc-700 leading-relaxed font-light">
-                Prove it works, Adapt it and Test until the evidence in undeniable.
+                Prove it works, adapt it and test until the evidence is established.
               </p>
             </Link>
 
@@ -145,7 +145,7 @@ export default function Home() {
                 Scale
               </h3>
               <p className="text-[14.5px] text-zinc-700 leading-relaxed font-light">
-                Integrate into permanent public health systems and national policy for lasting change.
+                Integrate into public health systems and national policy for larger impact.
               </p>
             </Link>
           </div>
