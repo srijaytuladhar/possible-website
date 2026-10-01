@@ -30,7 +30,7 @@ export default function PipelinePage() {
         "Nepal ranks 10th globally in historical climate disaster impacts (Eckstein et al., 2019). While physical infrastructure and direct health impact dominate the narrative, extreme weather events can also escalate mental health issues and increase the risk of violence.",
         "Our working proposal aims to explore how extreme weather events can increase domestic violence and affect mental health, and develop a brief family support program for families affected by these intersecting challenges. We will work with communities to design the program and test whether it is practical and helpful for families experiencing domestic violence after extreme weather events."
       ],
-      image: "/hero_complex_solve.jpg"
+      image: "/MILAP_UD.jpeg"
     }
   ];
 
