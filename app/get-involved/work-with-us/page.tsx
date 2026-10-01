@@ -103,7 +103,7 @@ export default function WorkWithUsPage() {
               <Briefcase className="h-6 w-6" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 uppercase tracking-wide">
-              Vacancies &amp; Openings
+              Vacancies &amp; Opportunities
             </h2>
             <div className="h-0.5 w-16 bg-primary-pink rounded-full mx-auto" />
           </div>
@@ -121,7 +121,7 @@ export default function WorkWithUsPage() {
               href="/get-involved/work-with-us/traineeship-apprenticeship"
               className="flex items-center justify-between px-6 py-4.5 bg-white border border-zinc-200 hover:border-secondary-blue rounded-2xl text-[14.5px] text-zinc-800 font-medium hover:text-secondary-blue transition-all duration-300 group shadow-2xs hover:shadow-sm"
             >
-              <span>Traineeship &amp; Apprenticeship Opportunities</span>
+              <span>Traineeship &amp; Apprenticeship </span>
               <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-secondary-blue transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
