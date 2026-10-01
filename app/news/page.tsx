@@ -24,7 +24,7 @@ export default function NewsPage() {
   const [subscribed, setSubscribed] = useState(false);
 
   const articles: Article[] = [
-    {
+    /*{
       id: "1",
       title: "Co-Designing Digital Health Systems with Municipal Leaders in Achham",
       desc: "Our data systems engineering team recently completed the deployment of custom clinical dashboards to three municipal health posts in Achham, improving healthcare outcomes.",
@@ -88,7 +88,7 @@ export default function NewsPage() {
       image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&h=400&q=80",
       author: "Kumar Tamang, Operations",
       readTime: "3 min read"
-    }
+    }*/
   ];
 
   // const categories = ["All", "Field Updates", "Announcements", "Research"];
