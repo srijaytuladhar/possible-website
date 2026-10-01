@@ -71,7 +71,7 @@ export default function Home() {
       
         <div className="mx-auto max-w-7xl flex flex-col items-center">
           {/* Copy Above Image */}
-          <div className="max-w-3xl text-center mb-10">
+          <div className="max-w-3xl text-left mb-10">
             <p className="text-zinc-900 leading-relaxed font-light text-[20px] sm:text-[23px] md:text-[25px] px-2 sm:px-4">
               A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence amd built to reach everyone.
             </p>
