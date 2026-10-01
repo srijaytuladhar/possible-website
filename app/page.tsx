@@ -127,7 +127,8 @@ export default function Home() {
                 Test
               </h3>
               <p className="text-[14.5px] text-zinc-700 leading-relaxed font-light">
-                Prove it works, adapt it and test until the evidence is established.
+                Prove it works, adapt it and test until the evidence is
+                established.
               </p>
             </Link>
 
