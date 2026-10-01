@@ -330,7 +330,7 @@ export default function SolutionsPage() {
                     <div className="grid grid-cols-1 gap-2">
                       <a href="https://pubmed.ncbi.nlm.nih.gov/41580851/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
                         <FileText className="h-4 w-4 text-secondary-blue shrink-0 mt-0.5" />
-                        <span>A type II hybrid implementation-effectiveness study of the BECOME intervention - study protocol for a stepped wedge cluster randomized controlled trial. <span className="text-secondary-blue font-medium underline">https://pubmed.ncbi.nlm.nih.gov/41580851/</span></span>
+                        <span>A type II hybrid implementation-effectiveness study of the BECOME intervention - study protocol for a stepped wedge cluster randomized controlled trial.<span className="text-secondary-blue font-medium underline">https://pubmed.ncbi.nlm.nih.gov/41580851/</span></span>
                       </a>
                       <a href="https://pubmed.ncbi.nlm.nih.gov/33794990/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
                         <FileText className="h-4 w-4 text-secondary-blue shrink-0 mt-0.5" />
