@@ -305,7 +305,7 @@ export default function SolutionsPage() {
                       </a>
                       <a href="https://doi.org/10.7326/ANNALS-25-04504" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
                         <FileText className="h-4 w-4 text-secondary-blue shrink-0 mt-0.5" />
-                        <span>Behind the Seen: Searching for Peace in a House With Violence. <span className="text-secondary-blue font-medium underline">https://doi.org/10.7326/ANNALS-25-04504</span></span>
+                        <span>Behind the Seen: Searching for Peace in a house With Violence. <span className="text-secondary-blue font-medium underline">https://doi.org/10.7326/ANNALS-25-04504</span></span>
                       </a>
                       <a href="https://pubmed.ncbi.nlm.nih.gov/41484672/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
                         <FileText className="h-4 w-4 text-secondary-blue shrink-0 mt-0.5" />
@@ -330,7 +330,7 @@ export default function SolutionsPage() {
                     <div className="grid grid-cols-1 gap-2">
                       <a href="https://pubmed.ncbi.nlm.nih.gov/41580851/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
                         <FileText className="h-4 w-4 text-secondary-blue shrink-0 mt-0.5" />
-                        <span>A type II hybrid implementation-effectiveness study of the BECOME intervention: integrating Behavioral Community-Based Approaches for Mental Health and Non-Communicable Diseases delivered by community health workers - study protocol for a stepped wedge cluster randomized controlled trial. <span className="text-secondary-blue font-medium underline">https://pubmed.ncbi.nlm.nih.gov/41580851/</span></span>
+                        <span>A type II hybrid implementation-effectiveness study of the BECOME intervention - study protocol for a stepped wedge cluster randomized controlled trial. <span className="text-secondary-blue font-medium underline">https://pubmed.ncbi.nlm.nih.gov/41580851/</span></span>
                       </a>
                       <a href="https://pubmed.ncbi.nlm.nih.gov/33794990/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
                         <FileText className="h-4 w-4 text-secondary-blue shrink-0 mt-0.5" />
@@ -458,7 +458,7 @@ export default function SolutionsPage() {
                       </a>
                       <a href="https://doi.org/10.1007/s41347-024-00389-8" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
                         <FileText className="h-4 w-4 text-secondary-blue shrink-0 mt-0.5" />
-                        <span>Improving the quality of global mental health services with digital tools: Best practices and lessons learned from rural Nepal. Journal of Technology in Behavioral Science. <span className="text-secondary-blue font-medium underline">https://doi.org/10.1007/s41347-024-00389-8</span></span>
+                        <span>Improving the quality of global mental health services with digital tools: Best practices and lessons learned from rural Nepal. <span className="text-secondary-blue font-medium underline">https://doi.org/10.1007/s41347-024-00389-8</span></span>
                       </a>
                       <button type="button" onClick={() => setActiveTestSubTab("tested")} className="text-[13.5px] font-semibold text-secondary-blue hover:underline pt-1 inline-flex items-center gap-1 text-left cursor-pointer">
                         <span>Link for COMMIT Page &rarr;</span>
@@ -535,13 +535,19 @@ export default function SolutionsPage() {
                   <div className="pt-4 border-t border-zinc-200/80 space-y-2">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">Learn More</h4>
                     <div className="grid grid-cols-1 gap-2">
-                      <a href="https://doi.org/10.1038/s41598-025-92449-z" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
-                        <FileText className="h-4 w-4 text-secondary-blue shrink-0 mt-0.5" />
-                        <span>Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men in Nepal: findings from an online national survey. <span className="text-secondary-blue font-medium underline">https://doi.org/10.1038/s41598-025-92449-z</span></span>
-                      </a>
-                      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11015371/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
+                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11015371/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
                         <FileText className="h-4 w-4 text-secondary-blue shrink-0 mt-0.5" />
                         <span>Preferences for mHealth Intervention to Address Mental Health Challenges Among Men Who Have Sex With Men in Nepal: Qualitative Study. <span className="text-secondary-blue font-medium underline">https://pmc.ncbi.nlm.nih.gov/articles/PMC11015371/</span></span>
+                      </a>
+                      
+                      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10664887/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
+                        <FileText className="h-4 w-4 text-secondary-blue shrink-0 mt-0.5" />
+                        <span>Suicidal ideation, plan, and attempt among men who have sex with ment in Nepal<span className="text-secondary-blue font-medium underline">https://pmc.ncbi.nlm.nih.gov/articles/PMC11015371/</span></span>
+                      </a>
+
+                       <a href="https://doi.org/10.1038/s41598-025-92449-z" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-zinc-200/80 hover:border-secondary-blue/50 text-[13.5px] text-zinc-700 hover:text-zinc-950 transition-colors font-light">
+                        <FileText className="h-4 w-4 text-secondary-blue shrink-0 mt-0.5" />
+                        <span>Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men in Nepal: findings from an online national survey. <span className="text-secondary-blue font-medium underline">https://doi.org/10.1038/s41598-025-92449-z</span></span>
                       </a>
                     </div>
                   </div>
