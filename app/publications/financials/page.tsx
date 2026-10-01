@@ -39,7 +39,7 @@ function FinancialsContent() {
   const disclosureReports = [
     {
       title: "Financial Conflict of Interest (FCOI) Policy",
-      desc: "Policy of Nyaya Health (d/b/a Possible) to promote objectivity in research and ensure public trust by addressing financial conflicts of interest.",
+      desc: "",
       date: "August 2021",
       type: "Policy & Disclosure",
       link: "/conflict-of-interest/FCOI Possible US.pdf",
@@ -48,7 +48,7 @@ function FinancialsContent() {
     },
     {
       title: "Sambhav (Possible) Code of Conduct & HR Policy",
-      desc: "Human Resource By-Laws and ethical standards for Sambhav (Possible) operations, establishing organizational transparency, integrity, and conduct.",
+      desc: "",
       date: "June 01, 2021",
       type: "Code of Conduct",
       link: "/conflict-of-interest/SAMBHAV_CODE-OF-CONDUCT.pdf",
@@ -61,7 +61,7 @@ function FinancialsContent() {
   const financialReports = [
     {
       title: "Fiscal Year 2025 Audited Financial Statements",
-      desc: "Audited financial statements detailing Nyaya Health / Possible US funding sources, global grants, and program expenditures for FY 2025.",
+      desc: "",
       date: "Fiscal Year 2024 - 2025",
       type: "Audited Report",
       link: "/financial-report/Possible-2025-Audit-Report.pdf",
@@ -70,7 +70,7 @@ function FinancialsContent() {
     },
     {
       title: "2025 Form 990: Return of Organization Exempt From Income Tax",
-      desc: "Nyaya Health (d/b/a Possible) IRS Form 990 public disclosure detailing governance, revenue, and programmatic investments for tax year 2025.",
+      desc: "",
       date: "Tax Year 2025",
       type: "IRS Form 990",
       link: "/financial-report/2025-Nyaya-Health-990.pdf",
@@ -79,7 +79,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2024 Audited Financial Statements",
-      desc: "Independent auditor's report and complete statement of financial position, activities, and functional expenses for FY 2024.",
+      desc: "",
       date: "Fiscal Year 2023 - 2024",
       type: "Audited Report",
       link: "/financial-report/Possible-2024-Audit-Report.pdf",
@@ -88,7 +88,7 @@ function FinancialsContent() {
     },
     {
       title: "2024 Form 990: Return of Organization Exempt From Income Tax",
-      desc: "Nyaya Health (d/b/a Possible) IRS Form 990 annual public filing covering operations, program service accomplishments, and financials.",
+      desc: "",
       date: "Tax Year 2024",
       type: "IRS Form 990",
       link: "/financial-report/2024-Nyaya-Health-990.pdf",
@@ -97,7 +97,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2023 Audited Financial Statements",
-      desc: "Audited financial statements and independent auditor's report for the fiscal year ended July 31, 2023.",
+      desc: "",
       date: "August 01, 2022 - July 31, 2023",
       type: "Audited Report",
       link: "/financial-report/Nyaya-Health-Financial-Statements_July-31-2023-1.pdf",
@@ -106,7 +106,7 @@ function FinancialsContent() {
     },
     {
       title: "2023 Form 990: Return of Organization Exempt From Income Tax",
-      desc: "IRS Form 990 filing reporting activities, governance, and financial metrics of Nyaya Health for the 2023 tax year.",
+      desc: "",
       date: "Tax Year 2023",
       type: "IRS Form 990",
       link: "/financial-report/2023-Nyaya-990-Filing-1.pdf",
@@ -115,7 +115,7 @@ function FinancialsContent() {
     },
     {
       title: "2022 Form 990: Return of Organization Exempt From Income Tax",
-      desc: "Official annual return for Nyaya Health providing public disclosure of charitable operations and financial resources in 2022.",
+      desc: "",
       date: "Tax Year 2022",
       type: "IRS Form 990",
       link: "/financial-report/2022-Nyaya-Health-Form-990-1.pdf",
@@ -124,7 +124,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2021 Audited Financial Statements",
-      desc: "Audited statement of financial position, statement of activities, and notes to financial statements for the year ended July 31, 2021.",
+      desc: "",
       date: "August 01, 2020 - July 31, 2021",
       type: "Audited Report",
       link: "/financial-report/Nyaya-Health-Financial-Statements_July-31-2021.pdf",
@@ -133,7 +133,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2021 Form 990 Tax Return",
-      desc: "Nyaya Health IRS Form 990 return covering the 2020–2021 fiscal period, detailing grants, executive compensation, and program expenditures.",
+      desc: "",
       date: "Tax Year FY 2021",
       type: "IRS Form 990",
       link: "/financial-report/NYAYA-TAX-RETURN-FY21.pdf",
@@ -142,7 +142,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2020 Audited Financial Statements",
-      desc: "Audited financial statements and independent accountant's audit report for the fiscal year ended July 31, 2020.",
+      desc: "",
       date: "August 01, 2019 - July 31, 2020",
       type: "Audited Report",
       link: "/financial-report/2020-Nyaya-Health-Financial-Statements_Final-1.pdf",
@@ -151,7 +151,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2020 Form 990 Tax Return",
-      desc: "IRS Form 990 filing for the period covering healthcare delivery, emergency pandemic response, and public charity filings.",
+      desc: "",
       date: "Tax Year FY 2020",
       type: "IRS Form 990",
       link: "/financial-report/NYAYA-TAX-RETURN-FY20.pdf",
@@ -160,7 +160,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2019 Audited Financial Statements",
-      desc: "Audited financial report and statement of financial position for the fiscal year ended July 31, 2019.",
+      desc: "",
       date: "August 01, 2018 - July 31, 2019",
       type: "Audited Report",
       link: "/financial-report/2019-Nyaya-Health-Financial-Statements_Final-Report.pdf",
@@ -169,7 +169,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2019 Form 990 Tax Return",
-      desc: "Public information return Form 990 filed with the IRS for fiscal year 2018–2019.",
+      desc: "",
       date: "Tax Year FY 2019",
       type: "IRS Form 990",
       link: "/financial-report/NYAYA-TAX-RETURN-FY19.pdf",
@@ -178,7 +178,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2018 Audited Financial Statements",
-      desc: "Independent auditor's report and financial statements of Nyaya Health (d/b/a Possible) for the year ended July 31, 2018.",
+      desc: "",
       date: "August 01, 2017 - July 31, 2018",
       type: "Audited Report",
       link: "/financial-report/Possible-Audit-FY18.pdf",
@@ -187,7 +187,7 @@ function FinancialsContent() {
     },
     {
       title: "2018 Form 990: Return of Organization Exempt From Income Tax",
-      desc: "IRS Form 990 return for tax year 2018, reporting organizational structure, program expenses, and public disclosures.",
+      desc: "",
       date: "Tax Year 2018",
       type: "IRS Form 990",
       link: "/financial-report/2018-990.pdf",
@@ -196,7 +196,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2017 Audited Financial Statements",
-      desc: "Complete audited financial records, balance sheets, and statement of cash flows for the year ended July 31, 2017.",
+      desc: "",
       date: "August 01, 2016 - July 31, 2017",
       type: "Audited Report",
       link: "/financial-report/Possible-Audit-FY17-1.pdf",
@@ -205,7 +205,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2017 Form 990 Tax Return",
-      desc: "Nyaya Health IRS Form 990 filing for fiscal year 2017 reflecting rural healthcare program scaling in Nepal.",
+      desc: "",
       date: "Tax Year FY 2017",
       type: "IRS Form 990",
       link: "/financial-report/Possible-FY-17-990-1.pdf",
@@ -214,7 +214,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2016 Audited Financial Statements",
-      desc: "Audited financial statements and report of independent certified public accountants for the year ended July 31, 2016.",
+      desc: "",
       date: "August 01, 2015 - July 31, 2016",
       type: "Audited Report",
       link: "/financial-report/Possible-Audit-FY16-1-1.pdf",
@@ -223,7 +223,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2016 Form 990 Tax Return",
-      desc: "Public information return Form 990 filed with the IRS for fiscal year 2015–2016.",
+      desc: "",
       date: "Tax Year FY 2016",
       type: "IRS Form 990",
       link: "/financial-report/fy2016-NYAYA-FINAL-990-1.pdf",
@@ -232,7 +232,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2015 Audited Financial Statements",
-      desc: "Audited financial statements covering the period August 1, 2014 through July 31, 2015, including earthquake emergency relief accounting.",
+      desc: "",
       date: "August 01, 2014 - July 31, 2015",
       type: "Audited Report",
       link: "/financial-report/Possible-Audit-FY2015-080114-073115-1.pdf",
@@ -241,7 +241,7 @@ function FinancialsContent() {
     },
     {
       title: "2015 Form 990: Return of Organization Exempt From Income Tax",
-      desc: "Nyaya Health IRS Form 990 public filing detailing program expenditures and earthquake response activities.",
+      desc: "",
       date: "Tax Year 2015",
       type: "IRS Form 990",
       link: "/financial-report/2015-NYAYA-FINAL-990-1.pdf",
@@ -250,7 +250,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2014 Audited Financial Statements",
-      desc: "Independent audit report and balance sheet for Nyaya Health covering the fiscal year ended July 31, 2014.",
+      desc: "",
       date: "August 01, 2013 - July 31, 2014",
       type: "Audited Report",
       link: "/financial-report/Possible-FY-2014-Audit-08.01.13-07.31.14-1.pdf",
@@ -259,7 +259,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2014 Form 990 Tax Return",
-      desc: "IRS Form 990 tax return for Nyaya Health detailing program costs and healthcare delivery metrics.",
+      desc: "",
       date: "Tax Year FY 2014",
       type: "IRS Form 990",
       link: "/financial-report/NYAYA-FY-2014-990-Final-1.pdf",
@@ -268,7 +268,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2013 Audited Financial Statements",
-      desc: "Audited financial statements and independent audit results for the year ended July 31, 2013.",
+      desc: "",
       date: "August 01, 2012 - July 31, 2013",
       type: "Audited Report",
       link: "/financial-report/Nyaya-Health-Audit-FY-2013-08-01-2012-07-31-2013-1.pdf",
@@ -277,7 +277,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2013 Form 990 Tax Return",
-      desc: "IRS Form 990 annual filing detailing contributions, grants, and clinical operation expenses in Achham.",
+      desc: "",
       date: "Tax Year FY 2013",
       type: "IRS Form 990",
       link: "/financial-report/NYAYA-FY-2013-FORM-990-PUBLIC1-1.pdf",
@@ -286,7 +286,7 @@ function FinancialsContent() {
     },
     {
       title: "Fiscal Year 2012 Audited Financial Statements",
-      desc: "Audited statement of financial position and activities for Nyaya Health during the period August 1, 2011 to July 31, 2012.",
+      desc: "",
       date: "August 01, 2011 - July 31, 2012",
       type: "Audited Report",
       link: "/financial-report/Nyaya-Health-Audit-FY-2012-08012011-07312012-1.pdf",
@@ -295,7 +295,7 @@ function FinancialsContent() {
     },
     {
       title: "2012 Form 990: Return of Organization Exempt From Income Tax",
-      desc: "IRS Form 990 public disclosure filing for Nyaya Health covering the 2012 financial year.",
+      desc: "",
       date: "Tax Year 2012",
       type: "IRS Form 990",
       link: "/financial-report/PUBLIC-FINAL-990-2012-1-1.pdf",
@@ -304,7 +304,7 @@ function FinancialsContent() {
     },
     {
       title: "2011 Form 990: Return of Organization Exempt From Income Tax",
-      desc: "Historical IRS Form 990 return documenting Nyaya Health's grassroots healthcare operations and early financial statements.",
+      desc: "",
       date: "Tax Year 2011",
       type: "IRS Form 990",
       link: "/financial-report/PUBLIC-FINAL-990-2011-1.pdf",
