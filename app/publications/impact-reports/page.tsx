@@ -13,7 +13,7 @@ export default function ImpactReportsPage() {
   const reports = [
     {
       title: "2025 Annual Impact Report",
-      desc: "Our collective commitment to community-rooted healthcare, rigorous research, and public health system integration.",
+      desc: "",
       date: "August 01, 2024 - July 31, 2025",
       type: "PDF Report",
       link: "/annual-impact-report/Possible_AIR-2025.pdf",
@@ -22,7 +22,7 @@ export default function ImpactReportsPage() {
     },
     {
       title: "2024 Annual Impact Report",
-      desc: "Reflecting on milestones achieved, expanding clinical co-design, and scaling durable public healthcare systems.",
+      desc: "",
       date: "August 01, 2023 - July 31, 2024",
       type: "PDF Report",
       link: "/annual-impact-report/AIR-2024.pdf",
@@ -31,7 +31,7 @@ export default function ImpactReportsPage() {
     },
     {
       title: "2023 Annual Impact Report",
-      desc: "Pioneering evidence-driven healthcare delivery, expanding mental health models, and community health worker leadership.",
+      desc: "",
       date: "August 01, 2022 - July 31, 2023",
       type: "PDF Report",
       link: "/annual-impact-report/AIR-2023.pdf",
@@ -40,7 +40,7 @@ export default function ImpactReportsPage() {
     },
     {
       title: "2022 Annual Impact Report",
-      desc: "Deepening municipal partnerships, expanding research trials, and scaling public-sector chronic care delivery.",
+      desc: "",
       date: "August 01, 2021 - July 31, 2022",
       type: "PDF Report",
       link: "/annual-impact-report/AIR-2022.pdf",
@@ -49,7 +49,7 @@ export default function ImpactReportsPage() {
     },
     {
       title: "2021 Annual Impact Report",
-      desc: "Developing and testing family-based interventions, resilient health protocols, and COVID-19 pandemic response.",
+      desc: "",
       date: "August 01, 2020 - July 31, 2021",
       type: "PDF Report",
       link: "/annual-impact-report/2021-Annual-Impact-Report.pdf",
@@ -58,7 +58,7 @@ export default function ImpactReportsPage() {
     },
     {
       title: "2018 Annual Impact Report",
-      desc: "10 Years of Possible: transforming rural healthcare delivery from hospital to home across far-western Nepal.",
+      desc: "",
       date: "Fiscal Year 2017 - 2018",
       type: "PDF Report",
       link: "/annual-impact-report/AIR-FY18-1.pdf",
@@ -67,7 +67,7 @@ export default function ImpactReportsPage() {
     },
     {
       title: "2017 Annual Impact Report",
-      desc: "Transforming rural healthcare from hospital to home through integrated care delivery and electronic health records.",
+      desc: "",
       date: "August 01, 2016 - July 31, 2017",
       type: "PDF Report",
       link: "/annual-impact-report/AIR_2017-1.pdf",
@@ -76,7 +76,7 @@ export default function ImpactReportsPage() {
     },
     {
       title: "2016 Annual Impact Report",
-      desc: "Bold commitments to high-quality, low-cost healthcare delivery, expanding clinical volume, and government partnerships.",
+      desc: "",
       date: "August 01, 2015 - July 31, 2016",
       type: "PDF Report",
       link: "/annual-impact-report/Possible-2016-Annual-Impact-Report.pdf",
@@ -85,7 +85,7 @@ export default function ImpactReportsPage() {
     },
     {
       title: "2015 Annual Impact Report",
-      desc: "Overcoming unprecedented earthquake and operational challenges by solving relentlessly for the patient.",
+      desc: "",
       date: "August 01, 2014 - July 31, 2015",
       type: "PDF Report",
       link: "/annual-impact-report/2015_Possible_Annual-Impact-Report.pdf",
@@ -94,7 +94,7 @@ export default function ImpactReportsPage() {
     },
     {
       title: "2014 Annual Impact Report",
-      desc: "Proving Possibility: delivering high-quality, low-cost healthcare and innovating durable rural health systems.",
+      desc: "",
       date: "August 01, 2013 - July 31, 2014",
       type: "PDF Report",
       link: "/annual-impact-report/Possible_Annual-Impact-Report-1.pdf",
@@ -103,7 +103,7 @@ export default function ImpactReportsPage() {
     },
     {
       title: "2013 Annual Report",
-      desc: "Building a comprehensive, high-quality, low-cost health care delivery system for underserved populations in Achham.",
+      desc: "",
       date: "August 01, 2012 - July 31, 2013",
       type: "PDF Report",
       link: "/annual-impact-report/Nyaya-Health-2013-Annual-Report-1.pdf",
@@ -112,7 +112,7 @@ export default function ImpactReportsPage() {
     },
     {
       title: "2011 Annual Report",
-      desc: "Community health worker leadership, grassroots healthcare delivery, and early impact in rural Nepal.",
+      desc: "",
       date: "August 01, 2010 - July 31, 2011",
       type: "PDF Report",
       link: "/annual-impact-report/Nyaya-Health-2011-Annual-Report-1.pdf",
