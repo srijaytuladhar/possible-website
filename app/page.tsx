@@ -6,7 +6,7 @@ import InteractivePresenceMap from "@/components/InteractivePresenceMap";
 
 // Image slots for upcoming client photos:
 const PROCESS_SECTION_IMAGE = "/howwersolve.jpg"; // Photo below hero text (to be replaced with provided file)
-const HIMALAYA_SECTION_IMAGE = "/homepagethird.jpg"; // Section 3 Himalaya-themed photo (to be replaced with provided file)
+const HIMALAYA_SECTION_IMAGE = "/New_Photo/Mother.jpg"; // Section 3 Himalaya-themed photo (to be replaced with provided file)
 const TEAM_SECTION_IMAGE = "/woweare.jpg"; // Section 5 group around table photo (to be replaced with provided file)
 
 export default function Home() {
@@ -80,7 +80,7 @@ export default function Home() {
           {/* Mountain Image */}
           <div className="relative w-full max-w-3xl aspect-[6.5/4.3] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group">
             <Image
-              src={"public/New_Photo/Mother.jpg"}
+              src={"HIMALAYA_SECTION_IMAGE"}
               alt="Foothills of the Himalayas"
               fill
               className="object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-101"
