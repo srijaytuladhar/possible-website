@@ -401,9 +401,7 @@ function FinancialsContent() {
       <div className="bg-zinc-100/70 p-8 sm:p-10 rounded-3xl border border-zinc-200/50 animate-in fade-in duration-300 space-y-16">
         {/* Latest Reports: Card Layout */}
         <div className="space-y-6">
-         <span className="inline-block text-xs sm:text-sm font-extrabold uppercase tracking-widest text-primary-pink bg-primary-pink/10 px-3 py-1 rounded-full border border-primary-pink/20">
-    Possible US
-  </span>
+      
           <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">
             Latest {activeTab === "reports" ? "Financial Reports" : "Financial Disclosures"}
           </h2>
