@@ -13,7 +13,7 @@ export default function ScalePage() {
         "We are now working with the government and community-based partners to strengthen and evolve the model for national scale-up: refining the delivery workflows, building the evidence base, and exploring how ProCHWs can extend beyond maternal and child health to provide a broader continuum of care across the life course.",
         <strong key="scale-closing-quote">&ldquo;This isn&apos;t a parallel program, it&apos;s a government-owned system built to last.&rdquo;</strong>
       ],
-      image: "/BECOME.jpg",
+      image: "/baby.jpg",
       publications: [
         {
           title: "A Type II hybrid effectiveness-implementation study of an integrated CHW intervention to address maternal healthcare in rural Nepal.",
