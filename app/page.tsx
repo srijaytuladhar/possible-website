@@ -6,7 +6,7 @@ import InteractivePresenceMap from "@/components/InteractivePresenceMap";
 
 // Image slots for upcoming client photos:
 const PROCESS_SECTION_IMAGE = "/howwersolve.jpg"; // Photo below hero text (to be replaced with provided file)
-const HIMALAYA_SECTION_IMAGE = "/New_Photo/Mother.jpg"; // Section 3 Himalaya-themed photo (to be replaced with provided file)
+const HIMALAYA_SECTION_IMAGE = "/mother.JPG"; // Section 3 Himalaya-themed photo (to be replaced with provided file)
 const TEAM_SECTION_IMAGE = "/woweare.jpg"; // Section 5 group around table photo (to be replaced with provided file)
 
 export default function Home() {
