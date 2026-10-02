@@ -23,7 +23,7 @@ export default function TestPage() {
           image: "/solutions_test/MILAP.jpg",
           publications: [
             {
-              title: "A multi-component family intervention to lower depression and address intimate partner violence (MILAP) among young married women in Nepal: a study protocol for a randomized controlled trial.",
+              title: "A multi-component family intervention to lower depression and address intimate partner violence (MILAP) among young married women in Nepal",
               link: "https://pubmed.ncbi.nlm.nih.gov/41680806/"
             },
             {
@@ -35,7 +35,7 @@ export default function TestPage() {
               link: "https://doi.org/10.7326/ANNALS-25-04504"
             },
             {
-              title: "Daughters-in-law's perceptions and experiences with MILAP, a family-based intervention to reduce intimate partner violence and improve mental health in Nepal.",
+              title: "Daughters-in-law's perceptions and experiences with MILAP.",
               link: "https://pubmed.ncbi.nlm.nih.gov/41484672/"
             }
           ]
@@ -50,7 +50,7 @@ export default function TestPage() {
           image: "/solutions_test/BECOME.jpg",
           publications: [
             {
-              title: "A type II hybrid implementation-effectiveness study of the BECOME intervention: integrating Behavioral Community-Based Approaches for Mental Health and Non-Communicable Diseases delivered by community health workers-study protocol for a stepped wedge cluster randomized controlled trial",
+              title: "A type II hybrid implementation-effectiveness study of the BECOME intervention.",
               link: "https://pubmed.ncbi.nlm.nih.gov/41580851/"
             },
             {
@@ -77,7 +77,7 @@ export default function TestPage() {
           image: "/solutions_test/commit_updated.jpg",
           publications: [
             {
-              title: "Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing to improve adherence to care among youth living with HIV in rural Nepal.",
+              title: "Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing.",
               link: "https://pubmed.ncbi.nlm.nih.gov/38990929/"
             },
             {
@@ -85,7 +85,7 @@ export default function TestPage() {
               link: "https://pubmed.ncbi.nlm.nih.gov/33794990/"
             },
             {
-              title: "Improving the quality of global mental health services with digital tools: Best practices and lessons learned from rural Nepal.",
+              title: "Improving the quality of global mental health services with digital tools.",
               link: "https://doi.org/10.1007/s41347-024-00389-8"
             }
           ]
@@ -117,7 +117,7 @@ export default function TestPage() {
               link: "https://doi.org/10.1186/s12982-025-00645-z"
             },
             {
-              title: "Beyond Maternal and Child Health: Refining CHW Models for Chronic and Life Course Approaches to Care. Current Opinion in Epidemiology and Public Health Systems Through Longitudinal Care",
+              title: "Beyond Maternal and Child Health: Refining CHW Models for Chronic and Life Course Approaches to Care.",
               link: "https://pubmed.ncbi.nlm.nih.gov/?term=Possible+Health+Nepal+CHW"
             },
             {
@@ -146,15 +146,15 @@ export default function TestPage() {
           image: "/solutions_test/include_latest.jpg",
           publications: [
             {
-              title: "Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing to improve adherence to care among youth living with HIV in rural Nepal.",
+              title: "Community health workers' barriers and facilitators to use a novel mHealth tool for motivational interviewing.",
               link: "https://pubmed.ncbi.nlm.nih.gov/38990929/"
             },
             {
-              title: "Improving the quality of global mental health services with digital tools: Best practices and lessons learned from rural Nepal. Journal of Technology in Behavioral Science.",
+              title: "Improving the quality of global mental health services with digital tools.",
               link: "https://doi.org/10.1007/s41347-024-00389-8"
             },
             {
-              title: "COMMIT — Improving treatment compliance using mHealth app",
+              title: "COMMIT — Improving treatment compliance using mHealth app.",
               link: "/solutions/test#commit"
             }
           ]
@@ -180,7 +180,7 @@ export default function TestPage() {
           image: "/solutions_test/becomeD.png",
           publications: [
             {
-              title: "A type II hybrid implementation-effectiveness study of the BECOME intervention: integrating Behavioral Community-Based Approaches for Mental Health and Non-Communicable Diseases delivered by community health workers — study protocol for a stepped wedge cluster randomized controlled trial.",
+              title: "A type II hybrid implementation-effectiveness study of the BECOME intervention.",
               link: "https://pubmed.ncbi.nlm.nih.gov/41580851/"
             },
             {
@@ -212,7 +212,7 @@ export default function TestPage() {
           image: "/solutions_test/chissa.JPG",
           publications: [
             {
-              title: "Preferences for mHealth Intervention to Address Mental Health Challenges Among Men Who Have Sex With Men in Nepal: Qualitative Study.",
+              title: "Preferences for mHealth Intervention to Address Mental Health Challenges Among Men Who Have Sex With Men in Nepal.",
               link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11015371/"
             },
              {
@@ -220,7 +220,7 @@ export default function TestPage() {
               link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10664887/"
             },
             {
-              title: "Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men in Nepal: findings from an online national survey.",
+              title: "Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men in Nepal.",
               link: "https://doi.org/10.1038/s41598-025-92449-z"
             }
              

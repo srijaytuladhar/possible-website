@@ -28,15 +28,15 @@ export default function ScalePage() {
           link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7326517/"
         },
         {
-          title: "Postpartum contraception outcomes from a pre-post effectiveness-implementation study of an integrated community health worker intervention in rural Nepal.",
+          title: "Postpartum contraception outcomes from a pre-post effectiveness-implementation study of an integrated community health worker intervention.",
           link: "https://doi.org/10.1186/s12978-025-02225-5"
         },
         {
-          title: "The power of peers: an effectiveness evaluation of a cluster-controlled trial of group antenatal care in rural Nepal.",
+          title: "The power of peers: an effectiveness evaluation of a cluster-controlled trial of group antenatal care.",
           link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6805428/"
         },
         {
-          title: "Labour conditions in dual-cadre community health worker programs: a systematic review.",
+          title: "Labour conditions in dual-cadre community health worker programs.",
           link: "https://www.thelancet.com/action/showPdf?pii=S2214-109X%2823%2900357-1"
         }
       
@@ -51,15 +51,15 @@ export default function ScalePage() {
       image: "/COCM.jpg",
       publications: [
         {
-          title: "Collaborative care model for depression in rural Nepal: a mixed-methods implementation research study.",
+          title: "Collaborative care model for depression in rural Nepal.",
           link: "https://bmjopen.bmj.com/content/11/8/e048481"
         },
         {
-          title: "Collaborative Care for Mental Health in Low- and Middle-Income Countries: A WHO Health Systems Framework Assessment of Three Programs.",
+          title: "Collaborative Care for Mental Health in Low- and Middle-Income Countries: A WHO Health Systems Framework Assessment.",
           link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5790311/"
         },
         {
-          title: "Improving the Quality of Global Mental Health Services with Digital Tools: Best Practices and Lessons Learned from Rural Nepal.",
+          title: "Improving the Quality of Global Mental Health Services with Digital Tools.",
           link: "https://doi.org/10.1007/s41347-024-00389-8"
         },
         {
