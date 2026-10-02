@@ -5,7 +5,7 @@ import HeroSlider from "@/components/HeroSlider";
 import InteractivePresenceMap from "@/components/InteractivePresenceMap";
 
 // Image slots for upcoming client photos:
-const PROCESS_SECTION_IMAGE = "/howwesolve_codesign.jpg"; // Photo below hero text (to be replaced with provided file)
+const PROCESS_SECTION_IMAGE = "/Codesign2.jpeg"; // Photo below hero text (to be replaced with provided file)
 const HIMALAYA_SECTION_IMAGE = "/Mother_updated.png"; // Section 3 Himalaya-themed photo (to be replaced with provided file)
 const TEAM_SECTION_IMAGE = "/woweare.jpg"; // Section 5 group around table photo (to be replaced with provided file)
 
