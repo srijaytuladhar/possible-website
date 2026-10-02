@@ -2,13 +2,13 @@
 
 export default function CollaboratorsPage() {
   const governmentCollaborators = [
-    "Ministry of Health and Food Safety, Government of Nepal",
-    "Department of Health Services, MOHS, Government of Nepal",
-    "Nursing and Social Security Division, DOHS, MOHS, Government of Nepal",
-    "Epidemiology and Disease Control Division, DOHS, MOHS, Government of Nepal",
-    "National Centre for AIDS & STD Control, MOHS, Government of Nepal",
-    "Nepal Health Research Council, Government of Nepal",
-    "Social Welfare Council, Government of Nepal",
+    "Ministry of Health and Food Safety, GoN",
+    "Department of Health Services, MoHFS, GoN",
+    "Nursing and Social Security Division, DoHS, MoHFS, GoN",
+    "Epidemiology and Disease Control Division, DoHS, MoHFS, GoN",
+    "National Centre for AIDS & STD Control, MoHFS, GoN",
+    "Nepal Health Research Council, GoN",
+    "Social Welfare Council, GoN",
     "Chandragiri Municipality, Chandragiri",
     "Bardibas Municipality, Mahottari",
     "Bhimeshwor Municipality, Dolakha",
