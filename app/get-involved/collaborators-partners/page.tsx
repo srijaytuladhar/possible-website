@@ -2,35 +2,37 @@
 
 export default function CollaboratorsPage() {
   const governmentCollaborators = [
-    "Ministry of Health and Food Safety, GoN",
+    "Ministry of Health and Food Safety(MoHFS), GoN",
     "Department of Health Services, MoHFS, GoN",
     "Nursing and Social Security Division, DoHS, MoHFS, GoN",
     "Epidemiology and Disease Control Division, DoHS, MoHFS, GoN",
     "National Centre for AIDS & STD Control, MoHFS, GoN",
     "Nepal Health Research Council, GoN",
-    "Social Welfare Council, GoN",
     "Chandragiri Municipality, Chandragiri",
     "Bardibas Municipality, Mahottari",
     "Bhimeshwor Municipality, Dolakha",
     "Tamakoshi Rural Municipality, Dolakha",
     "Baiteshwor Rural Municipality, Dolakha",
     "Kalinchowk Rural Municipality, Dolakha",
-    "National Institutes of Health, USA",
+   "Nyaya Health Nepal",
+    "Nepal Disabled Women Association",
+    
   ];
 
   const nonGovernmentCollaborators = [
-    "World Health Organization",
+      "National Institutes of Health, USA",
+      "World Health Organization",
     "Dhulikhel Hospital, Kathmandu University Hospital",
     "Kathmandu University School of Medical Sciences",
     "Women's Rehabilitation Centre (WOREC)",
-    "Nepal Disabled Women Association",
-    "Nyaya Health Nepal",
     "University of California San Francisco, USA",
     "Wheaton College, USA",
     "Yale University, USA",
     "Arnhold Institute for Global Health at Icahn School of Medicine at Mt. Sinai, USA",
     "University of Connecticut, USA",
     "University of California Los Angeles, USA",
+    "Weiss Asset Management, USA",
+    "Sexual Violence Research Initiative(SVRI), USA",
     "Community Health Impact Coalition",
     "SunyaEk",
     "Dalit Lives Matters",
