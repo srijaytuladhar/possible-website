@@ -2,7 +2,7 @@
 
 export default function CollaboratorsPage() {
   const governmentCollaborators = [
-    "Ministry of Health and Food Safety(MoHFS), GoN",
+    "Ministry of Health and Food Safety (MoHFS), GoN",
     "Department of Health Services, MoHFS, GoN",
     "Nursing and Social Security Division, DoHS, MoHFS, GoN",
     "Epidemiology and Disease Control Division, DoHS, MoHFS, GoN",
@@ -14,14 +14,18 @@ export default function CollaboratorsPage() {
     "Tamakoshi Rural Municipality, Dolakha",
     "Baiteshwor Rural Municipality, Dolakha",
     "Kalinchowk Rural Municipality, Dolakha",
-   "Nyaya Health Nepal",
-    "Nepal Disabled Women Association",
-    
+     "Deerfield Foundation, USA",
+    "Community Health Impact Coalition",
+    "NAAMI- Nepal Applied Mathematics and Informatics Institute for research",
+    "SunyaEk",
+    "Fusemachines",
+     "Hope Child Development Center",
+    "GHAR",
   ];
 
   const nonGovernmentCollaborators = [
-      "National Institutes of Health, USA",
-      "World Health Organization",
+    "National Institutes of Health, USA",
+    "World Health Organization",
     "Dhulikhel Hospital, Kathmandu University Hospital",
     "Kathmandu University School of Medical Sciences",
     "Women's Rehabilitation Centre (WOREC)",
@@ -32,12 +36,16 @@ export default function CollaboratorsPage() {
     "University of Connecticut, USA",
     "University of California Los Angeles, USA",
     "Weiss Asset Management, USA",
-    "Sexual Violence Research Initiative(SVRI), USA",
-    "Community Health Impact Coalition",
-    "SunyaEk",
+    "Sexual Violence Research Initiative (SVRI)",
+   
+    // Moved from Government list
+    "Nyaya Health Nepal",
+    "Nepal Disabled Women Association",
     "Dalit Lives Matters",
     "Transcultural Psychosocial Organization Nepal (TPO Nepal)",
     "Blue Diamond Society",
+    "AutismCare Nepal Society",
+   
   ];
 
   return (
@@ -55,11 +63,8 @@ export default function CollaboratorsPage() {
         <div className="bg-zinc-50/70 border border-zinc-200/70 rounded-3xl p-8 sm:p-12 shadow-xs">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             
-            {/* Government Column */}
+            {/* First Column */}
             <div>
-              <h2 className="text-lg font-bold text-primary-pink uppercase tracking-wider mb-6 border-b border-zinc-200 pb-3">
-                Government
-              </h2>
               <ul className="flex flex-col gap-y-4">
                 {governmentCollaborators.map((partner, pIdx) => (
                   <li
@@ -75,11 +80,8 @@ export default function CollaboratorsPage() {
               </ul>
             </div>
 
-            {/* Non-Government Column */}
+            {/* Second Column */}
             <div>
-              <h2 className="text-lg font-bold text-primary-pink uppercase tracking-wider mb-6 border-b border-zinc-200 pb-3">
-                Non-Government
-              </h2>
               <ul className="flex flex-col gap-y-4">
                 {nonGovernmentCollaborators.map((partner, pIdx) => (
                   <li

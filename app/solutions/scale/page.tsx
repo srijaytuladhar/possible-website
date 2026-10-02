@@ -16,11 +16,11 @@ export default function ScalePage() {
       image: "/baby.jpg",
       publications: [
         {
-          title: "A Type II hybrid effectiveness-implementation study of an integrated CHW intervention to address maternal healthcare in rural Nepal.",
+          title: "A study of an integrated CHW intervention to address maternal healthcare in rural Nepal.",
           link: "https://doi.org/10.1371/journal.pgph.0001512"
         },
           {
-          title: "Comparing two data collection methods to track vital events in maternal and child health via community health workers in rural Nepal.",
+          title: "Comparing two data collection methods to track vital events in maternal and child health via CHWs.",
           link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9327361/"
         },
         {
@@ -28,7 +28,7 @@ export default function ScalePage() {
           link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7326517/"
         },
         {
-          title: "Postpartum contraception outcomes from a pre-post effectiveness-implementation study of an integrated community health worker intervention.",
+          title: "Postpartum contraception outcomes of an integrated community health worker intervention.",
           link: "https://doi.org/10.1186/s12978-025-02225-5"
         },
         {
@@ -55,7 +55,7 @@ export default function ScalePage() {
           link: "https://bmjopen.bmj.com/content/11/8/e048481"
         },
         {
-          title: "Collaborative Care for Mental Health in Low- and Middle-Income Countries: A WHO Health Systems Framework Assessment.",
+          title: "Collaborative Care for Mental Health in LMICs: A WHO Health Systems Framework Assessment.",
           link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5790311/"
         },
         {
@@ -63,7 +63,7 @@ export default function ScalePage() {
           link: "https://doi.org/10.1007/s41347-024-00389-8"
         },
         {
-          title: "Addressing challenges for psychotherapy supervision in global mental health through experiential learnings from rural Nepal.",
+          title: "Addressing challenges for psychotherapy supervision in global mental health through experiential learnings.",
           link: "https://doi.org/10.1186/s12982-025-00645-z"
         },
         {

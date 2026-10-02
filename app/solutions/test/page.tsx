@@ -23,7 +23,7 @@ export default function TestPage() {
           image: "/solutions_test/MILAP.jpg",
           publications: [
             {
-              title: "A multi-component family intervention to lower depression and address intimate partner violence (MILAP) among young married women in Nepal",
+              title: "A multi-component family intervention to lower depression and address intimate partner violence (MILAP).",
               link: "https://pubmed.ncbi.nlm.nih.gov/41680806/"
             },
             {
@@ -101,19 +101,19 @@ export default function TestPage() {
           image: "/solutions_test/perinatal.jpg",
           publications: [
             {
-              title: "Postpartum contraception outcomes from a pre-post effectiveness-implementation study of an integrated community health worker intervention in rural Nepal.",
+              title: "Postpartum contraception outcomes of an integrated community health worker intervention in rural Nepal.",
               link: "https://doi.org/10.1186/s12978-025-02225-5"
             },
             {
-              title: "The power of peers: an effectiveness evaluation of a cluster-controlled trial of group antenatal care in rural Nepal.",
+              title: "The power of peers: an effectiveness evaluation of a cluster-controlled trial of group antenatal care.",
               link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6805428/"
             },
             {
-              title: "Comparing two data collection methods to track vital events in maternal and child health via community health workers in rural Nepal.",
+              title: "Comparing two data collection methods to track vital events in maternal and child health via CHWs.",
               link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9327361/"
             },
             {
-              title: "Addressing challenges for psychotherapy supervision in global mental health through experiential learnings from rural Nepal.",
+              title: "Addressing challenges for psychotherapy supervision in global mental health through experiential learnings.",
               link: "https://doi.org/10.1186/s12982-025-00645-z"
             },
             {
@@ -212,7 +212,7 @@ export default function TestPage() {
           image: "/solutions_test/chissa.JPG",
           publications: [
             {
-              title: "Preferences for mHealth Intervention to Address Mental Health Challenges Among Men Who Have Sex With Men in Nepal.",
+              title: "Preferences for mHealth intervention to address mental health challenges among men who have sex with men.",
               link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11015371/"
             },
              {
@@ -220,7 +220,7 @@ export default function TestPage() {
               link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10664887/"
             },
             {
-              title: "Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men in Nepal.",
+              title: "Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men.",
               link: "https://doi.org/10.1038/s41598-025-92449-z"
             }
              

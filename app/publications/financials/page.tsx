@@ -38,7 +38,7 @@ function FinancialsContent() {
   // Conflict of Interest / Financial Disclosures
   const disclosureReports = [
     {
-      title: "Financial Conflict of Interest (FCOI) Policy",
+      title: "FCOI Possible US",
       desc: "",
       date: "August 2021",
       type: "Policy & Disclosure",
@@ -47,7 +47,7 @@ function FinancialsContent() {
       cover: "/conflict-of-interest/thumbnails/FCOI Possible US.webp",
     },
     {
-      title: "Sambhav (Possible) Code of Conduct & HR Policy",
+      title: "FCOI Sambhav",
       desc: "",
       date: "June 01, 2021",
       type: "Code of Conduct",
@@ -400,10 +400,10 @@ function FinancialsContent() {
 
       <div className="bg-zinc-100/70 p-8 sm:p-10 rounded-3xl border border-zinc-200/50 animate-in fade-in duration-300 space-y-10">
         
-        {/* CONDITIONAL POSSIBLE US HEADING - Only shows in Financial Reports tab and in Pink */}
+        {/* CONDITIONAL POSSIBLE US HEADING - Only shows in Financial Reports tab in Purple without bold */}
         {activeTab === "reports" && (
           <div className="border-b border-zinc-200/80 pb-4">
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary-pink uppercase tracking-widest">
+            <h2 className="text-3xl sm:text-4xl font-normal text-accent-purple uppercase tracking-widest">
               Possible US
             </h2>
           </div>
