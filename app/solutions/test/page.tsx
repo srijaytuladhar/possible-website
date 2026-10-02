@@ -209,7 +209,7 @@ export default function TestPage() {
             "Chissa advances suicide prevention through personalized, just-in-time digital support. Named after a colloquial expression of love and admiration used within Nepali GBMSM communities, \"Chissa\" reflects a compassionate, community-centered approach to suicide prevention.",
             "Chissa is an innovative digital tool designed to recognize changes in suicide risk and provide tailored support when it's needed most.We are co-creating with GBMSM communities and local health partners, followed by pilot testing, to bring together digital innovation and community knowledge and make suicide prevention more timely, accessible, and responsive, with potential for scale in Nepal and beyond."
           ],
-          image: "/solutions_test/chissa.jpg",
+          image: "/solutions_test/chissa.JPG",
           publications: [
             {
               title: "Preferences for mHealth Intervention to Address Mental Health Challenges Among Men Who Have Sex With Men in Nepal: Qualitative Study.",

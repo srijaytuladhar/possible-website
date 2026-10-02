@@ -398,13 +398,22 @@ function FinancialsContent() {
         </div>
       </div>
 
-      <div className="bg-zinc-100/70 p-8 sm:p-10 rounded-3xl border border-zinc-200/50 animate-in fade-in duration-300 space-y-16">
+      <div className="bg-zinc-100/70 p-8 sm:p-10 rounded-3xl border border-zinc-200/50 animate-in fade-in duration-300 space-y-10">
+        
+        {/* CONDITIONAL POSSIBLE US HEADING - Only shows in Financial Reports tab and in Pink */}
+        {activeTab === "reports" && (
+          <div className="border-b border-zinc-200/80 pb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary-pink uppercase tracking-widest">
+              Possible US
+            </h2>
+          </div>
+        )}
+
         {/* Latest Reports: Card Layout */}
         <div className="space-y-6">
-      
-          <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">
+          <h3 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">
             Latest {activeTab === "reports" ? "Financial Reports" : "Financial Disclosures"}
-          </h2>
+          </h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {latestReports.map((item, idx) => (
               <div
@@ -413,12 +422,12 @@ function FinancialsContent() {
               >
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
-                    <h3
+                    <h4
                       onClick={() => openReport(item)}
                       className="text-[17px] sm:text-[19px] font-semibold text-zinc-950 mb-3 group-hover:text-primary-pink transition-colors cursor-pointer"
                     >
                       {item.title}
-                    </h3>
+                    </h4>
                     <p className="text-[13.5px] text-body-gray leading-relaxed font-light mb-6">
                       {item.desc}
                     </p>
@@ -469,9 +478,9 @@ function FinancialsContent() {
         {/* Older Reports: List Layout */}
         {olderReports.length > 0 && (
           <div className="space-y-6 border-t border-zinc-200/60 pt-10">
-            <h2 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">
+            <h3 className="text-2xl font-light text-zinc-950 uppercase tracking-wider">
               Previous {activeTab === "reports" ? "Financial Reports" : "Disclosures"}
-            </h2>
+            </h3>
             <div className="bg-white border border-zinc-200/60 rounded-2xl overflow-hidden shadow-sm">
               <div className="divide-y divide-zinc-100">
                 {paginatedOlderReports.map((item, idx) => (
