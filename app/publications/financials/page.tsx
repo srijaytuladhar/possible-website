@@ -51,9 +51,9 @@ function FinancialsContent() {
       desc: "",
       date: "June 01, 2021",
       type: "Code of Conduct",
-      link: "/conflict-of-interest/SAMBHAV_CODE-OF-CONDUCT.pdf",
-      pdfFilename: "SAMBHAV_CODE-OF-CONDUCT.pdf",
-      cover: "/conflict-of-interest/thumbnails/SAMBHAV_CODE-OF-CONDUCT.webp",
+      link: "/conflict-of-interest/FCOI Sambhav.pdf",
+      pdfFilename: "FCOI Sambhav.pdf",
+      cover: "/conflict-of-interest/thumbnails/FCOI Sambhav.webp",
     },
   ];
 
