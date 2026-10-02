@@ -5,9 +5,9 @@ import HeroSlider from "@/components/HeroSlider";
 import InteractivePresenceMap from "@/components/InteractivePresenceMap";
 
 // Image slots for upcoming client photos:
-const PROCESS_SECTION_IMAGE = "/Codesign2.jpeg"; // Photo below hero text (to be replaced with provided file)
-const HIMALAYA_SECTION_IMAGE = "/Mother_updated.png"; // Section 3 Himalaya-themed photo (to be replaced with provided file)
-const TEAM_SECTION_IMAGE = "/woweare.jpg"; // Section 5 group around table photo (to be replaced with provided file)
+const PROCESS_SECTION_IMAGE = "/Codesign2.jpeg"; // Photo below hero text
+const HIMALAYA_SECTION_IMAGE = "/Mother_updated.png"; // Section 3 Himalaya-themed photo
+const TEAM_SECTION_IMAGE = "/woweare.jpg"; // Section 5 group around table photo
 
 export default function Home() {
   return (
@@ -49,7 +49,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Image */}
+          {/* First Image with Right-Side Brightening Overlay */}
           <div className="relative w-full max-w-3xl aspect-[6.5/4.3] rounded-3xl overflow-hidden shadow-md border border-zinc-200/50 bg-zinc-100 group">
             <Image
               src={PROCESS_SECTION_IMAGE}
@@ -58,17 +58,17 @@ export default function Home() {
               className="object-cover transition-transform duration-500 group-hover:scale-101"
               sizes="(max-width: 1024px) 100vw, 70vw"
             />
+            {/* Soft white gradient overlay on the right side for enhanced brightness */}
+            <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-white/35 via-white/15 to-transparent pointer-events-none" />
           </div>
         </div>
       </section>
- {/* SECTION 5 — Mission / Himalayas / Rooted in Community */}
+
+      {/* SECTION 5 — Mission / Himalayas / Rooted in Community */}
       <section className="relative py-20 px-6 sm:px-8 overflow-hidden bg-zinc-50 border-b border-zinc-100">
         <div className="absolute top-[-10%] right-[-5%] w-[35rem] h-[35rem] rounded-full bg-radial from-secondary-blue/10 to-transparent blur-3xl -z-10 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.2] -z-20 pointer-events-none" />
-        
 
-
-      
         <div className="mx-auto max-w-7xl flex flex-col items-center">
           {/* Copy Above Image */}
           <div className="max-w-3xl text-left mb-10">
@@ -87,11 +87,12 @@ export default function Home() {
               sizes="(max-width: 1024px) 100vw, 70vw"
               priority
             />
+            {/* Dark gradient covering bottom through to middle */}
+            <div className="absolute bottom-0 inset-x-0 h-3/5 bg-gradient-to-t from-black/85 via-black/55 via-50% to-transparent pointer-events-none" />
           </div>
         </div>
-          
       </section>
-      
+
       {/* SECTION 4 — Three Stage Dynamic Process Boxes (Innovate -> Test -> Scale) */}
       <section className="relative py-20 px-6 sm:px-8 bg-white border-b border-zinc-100 overflow-hidden">
         <div className="absolute top-[10%] left-[-5%] w-[30rem] h-[30rem] rounded-full bg-radial from-primary-pink/5 to-transparent blur-3xl -z-10 pointer-events-none" />
@@ -100,7 +101,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           {/* 3 Connected Process Boxes in order: Innovate -> Test -> Scale */}
           <div className="flex flex-col md:flex-row items-stretch justify-center gap-4 lg:gap-6 max-w-5xl mx-auto mb-10">
-            {/* Box 1: Innovate (Pink Border & Soft Background) */}
+            {/* Box 1: Innovate */}
             <Link
               href="/solutions/innovate"
               className="w-full md:flex-1 p-6 sm:p-7 rounded-2xl bg-[#FDF2F7] border-2 border-primary-pink shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center min-h-[210px] justify-center group"
@@ -109,7 +110,7 @@ export default function Home() {
                 Innovate
               </h3>
               <p className="text-[14.5px] text-zinc-700 leading-relaxed font-light">
-               Innovate health solutions with local communities and governments.
+                Innovate health solutions with local communities and governments.
               </p>
             </Link>
 
@@ -118,7 +119,7 @@ export default function Home() {
               <ArrowRight className="h-6 w-6 stroke-[2.5]" />
             </div>
 
-            {/* Box 2: Test (Cyan Border & Soft Background) */}
+            {/* Box 2: Test */}
             <Link
               href="/solutions/test"
               className="w-full md:flex-1 p-6 sm:p-7 rounded-2xl bg-[#F0FBFD] border-2 border-secondary-blue shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center min-h-[210px] justify-center group"
@@ -137,7 +138,7 @@ export default function Home() {
               <ArrowRight className="h-6 w-6 stroke-[2.5]" />
             </div>
 
-            {/* Box 3: Scale (Purple Border & Soft Background) */}
+            {/* Box 3: Scale */}
             <Link
               href="/solutions/scale"
               className="w-full md:flex-1 p-6 sm:p-7 rounded-2xl bg-[#F8F2F9] border-2 border-accent-purple shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center min-h-[210px] justify-center group"
@@ -151,7 +152,7 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Caption Below the 3 Boxes per IMG-02 */}
+          {/* Caption Below the 3 Boxes */}
           <div className="text-center max-w-3xl mx-auto">
             <p className="text-base sm:text-lg text-zinc-600 font-light italic leading-relaxed">
               Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of validated evidence.
@@ -160,32 +161,30 @@ export default function Home() {
         </div>
       </section>
 
-     
-
       {/* SECTION 6 — WHO WE ARE */}
       <section className="relative py-20 px-6 sm:px-8 bg-white border-b border-zinc-100 overflow-hidden" id="who-we-are">
         <div className="absolute bottom-[-10%] left-[-5%] w-[40rem] h-[40rem] rounded-full bg-radial from-primary-pink/5 to-transparent blur-3xl -z-10 pointer-events-none" />
 
         <div className="mx-auto max-w-7xl flex flex-col items-center">
-          {/* Header matching How We Solve Complex Problems */}
+          {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="h2-section text-zinc-950 uppercase tracking-wide">
               Who We Are
             </h2>
           </div>
 
-          {/* Image with text overlaid directly on the image with dark/black shade overlay per IMG-01 */}
+          {/* Image with deep black gradient behind text */}
           <div className="relative w-full max-w-4xl aspect-[16/10] sm:aspect-[16/9] rounded-3xl overflow-hidden shadow-lg border border-zinc-200/60 bg-zinc-950 group">
             <Image
               src={TEAM_SECTION_IMAGE}
               alt="Possible team of researchers, clinicians, and advocates"
               fill
-              className="object-cover object-center opacity-70 transition-transform duration-700 group-hover:scale-102"
+              className="object-cover object-center transition-transform duration-700 group-hover:scale-102"
               sizes="(max-width: 1024px) 100vw, 80vw"
             />
-            {/* Dark shade overlay behind text */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/40 flex items-end justify-left p-6 sm:p-12 md:p-14">
-              <p className="text-white text-[16px] sm:text-[18px] md:text-[20px] font-light leading-relaxed text-center max-w-3xl drop-shadow-md">
+            {/* Deep black gradient overlay for contrast */}
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/90 via-70% to-transparent pt-28 pb-8 sm:pb-12 px-6 sm:px-12 flex items-end justify-center">
+              <p className="text-white text-[16px] sm:text-[18px] md:text-[20px] font-light leading-relaxed text-center max-w-3xl drop-shadow-lg">
                 We are health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers, not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. <strong>We don&apos;t just co-design a project, test/deliver a program, and move on. We build systems that last.</strong>
               </p>
             </div>
