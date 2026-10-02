@@ -1,27 +1,30 @@
 "use client";
 
 export default function CollaboratorsPage() {
-  const collaborators = [
+  const governmentCollaborators = [
     "Ministry of Health and Food Safety, Government of Nepal",
-    "Department of Health Services, Ministry of Health and Food Safety, Government of Nepal",
-    "Nursing and Social Security Division, Department of Health Services, Ministry of Health and Food Safety, Government of Nepal",
-    "Epidemiology and Disease Control Division, Department of Health Services, Ministry of Health and Food Safety, Government of Nepal",
-    "National Centre for AIDS & STD Control, Ministry of Health and Food Safety, Government of Nepal",
+    "Department of Health Services, MOHS, Government of Nepal",
+    "Nursing and Social Security Division, DOHS, MOHS, Government of Nepal",
+    "Epidemiology and Disease Control Division, DOHS, MOHS, Government of Nepal",
+    "National Centre for AIDS & STD Control, MOHS, Government of Nepal",
     "Nepal Health Research Council, Government of Nepal",
     "Social Welfare Council, Government of Nepal",
-    "World Health Organization",
-    "Dhulikhel Hospital, Kathmandu University Hospital",
-    "Kathmandu University School of Medical Sciences",
     "Chandragiri Municipality, Chandragiri",
     "Bardibas Municipality, Mahottari",
     "Bhimeshwor Municipality, Dolakha",
     "Tamakoshi Rural Municipality, Dolakha",
     "Baiteshwor Rural Municipality, Dolakha",
     "Kalinchowk Rural Municipality, Dolakha",
+    "National Institutes of Health, USA",
+  ];
+
+  const nonGovernmentCollaborators = [
+    "World Health Organization",
+    "Dhulikhel Hospital, Kathmandu University Hospital",
+    "Kathmandu University School of Medical Sciences",
     "Women's Rehabilitation Centre (WOREC)",
     "Nepal Disabled Women Association",
     "Nyaya Health Nepal",
-    "National Institutes of Health, USA",
     "University of California San Francisco, USA",
     "Wheaton College, USA",
     "Yale University, USA",
@@ -46,21 +49,51 @@ export default function CollaboratorsPage() {
       </div>
 
       {/* Clean Bulleted List in Responsive 2-Column Grid */}
-      <div className="animate-in fade-in duration-300 max-w-4xl mx-auto w-full">
+      <div className="animate-in fade-in duration-300 w-full">
         <div className="bg-zinc-50/70 border border-zinc-200/70 rounded-3xl p-8 sm:p-12 shadow-xs">
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-            {collaborators.map((partner, pIdx) => (
-              <li
-                key={pIdx}
-                className="flex items-start gap-3.5 group"
-              >
-                <span className="w-2 h-2 rounded-full bg-primary-pink mt-2.5 shrink-0 group-hover:scale-125 transition-transform" />
-                <span className="text-[15.5px] sm:text-[16.5px] text-zinc-800 font-light leading-relaxed group-hover:text-zinc-950 transition-colors">
-                  {partner}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            {/* Government Column */}
+            <div>
+              <h2 className="text-lg font-bold text-primary-pink uppercase tracking-wider mb-6 border-b border-zinc-200 pb-3">
+                Government
+              </h2>
+              <ul className="flex flex-col gap-y-4">
+                {governmentCollaborators.map((partner, pIdx) => (
+                  <li
+                    key={`gov-${pIdx}`}
+                    className="flex items-start gap-3.5 group"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-primary-pink mt-2.5 shrink-0 group-hover:scale-125 transition-transform" />
+                    <span className="text-[15.5px] sm:text-[16.5px] text-zinc-800 font-light leading-relaxed group-hover:text-zinc-950 transition-colors">
+                      {partner}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Non-Government Column */}
+            <div>
+              <h2 className="text-lg font-bold text-primary-pink uppercase tracking-wider mb-6 border-b border-zinc-200 pb-3">
+                Non-Government
+              </h2>
+              <ul className="flex flex-col gap-y-4">
+                {nonGovernmentCollaborators.map((partner, pIdx) => (
+                  <li
+                    key={`non-gov-${pIdx}`}
+                    className="flex items-start gap-3.5 group"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-primary-pink mt-2.5 shrink-0 group-hover:scale-125 transition-transform" />
+                    <span className="text-[15.5px] sm:text-[16.5px] text-zinc-800 font-light leading-relaxed group-hover:text-zinc-950 transition-colors">
+                      {partner}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

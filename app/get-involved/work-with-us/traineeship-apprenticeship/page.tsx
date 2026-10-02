@@ -21,7 +21,7 @@ export default function TraineeshipApprenticeshipPage() {
           Professional Training
         </span>
         <h1 className="h1-hero text-zinc-950 uppercase tracking-wide">
-          Traineeship & Apprenticeship Opportunities
+          Traineeship & Apprenticeship 
         </h1>
       </div>
 

@@ -48,7 +48,7 @@ export default function ScalePage() {
       description: [
         "An integrated model that trains CHWs and clinicians to identify and manage depression and anxiety within primary care settings. This model is co-designed and tested in remote districts in Nepal, and is now informing WHO-endorsed national training manuals for scale-up."
       ],
-      image: "/DH__1913.jpg",
+      image: "/COCM.jpg",
       publications: [
         {
           title: "Collaborative care model for depression in rural Nepal: a mixed-methods implementation research study.",

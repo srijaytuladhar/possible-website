@@ -200,8 +200,7 @@ export default function NewsPage() {
           </div>
         )}
       </div>
-
-      {/* Newsletter Signup Banner */}
+      {/* Newsletter Signup Banner 
       <div className="bg-zinc-950 py-16 px-6 sm:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.05] pointer-events-none" />
         <div className="mx-auto max-w-4xl text-center space-y-6 relative z-10">
@@ -236,8 +235,7 @@ export default function NewsPage() {
             </form>
           )}
         </div>
-      </div>
-
+      </div>*/}
       {/* Article Detail Reader Modal */}
       {selectedArticle && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">

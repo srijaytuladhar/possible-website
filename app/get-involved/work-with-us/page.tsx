@@ -87,8 +87,8 @@ export default function WorkWithUsPage() {
           </div>
         </div>
 
-        {/* Quote Block */}
-        <div className="relative py-12 px-8 max-w-4xl mx-auto text-center bg-zinc-50/70 rounded-3xl border border-zinc-100 my-8">
+        {/* Quote Block - Added w-full to match the Vacancies block below it */}
+        <div className="relative py-12 px-8 max-w-4xl mx-auto w-full text-center bg-zinc-50/70 rounded-3xl border border-zinc-100 my-8">
           <span className="absolute top-2 left-6 text-7xl font-serif text-primary-pink/20 select-none">“</span>
           <p className="text-[20px] sm:text-[23px] font-light text-zinc-800 leading-relaxed italic relative z-10 px-4">
             If you thrive on creating an impact and want to join our mission to reduce suffering and improve lives by strengthening community care systems, join our team.
