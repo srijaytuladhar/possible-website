@@ -264,7 +264,103 @@ export const teamMembersData: TeamMember[] = [
     role: "Finance Budget Officer",
     image: "https://possiblehealth.org/wp-content/uploads/2026/03/Barsha-ji.jpg",
     bio: "Barsha Mainali brings over seven years of experience in finance, budgeting, grant administration, and donor-funded project operations. A Semi-Qualified Chartered Accountant, she has worked with International IDEA, Chaitanya Academy, and S. Devkota & Company. Outside of work, she enjoys reading, traveling, and continuous learning."
-  }
+  },
+
+ {
+    id: "tm-25",
+    name: "Anant Raut",
+    role: "Advisor, Informatics",
+    image: "https://possiblehealth.org/wp-content/uploads/2016/08/anant_308x308-1-300x300.jpg",
+    bio: "Anant Raut is an Advisor for Possible. His work focuses on strategic and operational advising on Possible’s informatics work with NepalEHR. Anant led the rollout of our electronic health record (EHR) system at hospital hubs in rural Nepal. He helps improve health outcomes and patient experience through innovative digital systems design and quality improvement. Previously, Anant served as Possible’s Informatics Director. Before joining Possible, Anant led various projects innovating user-centered solutions for Hospira, P&G and Samsung, and was previously as an analyst at Zurich Financial Services. He completed his M.A. in Engineering Design & Innovation from Northwestern University, and has a B.A in Mechanical Engineering from Trinity College (CT)."
+  },
+
+  {
+    id: "tm-26",
+    name: "Bibhav Acharya, MD",
+    role: "Co-Founder and Advisor",
+    image: "https://possiblehealth.org/wp-content/uploads/2014/02/Bibhav-Acharya-1.jpg",
+    bio: "Bibhav Acharya, MD, is a co-founder, advisor and current board member. Bibhav drives our mental health research and implementation behind Possible and Nyaya Health Nepal. In his role, he leads design and implementation of grant-funded research, provides close mentorship and guidance for Nepali team members to implement studies and innovative programs, and builds and sustains collaborations with premier, international academic institutions. He is research faculty and the director of global mental health fellowship at University of California, San Francisco. He envisions a world where high quality mental health services are not only readily accessible but also inform overall health systems development, including care for other chronic illnesses. He earned his MD from Yale School of Medicine and completed residency training in general psychiatry and a diploma course in implementation research from University of California, San Francisco. Outside of Possible, you can find him chasing after and being chased by his two kids."
+  },
+{
+    id: "tm-27",
+    name: "Dan Schwarz, MD, MPH",
+    role: "Advisor",
+    image: "https://possiblehealth.org/wp-content/uploads/2014/02/Dan-Schwartz-1-300x300.jpg",
+    bio: "Dan Schwarz is an Advisor for Possible. Dan supports our medical and community health work by ensuring the delivery of health services is evidence-based and in line with global best practices. Previously, Dan was the Executive Director of Possible from 2009 – 2011, and subsequently, the Chief Medical Officer until 2017. Dan is a general internist and pediatrician, based at the Division of Global Health Equity at the Brigham and Women’s Hospital and Harvard Medical School in Boston. He serves as the Associate Director of Primary Health Care for Ariadne Labs, and sits on the Leadership Group of the Primary Healthcare Performance Initiative (PHCPI), in collaboration with the WHO, World Bank Group, and Bill & Melinda Gates Foundation."
+  },
+{
+    id: "tm-28",
+    name: "Rekha Khatri, MSW",
+    role: "Advisor",
+    image: "https://possiblehealth.org/wp-content/uploads/2021/06/20201014_084928.jpg",
+    bio: "Rekha, Ph.D. candidate at the University of Sydney, is an advisor at Possible. She worked as a Senior Manager: Qualitative and Intervention Research, and led the qualitative research aspect of research projects at Possible. Her research studies primarily focus on reproductive, maternal, newborn, and child health and understanding the use of motivational interviewing to engage non-adherent patients. As a Senior Manager at Possible, she had a pivotal role in co-leading the consultation and designing the studies on people living with disabilities. She previously worked on multi-country ethnographic research studies within the health sector with teams from the University of Edinburgh while based at Social Science Baha and Health Research and Social Development Forum (HERD). At HERD, she was also extensively involved in conducting research and evaluation studies in areas of maternal and child health, nutrition, and adolescents, leading the qualitative component, while also institutionalizing qualitative research processes. She also worked on understanding collaboration and capacity building within health sector research, the impact of new tuberculosis diagnostics (GeneXpert) among health workers and the operation of the global fund in Nepal. Her research interests are in areas of gender, development, ethics, and political economy within the health sector and beyond. She has a Master’s degree in Social Work with a field of practice in women-centered social work from Tata Institute of Social Sciences (TISS), Mumbai. She is trained in feminist principles and practices and has intensive fieldwork experiences working with survivors of violence based on principles of self-determination. Beyond work, she enjoys reading, hiking, and growing greens."
+  },
+{
+    id: "tm-29",
+    name: "David Citrin, MPH, PHD",
+    role: "Advisor, Implementation Research",
+    image: "https://possiblehealth.org/wp-content/uploads/2014/02/David-Citrin-1.jpg",
+    bio: "David Citrin is an Advisor for Possible. Previously, David served as the Evidence to Policy Director for Possible. As an advisor, David works to ensure Possible translates experience from our integrated care delivery model into learning that shapes policy in Nepal, and globally. He seeks to ensure equitable and ethical working relationships between academic and innovation partners and our work in Nepal. David is a medical anthropologist and global health practitioner who has worked in Nepal since 2001. He received his undergraduate education at Cornell University, and his Ph.D. and MPH from the University of Washington, where he is an Affiliate Assistant Professor in the Departments of Global Health and Anthropology, and directs the Nepal Studies Initiative in the Jackson School of International Studies. He is also Co-Editor of HIMALAYA, the journal of the Association for Nepal and Himalayan Studies."
+  },{
+    id: "tm-30",
+    name: "Duncan Maru, MD, PhD",
+    role: "Co-Founder and Advisor",
+    image: "https://possiblehealth.org/wp-content/uploads/2014/02/Duncan-Maru1-1.jpg",
+    bio: "Duncan Maru, MD, PhD, is a co-founder and currently serves as an advisor and board member. He previously served as Interim CEO. Duncan is currently a faculty member at Mount Sinai’s Arnhold Institute of Global Health. Duncan previously practiced on the Complex Care Service at Boston Children’s Hospital. Duncan graduated from Harvard College, received his MD/PhD from Yale University, and completed the Harvard Combined Internal Medicine-Pediatrics Program and the Brigham and Women’s Global Health Equity Residency Program. Duncan’s work as a doctor and epidemiologist has generated over 40 peer-reviewed articles. In 2015, he was named a Schwab Foundation Social Entrepreneur of the Year."
+  },{
+    id: "tm-31",
+    name: "Nandini Choudhury",
+    role: "Advisor, Data Analytics",
+    image: "https://possiblehealth.org/wp-content/uploads/2016/12/nandini-choudhury_308x308-1.jpg",
+    bio: "Nandini Choudhury is an Advisor for Possible. She works to support Possible’s database management and workflow, implementation research analysis, and quantitative methods writing. Previously, Nandini served as a Delivery Science Analyst. Prior to joining Possible, Nandini worked at the Public Health Foundation of India on research projects on the social determinants of health, and human resources for health. She has also worked for over a year at a New Delhi-based non-profit, Maitri India. Nandini completed her Master’s in Public Health from Boston University, with a dual concentration in Global Health and Epidemiology. She received her Bachelor’s from Soka University of America, where she concentrated in Environmental Studies."
+  },{
+    id: "tm-32",
+    name: "Pragya Rimal",
+    role: "Advisor, Mental Health",
+    image: "https://possiblehealth.org/wp-content/uploads/2016/12/Pragya-Rimal.jpg",
+    bio: "Pragya, Advisor and Ph.D. candidate, UCLA Fielding School of Public Health As the former senior mental health research manager, Pragya led and managed mental health research at Possible. She is a Psychologist by training; has completed her Master’s in Clinical and Counseling Psychology from India. She had a key role in leading the successful implementation of collaborative mental health care and research in Achham and Dolakha and looking at the adaptation and development of a Motivational Interviewing tool to assist Community Health Workers to engage with non-adherent patients with Depression and Youth Living with HIV. As a Co-principal investigator, she oversaw a pilot study for a family intervention to address mental health drivers of domestic violence among young women in Nepal. Pragya received her global health training and mentorship as a global mental health fellow at Health, Equity, Action, and Leadership (HEAL) fellowship at UCSF. Currently, she is a Ph.D. candidate at the UCLA Fielding School of Public Health. Her areas of interest are implementation research and global mental health. Outside of work, you can find Pragya befriending cats and dogs."
+  },{
+    id: "tm-33",
+    name: "Ryan Schwarz, MD, MBA",
+    role: "Advisor",
+    image: "https://possiblehealth.org/wp-content/uploads/2014/02/Ryan-Schwarz-1.jpg",
+    bio: "Ryan Schwarz is an Advisor for Possible. Previously, Ryan served as the Chief Operations Officer and interim CEO. Ryan’s work focuses on strategic, operational, and partnership advising. Ryan is an Internal Medicine and Pediatrics physician at Massachusetts General Hospital’s Chelsea Health Center and is faculty at Harvard Medical School and Ariadne Labs. Ryan has worked with organizations in multiple other countries, and currently is a technical adviser to the World Bank and Global Financing Facility. Ryan completed his MD and MBA at Yale University and completed his clinical training at Harvard University."
+  },
+{
+    id: "tm-34",
+    name: "Scott Halliday, PhD",
+    role: "Board Member and Advisor",
+    image: "https://possiblehealth.org/wp-content/uploads/2016/12/scott_308x308-1.jpg",
+    bio: "Scott Halliday, PhD currently serves as a board member and advisor. Previously, Scott served as a Senior Implementation Research Manager. Scott is an Implementation Science Researcher with the Washington State Department of Children, Youth & Families. Scott holds a PhD in Implementation Science from the University of Washington, where he coordinated the Nepal Studies Initiative."
+  },
+{
+    id: "tm-35",
+    name: "Sheela Maru, MD, MPH",
+    role: "Advisor, Reproductive, Maternal, Newborn and Child Health",
+    image: "https://possiblehealth.org/wp-content/uploads/2015/03/Sheela-Maru1-1.jpg",
+    bio: "Sheela Maru is an Advisor to the RMNCH programs. She is currently at Mount Sinai. Sheela’s research and advocacy interests include access to reproductive health services for rural women in South Asia, maternal mortality reduction, and healthcare responses to gender-based violence. Sheela completed medical school at Yale School of Medicine, her residency training in Obstetrics and Gynecology at Boston Medical Center, her Masters in Public Health at Harvard School of Public Health, and a Global Women’s Health Fellowship at Brigham and Women’s Hospital."
+  },
+  {
+    id: "tm-36",
+    name: "Srijana Shrestha, PhD",
+    role: "Advisor, Mental Health",
+    image: "https://possiblehealth.org/wp-content/uploads/2020/04/image-6-e1586806328422.png",
+    bio: "Srijana Shrestha is an Advisor to our mental health program. In her role, Srijana supports lay health professionals deliver psycho-social counseling using culturally tailored, empirically-supported treatments. She is currently an Assistant Professor at Wheaton College in Massachusetts. Her research focuses on improving access to mental health care among underserved groups. Srijana earned her Ph.D. in clinical psychology and women’s studies, with a minor in gerontology, from Pennsylvania State University. She completed a clinical internship and postdoctoral training at Baylor College of Medicine."
+  },
+  {
+     id: "tm-37",
+    name: "Wan-Ju Wu, MD, MPH",
+    role: "Advisor, Reproductive Maternal Newborn and Child Health",
+    image: "https://possiblehealth.org/wp-content/uploads/2018/05/Wupic-1-e1530294583630-1.png",
+    bio: "Wan-Ju Wu is an Advisor with the Reproductive Maternal Newborn and Child Health (RMNCH) Program. She previously served as a fellow in Family Planning and Global Women’s Health at Brigham and Women’s Hospital. Her research interests include use of community health worker-led initiatives to improve access to quality reproductive health services. She has prior experience working on HIV/AIDS and women’s health projects in China, Haiti, South Africa, Burma, and Kenya. She completed her residency training in Obstetrics and Gynecology at Oregon Health and Science University and her MPH at Boston University School of Public Health."
+  },
+  {
+     id: "tm-38",
+    name: "Samrachana Adhikari, PhD",
+    role: "Advisor, Data Science",
+    image: "https://possiblehealth.org/wp-content/uploads/2025/06/Samrachana-Adhikari-269x300.jpg",
+    bio: "Samrachana Adhikari, PhD, is a data science advisor at Possible. She collaborates on grant submissions, and provides guidance and mentorship to researchers and staff. She is currently faculty of Population Health at NYU School of Medicine. Her research is centered around developing and integrating novel statistical methods to assess health outcomes using large administrative data for applications in medicine, population health, and education. Dr. Adhikari earned her PhD in Statistics from Carnegie Mellon University and completed a postdoctoral fellow in Biostatistics from Harvard Medical School."
+  },
 ];
 
 export const allTeamMembers: TeamMember[] = [
