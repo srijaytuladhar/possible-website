@@ -38,7 +38,7 @@ export default function InnovatePage() {
       description: [
         "Women with disabilities often face barriers to accessing sexual and reproductive health information and services. Possible worked alongside women with diverse disabilities, the Nepal Disabled Women’s Association, and other stakeholders to understand these experiences and co-design an intervention grounded in their needs, priorities, and lived realities."
       ],
-      image: "/solutions_innovate/Reimagining sexual and reproductive health services with women with disabilities.JPG"
+      image: "/solutions_innovate/Disability.JPG"
     }
   ];
 
