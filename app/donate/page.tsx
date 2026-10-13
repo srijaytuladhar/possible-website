@@ -350,8 +350,8 @@ export default function DonatePage() {
 
       {/* Frequently Asked Questions Section */}
       <section className="mt-16 pt-12 border-t border-zinc-200/80 max-w-4xl mx-auto w-full">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-950 uppercase tracking-wide">
+        <div className="mb-10 text-center max-w-3xl mx-auto">
+          <h2 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
             Donation FAQs
           </h2>
         </div>

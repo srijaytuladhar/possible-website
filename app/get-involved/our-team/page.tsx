@@ -270,20 +270,20 @@ function TeamPageContent() {
   const activeColor = currentTab.activeColor;
 
   return (
-    <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-10 md:py-14 flex flex-col flex-1 bg-white">
+    <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 pt-0 pb-10 md:pb-14 flex flex-col flex-1 bg-white">
 
-      {/* Top Banner Image with controlled max-width and smaller height */}
+      {/* Top Banner Image - Bottom row preserved, top space trimmed down to just above top heads */}
       <div className="w-full max-w-5xl mx-auto mb-0">
-        <div className="relative w-full h-[160px] sm:h-[220px] md:h-[300px] rounded-t-3xl sm:rounded-t-[2rem] overflow-hidden shadow-xs">
+        <div className="relative w-full h-[250px] sm:h-[330px] md:h-[410px] rounded-t-3xl sm:rounded-t-[2rem] overflow-hidden shadow-xs">
           <Image
             src="/board.jpg"
             alt="Possible Team & Board"
             fill
-            className="object-cover object-[center_30%]" // Maintains head focus
+            className="object-cover object-[center_22%]"
             priority
           />
           {/* Subtle dark overlay */}
-          <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/15 pointer-events-none" />
         </div>
       </div>
 
