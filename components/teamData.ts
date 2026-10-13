@@ -99,7 +99,7 @@ export const nepalBoardMembers: TeamMember[] = [
 export const teamMembersData: TeamMember[] = [
   {
     id: "tm-8",
-    name: "Sabitri Sapkota MPH, PHD",
+    name: "Sabitri Sapkota MPH, PhD",
     role: "Executive Director & Senior Scientist",
     image: "https://possiblehealth.org/wp-content/uploads/2026/06/Sapkota-Sabitri-Headshot-e1597751998763.png",
     bio: "Dr. Sabitri Sapkota Devkota brings more than two decades of experience in research, training, M&E, and evidence-to-policy work, including senior leadership roles across organizations in Nepal and abroad. She has overseen international collaborative research and large mixed-methods studies on behavioral and implementation science in Nepal, Afghanistan, Bangladesh, Cambodia, Myanmar, and Singapore, with a research focus on women's and child health including sexual, reproductive, maternal, adolescent, and mental health. She has served as Research Ethics Liaison representing research organizations and participants.\n\nBefore becoming Executive Director, she was Director of Research at Possible, Director of Implementation Research for Nyaya Health Nepal, and Regional Research Advisor for Marie Stopes International (MSI), UK. She has a nursing background, a public health degree from Melbourne University, Australia, and a Ph.D. in Health Sciences from Hiroshima University, Japan."
@@ -241,7 +241,7 @@ export const teamMembersData: TeamMember[] = [
     id: "tm-21",
     name: "Ramkrishna Khatiwada",
     role: "Information System Administrator",
-    image: "https://possiblehealth.org/wp-content/uploads/2025/09/Ramkrishna-khatiwada.jpg",
+    image: "https://possiblehealth.org/wp-content/uploads/2025/09/Ramkrishnakhatiwada.jpg",
     bio: "Ramkrishna Khatiwada manages networking, servers, and IT tools at Possible, ensuring smooth operation of IS applications and safeguarding organizational data. He holds a Bachelor's in Information Technology from Patan College for Professional Studies and is pursuing a Master's in Information Systems. Outside of work, he enjoys traveling and is an avid football fan."
   },
   {
