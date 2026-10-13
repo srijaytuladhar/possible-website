@@ -1,7 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { Heart, Landmark, CreditCard, ChevronRight, CheckCircle2, ShieldCheck } from "lucide-react";
+import {
+  Heart,
+  Landmark,
+  CreditCard,
+  ChevronRight,
+  CheckCircle2,
+  ShieldCheck,
+  ChevronDown,
+  HelpCircle,
+} from "lucide-react";
 
 export default function DonatePage() {
   const [frequency, setFrequency] = useState<"one-time" | "monthly">("monthly");
@@ -9,6 +18,7 @@ export default function DonatePage() {
   const [customAmount, setCustomAmount] = useState("");
   const [paymentMethod, setPaymentMethod] = useState<"card" | "bank">("card");
   const [submitted, setSubmitted] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const [donorInfo, setDonorInfo] = useState({
     firstName: "",
@@ -19,6 +29,63 @@ export default function DonatePage() {
   });
 
   const amounts = [25, 50, 100, 250, 500];
+
+  const faqs = [
+    {
+      question: "Is my donation tax-deductible?",
+      answer:
+        "Yes. Nyaya Health, doing business as Possible, a 501(c)(3) not for profit organization, has not provided any goods or services, in whole or in part, to you in consideration for this voluntary cash contribution. Our tax ID is 20-3055055.",
+    },
+    {
+      question: "Can I send a check?",
+      answer: (
+        <span>
+          Yes, please make check payable to <strong>“Possible”</strong> and send to:
+          <br />
+          <span className="mt-1 block font-medium text-zinc-800">
+            99 Wall Street #4100
+            <br />
+            New York, NY 10005
+          </span>
+        </span>
+      ),
+    },
+    {
+      question: "Can I give through stock, or wire transfer?",
+      answer: (
+        <span>
+          For wire transfers and gifts of stock, please write us at{" "}
+          <a
+            href="mailto:donations@possiblehealth.org"
+            className="text-primary-pink font-medium hover:underline"
+          >
+            donations@possiblehealth.org
+          </a>
+          .
+        </span>
+      ),
+    },
+    {
+      question: "Can I make a recurring donation?",
+      answer:
+        "Monthly gifts are some of our most important contributions, because they allow us to sustain this work throughout the year. To set up, please select 'Monthly Gift' at the top of the donation form.",
+    },
+    {
+      question: "Can I give through a donor-advised fund?",
+      answer:
+        "If you have a donor-advised fund with Fidelity Charitable, Schwab Charitable, Vanguard, National Philanthropic Trust, or Benevity, please use the DAF Direct link to automatically submit a recommendation to your advisor. Otherwise, please contact your financial institution to make a recommendation.",
+    },
+    {
+      question: "Can I make a gift through my employer’s giving program?",
+      answer:
+        "You could double your impact through a matching gift from your employer. Contact your company’s Human Resources office to add Possible to your employee giving platform.",
+    },
+    {
+      question: "Can I participate in planned giving?",
+      answer:
+        "Thank you for considering a legacy gift that helps ensure your support of Possible goes long into the future, and has a lasting impact. A legacy gift typically refers to a gift that requires estate and/or financial planning. You can update your estate or financial plans to include us as a beneficiary of your will, trust, retirement plan, or life insurance plan, among other options that can be tailored to fit your needs.",
+    },
+  ];
 
   const handleCustomAmountChange = (val: string) => {
     setCustomAmount(val);
@@ -37,6 +104,10 @@ export default function DonatePage() {
     }
   };
 
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
   const activeAmount = selectedAmount === "custom" ? Number(customAmount) || 0 : selectedAmount;
 
   return (
@@ -46,9 +117,7 @@ export default function DonatePage() {
         <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
           Support Our Mission
         </h1>
-        <p className="text-subheading text-body-gray font-light">
-          Your contributions fund rigorous clinical research, system design, policy translation, and the delivery of evidence-based community care models in Nepal.
-        </p>
+        
       </div>
 
       <div className="grid m-4">
@@ -130,20 +199,22 @@ export default function DonatePage() {
                 <button
                   type="button"
                   onClick={() => setFrequency("monthly")}
-                  className={`px-4 py-2 rounded-lg font-equip text-[13px] font-medium transition-all cursor-pointer ${frequency === "monthly"
-                    ? "bg-white text-zinc-950 shadow-sm"
-                    : "text-zinc-600 hover:text-zinc-950"
-                    }`}
+                  className={`px-4 py-2 rounded-lg font-equip text-[13px] font-medium transition-all cursor-pointer ${
+                    frequency === "monthly"
+                      ? "bg-white text-zinc-950 shadow-sm"
+                      : "text-zinc-600 hover:text-zinc-950"
+                  }`}
                 >
                   Monthly Gift
                 </button>
                 <button
                   type="button"
                   onClick={() => setFrequency("one-time")}
-                  className={`px-4 py-2 rounded-lg font-equip text-[13px] font-medium transition-all cursor-pointer ${frequency === "one-time"
-                    ? "bg-white text-zinc-950 shadow-sm"
-                    : "text-zinc-600 hover:text-zinc-950"
-                    }`}
+                  className={`px-4 py-2 rounded-lg font-equip text-[13px] font-medium transition-all cursor-pointer ${
+                    frequency === "one-time"
+                      ? "bg-white text-zinc-950 shadow-sm"
+                      : "text-zinc-600 hover:text-zinc-950"
+                  }`}
                 >
                   One-time Gift
                 </button>
@@ -160,10 +231,11 @@ export default function DonatePage() {
                       key={amt}
                       type="button"
                       onClick={() => handleAmountSelect(amt)}
-                      className={`py-3.5 rounded-xl border text-[14px] font-semibold transition-all cursor-pointer ${selectedAmount === amt
-                        ? "bg-primary-pink border-primary-pink text-white shadow-md shadow-primary-pink/15"
-                        : "bg-white border-zinc-200 text-zinc-800 hover:border-primary-pink/40"
-                        }`}
+                      className={`py-3.5 rounded-xl border text-[14px] font-semibold transition-all cursor-pointer ${
+                        selectedAmount === amt
+                          ? "bg-primary-pink border-primary-pink text-white shadow-md shadow-primary-pink/15"
+                          : "bg-white border-zinc-200 text-zinc-800 hover:border-primary-pink/40"
+                      }`}
                     >
                       ${amt}
                     </button>
@@ -191,10 +263,11 @@ export default function DonatePage() {
                   <button
                     type="button"
                     onClick={() => setPaymentMethod("card")}
-                    className={`py-3 rounded-xl border text-[13px] font-medium flex items-center justify-center gap-2 transition-all cursor-pointer ${paymentMethod === "card"
-                      ? "bg-white border-zinc-950 text-zinc-950 shadow-sm"
-                      : "bg-white border-zinc-200 text-zinc-600 hover:border-zinc-300"
-                      }`}
+                    className={`py-3 rounded-xl border text-[13px] font-medium flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                      paymentMethod === "card"
+                        ? "bg-white border-zinc-950 text-zinc-950 shadow-sm"
+                        : "bg-white border-zinc-200 text-zinc-600 hover:border-zinc-300"
+                    }`}
                   >
                     <CreditCard className="h-4 w-4" />
                     <span>Credit Card</span>
@@ -202,10 +275,11 @@ export default function DonatePage() {
                   <button
                     type="button"
                     onClick={() => setPaymentMethod("bank")}
-                    className={`py-3 rounded-xl border text-[13px] font-medium flex items-center justify-center gap-2 transition-all cursor-pointer ${paymentMethod === "bank"
-                      ? "bg-white border-zinc-950 text-zinc-950 shadow-sm"
-                      : "bg-white border-zinc-200 text-zinc-600 hover:border-zinc-300"
-                      }`}
+                    className={`py-3 rounded-xl border text-[13px] font-medium flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                      paymentMethod === "bank"
+                        ? "bg-white border-zinc-950 text-zinc-950 shadow-sm"
+                        : "bg-white border-zinc-200 text-zinc-600 hover:border-zinc-300"
+                    }`}
                   >
                     <Landmark className="h-4 w-4" />
                     <span>Bank Transfer</span>
@@ -275,6 +349,53 @@ export default function DonatePage() {
           )}
         </div>
       </div>
+
+      {/* Frequently Asked Questions Section */}
+      <section className="mt-16 pt-12 border-t border-zinc-200/80 max-w-4xl mx-auto w-full">
+        <div className="text-center mb-10 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-700 text-[12px] font-semibold uppercase tracking-wider">
+            <HelpCircle className="h-3.5 w-3.5 text-primary-pink" />
+            <span>Got Questions?</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-950 uppercase tracking-wide">
+            Donation FAQs
+          </h2>
+          <p className="text-body-gray text-[14px] font-light">
+            Everything you need to know about giving, tax deduction, and supporting Possible.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {faqs.map((faq, idx) => {
+            const isOpen = openFaqIndex === idx;
+            return (
+              <div
+                key={idx}
+                className="bg-zinc-50 border border-zinc-200/80 rounded-2xl overflow-hidden transition-all duration-200"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 font-semibold text-[15px] text-zinc-900 hover:text-primary-pink transition-colors cursor-pointer"
+                  aria-expanded={isOpen}
+                >
+                  <span>{faq.question}</span>
+                  <ChevronDown
+                    className={`h-4 w-4 text-zinc-500 shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-primary-pink" : ""
+                    }`}
+                  />
+                </button>
+                {isOpen && (
+                  <div className="px-6 pb-5 pt-1 text-[14px] text-body-gray font-light leading-relaxed border-t border-zinc-100 animate-in fade-in duration-150">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }
