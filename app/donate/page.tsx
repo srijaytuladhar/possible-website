@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   ShieldCheck,
   ChevronDown,
-  HelpCircle,
 } from "lucide-react";
 
 export default function DonatePage() {
@@ -117,7 +116,6 @@ export default function DonatePage() {
         <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
           Support Our Mission
         </h1>
-        
       </div>
 
       <div className="grid m-4">
@@ -352,17 +350,10 @@ export default function DonatePage() {
 
       {/* Frequently Asked Questions Section */}
       <section className="mt-16 pt-12 border-t border-zinc-200/80 max-w-4xl mx-auto w-full">
-        <div className="text-center mb-10 space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-700 text-[12px] font-semibold uppercase tracking-wider">
-            <HelpCircle className="h-3.5 w-3.5 text-primary-pink" />
-            <span>Got Questions?</span>
-          </div>
+        <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-3xl font-bold text-zinc-950 uppercase tracking-wide">
             Donation FAQs
           </h2>
-          <p className="text-body-gray text-[14px] font-light">
-            Everything you need to know about giving, tax deduction, and supporting Possible.
-          </p>
         </div>
 
         <div className="space-y-3">

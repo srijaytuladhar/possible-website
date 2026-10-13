@@ -272,14 +272,14 @@ function TeamPageContent() {
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-10 md:py-14 flex flex-col flex-1 bg-white">
 
-      {/* Top Banner Image with expanded height and adjusted focus position */}
-      <div className="w-full mb-0">
-        <div className="relative w-full h-[320px] sm:h-[420px] md:h-[520px] rounded-t-3xl sm:rounded-t-[2rem] overflow-hidden shadow-xs">
+      {/* Top Banner Image with controlled max-width and smaller height */}
+      <div className="w-full max-w-5xl mx-auto mb-0">
+        <div className="relative w-full h-[160px] sm:h-[220px] md:h-[300px] rounded-t-3xl sm:rounded-t-[2rem] overflow-hidden shadow-xs">
           <Image
             src="/board.jpg"
             alt="Possible Team & Board"
             fill
-            className="object-cover object-[center_30%]"
+            className="object-cover object-[center_30%]" // Maintains head focus
             priority
           />
           {/* Subtle dark overlay */}
