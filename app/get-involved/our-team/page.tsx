@@ -58,7 +58,7 @@ function TeamCard({
       className={`bg-white border border-zinc-200/80 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${colorClasses.border} group cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-primary-pink/30`}
     >
       <div className="space-y-4">
-        {/* Top Row: Photo on left, Arrow button on right matching [IMG-08] */}
+        {/* Top Row: Photo on left, Arrow button on right */}
         <div className="flex items-start justify-between gap-4">
           <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-zinc-100 bg-zinc-100 flex items-center justify-center shrink-0 shadow-2xs">
             {member.image && !imgError ? (
@@ -83,7 +83,7 @@ function TeamCard({
           </span>
         </div>
 
-        {/* Name and Role Only */}
+        {/* Name and Role */}
         <div className="space-y-1 pt-1">
           <h3 className="text-lg sm:text-xl font-bold font-outfit text-zinc-900 leading-snug group-hover:text-zinc-950">
             {member.name}
@@ -272,8 +272,23 @@ function TeamPageContent() {
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-10 md:py-14 flex flex-col flex-1 bg-white">
 
-      {/* Tabs Menu Bar */}
-      <div id="team-tabs" className="w-full max-w-5xl mx-auto mb-14 sm:mb-16 scroll-mt-28">
+      {/* Top Banner Image with expanded height and adjusted focus position */}
+      <div className="w-full mb-0">
+        <div className="relative w-full h-[320px] sm:h-[420px] md:h-[520px] rounded-t-3xl sm:rounded-t-[2rem] overflow-hidden shadow-xs">
+          <Image
+            src="/board.jpg"
+            alt="Possible Team & Board"
+            fill
+            className="object-cover object-[center_30%]"
+            priority
+          />
+          {/* Subtle dark overlay */}
+          <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+        </div>
+      </div>
+
+      {/* Tabs Menu Bar (Directly attached below photo) */}
+      <div id="team-tabs" className="w-full max-w-5xl mx-auto mb-12 sm:mb-16 scroll-mt-28">
         <div className="grid grid-cols-1 md:grid-cols-3 w-full shadow-xs">
           {tabs.map((tab) => {
             const isActive = tab.key === currentTab.key;
