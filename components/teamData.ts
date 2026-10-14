@@ -195,7 +195,7 @@ export const teamMembersData: TeamMember[] = [
     id: "tm-16",
     name: "Saugat Joshi",
     role: "Qualitative Research Manager",
-    image: "https://possiblehealth.org/wp-content/uploads/2025/01/Saugat-Joshi.jpg",
+    image: "/team/saugat.jpg",
     bio: "Saugat, from Dhangadi in far-west Nepal, oversees the qualitative research methodology integrated into Possible's mixed-method research. He holds a Master's in Global Health from Thammasat University, Thailand, and over five years of experience in applied qualitative health research. His master's dissertation examined suicide due to domestic violence among women of reproductive age in Nepal. He previously contributed to PHASE Nepal and CREHPA. Besides work, he enjoys time with family and friends."
   },
   {
