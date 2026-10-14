@@ -1,15 +1,27 @@
 "use client";
 
+import React from "react";
 import SolutionStageTemplate, { SolutionBoxType } from "@/components/SolutionStageTemplate";
 
 export default function ScalePage() {
+  const introText = (
+    <span>
+      <span className="block text-accent-purple font-extrabold text-base sm:text-lg uppercase tracking-wider mb-2.5">
+        WHAT WE MEAN BY SCALE
+      </span>
+      <span className="block text-zinc-800 text-[14.5px] sm:text-[15px] font-normal leading-relaxed">
+        Scale doesn&apos;t mean we run programs in more places. It means a solution becomes part of everyday care: adopted by public health systems and community-based organizations, written into guidelines and training, delivered by health workers, funded in public budgets, and extended to more communities. We co-design and test solutions with communities and government, then provide technical support until they can carry it forward.
+      </span>
+    </span>
+  );
+
   const projects: SolutionBoxType[] = [
     {
       id: "longitudinal-care",
       title: "Strengthening community health system through longitudinal care: From pilot to scale",
       description: [
-        "Too often, health systems reach families only when they seek care, leaving gaps in continuous support that could prevent illness, identify risks early, and address health needs before they become more serious. Pregnancies may go undetected until late, newborns may miss critical follow-up, and chronic conditions may remain unmanaged until they become emergencies- gaps that are costly to fix.",
-        "ProCHWs- local, trained, supervised, salaried, full-time, and digitally enabled community health workers, closes that gap by bringing integrated, longitudinal care directly into the community. Possible, in collaboration with the government, designed the model, grounded in WHO’s guidelines for CHW programs and tested it as a national pilot focused initially on bundled maternal and child health services. The pilot generated evidence that community-based, longitudinal care improves access and outcomes- reducing home deliveries, catching high-risk pregnancies earlier, and increasing follow-up care- while remaining affordable within the public health system.",
+        "Too often, health systems reach families only when they seek care, leaving gaps in continuous support that could prevent illness, identify risks early, and address health needs before they become more serious. Pregnancies may go undetected until late, newborns may miss critical follow-up, and chronic conditions may remain unmanaged until they become emergencies - gaps that are costly to fix.",
+        "ProCHWs - local, trained, supervised, salaried, full-time, and digitally enabled community health workers, close that gap by bringing integrated, longitudinal care directly into the community. Possible, in collaboration with the government, designed the model, grounded in WHO&apos;s guidelines for CHW programs and tested it as a national pilot focused initially on bundled maternal and child health services. The pilot generated evidence that community-based, longitudinal care improves access and outcomes - reducing home deliveries, catching high-risk pregnancies earlier, and increasing follow-up care - while remaining affordable within the public health system.",
         "We are now working with the government and community-based partners to strengthen and evolve the model for national scale-up: refining the delivery workflows, building the evidence base, and exploring how ProCHWs can extend beyond maternal and child health to provide a broader continuum of care across the life course.",
         <strong key="scale-closing-quote">&ldquo;This isn&apos;t a parallel program, it&apos;s a government-owned system built to last.&rdquo;</strong>
       ],
@@ -19,7 +31,7 @@ export default function ScalePage() {
           title: "A study of an integrated CHW intervention to address maternal healthcare in rural Nepal.",
           link: "https://doi.org/10.1371/journal.pgph.0001512"
         },
-          {
+        {
           title: "Comparing two data collection methods to track vital events in maternal and child health via CHWs.",
           link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9327361/"
         },
@@ -39,7 +51,6 @@ export default function ScalePage() {
           title: "Labour conditions in dual-cadre community health worker programs.",
           link: "https://www.thelancet.com/action/showPdf?pii=S2214-109X%2823%2900357-1"
         }
-      
       ]
     },
     {
@@ -83,6 +94,7 @@ export default function ScalePage() {
       badgeBgClass="bg-accent-purple/10"
       borderClass="border-accent-purple/20"
       projects={projects}
+      introText={introText as any}
     />
   );
 }

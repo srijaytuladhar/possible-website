@@ -6,8 +6,8 @@ export default function TestPage() {
   const subSections: SolutionSubSectionType[] = [
     {
       subSectionId: "tested-and-ready-for-scale",
-      subSectionTitle: "2.1 Tested and ready for scale-up",
-      tabLabel: "Tested and ready for scale-up",
+      subSectionTitle: "2.1 EVIDENCE BUILT, READY FOR ADOPTION",
+      tabLabel: "EVIDENCE BUILT, READY FOR ADOPTION",
       subSectionSubtitle: "Interventions validated through rigorous clinical and implementation trials, prepared for integration into national health systems.",
       badge: "Scale Readiness",
       projects: [
@@ -45,7 +45,7 @@ export default function TestPage() {
           title: "BECOME",
           subtitle: "Bringing integrated mental health and NCD care closer to home",
           description: [
-            "Expanding Nepal's national community health worker program to deliver home-based care for chronic conditions and mental health conditions and non-communicable diseases into communities through trained, full time, trained, supervises, and digitally enabled CHWs. The intervention combines stress reduction, behavioral activation, and digitally enabled CHWs.The intervention combines stress reduction, behavioral activation, and motivational interviewing to support people with conditions such as depression, anxiety, hypertension, depression, and anxiety, supported by the Community Health Information System (CHIS) for data-driven care."
+            "Expanding Nepal's national community health worker program to deliver home-based care for chronic conditions and mental health conditions and non-communicable diseases into communities through trained, full time, supervised, and digitally enabled CHWs. The intervention combines stress reduction, behavioral activation, and digitally enabled CHWs. The intervention combines stress reduction, behavioral activation, and motivational interviewing to support people with conditions such as depression, anxiety, hypertension, and diabetes, supported by the Community Health Information System (CHIS) for data-driven care."
           ],
           image: "/solutions_test/BECOME.jpg",
           publications: [
@@ -121,7 +121,7 @@ export default function TestPage() {
               link: "https://pubmed.ncbi.nlm.nih.gov/?term=Possible+Health+Nepal+CHW"
             },
             {
-              title: "Strengthening Community Health Systems Through Longitudinal Care.",
+              title: "Strengthening Community Health System Through Longitudinal Care.",
               link: "/solutions/scale#longitudinal-care"
             }
           ]
@@ -215,7 +215,7 @@ export default function TestPage() {
               title: "Preferences for mHealth intervention to address mental health challenges among men who have sex with men.",
               link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11015371/"
             },
-             {
+            {
               title: "Suicidal ideation, plan, and attempt among men who have sex with men in Nepal.",
               link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10664887/"
             },
@@ -223,8 +223,6 @@ export default function TestPage() {
               title: "Prevalence of chemsex and associated factors among gay, bisexual, and other men who have sex with men.",
               link: "https://doi.org/10.1038/s41598-025-92449-z"
             }
-             
-           
           ]
         }
       ]

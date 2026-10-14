@@ -43,7 +43,7 @@ interface SolutionStageTemplateProps {
   borderClass: string;
   subSections?: SolutionSubSectionType[];
   projects?: SolutionBoxType[];
-  introText?: string;
+  introText?: ReactNode;
 }
 
 export default function SolutionStageTemplate({
@@ -53,7 +53,7 @@ export default function SolutionStageTemplate({
   borderClass,
   subSections,
   projects,
-  introText
+  introText,
 }: SolutionStageTemplateProps) {
   const [activeSubTab, setActiveSubTab] = useState<string>(
     subSections && subSections.length > 0 ? subSections[0].subSectionId || "0" : ""
@@ -77,6 +77,7 @@ export default function SolutionStageTemplate({
       }, 150);
     }
   }, [subSections]);
+
   // 3 stages in exact requested order: Innovate -> Test -> Scale
   const stages = [
     { id: "innovate", label: "Innovate", href: "/solutions/innovate", image: "/health_process.jpg" },
@@ -101,79 +102,86 @@ export default function SolutionStageTemplate({
         </Link>
       </div>
 
-      {/* Stage Progress Indicator (3 stages: Innovate -> Test -> Scale) */}
-      <div className="mb-14 bg-zinc-50/80 border border-zinc-150 p-6 sm:p-8 rounded-3xl flex flex-col items-center w-full max-w-5xl mx-auto">
-        <h2 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 text-center mb-8 max-w-4xl leading-relaxed">
-          Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of validated evidence.
-        </h2>
-        <div className="flex items-center justify-center w-full max-w-4xl px-2 sm:px-6">
-          {stages.map((st, index) => {
-            const isActive = stageId === st.id;
-            const isLast = index === stages.length - 1;
+      {/* Stage Progress Indicator (Only rendered for Scale, Test, Innovate — hidden on Pipeline) */}
+      {stageId !== "pipeline" && (
+        <div className="mb-14 bg-zinc-50/80 border border-zinc-150 p-6 sm:p-8 rounded-3xl flex flex-col items-center w-full max-w-5xl mx-auto">
+          <h2 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 text-center mb-8 max-w-4xl leading-relaxed">
+            Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of validated evidence.
+          </h2>
+          <div className="flex items-center justify-center w-full max-w-4xl px-2 sm:px-6">
+            {stages.map((st, index) => {
+              const isActive = stageId === st.id;
+              const isLast = index === stages.length - 1;
 
-            const getStageColors = (id: string) => {
-              if (id === "scale") {
+              const getStageColors = (id: string) => {
+                if (id === "scale") {
+                  return {
+                    circle: "border-accent-purple shadow-lg shadow-accent-purple/20 ring-4 ring-accent-purple/15 w-20 h-20 sm:w-24 sm:h-24",
+                    label: "text-accent-purple font-bold",
+                  };
+                }
+                if (id === "test") {
+                  return {
+                    circle: "border-secondary-blue shadow-lg shadow-secondary-blue/20 ring-4 ring-secondary-blue/15 w-20 h-20 sm:w-24 sm:h-24",
+                    label: "text-secondary-blue font-bold",
+                  };
+                }
                 return {
-                  circle: "border-accent-purple shadow-lg shadow-accent-purple/20 ring-4 ring-accent-purple/15 w-20 h-20 sm:w-24 sm:h-24",
-                  label: "text-accent-purple font-bold"
+                  circle: "border-primary-pink shadow-lg shadow-primary-pink/20 ring-4 ring-primary-pink/15 w-20 h-20 sm:w-24 sm:h-24",
+                  label: "text-primary-pink font-bold",
                 };
-              }
-              if (id === "test") {
-                return {
-                  circle: "border-secondary-blue shadow-lg shadow-secondary-blue/20 ring-4 ring-secondary-blue/15 w-20 h-20 sm:w-24 sm:h-24",
-                  label: "text-secondary-blue font-bold"
-                };
-              }
-              return {
-                circle: "border-primary-pink shadow-lg shadow-primary-pink/20 ring-4 ring-primary-pink/15 w-20 h-20 sm:w-24 sm:h-24",
-                label: "text-primary-pink font-bold"
               };
-            };
 
-            const colors = getStageColors(st.id);
+              const colors = getStageColors(st.id);
 
-            return (
-              <div key={st.id} className="flex items-center flex-1 last:flex-initial">
-                {/* Circle */}
-                <Link
-                  href={st.href}
-                  className="flex flex-col items-center justify-center transition-all duration-300 relative group"
-                >
-                  <div
-                    className={`rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden relative border-2 ${isActive
-                      ? `${colors.circle} border-current`
-                      : "bg-zinc-200 border-zinc-300 w-16 h-16 sm:w-20 sm:h-20 hover:bg-zinc-300 hover:border-zinc-400"
-                      }`}
+              return (
+                <div key={st.id} className="flex items-center flex-1 last:flex-initial">
+                  {/* Circle */}
+                  <Link
+                    href={st.href}
+                    className="flex flex-col items-center justify-center transition-all duration-300 relative group"
                   >
-                    <Image
-                      src={st.image}
-                      alt={st.label}
-                      fill
-                      className={`object-cover transition-all duration-300 ${isActive ? "scale-105 opacity-100 saturate-100" : "opacity-60 saturate-50 group-hover:opacity-100 group-hover:scale-105 group-hover:saturate-100"
+                    <div
+                      className={`rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden relative border-2 ${
+                        isActive
+                          ? `${colors.circle} border-current`
+                          : "bg-zinc-200 border-zinc-300 w-16 h-16 sm:w-20 sm:h-20 hover:bg-zinc-300 hover:border-zinc-400"
+                      }`}
+                    >
+                      <Image
+                        src={st.image}
+                        alt={st.label}
+                        fill
+                        className={`object-cover transition-all duration-300 ${
+                          isActive
+                            ? "scale-105 opacity-100 saturate-100"
+                            : "opacity-60 saturate-50 group-hover:opacity-100 group-hover:scale-105 group-hover:saturate-100"
                         }`}
-                    />
-                  </div>
-                  <span
-                    className={`mt-2 font-equip text-[11px] sm:text-[13px] uppercase tracking-wider transition-colors ${isActive ? colors.label : "text-zinc-400 group-hover:text-zinc-600 font-medium"
+                      />
+                    </div>
+                    <span
+                      className={`mt-2 font-equip text-[11px] sm:text-[13px] uppercase tracking-wider transition-colors ${
+                        isActive ? colors.label : "text-zinc-400 group-hover:text-zinc-600 font-medium"
                       }`}
-                  >
-                    {st.label}
-                  </span>
-                </Link>
+                    >
+                      {st.label}
+                    </span>
+                  </Link>
 
-                {/* Connecting Line without arrowhead */}
-                {!isLast && (
-                  <div className="flex-1 flex justify-center items-center px-1 sm:px-4">
-                    <div className="h-[2.5px] w-full bg-zinc-300 rounded-full" />
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                  {/* Connecting Line */}
+                  {!isLast && (
+                    <div className="flex-1 flex justify-center items-center px-1 sm:px-4">
+                      <div className="h-[2.5px] w-full bg-zinc-300 rounded-full" />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Stage Header (hidden on Scale, Test, and Innovate pages per feedback) */}
+      {/* Stage Header */}
       {showStandaloneHeading && (
         <div className="max-w-4xl mx-auto w-full mb-12">
           <h1 className="font-serif font-light text-4xl sm:text-5xl uppercase tracking-wider leading-tight text-zinc-950">
@@ -183,23 +191,25 @@ export default function SolutionStageTemplate({
         </div>
       )}
 
+      {/* Intro Text Section */}
       {introText && (
         <div className="max-w-4xl mx-auto w-full mb-12">
-          <p className="text-[16px] sm:text-[17px] text-zinc-700 leading-relaxed font-light p-6 bg-zinc-50 rounded-2xl border border-zinc-150">
+          <div className="text-[16px] sm:text-[17px] text-zinc-700 leading-relaxed font-light">
             {introText}
-          </p>
+          </div>
         </div>
       )}
 
-      {/* Sub-section Tabs Menu Bar when multiple subSections exist */}
+      {/* Sub-section Tabs Menu Bar */}
       {subSections && subSections.length > 1 && (
         <div className="w-full max-w-4xl mx-auto mb-14 sm:mb-16 scroll-mt-28">
-          {/* Contiguous Menu Bar */}
           <div className="grid grid-cols-1 sm:grid-cols-2 w-full shadow-xs">
             {subSections.map((sub, sIdx) => {
               const tabId = sub.subSectionId || String(sIdx);
               const isActive = activeSubTab === tabId;
-              const displayLabel = (sub.tabLabel || sub.subSectionTitle.replace(/^\d+\.\d+\s+/, "")).toUpperCase();
+              const displayLabel = (
+                sub.tabLabel || sub.subSectionTitle.replace(/^\d+\.\d+\s+/, "")
+              ).toUpperCase();
               return (
                 <button
                   key={sIdx}
@@ -218,7 +228,6 @@ export default function SolutionStageTemplate({
                 >
                   <span className="leading-snug">{displayLabel}</span>
 
-                  {/* Downward pointing active arrow indicator */}
                   {isActive && (
                     <span
                       className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-[12px] border-x-transparent border-t-[10px] sm:border-x-[14px] sm:border-t-[12px] z-20 pointer-events-none"
@@ -233,14 +242,19 @@ export default function SolutionStageTemplate({
         </div>
       )}
 
-      {/* Full-width Solutions Content Layout */}
+      {/* Content Layout */}
       <div className="max-w-4xl mx-auto w-full space-y-16">
         {subSections && subSections.length > 0 ? (
           subSections
-            .filter((sub, sIdx) => (subSections.length > 1 ? (sub.subSectionId || String(sIdx)) === activeSubTab : true))
+            .filter((sub, sIdx) =>
+              subSections.length > 1 ? (sub.subSectionId || String(sIdx)) === activeSubTab : true
+            )
             .map((sub, sIdx) => (
-              <div key={sIdx} id={sub.subSectionId} className="space-y-12 scroll-mt-28 animate-in fade-in duration-300">
-
+              <div
+                key={sIdx}
+                id={sub.subSectionId}
+                className="space-y-12 scroll-mt-28 animate-in fade-in duration-300"
+              >
                 <div className="space-y-14">
                   {sub.projects.map((proj, pIdx) => (
                     <SolutionBoxItem
@@ -283,8 +297,8 @@ function SolutionBoxItem({
   const paragraphs = Array.isArray(project.description)
     ? project.description
     : typeof project.description === "string"
-      ? project.description.split("\n\n")
-      : [project.description];
+    ? project.description.split("\n\n")
+    : [project.description];
 
   return (
     <div
@@ -308,9 +322,12 @@ function SolutionBoxItem({
       {/* 2. Text / Description Paragraphs */}
       <div className="space-y-4">
         {paragraphs.map((para, i) => (
-          <p key={i} className="text-body text-zinc-700 leading-relaxed font-light text-justify sm:text-left text-[16px] sm:text-[17px]">
+          <div
+            key={i}
+            className="text-body text-zinc-700 leading-relaxed font-light text-justify sm:text-left text-[16px] sm:text-[17px]"
+          >
             {para}
-          </p>
+          </div>
         ))}
       </div>
 
@@ -327,7 +344,7 @@ function SolutionBoxItem({
         </div>
       )}
 
-      {/* 4. "Learn More" Publications & Cross-Links */}
+      {/* 4. Publications & Cross-Links */}
       {project.publications && project.publications.length > 0 && (
         <div className="pt-6 border-t border-zinc-100 space-y-4">
           <h4 className="text-[14px] font-bold uppercase tracking-wider text-zinc-900 select-none block">
@@ -339,7 +356,9 @@ function SolutionBoxItem({
               const isExternal = pub.link.startsWith("http");
               return (
                 <li key={idx} className="flex gap-3 items-start group">
-                  <div className={`p-1.5 rounded-md bg-zinc-100 shrink-0 mt-0.5 group-hover:bg-primary-pink/10 transition-colors ${colorClass}`}>
+                  <div
+                    className={`p-1.5 rounded-md bg-zinc-100 shrink-0 mt-0.5 group-hover:bg-primary-pink/10 transition-colors ${colorClass}`}
+                  >
                     <FileText className="h-4 w-4" />
                   </div>
                   <div className="flex-1">
