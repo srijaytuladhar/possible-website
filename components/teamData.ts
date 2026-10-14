@@ -112,6 +112,13 @@ export const teamMembersData: TeamMember[] = [
     bio: "Dr. Mina Shrestha co-leads capacity building of young researchers, research and innovation initiatives including grant writing, and dissemination of Possible's work. She completed postdoctoral training at the University of Houston College of Pharmacy (USA) leading opioid-related research, earned her Ph.D. in Health Services and Policy at the University of Iowa College of Public Health (USA), and completed a Master of Philosophy (Pharmacy) at the University of Sydney as an Australia Awards Scholar. She is a registered pharmacist in Nepal with research interests in evidence-based solutions for healthcare access and affordability, and experience writing NIH grant applications."
   },
   {
+    id: "tm-4",
+    name: "Kripa Sigdel",
+    role: "Assistant Scientist",
+    image: "/team/kripa.jpg",
+    bio: "Kripa Sigdel is a psychologist and mental health researcher spanning research, academia, and social innovation in global mental health. As Assistant Scientist at Possible, she is the mental health expert across the research portfolio and co-investigator/study manager on projects designing behavioral interventions for mental health, suicidality, and non-communicable diseases. Before Possible, she was Research Coordinator on a Yale University–KUSMS collaborative study at Dhulikhel Hospital co-designing a suicide-prevention intervention. She is finishing her PhD on youth suicidality and social connectedness in Nepal.\n\nShe spent seven years as faculty teaching social psychology, research methodology, and clinical psychology, and co-founded Psychbigyaan Network Nepal (2014) and Mankaakura, Nepal's first digital mental-health counseling platform (2020). She also co-produced 'Manojigyasa,' a national radio program on mental health advocacy (2015, Ujyaalo Network), and holds a short-course credential in New Media and Journalism from the University of Washington. Outside of work, she enjoys advocating for mental health awareness, traveling, and sleep."
+  },
+  {
     id: "tm-10",
     name: "Bhubi Bista",
     role: "People and Culture Executive",
@@ -133,13 +140,7 @@ export const teamMembersData: TeamMember[] = [
     image: "/team/Rajesh.jpg",
     bio: "Rajesh Kumar Jha leads initiatives on manual development, capacity building training, supportive supervision, and wellbeing promotion among community health workers, ART counselors, and psychosocial counselors. He focuses on designing, implementing, and scaling behavioral and mental health interventions. A Mahendra Vidya Bhusan Award recipient, he holds a Master's degree in Clinical Psychology and brings over 26 years of experience with government agencies, NGOs/INGOs, and academic institutions across Nepal's Terai, Hill, and Mountain regions, working with survivors of gender-based violence, people living with HIV, conflict-affected children, ethnic minority communities, torture survivors, and returnee migrant workers. Outside of work, he enjoys listening to music and traveling."
   },
-  {
-    id: "tm-4",
-    name: "Kripa Sigdel",
-    role: "Assistant Scientist",
-    image: "/team/kripa.jpg",
-    bio: "Kripa Sigdel is a psychologist and mental health researcher spanning research, academia, and social innovation in global mental health. As Assistant Scientist at Possible, she is the mental health expert across the research portfolio and co-investigator/study manager on projects designing behavioral interventions for mental health, suicidality, and non-communicable diseases. Before Possible, she was Research Coordinator on a Yale University–KUSMS collaborative study at Dhulikhel Hospital co-designing a suicide-prevention intervention. She is finishing her PhD on youth suicidality and social connectedness in Nepal.\n\nShe spent seven years as faculty teaching social psychology, research methodology, and clinical psychology, and co-founded Psychbigyaan Network Nepal (2014) and Mankaakura, Nepal's first digital mental-health counseling platform (2020). She also co-produced 'Manojigyasa,' a national radio program on mental health advocacy (2015, Ujyaalo Network), and holds a short-course credential in New Media and Journalism from the University of Washington. Outside of work, she enjoys advocating for mental health awareness, traveling, and sleep."
-  },
+  
     {
     id: "tm-23",
     name: "Prakash Pant",
