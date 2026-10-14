@@ -46,7 +46,7 @@ export default function Home() {
           {/* Copy Above Image */}
           <div className="max-w-3xl text-center mb-10">
             <p className="text-subheading text-zinc-900 leading-relaxed font-light text-left px-4 sm:px-6">
-              We take on the health problems others either neglect or call too complex and run them through a process that works: innovate them with people with lived experience, experts, governments and relevant stakeholders; test them until the evidence is proven and they are adaptable; and then help public healthcare systems and community organizations adopt them.<br /><br />
+              We take on the health problems others either neglect or call too complex and run them through a process that works: innovate them with people with lived experience, experts, governments and relevant stakeholders; test them until the evidence is proven and they are adaptable; and then help public healthcare systems and community organizations adapt them.<br /><br />
               <strong>That&apos;s how suffering goes down for good, not just for the length of a grant.</strong>
             </p>
           </div>
@@ -260,9 +260,9 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Partnership Summary Note */}
-          <div className="max-w-4xl text-center bg-white border border-zinc-200/80 rounded-2xl p-6 sm:p-8 shadow-xs">
-            <p className="text-black font-medium text-[15.5px] sm:text-[17px] leading-relaxed">
+          {/* Partnership Summary Note (Plain text without background container) */}
+          <div className="max-w-3xl text-center mx-auto">
+            <p className="text-zinc-700 font-light text-[17px] sm:text-[19px] leading-relaxed">
               We work best with partners who work with communities and government, let evidence guide the way, and aim for change that outlasts the grant.
             </p>
           </div>
