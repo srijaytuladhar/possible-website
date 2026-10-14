@@ -26,7 +26,7 @@ export default function Home() {
             &ldquo;Too complex to solve&rdquo; is where we start.
           </h2>
           <p className="text-zinc-800 leading-relaxed font-light text-[18px] sm:text-[21px] md:text-[23px] max-w-3xl mx-auto">
-            We take on the health problems others either neglect or call too complex and run them through a process that works: innovate them with people with lived experience, experts, governments and relevant stakeholders; test them until the evidence is proven and they are adaptable; and then help public healthcare systems and community organizations adopt them.
+            We innovate, test, and scale the health solutions with communities and government, then help bring them into healthcare workers&apos; everyday practice and national policy.
           </p>
         </div>
       </section>
@@ -139,7 +139,7 @@ export default function Home() {
                 Scale
               </h3>
               <p className="text-[14.5px] text-zinc-700 leading-relaxed font-light">
-                Integrate into public health systems and national policy for larger impact.
+                Help to integrate into public healthcare systems and national policy for larger impact.
               </p>
             </Link>
           </div>
