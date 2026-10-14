@@ -46,7 +46,7 @@ export default function Home() {
           {/* Copy Above Image */}
           <div className="max-w-3xl text-center mb-10">
             <p className="text-subheading text-zinc-900 leading-relaxed font-light text-left px-4 sm:px-6">
-              We take on the health problems others either neglect or call too complex and run them through a process that works: innovate them with people with lived experience, experts, governments and relevant stakeholders; test them until the evidence is proven and they are adaptable; and then help public healthcare systems and community organizations adapt them.<br /><br />
+              We take on the health problems others either neglect or call too complex and run them through a process that works: innovate them with people with lived experience, experts, governments and relevant stakeholders; test them until the evidence is clear and they fit different settings; and then help public health systems and community organizations make them part of routine care<br /><br />
               <strong>That&apos;s how suffering goes down for good, not just for the length of a grant.</strong>
             </p>
           </div>
