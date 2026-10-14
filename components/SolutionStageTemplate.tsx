@@ -3,7 +3,7 @@
 import { useState, useEffect, ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FileText, ArrowLeft, ExternalLink } from "lucide-react";
+import { FileText, ArrowLeft, ExternalLink, ChevronDown } from "lucide-react";
 
 export interface PublicationType {
   title: string;
@@ -80,9 +80,43 @@ export default function SolutionStageTemplate({
 
   // 3 stages in exact requested order: Innovate -> Test -> Scale
   const stages = [
-    { id: "innovate", label: "Innovate", href: "/solutions/innovate", image: "/health_process.jpg" },
-    { id: "test", label: "Test", href: "/solutions/test", image: "/who_we_are_team.jpg" },
-    { id: "scale", label: "Scale", href: "/solutions/scale", image: "/hero_complex_solve.jpg" },
+    {
+      id: "innovate",
+      label: "Innovate",
+      href: "/solutions/innovate",
+      image: "/health_process.jpg",
+      description: "Innovate health solutions with local communities and governments.",
+      arrowColor: "text-primary-pink",
+      borderColor: "border-primary-pink",
+    },
+    {
+      id: "test",
+      label: "Test",
+      href: "/solutions/test",
+      image: "/who_we_are_team.jpg",
+      description: "Prove it works, adapt it and test until the evidence is established.",
+      arrowColor: "text-secondary-blue",
+      borderColor: "border-secondary-blue",
+    },
+    {
+      id: "scale",
+      label: "Scale",
+      href: "/solutions/scale",
+      image: "/hero_complex_solve.jpg",
+      description: "Help to integrate into public healthcare systems and national policy for larger impact.",
+      arrowColor: "text-accent-purple",
+      borderColor: "border-accent-purple",
+    },
+  ];
+
+  const activeIndex = stages.findIndex((st) => st.id === stageId);
+  const activeStage = stages[activeIndex >= 0 ? activeIndex : 0];
+
+  // Alignment positions for the pointer arrow on top of the description box
+  const arrowPositionClasses = [
+    "left-[16.66%]", // Innovate center
+    "left-1/2",      // Test center
+    "left-[83.33%]", // Scale center
   ];
 
   const showStandaloneHeading =
@@ -91,11 +125,11 @@ export default function SolutionStageTemplate({
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1 bg-white animate-in fade-in duration-300">
 
-      {/* Top Left Navigation Back */}
+      {/* Top Left Navigation Back Button */}
       <div className="flex items-center justify-between gap-4 mb-8 pb-4">
         <Link
           href="/"
-          className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary-pink text-white shadow-sm hover:bg-primary-pink/90 hover:scale-105 transition-all shrink-0 cursor-pointer"
+          className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary-pink text-white shadow-sm hover:bg-primary-pink/90 hover:scale-110 active:scale-95 transition-all duration-200 shrink-0 cursor-pointer"
           aria-label="Back to home"
         >
           <ArrowLeft className="h-5 w-5 stroke-[2.5]" />
@@ -104,11 +138,12 @@ export default function SolutionStageTemplate({
 
       {/* Stage Progress Indicator (Only rendered for Scale, Test, Innovate — hidden on Pipeline) */}
       {stageId !== "pipeline" && (
-        <div className="mb-14 bg-zinc-50/80 border border-zinc-150 p-6 sm:p-8 rounded-3xl flex flex-col items-center w-full max-w-5xl mx-auto">
+        <div className="mb-14 bg-zinc-50/80 border border-zinc-200/80 p-6 sm:p-8 rounded-3xl flex flex-col items-center w-full max-w-5xl mx-auto shadow-xs relative">
           <h2 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 text-center mb-8 max-w-4xl leading-relaxed">
             Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of validated evidence.
           </h2>
-          <div className="flex items-center justify-center w-full max-w-4xl px-2 sm:px-6">
+          
+          <div className="flex items-start justify-center w-full max-w-4xl px-2 sm:px-4 relative">
             {stages.map((st, index) => {
               const isActive = stageId === st.id;
               const isLast = index === stages.length - 1;
@@ -116,36 +151,36 @@ export default function SolutionStageTemplate({
               const getStageColors = (id: string) => {
                 if (id === "scale") {
                   return {
-                    circle: "border-accent-purple shadow-lg shadow-accent-purple/20 ring-4 ring-accent-purple/15 w-20 h-20 sm:w-24 sm:h-24",
-                    label: "text-accent-purple font-bold",
+                    circle: "border-accent-purple shadow-xl shadow-accent-purple/25 ring-4 ring-accent-purple/20 ring-offset-2 w-20 h-20 sm:w-24 sm:h-24",
+                    label: "text-accent-purple font-bold tracking-widest",
                   };
                 }
                 if (id === "test") {
                   return {
-                    circle: "border-secondary-blue shadow-lg shadow-secondary-blue/20 ring-4 ring-secondary-blue/15 w-20 h-20 sm:w-24 sm:h-24",
-                    label: "text-secondary-blue font-bold",
+                    circle: "border-secondary-blue shadow-xl shadow-secondary-blue/25 ring-4 ring-secondary-blue/20 ring-offset-2 w-20 h-20 sm:w-24 sm:h-24",
+                    label: "text-secondary-blue font-bold tracking-widest",
                   };
                 }
                 return {
-                  circle: "border-primary-pink shadow-lg shadow-primary-pink/20 ring-4 ring-primary-pink/15 w-20 h-20 sm:w-24 sm:h-24",
-                  label: "text-primary-pink font-bold",
+                  circle: "border-primary-pink shadow-xl shadow-primary-pink/25 ring-4 ring-primary-pink/20 ring-offset-2 w-20 h-20 sm:w-24 sm:h-24",
+                  label: "text-primary-pink font-bold tracking-widest",
                 };
               };
 
               const colors = getStageColors(st.id);
 
               return (
-                <div key={st.id} className="flex items-center flex-1 last:flex-initial">
-                  {/* Circle */}
+                <div key={st.id} className="flex items-start flex-1 last:flex-initial">
+                  {/* Circle Button + Photo + Title */}
                   <Link
                     href={st.href}
-                    className="flex flex-col items-center justify-center transition-all duration-300 relative group"
+                    className="flex flex-col items-center justify-start text-center transition-all duration-300 relative group w-36 sm:w-48 shrink-0 mx-auto active:scale-95"
                   >
                     <div
-                      className={`rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden relative border-2 ${
+                      className={`rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden relative border-2 shrink-0 ${
                         isActive
-                          ? `${colors.circle} border-current`
-                          : "bg-zinc-200 border-zinc-300 w-16 h-16 sm:w-20 sm:h-20 hover:bg-zinc-300 hover:border-zinc-400"
+                          ? `${colors.circle} border-current z-10`
+                          : "bg-zinc-200 border-zinc-300 w-16 h-16 sm:w-20 sm:h-20 hover:border-zinc-400 group-hover:scale-105 opacity-70 group-hover:opacity-100"
                       }`}
                     >
                       <Image
@@ -159,18 +194,24 @@ export default function SolutionStageTemplate({
                         }`}
                       />
                     </div>
+                    
                     <span
-                      className={`mt-2 font-equip text-[11px] sm:text-[13px] uppercase tracking-wider transition-colors ${
-                        isActive ? colors.label : "text-zinc-400 group-hover:text-zinc-600 font-medium"
+                      className={`mt-3 font-equip text-[12px] sm:text-[14px] uppercase transition-all duration-300 ${
+                        isActive ? colors.label : "text-zinc-500 group-hover:text-zinc-900 font-semibold"
                       }`}
                     >
                       {st.label}
                     </span>
+
+                    {/* Animated Down Arrow on Active Stage */}
+                    {isActive && (
+                      <ChevronDown className={`w-5 h-5 ${st.arrowColor} animate-bounce mt-1 stroke-[3] transition-all`} />
+                    )}
                   </Link>
 
                   {/* Connecting Line */}
                   {!isLast && (
-                    <div className="flex-1 flex justify-center items-center px-1 sm:px-4">
+                    <div className="flex-1 flex justify-center items-center px-1 sm:px-2 pt-8 sm:pt-10">
                       <div className="h-[2.5px] w-full bg-zinc-300 rounded-full" />
                     </div>
                   )}
@@ -178,6 +219,30 @@ export default function SolutionStageTemplate({
               );
             })}
           </div>
+
+          {/* Animated Description Box with Pointer Arrow & Black Text */}
+          {activeStage && (
+            <div className="mt-6 w-full max-w-3xl relative animate-in fade-in slide-in-from-top-2 duration-300">
+              
+              {/* Triangle Caret Arrow Pointing directly to selected stage */}
+              <div
+                className={`absolute -top-2 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 transition-all duration-300 ${
+                  activeIndex === 0
+                    ? "border-b-primary-pink"
+                    : activeIndex === 1
+                    ? "border-b-secondary-blue"
+                    : "border-b-accent-purple"
+                } ${arrowPositionClasses[activeIndex] || "left-1/2"}`}
+              />
+
+              {/* Box Content with Solid Black Text */}
+              <div className={`p-5 sm:p-6 bg-white rounded-2xl border-2 shadow-sm text-center transition-all duration-300 ${activeStage.borderColor}`}>
+                <p className="text-black font-semibold text-[15.5px] sm:text-[17px] leading-relaxed max-w-2xl mx-auto">
+                  {activeStage.description}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
@@ -203,7 +268,7 @@ export default function SolutionStageTemplate({
       {/* Sub-section Tabs Menu Bar */}
       {subSections && subSections.length > 1 && (
         <div className="w-full max-w-4xl mx-auto mb-14 sm:mb-16 scroll-mt-28">
-          <div className="grid grid-cols-1 sm:grid-cols-2 w-full shadow-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 w-full shadow-xs rounded-xl overflow-hidden">
             {subSections.map((sub, sIdx) => {
               const tabId = sub.subSectionId || String(sIdx);
               const isActive = activeSubTab === tabId;
@@ -220,9 +285,9 @@ export default function SolutionStageTemplate({
                       window.history.replaceState(null, "", `#${sub.subSectionId}`);
                     }
                   }}
-                  className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all cursor-pointer select-none flex items-center justify-center ${
+                  className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all duration-200 cursor-pointer select-none flex items-center justify-center active:scale-[0.99] ${
                     isActive
-                      ? "bg-secondary-blue brightness-100 z-10"
+                      ? "bg-secondary-blue brightness-100 z-10 shadow-md"
                       : "bg-[#008ea8] hover:bg-[#009ebd] hover:brightness-105 opacity-95 hover:opacity-100"
                   }`}
                 >
@@ -253,7 +318,7 @@ export default function SolutionStageTemplate({
               <div
                 key={sIdx}
                 id={sub.subSectionId}
-                className="space-y-12 scroll-mt-28 animate-in fade-in duration-300"
+                className="space-y-12 scroll-mt-28 animate-in fade-in slide-in-from-bottom-2 duration-300"
               >
                 <div className="space-y-14">
                   {sub.projects.map((proj, pIdx) => (
