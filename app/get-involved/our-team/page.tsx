@@ -9,14 +9,13 @@ import {
   usBoardMembers,
   nepalBoardMembers,
   teamMembersData,
-  TeamMember
+  TeamMember,
 } from "@/components/teamData";
 
 export interface ExtendedTeamMember extends TeamMember {
   linkedin?: string;
 }
 
-// Inline SVG component for LinkedIn icon
 function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -28,7 +27,7 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
 function TeamCard({
   member,
   themeColor,
-  onClick
+  onClick,
 }: {
   member: ExtendedTeamMember;
   themeColor: "pink" | "blue" | "purple";
@@ -41,20 +40,20 @@ function TeamCard({
       border: "hover:border-accent-purple/50",
       role: "text-accent-purple",
       btn: "group-hover:bg-accent-purple group-hover:text-white",
-      hoverText: "group-hover:text-accent-purple"
+      hoverText: "group-hover:text-accent-purple",
     },
     blue: {
       border: "hover:border-secondary-blue/50",
       role: "text-secondary-blue",
       btn: "group-hover:bg-secondary-blue group-hover:text-white",
-      hoverText: "group-hover:text-secondary-blue"
+      hoverText: "group-hover:text-secondary-blue",
     },
     pink: {
       border: "hover:border-primary-pink/50",
       role: "text-primary-pink",
       btn: "group-hover:bg-primary-pink group-hover:text-white",
-      hoverText: "group-hover:text-primary-pink"
-    }
+      hoverText: "group-hover:text-primary-pink",
+    },
   }[themeColor];
 
   return (
@@ -70,7 +69,6 @@ function TeamCard({
       }}
       className={`bg-white border border-zinc-200/80 rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${colorClasses.border} group cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-primary-pink/30 space-y-5`}
     >
-      {/* 1. Large Top Photo Frame */}
       <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-zinc-150 bg-zinc-100 flex items-center justify-center shadow-2xs">
         {member.image && !imgError ? (
           <Image
@@ -88,7 +86,6 @@ function TeamCard({
           </div>
         )}
 
-        {/* Floating LinkedIn Button on Top Right */}
         {member.linkedin && (
           <a
             href={member.linkedin}
@@ -103,21 +100,16 @@ function TeamCard({
         )}
       </div>
 
-      {/* 2. Text Details: Name, Position, and Arrow Icon */}
       <div className="flex items-end justify-between gap-3 pt-1">
         <div className="space-y-1 flex-1">
-          {/* Name First */}
           <h3 className={`text-lg sm:text-xl font-bold font-outfit text-zinc-950 leading-snug transition-colors ${colorClasses.hoverText}`}>
             {member.name}
           </h3>
-
-          {/* Position / Role Second */}
           <p className={`text-[12px] sm:text-[13px] font-semibold tracking-wider uppercase ${colorClasses.role}`}>
             {member.role}
           </p>
         </div>
 
-        {/* Action Arrow Icon */}
         <span className={`p-2.5 rounded-full bg-zinc-100 text-zinc-400 ${colorClasses.btn} transition-all duration-200 shrink-0`}>
           <ArrowUpRight className="h-4 w-4 stroke-[2.2]" />
         </span>
@@ -129,7 +121,7 @@ function TeamCard({
 function MemberBioModal({
   member,
   themeColor,
-  onClose
+  onClose,
 }: {
   member: ExtendedTeamMember | null;
   themeColor: "pink" | "blue" | "purple";
@@ -157,7 +149,7 @@ function MemberBioModal({
   const colorClasses = {
     purple: { role: "text-accent-purple" },
     blue: { role: "text-secondary-blue" },
-    pink: { role: "text-primary-pink" }
+    pink: { role: "text-primary-pink" },
   }[themeColor];
 
   return (
@@ -171,7 +163,6 @@ function MemberBioModal({
         className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-zinc-200 overflow-hidden animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Header */}
         <div className="p-6 sm:p-8 pb-4 flex items-start justify-between border-b border-zinc-100 gap-4">
           <div className="flex items-center gap-4 sm:gap-5">
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-zinc-150 bg-zinc-100 shrink-0 shadow-xs">
@@ -222,7 +213,6 @@ function MemberBioModal({
           </button>
         </div>
 
-        {/* Modal Body */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-4 flex-1">
           {paragraphs.map((para, pIdx) => (
             <p
@@ -234,7 +224,6 @@ function MemberBioModal({
           ))}
         </div>
 
-        {/* Modal Footer */}
         <div className="p-4 sm:px-8 sm:py-5 border-t border-zinc-100 bg-zinc-50 flex items-center justify-between gap-4">
           <Link
             href={`/get-involved/our-team/${member.id}`}
@@ -263,7 +252,6 @@ function TeamPageContent() {
   const tabParam = searchParams.get("tab") || "team-members";
   const isFirstMount = useRef(true);
 
-  // Smooth scroll handler on tab change
   useEffect(() => {
     if (isFirstMount.current) {
       isFirstMount.current = false;
@@ -285,7 +273,7 @@ function TeamPageContent() {
       colorHex: "#ED2E84",
       bgClass: "bg-primary-pink",
       activeColor: "pink" as const,
-      list: teamMembersData
+      list: teamMembersData,
     },
     {
       key: "nepal-board",
@@ -294,7 +282,7 @@ function TeamPageContent() {
       colorHex: "#00BBE2",
       bgClass: "bg-secondary-blue",
       activeColor: "blue" as const,
-      list: nepalBoardMembers
+      list: nepalBoardMembers,
     },
     {
       key: "us-board",
@@ -303,8 +291,8 @@ function TeamPageContent() {
       colorHex: "#782888",
       bgClass: "bg-accent-purple",
       activeColor: "purple" as const,
-      list: usBoardMembers
-    }
+      list: usBoardMembers,
+    },
   ];
 
   const currentTab = tabs.find((t) => t.key === tabParam) || tabs[0];
@@ -313,8 +301,6 @@ function TeamPageContent() {
 
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 pt-0 pb-10 md:pb-14 flex flex-col flex-1 bg-white">
-
-      {/* Top Banner Image */}
       <div className="w-full max-w-5xl mx-auto mb-0">
         <div className="relative w-full h-[250px] sm:h-[330px] md:h-[410px] rounded-t-3xl sm:rounded-t-[2rem] overflow-hidden shadow-xs">
           <Image
@@ -328,7 +314,6 @@ function TeamPageContent() {
         </div>
       </div>
 
-      {/* Tabs Menu Bar */}
       <div id="team-tabs" className="w-full max-w-5xl mx-auto mb-12 sm:mb-16 scroll-mt-28">
         <div className="grid grid-cols-1 md:grid-cols-3 w-full shadow-xs">
           {tabs.map((tab) => {
@@ -359,7 +344,6 @@ function TeamPageContent() {
         </div>
       </div>
 
-      {/* Team Cards Grid */}
       <div className="animate-in fade-in duration-300">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {activeMembers.map((member) => (
@@ -373,7 +357,6 @@ function TeamPageContent() {
         </div>
       </div>
 
-      {/* Interactive Bio Detail Modal */}
       <MemberBioModal
         member={selectedMember}
         themeColor={activeColor}

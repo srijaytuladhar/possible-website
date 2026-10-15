@@ -31,14 +31,14 @@ export default function ContactUs() {
       hours: "Mon–Fri, 9:00 AM – 5:00 PM (except public holidays)"
     },
     {
-      country: "U.S. Office",
+      country: "U.S. Mailing Address",
       entity: "Possible US",
       address: "99 Wall Street #4100, New York \n NY 10005",
       phone: "",
       phoneRaw: "",
       icon: Building,
       badgeColor: "bg-secondary-blue/10 text-secondary-blue",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.4750953930815!2d-74.01111972343864!3d40.70642923789456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a16fa8a75e3%3A0x6b8bc6d3d9e875bd!2s99%20Wall%20St%20%234100%2C%20New%20York%2C%20NY%2010005!5e0!3m2!1sen!2sus!4v1719638487213!5m2!1sen!2sus",
+      mapUrl: "", // Map disabled for U.S. mailing address
       mapsLink: "https://maps.google.com/?q=99+Wall+Street+New+York+NY+10005",
       hours: ""
     }
@@ -47,7 +47,7 @@ export default function ContactUs() {
   const emailGrid = [
     { label: "General Enquiries", email: "answers@possiblehealth.org", desc: "" },
     { label: "Donations & Support", email: "donation@possiblehealth.org", desc: "" },
-    { label: "Research & Innovation", email: "research@possiblehealth.org", desc: "" },
+    { label: "Innovate", email: "innovate@possiblehealth.org", desc: "" },
   ];
 
   const closeFormModal = () => {
@@ -73,8 +73,8 @@ export default function ContactUs() {
                 onMouseLeave={() => setHoveredOffice(null)}
                 className="p-6 bg-zinc-50 border border-zinc-100 rounded-2xl hover:border-zinc-200 transition-all duration-300 flex flex-col justify-between min-h-[260px] shadow-sm hover:shadow-md relative overflow-hidden"
               >
-                {hoveredOffice === idx ? (
-                  /* Full-card Google Map Preview on hover */
+                {hoveredOffice === idx && office.mapUrl ? (
+                  /* Full-card Google Map Preview on hover (Only rendered if mapUrl exists) */
                   <div className="absolute inset-0 w-full h-full bg-zinc-100 animate-in fade-in duration-300">
                     <iframe
                       src={office.mapUrl}
@@ -87,7 +87,7 @@ export default function ContactUs() {
                     ></iframe>
                   </div>
                 ) : (
-                  /* Info view when not hovered */
+                  /* Info view when not hovered or no mapUrl */
                   <div className="flex flex-col justify-between h-full w-full animate-in fade-in duration-200">
                     <div>
                       <div className={`p-2.5 rounded-xl w-fit mb-4 ${office.badgeColor}`}>
@@ -171,7 +171,6 @@ export default function ContactUs() {
       {/* 4. Form Modal Popup */}
       {isFormOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          {/* Clickable Backdrop overlay */}
           <div
             className="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-200"
             onClick={closeFormModal}
@@ -254,7 +253,7 @@ export default function ContactUs() {
                       id="subject"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      placeholder="e.g. Research Partnership"
+                      placeholder="e.g. Partnership Proposal"
                       className="w-full rounded-lg border border-zinc-200 bg-white px-4 py-2.5 text-[14px] outline-none transition-colors focus:border-primary-pink"
                     />
                   </div>
