@@ -146,7 +146,7 @@ export default function Home() {
 
           <div className="text-center max-w-3xl mx-auto">
             <p className="text-base sm:text-lg text-zinc-600 font-light italic leading-relaxed">
-              Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of validated evidence.
+              Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of evidence.
             </p>
           </div>
         </div>
@@ -173,7 +173,7 @@ export default function Home() {
             />
             <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/90 via-70% to-transparent pt-28 pb-8 sm:pb-12 px-6 sm:px-12 flex items-end justify-center">
               <p className="text-white text-[16px] sm:text-[18px] md:text-[20px] font-light leading-relaxed text-center max-w-3xl drop-shadow-lg">
-                We are health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers, not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. We co-design a project, test/deliver a program, and move on. We build systems that last.
+                We are health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers, not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. We co-design a project, test/deliver a program, and support to scale.
               </p>
             </div>
           </div>
@@ -212,7 +212,7 @@ export default function Home() {
                   Fund a Solution
                 </h3>
                 <p className="text-[15px] text-zinc-600 font-light leading-relaxed">
-                  Back a solution where it needs support most.
+                  Fund a solution where it needs support most.
                 </p>
               </div>
             </Link>
@@ -233,7 +233,7 @@ export default function Home() {
                   Build With Us
                 </h3>
                 <p className="text-[15px] text-zinc-600 font-light leading-relaxed">
-                  Join us to innovate, test, or scale a solution.
+                  Collaborate with us to innovate, test, or scale a solution.
                 </p>
               </div>
             </Link>
