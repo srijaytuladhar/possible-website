@@ -26,7 +26,7 @@ export default function ContactUs() {
       phoneRaw: "+9779822999300",
       icon: MapPin,
       badgeColor: "bg-primary-pink/10 text-primary-pink",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.186638069502!2d85.3283281762557!3d27.711545625026938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190bb4663df7%3A0xe510b64d1f2e247!2sBhim%20Plaza!5e0!3m2!1sen!2snp!4v1719638421832!5m2!1sen!2snp",
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.186638069502!2d85.3283281762557!3d27.711545625026938!2m3!1f0!1f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190bb4663df7%3A0xe510b64d1f2e247!2sBhim%20Plaza!5e0!3m2!1sen!2snp!4v1719638421832!5m2!1sen!2snp",
       mapsLink: "https://maps.google.com/?q=Bhim+Plaza+Naxal+Kathmandu+Nepal",
       hours: "Mon–Fri, 9:00 AM – 5:00 PM (except public holidays)"
     },
@@ -46,8 +46,8 @@ export default function ContactUs() {
 
   const emailGrid = [
     { label: "General Enquiries", email: "answers@possiblehealth.org", desc: "" },
-    { label: "Donations & Support", email: "donation@possiblehealth.org", desc: "" },
-    { label: "Innovate", email: "innovate@possiblehealth.org", desc: "" },
+    { label: "Donations & Support", email: "donations@possiblehealth.org", desc: "" },
+    { label: "Research and Innovation", email: "innovate@possiblehealth.org", desc: "" },
   ];
 
   const closeFormModal = () => {
@@ -74,7 +74,7 @@ export default function ContactUs() {
                 className="p-6 bg-zinc-50 border border-zinc-100 rounded-2xl hover:border-zinc-200 transition-all duration-300 flex flex-col justify-between min-h-[260px] shadow-sm hover:shadow-md relative overflow-hidden"
               >
                 {hoveredOffice === idx && office.mapUrl ? (
-                  /* Full-card Google Map Preview on hover (Only rendered if mapUrl exists) */
+                  /* Full-card Google Map Preview on hover */
                   <div className="absolute inset-0 w-full h-full bg-zinc-100 animate-in fade-in duration-300">
                     <iframe
                       src={office.mapUrl}
@@ -253,7 +253,7 @@ export default function ContactUs() {
                       id="subject"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      placeholder="e.g. Partnership Proposal"
+                      placeholder="e.g. Donation & Corporate Matching Inquiry"
                       className="w-full rounded-lg border border-zinc-200 bg-white px-4 py-2.5 text-[14px] outline-none transition-colors focus:border-primary-pink"
                     />
                   </div>
@@ -268,7 +268,7 @@ export default function ContactUs() {
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Write your message here..."
+                      placeholder="e.g. Hi Possible team, I am interested in making a donation and would like to learn more about wire transfers, recurring monthly giving, or corporate matching programs."
                       className="w-full rounded-lg border border-zinc-200 bg-white px-4 py-2.5 text-[14px] outline-none transition-colors focus:border-primary-pink resize-none"
                     ></textarea>
                   </div>

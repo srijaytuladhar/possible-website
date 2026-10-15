@@ -7,12 +7,42 @@ export default function ScalePage() {
   const projects: SolutionBoxType[] = [
     {
       id: "longitudinal-care",
-      title: "Strengthening community health system through longitudinal care: From pilot to scale",
+      title: "Strengthening community health system through longitudinal care: From innovation to scale",
       description: [
-        "Too often, health systems reach families only when they seek care, leaving gaps in continuous support that could prevent illness, identify risks early, and address health needs before they become more serious. Pregnancies may go undetected until late, newborns may miss critical follow-up, and chronic conditions may remain unmanaged until they become emergencies - gaps that are costly to fix.",
-        "ProCHWs - local, trained, supervised, salaried, full-time, and digitally enabled community health workers, close that gap by bringing integrated, longitudinal care directly into the community. Possible, in collaboration with the government, designed the model, grounded in WHO's guidelines for CHW programs and tested it as a national pilot focused initially on bundled maternal and child health services. The pilot generated evidence that community-based, longitudinal care improves access and outcomes - reducing home deliveries, catching high-risk pregnancies earlier, and increasing follow-up care - while remaining affordable within the public health system.",
-        "We are now working with the government and community-based partners to strengthen and evolve the model for national scale-up: refining the delivery workflows, building the evidence base, and exploring how ProCHWs can extend beyond maternal and child health to provide a broader continuum of care across the life course.",
-        <strong key="scale-closing-quote">&ldquo;This isn&apos;t a parallel program, it&apos;s a government-owned system built to last.&rdquo;</strong>
+        <div key="problem" className="space-y-1.5">
+          <strong className="font-semibold text-zinc-950 block text-[17px]">
+            Problem:
+          </strong>
+          <p className="text-zinc-700 leading-relaxed font-light text-[16px]">
+            Nepal’s older population is growing, and chronic diseases now cause 70% of deaths. Most people with high blood pressure are not diagnosed or not controlled. Maternal health progress has stalled, with 151 maternal deaths per 100,000 live births, most of them preventable. The health system mainly treats illness and invests little in prevention.
+          </p>
+        </div>,
+
+        <div key="solution" className="space-y-1.5 pt-2">
+          <strong className="font-semibold text-zinc-950 block text-[17px]">
+            Proposed Solution:
+          </strong>
+          <p className="text-zinc-700 leading-relaxed font-light text-[16px]">
+            We, in collaboration with the government, designed a model, grounded in WHO guidelines for CHW programs and tested it as a national pilot focused first on bundled maternal and child health services. This first-of-its-kind model in Nepal uses ProCHWs who are local, trained, supervised, salaried, full-time, and digitally enabled community health workers, to bring integrated, continuous care to people’s homes.
+          </p>
+        </div>,
+
+        <div key="impact" className="space-y-2 pt-2">
+          <strong className="font-semibold text-zinc-950 block text-[17px]">
+            Impact:
+          </strong>
+          <ul className="list-disc pl-5 space-y-1.5 text-zinc-700 font-light text-[16px] leading-relaxed">
+            <li>Improved access and outcomes</li>
+            <li>Fewer home deliveries</li>
+            <li>Earlier identification of high-risk pregnancies</li>
+            <li>More follow-up care</li>
+            <li>Affordability within the public health system (requires ~1% of total national health spending)</li>
+          </ul>
+        </div>,
+
+        <p key="closing" className="pt-3 font-medium text-zinc-900 text-[16px] leading-relaxed">
+          We are now working with the government and community partners to refine delivery, build evidence for national scale-up, and extend the model to care across the life course.
+        </p>
       ],
       image: "/baby.jpg",
       publications: [
@@ -46,7 +76,38 @@ export default function ScalePage() {
       id: "collaborative-care",
       title: "Collaborative care for improving mental health care within primary health care settings",
       description: [
-        "An integrated model that trains CHWs and clinicians to identify and manage depression and anxiety within primary care settings. This model is co-designed and tested in remote districts in Nepal, and is now informing WHO-endorsed national training manuals for scale-up."
+        <div key="problem" className="space-y-1.5">
+          <strong className="font-semibold text-zinc-950 block text-[17px]">
+            Problem:
+          </strong>
+          <p className="text-zinc-700 leading-relaxed font-light text-[16px]">
+            Despite carrying a disproportionately high burden of depression, people in low- and middle-income countries lack access to effective care. Access is limited by both the inequitable concentration of specialized mental health care in urban areas with greater resources, and limited capacity of non-specialists to provide mental healthcare.
+          </p>
+        </div>,
+
+        <div key="solution" className="space-y-1.5 pt-2">
+          <strong className="font-semibold text-zinc-950 block text-[17px]">
+            Proposed Solution:
+          </strong>
+          <p className="text-zinc-700 leading-relaxed font-light text-[16px]">
+            An integrated model that trains CHWs and clinicians to identify and manage depression and anxiety within primary care settings. We co-designed and tested an adapted collaborative care model in remote districts in Nepal.
+          </p>
+        </div>,
+
+        <div key="impact" className="space-y-2 pt-2">
+          <strong className="font-semibold text-zinc-950 block text-[17px]">
+            Impact:
+          </strong>
+          <ul className="list-disc pl-5 space-y-1.5 text-zinc-700 font-light text-[16px] leading-relaxed">
+            <li>Improved health workers’ capability (enhanced self-efficacy and knowledge)</li>
+            <li>Greater access to mental health care and support</li>
+            <li>Improved clinical outcomes</li>
+          </ul>
+        </div>,
+
+        <p key="closing" className="pt-3 font-medium text-zinc-900 text-[16px] leading-relaxed">
+          We are now informing WHO-endorsed national training manuals for scale-up.
+        </p>
       ],
       image: "/COCM.jpg",
       publications: [

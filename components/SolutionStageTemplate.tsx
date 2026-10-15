@@ -3,7 +3,7 @@
 import { useState, useEffect, ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FileText, ArrowLeft, ExternalLink, ChevronDown } from "lucide-react";
+import { FileText, ArrowLeft, ArrowRight, ExternalLink, ChevronDown } from "lucide-react";
 
 export interface PublicationType {
   title: string;
@@ -136,7 +136,7 @@ export default function SolutionStageTemplate({
         </Link>
       </div>
 
-      {/* Stage Progress Indicator (Only rendered for Scale, Test, Innovate — hidden on Pipeline) */}
+      {/* Stage Progress Indicator */}
       {stageId !== "pipeline" && (
         <div className="mb-14 bg-zinc-50/80 border border-zinc-200/80 p-6 sm:p-8 rounded-3xl flex flex-col items-center w-full max-w-5xl mx-auto shadow-xs relative">
           <h2 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 text-center mb-8 max-w-4xl leading-relaxed">
@@ -220,7 +220,7 @@ export default function SolutionStageTemplate({
             })}
           </div>
 
-          {/* Animated Description Box with Pointer Arrow & Black Text */}
+          {/* Animated Description Box with Pointer Arrow & Action Button */}
           {activeStage && (
             <div className="mt-6 w-full max-w-3xl relative animate-in fade-in slide-in-from-top-2 duration-300">
               
@@ -235,11 +235,42 @@ export default function SolutionStageTemplate({
                 } ${arrowPositionClasses[activeIndex] || "left-1/2"}`}
               />
 
-              {/* Box Content with Solid Black Text */}
-              <div className={`p-5 sm:p-6 bg-white rounded-2xl border-2 shadow-sm text-center transition-all duration-300 ${activeStage.borderColor}`}>
+              {/* Box Content with Description & Stage Button */}
+              <div className={`p-5 sm:p-6 bg-white rounded-2xl border-2 shadow-sm text-center transition-all duration-300 flex flex-col items-center gap-4 ${activeStage.borderColor}`}>
                 <p className="text-black font-semibold text-[15.5px] sm:text-[17px] leading-relaxed max-w-2xl mx-auto">
                   {activeStage.description}
                 </p>
+
+                {/* Stage CTA Buttons */}
+                {stageId === "innovate" && (
+                  <Link
+                    href="/donate"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary-pink text-white font-semibold text-sm shadow-md shadow-primary-pink/20 hover:bg-primary-pink/90 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
+                  >
+                    <span>Fund our innovation</span>
+                    <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                  </Link>
+                )}
+
+                {stageId === "test" && (
+                  <Link
+                    href="/#partner-with-us"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-secondary-blue text-white font-semibold text-sm shadow-md shadow-secondary-blue/20 hover:bg-secondary-blue/90 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
+                  >
+                    <span>Support us to adapt</span>
+                    <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                  </Link>
+                )}
+
+                {stageId === "scale" && (
+                  <Link
+                    href="/#partner-with-us"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-accent-purple text-white font-semibold text-sm shadow-md shadow-accent-purple/20 hover:bg-accent-purple/90 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
+                  >
+                    <span>Support us to Scale</span>
+                    <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                  </Link>
+                )}
               </div>
             </div>
           )}

@@ -9,10 +9,11 @@ import {
   CheckCircle2,
   ShieldCheck,
   ChevronDown,
+  Mail,
 } from "lucide-react";
 
 export default function DonatePage() {
-  const [frequency, setFrequency] = useState<"one-time" | "monthly">("monthly");
+  const [frequency, setFrequency] = useState<"one-time" | "monthly" | "annual">("monthly");
   const [selectedAmount, setSelectedAmount] = useState<number | string>(100);
   const [customAmount, setCustomAmount] = useState("");
   const [paymentMethod, setPaymentMethod] = useState<"card" | "bank">("card");
@@ -25,6 +26,8 @@ export default function DonatePage() {
     email: "",
     city: "",
     country: "United States",
+    hearAbout: "",
+    hearAboutOther: "",
   });
 
   const amounts = [25, 50, 100, 250, 500];
@@ -33,13 +36,13 @@ export default function DonatePage() {
     {
       question: "Is my donation tax-deductible?",
       answer:
-        "Yes. Nyaya Health, doing business as Possible, a 501(c)(3) not for profit organization, has not provided any goods or services, in whole or in part, to you in consideration for this voluntary cash contribution. Our tax ID is 20-3055055.",
+        "Yes, your donation is tax-deductible. Our tax ID is 20-3055055. Nyaya Health, doing business as Possible, a 501(c)(3) not-for-profit organization, has not provided any goods or services, in whole or in part, to you in consideration for this voluntary cash contribution.",
     },
     {
       question: "Can I send a check?",
       answer: (
         <span>
-          Yes, please make check payable to <strong>“Possible”</strong> and send to:
+          Yes, you can. Please make the check payable to <strong>“Possible”</strong> and send to:
           <br />
           <span className="mt-1 block font-medium text-zinc-800">
             99 Wall Street #4100
@@ -50,10 +53,10 @@ export default function DonatePage() {
       ),
     },
     {
-      question: "Can I give through stock, or wire transfer?",
+      question: "Can I give through stock or wire transfer?",
       answer: (
         <span>
-          For wire transfers and gifts of stock, please write us at{" "}
+          Yes, you can. For wire transfers and gifts of stock, please write us at{" "}
           <a
             href="mailto:donations@possiblehealth.org"
             className="text-primary-pink font-medium hover:underline"
@@ -67,22 +70,70 @@ export default function DonatePage() {
     {
       question: "Can I make a recurring donation?",
       answer:
-        "Monthly gifts are some of our most important contributions, because they allow us to sustain this work throughout the year. To set up, please select 'Monthly Gift' at the top of the donation form.",
+        "Yes, you can. Monthly gifts are some of our most important contributions, because they support us to sustain throughout the year. To set up, please go to the donate page and click monthly or annual donation.",
     },
     {
       question: "Can I give through a donor-advised fund?",
-      answer:
-        "If you have a donor-advised fund with Fidelity Charitable, Schwab Charitable, Vanguard, National Philanthropic Trust, or Benevity, please use the DAF Direct link to automatically submit a recommendation to your advisor. Otherwise, please contact your financial institution to make a recommendation.",
+      answer: (
+        <span>
+          Yes, you can. If you have a donor-advised fund with Fidelity Charitable, Schwab Charitable, Vanguard, National Philanthropic Trust, or Benevity, please use the DAF Direct link to automatically submit a recommendation to your advisor. Otherwise, please contact your financial institution to make a recommendation or please write us at{" "}
+          <a
+            href="mailto:donations@possiblehealth.org"
+            className="text-primary-pink font-medium hover:underline"
+          >
+            donations@possiblehealth.org
+          </a>{" "}
+          to help you support the process.
+        </span>
+      ),
+    },
+    {
+      question: "Can I make a gift through small, family-funded foundations?",
+      answer: (
+        <span>
+          Yes. Please write us at{" "}
+          <a
+            href="mailto:donations@possiblehealth.org"
+            className="text-primary-pink font-medium hover:underline"
+          >
+            donations@possiblehealth.org
+          </a>{" "}
+          to discuss the plan and process.
+        </span>
+      ),
     },
     {
       question: "Can I make a gift through my employer’s giving program?",
-      answer:
-        "You could double your impact through a matching gift from your employer. Contact your company’s Human Resources office to add Possible to your employee giving platform.",
+      answer: (
+        <span>
+          Yes. You could double your impact through a matching gift from your employer. Contact your company’s Human Resources office to add Possible to your employee giving platform or please write us at{" "}
+          <a
+            href="mailto:donations@possiblehealth.org"
+            className="text-primary-pink font-medium hover:underline"
+          >
+            donations@possiblehealth.org
+          </a>
+          .
+        </span>
+      ),
     },
     {
       question: "Can I participate in planned giving?",
-      answer:
-        "Thank you for considering a legacy gift that helps ensure your support of Possible goes long into the future, and has a lasting impact. A legacy gift typically refers to a gift that requires estate and/or financial planning. You can update your estate or financial plans to include us as a beneficiary of your will, trust, retirement plan, or life insurance plan, among other options that can be tailored to fit your needs.",
+      answer: (
+        <span>
+          Yes. Thank you for considering a legacy gift, which helps ensure your support to Possible goes long into the future, and has a lasting impact.
+          <br />
+          <br />
+          A legacy gift typically refers to a gift that requires estate and/or financial planning. You can update your estate or financial plans to include us as a beneficiary of your will, trust, retirement plan, or life insurance plan, among other options that can be tailored to fit your needs. To discuss more, please write us at{" "}
+          <a
+            href="mailto:donations@possiblehealth.org"
+            className="text-primary-pink font-medium hover:underline"
+          >
+            donations@possiblehealth.org
+          </a>
+          .
+        </span>
+      ),
     },
   ];
 
@@ -109,12 +160,19 @@ export default function DonatePage() {
 
   const activeAmount = selectedAmount === "custom" ? Number(customAmount) || 0 : selectedAmount;
 
+  const frequencyLabel =
+    frequency === "monthly"
+      ? "/ Month"
+      : frequency === "annual"
+      ? "/ Year"
+      : "";
+
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1">
       {/* Page Header */}
       <div className="mb-10 text-center max-w-3xl mx-auto">
         <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
-          Support Our Solutions 
+          Support Our Solutions
         </h1>
       </div>
 
@@ -174,7 +232,7 @@ export default function DonatePage() {
               </div>
               <h3 className="h3-card text-emerald-950 font-semibold">Thank You for Your Generosity!</h3>
               <p className="text-[14px] text-emerald-800 leading-relaxed font-light">
-                Your donation of <strong>${activeAmount} {frequency === "monthly" ? "/ Month" : ""}</strong> has been simulated successfully. In a production environment, this would process securely via our payment gateway.
+                Your donation of <strong>${activeAmount} {frequencyLabel}</strong> has been simulated successfully. In a production environment, this would process securely via our payment gateway.
               </p>
               <p className="text-[13px] text-emerald-700/80 font-light">
                 A receipt will be sent to <strong>{donorInfo.email}</strong>.
@@ -192,8 +250,19 @@ export default function DonatePage() {
             </div>
           ) : (
             <form onSubmit={handleDonateSubmit} className="space-y-6">
-              {/* Frequency Selector */}
-              <div className="flex gap-2 p-1 bg-zinc-200/60 rounded-xl w-fit">
+              {/* Frequency Selector Toolbar with Email Link Tab */}
+              <div className="flex flex-wrap items-center gap-2 p-1 bg-zinc-200/60 rounded-xl w-fit">
+                <button
+                  type="button"
+                  onClick={() => setFrequency("one-time")}
+                  className={`px-4 py-2 rounded-lg font-equip text-[13px] font-medium transition-all cursor-pointer ${
+                    frequency === "one-time"
+                      ? "bg-white text-zinc-950 shadow-sm"
+                      : "text-zinc-600 hover:text-zinc-950"
+                  }`}
+                >
+                  One-time Gift
+                </button>
                 <button
                   type="button"
                   onClick={() => setFrequency("monthly")}
@@ -207,15 +276,25 @@ export default function DonatePage() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setFrequency("one-time")}
+                  onClick={() => setFrequency("annual")}
                   className={`px-4 py-2 rounded-lg font-equip text-[13px] font-medium transition-all cursor-pointer ${
-                    frequency === "one-time"
+                    frequency === "annual"
                       ? "bg-white text-zinc-950 shadow-sm"
                       : "text-zinc-600 hover:text-zinc-950"
                   }`}
                 >
-                  One-time Gift
+                  Annual Gift
                 </button>
+
+                {/* Email Tab linking directly to donations@possiblehealth.org */}
+                <a
+                  href="mailto:donations@possiblehealth.org"
+                  className="px-4 py-2 rounded-lg font-equip text-[13px] font-medium text-zinc-700 hover:text-primary-pink hover:bg-white/80 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                  title="Email donations@possiblehealth.org"
+                >
+                  <Mail className="h-3.5 w-3.5 text-primary-pink" />
+                  <span>Email</span>
+                </a>
               </div>
 
               {/* Amount Grid */}
@@ -268,7 +347,7 @@ export default function DonatePage() {
                     }`}
                   >
                     <CreditCard className="h-4 w-4" />
-                    <span>Credit Card</span>
+                    <span>Card</span>
                   </button>
                   <button
                     type="button"
@@ -282,7 +361,7 @@ export default function DonatePage() {
                     <Landmark className="h-4 w-4" />
                     <span>Bank Transfer</span>
                   </button>
-                </div> 
+                </div>
               </div>
 
               {/* Donor Details Form */}
@@ -333,6 +412,45 @@ export default function DonatePage() {
                     className="w-full rounded-lg border border-zinc-250 bg-white px-3 py-2 text-[13.5px] outline-none focus:border-primary-pink"
                   />
                 </div>
+
+                {/* How did you hear about Possible? */}
+                <div className="space-y-3">
+                  <div>
+                    <label htmlFor="hearAbout" className="block text-[12px] font-semibold text-zinc-600 mb-1">
+                      How did you hear about Possible? <span className="font-normal text-zinc-400">(optional)</span>
+                    </label>
+                    <select
+                      id="hearAbout"
+                      value={donorInfo.hearAbout}
+                      onChange={(e) => setDonorInfo({ ...donorInfo, hearAbout: e.target.value })}
+                      className="w-full rounded-lg border border-zinc-250 bg-white px-3 py-2 text-[13.5px] outline-none focus:border-primary-pink text-zinc-800"
+                    >
+                      <option value="">Select an option...</option>
+                      <option value="Staff">Staff</option>
+                      <option value="Board">Board</option>
+                      <option value="The Life You Can Save">The Life You Can Save</option>
+                      <option value="Friend">Friend</option>
+                      <option value="London Marathon">London Marathon</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+
+                  {donorInfo.hearAbout === "Other" && (
+                    <div className="animate-in fade-in duration-200">
+                      <label htmlFor="hearAboutOther" className="block text-[12px] font-semibold text-zinc-600 mb-1">
+                        Please specify
+                      </label>
+                      <input
+                        type="text"
+                        id="hearAboutOther"
+                        placeholder="How did you hear about us?"
+                        value={donorInfo.hearAboutOther}
+                        onChange={(e) => setDonorInfo({ ...donorInfo, hearAboutOther: e.target.value })}
+                        className="w-full rounded-lg border border-zinc-250 bg-white px-3 py-2 text-[13.5px] outline-none focus:border-primary-pink"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Submit Button */}
@@ -340,7 +458,7 @@ export default function DonatePage() {
                 type="submit"
                 className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary-pink px-6 py-4 font-equip font-semibold text-[15px] text-white shadow-lg shadow-primary-pink/20 hover:bg-primary-pink/90 hover:shadow-primary-pink/30 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
               >
-                <span>Donate ${activeAmount} {frequency === "monthly" ? "/ Month" : ""}</span>
+                <span>Donate ${activeAmount} {frequencyLabel}</span>
                 <ChevronRight className="h-4 w-4" />
               </button>
             </form>
