@@ -29,12 +29,12 @@ export default function HeroSlider() {
       <div className="relative z-10 mx-auto max-w-7xl w-full">
         <div className="max-w-3xl space-y-6 animate-in fade-in slide-in-from-top-4 duration-1000">
           <h1 className="h1-hero text-white font-extralight leading-tight uppercase tracking-wide">
-            &ldquo;Too complex to solve&rdquo; <br />
-            <span className="font-semibold text-primary-pink">is where we start.</span>
+            We start with health problems most see as impossible to solve. <br />
+            <span className="font-semibold text-primary-pink"></span>
           </h1>
 
           <p className="text-subheading text-zinc-200 font-light max-w-2xl leading-relaxed">
-            We innovate, test, and scale the health solutions with communities and government, then help bring them into healthcare workers&apos; everyday practice and national policy.
+            We innovate and rigorously test health solutions with communities and the government, and then support to scale. 
           </p>
 
           <div className="pt-4 flex flex-wrap gap-4">

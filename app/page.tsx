@@ -39,15 +39,15 @@ export default function Home() {
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-8">
             <h2 className="h2-section text-zinc-950 uppercase tracking-wide">
-              How We Solve Complex Problems
+              Our approach to solve health problems  
             </h2>
           </div>
 
           {/* Copy Above Image */}
           <div className="max-w-3xl text-center mb-10">
             <p className="text-subheading text-zinc-900 leading-relaxed font-light text-left px-4 sm:px-6">
-              We take on the health problems others either neglect or call too complex and run them through a process that works: innovate them with people with lived experience, experts, governments and relevant stakeholders; test them until the evidence is clear and they fit different settings; and then help public health systems and community organizations make them part of routine care<br /><br />
-              <strong>That&apos;s how suffering goes down for good, not just for the length of a grant.</strong>
+              We work on health problems most either neglect or call impossible to solve, and run through a rigorous process. We innovate health solutions with people who have lived experience, experts, governments and relevant stakeholders, and test the solutions until the evidence is established. We then support the government and community partners to scale into public healthcare systems. <br /><br />
+           {/*  <strong>That&apos;s how suffering goes down for good, not just for the length of a grant.</strong>*/}
             </p>
           </div>
 
@@ -73,7 +73,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl flex flex-col items-center">
           <div className="max-w-3xl text-left mb-10">
             <p className="text-zinc-900 leading-relaxed font-light text-[20px] sm:text-[23px] md:text-[25px] px-2 sm:px-4">
-              A mother in rural foothills of the Himalayas deserves the same shot at high quality healthcare as a patient in Kathmandu or New York. We are aspiring to create a health system rooted in community, proven by evidence and built to reach everyone.
+              A mother in the rural foothills of the Himalayas deserves the same high-quality healthcare as anyone in Kathmandu or New York. We are working to build a health system that is rooted in communities, proven by evidence, and built to reach everyone.
             </p>
           </div>
 
@@ -173,7 +173,7 @@ export default function Home() {
             />
             <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/90 via-70% to-transparent pt-28 pb-8 sm:pb-12 px-6 sm:px-12 flex items-end justify-center">
               <p className="text-white text-[16px] sm:text-[18px] md:text-[20px] font-light leading-relaxed text-center max-w-3xl drop-shadow-lg">
-                We are health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers, not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. <strong>We don&apos;t just co-design a project, test/deliver a program, and move on. We build systems that last.</strong>
+                We are health care professionals, clinicians, engineers, and advocates who happen to also be rigorous researchers, not the other way around. Rooted in Nepal for nearly two decades, we go looking for the problems everyone else avoids: mental health, stigma, domestic violence, chronic disease, disability, and the gaps between them. We co-design a project, test/deliver a program, and move on. We build systems that last.
               </p>
             </div>
           </div>
