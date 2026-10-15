@@ -146,7 +146,7 @@ export default function Home() {
 
           <div className="text-center max-w-3xl mx-auto">
             <p className="text-base sm:text-lg text-zinc-600 font-light italic leading-relaxed">
-              Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of evidence.
+              Our solutions move through these stages dynamically, starting with new ideas that we test and then scale.
             </p>
           </div>
         </div>

@@ -140,7 +140,7 @@ export default function SolutionStageTemplate({
       {stageId !== "pipeline" && (
         <div className="mb-14 bg-zinc-50/80 border border-zinc-200/80 p-6 sm:p-8 rounded-3xl flex flex-col items-center w-full max-w-5xl mx-auto shadow-xs relative">
           <h2 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 text-center mb-8 max-w-4xl leading-relaxed">
-            Our solutions move through these stages dynamically, guided by the novelty of the approach and the strength of validated evidence.
+            Our solutions move through these stages dynamically, starting with new ideas that we test and then scale.
           </h2>
           
           <div className="flex items-start justify-center w-full max-w-4xl px-2 sm:px-4 relative">
