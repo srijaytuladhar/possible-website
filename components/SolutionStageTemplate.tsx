@@ -103,7 +103,7 @@ export default function SolutionStageTemplate({
       label: "Scale",
       href: "/solutions/scale",
       image: "/hero_complex_solve.jpg",
-      description: "Help to integrate into public healthcare systems and national policy for larger impact.",
+      description: "Help to integrate into public health systems for larger impact.",
       arrowColor: "text-accent-purple",
       borderColor: "border-accent-purple",
     },

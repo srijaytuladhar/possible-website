@@ -114,7 +114,7 @@ export default function DonatePage() {
       {/* Page Header */}
       <div className="mb-10 text-center max-w-3xl mx-auto">
         <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
-          Support Our Solution 
+          Support Our Solutions 
         </h1>
       </div>
 
@@ -282,7 +282,7 @@ export default function DonatePage() {
                     <Landmark className="h-4 w-4" />
                     <span>Bank Transfer</span>
                   </button>
-                </div>
+                </div> 
               </div>
 
               {/* Donor Details Form */}
