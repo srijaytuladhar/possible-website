@@ -84,7 +84,7 @@ export default function Footer() {
 
               {/* Wikipedia */}
               <a 
-                href="https://en.wikipedia.org/wiki/Possible_(organization)" 
+                href="https://en.wikipedia.org/wiki/Possible_Health" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="hover:opacity-80 transition-opacity" 

@@ -114,7 +114,7 @@ export default function DonatePage() {
       {/* Page Header */}
       <div className="mb-10 text-center max-w-3xl mx-auto">
         <h1 className="h1-hero text-zinc-950 mb-3 uppercase tracking-wide">
-          Support Our Mission
+          Support Our Solution 
         </h1>
       </div>
 
@@ -288,7 +288,7 @@ export default function DonatePage() {
               {/* Donor Details Form */}
               <div className="space-y-4 pt-2 border-t border-zinc-200/50">
                 <h4 className="text-[14px] font-semibold text-zinc-900">
-                  Donor Information
+                  Your Information
                 </h4>
 
                 <div className="grid grid-cols-2 gap-4">
