@@ -12,12 +12,25 @@ import {
   TeamMember
 } from "@/components/teamData";
 
+export interface ExtendedTeamMember extends TeamMember {
+  linkedin?: string;
+}
+
+// Inline SVG component for LinkedIn icon
+function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+    </svg>
+  );
+}
+
 function TeamCard({
   member,
   themeColor,
   onClick
 }: {
-  member: TeamMember;
+  member: ExtendedTeamMember;
   themeColor: "pink" | "blue" | "purple";
   onClick: () => void;
 }) {
@@ -27,20 +40,20 @@ function TeamCard({
     purple: {
       border: "hover:border-accent-purple/50",
       role: "text-accent-purple",
-      badge: "bg-accent-purple/10 text-accent-purple",
-      btn: "group-hover:bg-accent-purple group-hover:text-white"
+      btn: "group-hover:bg-accent-purple group-hover:text-white",
+      hoverText: "group-hover:text-accent-purple"
     },
     blue: {
       border: "hover:border-secondary-blue/50",
       role: "text-secondary-blue",
-      badge: "bg-secondary-blue/10 text-secondary-blue",
-      btn: "group-hover:bg-secondary-blue group-hover:text-white"
+      btn: "group-hover:bg-secondary-blue group-hover:text-white",
+      hoverText: "group-hover:text-secondary-blue"
     },
     pink: {
       border: "hover:border-primary-pink/50",
       role: "text-primary-pink",
-      badge: "bg-primary-pink/10 text-primary-pink",
-      btn: "group-hover:bg-primary-pink group-hover:text-white"
+      btn: "group-hover:bg-primary-pink group-hover:text-white",
+      hoverText: "group-hover:text-primary-pink"
     }
   }[themeColor];
 
@@ -55,43 +68,59 @@ function TeamCard({
           onClick();
         }
       }}
-      className={`bg-white border border-zinc-200/80 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${colorClasses.border} group cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-primary-pink/30`}
+      className={`bg-white border border-zinc-200/80 rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${colorClasses.border} group cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-primary-pink/30 space-y-5`}
     >
-      <div className="space-y-4">
-        {/* Top Row: Photo on left, Arrow button on right */}
-        <div className="flex items-start justify-between gap-4">
-          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-zinc-100 bg-zinc-100 flex items-center justify-center shrink-0 shadow-2xs">
-            {member.image && !imgError ? (
-              <Image
-                src={member.image}
-                alt={member.name}
-                fill
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 96px, 96px"
-                onError={() => setImgError(true)}
-              />
-            ) : (
-              <div className="flex flex-col items-center justify-center text-zinc-400 p-2">
-                <User className="h-8 w-8 stroke-[1.2]" />
-                <span className="text-[9px] font-medium text-zinc-400 mt-1 uppercase tracking-wider">Possible</span>
-              </div>
-            )}
+      {/* 1. Large Top Photo Frame */}
+      <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-zinc-150 bg-zinc-100 flex items-center justify-center shadow-2xs">
+        {member.image && !imgError ? (
+          <Image
+            src={member.image}
+            alt={member.name}
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="flex flex-col items-center justify-center text-zinc-400 p-4">
+            <User className="h-16 w-16 stroke-[1.2]" />
+            <span className="text-xs font-medium text-zinc-400 mt-2 uppercase tracking-wider">Possible</span>
           </div>
+        )}
 
-          <span className={`p-2.5 rounded-full bg-zinc-100 text-zinc-400 ${colorClasses.btn} transition-all duration-200 shrink-0 mt-1 mr-1`}>
-            <ArrowUpRight className="h-4 w-4 stroke-[2.2]" />
-          </span>
-        </div>
+        {/* Floating LinkedIn Button on Top Right */}
+        {member.linkedin && (
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            aria-label={`${member.name}'s LinkedIn Profile`}
+            className="absolute top-3 right-3 p-2 rounded-xl bg-white/90 backdrop-blur-md text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white shadow-md transition-all duration-200 z-10"
+          >
+            <LinkedinIcon className="h-4 w-4" />
+          </a>
+        )}
+      </div>
 
-        {/* Name and Role */}
-        <div className="space-y-1 pt-1">
-          <h3 className="text-lg sm:text-xl font-bold font-outfit text-zinc-900 leading-snug group-hover:text-zinc-950">
+      {/* 2. Text Details: Name, Position, and Arrow Icon */}
+      <div className="flex items-end justify-between gap-3 pt-1">
+        <div className="space-y-1 flex-1">
+          {/* Name First */}
+          <h3 className={`text-lg sm:text-xl font-bold font-outfit text-zinc-950 leading-snug transition-colors ${colorClasses.hoverText}`}>
             {member.name}
           </h3>
+
+          {/* Position / Role Second */}
           <p className={`text-[12px] sm:text-[13px] font-semibold tracking-wider uppercase ${colorClasses.role}`}>
             {member.role}
           </p>
         </div>
+
+        {/* Action Arrow Icon */}
+        <span className={`p-2.5 rounded-full bg-zinc-100 text-zinc-400 ${colorClasses.btn} transition-all duration-200 shrink-0`}>
+          <ArrowUpRight className="h-4 w-4 stroke-[2.2]" />
+        </span>
       </div>
     </div>
   );
@@ -102,7 +131,7 @@ function MemberBioModal({
   themeColor,
   onClose
 }: {
-  member: TeamMember | null;
+  member: ExtendedTeamMember | null;
   themeColor: "pink" | "blue" | "purple";
   onClose: () => void;
 }) {
@@ -145,7 +174,7 @@ function MemberBioModal({
         {/* Modal Header */}
         <div className="p-6 sm:p-8 pb-4 flex items-start justify-between border-b border-zinc-100 gap-4">
           <div className="flex items-center gap-4 sm:gap-5">
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-zinc-150 bg-zinc-100 shrink-0 shadow-xs">
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-zinc-150 bg-zinc-100 shrink-0 shadow-xs">
               {member.image && !imgError ? (
                 <Image
                   src={member.image}
@@ -156,14 +185,27 @@ function MemberBioModal({
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center h-full text-zinc-400">
-                  <User className="h-8 w-8 stroke-[1.5]" />
+                  <User className="h-10 w-10 stroke-[1.5]" />
                 </div>
               )}
             </div>
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold font-outfit text-zinc-950 leading-tight">
-                {member.name}
-              </h2>
+              <div className="flex items-center gap-2.5 flex-wrap">
+                <h2 className="text-2xl sm:text-3xl font-bold font-outfit text-zinc-950 leading-tight">
+                  {member.name}
+                </h2>
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${member.name}'s LinkedIn Profile`}
+                    className="inline-flex items-center justify-center p-1.5 rounded-lg bg-[#0A66C2]/10 text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white transition-all shrink-0"
+                  >
+                    <LinkedinIcon className="h-5 w-5" />
+                  </a>
+                )}
+              </div>
               <p className={`text-[13.5px] font-semibold tracking-wide uppercase mt-1 ${colorClasses.role}`}>
                 {member.role}
               </p>
@@ -180,7 +222,7 @@ function MemberBioModal({
           </button>
         </div>
 
-        {/* Modal Body: Multi-paragraph Bio */}
+        {/* Modal Body */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-4 flex-1">
           {paragraphs.map((para, pIdx) => (
             <p
@@ -215,13 +257,13 @@ function MemberBioModal({
 }
 
 function TeamPageContent() {
-  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const [selectedMember, setSelectedMember] = useState<ExtendedTeamMember | null>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
   const tabParam = searchParams.get("tab") || "team-members";
   const isFirstMount = useRef(true);
 
-  // Smooth scroll handler on tab change (skipping initial mount)
+  // Smooth scroll handler on tab change
   useEffect(() => {
     if (isFirstMount.current) {
       isFirstMount.current = false;
@@ -272,7 +314,7 @@ function TeamPageContent() {
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 pt-0 pb-10 md:pb-14 flex flex-col flex-1 bg-white">
 
-      {/* Top Banner Image - Bottom row preserved, top space trimmed down to just above top heads */}
+      {/* Top Banner Image */}
       <div className="w-full max-w-5xl mx-auto mb-0">
         <div className="relative w-full h-[250px] sm:h-[330px] md:h-[410px] rounded-t-3xl sm:rounded-t-[2rem] overflow-hidden shadow-xs">
           <Image
@@ -282,12 +324,11 @@ function TeamPageContent() {
             className="object-cover object-[center_22%]"
             priority
           />
-          {/* Subtle dark overlay */}
           <div className="absolute inset-0 bg-black/15 pointer-events-none" />
         </div>
       </div>
 
-      {/* Tabs Menu Bar (Directly attached below photo) */}
+      {/* Tabs Menu Bar */}
       <div id="team-tabs" className="w-full max-w-5xl mx-auto mb-12 sm:mb-16 scroll-mt-28">
         <div className="grid grid-cols-1 md:grid-cols-3 w-full shadow-xs">
           {tabs.map((tab) => {
@@ -305,7 +346,6 @@ function TeamPageContent() {
               >
                 <span className="leading-snug">{tab.label}</span>
 
-                {/* Downward pointing active arrow indicator */}
                 {isActive && (
                   <span
                     className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-[12px] border-x-transparent border-t-[10px] sm:border-x-[14px] sm:border-t-[12px] z-20 pointer-events-none"
