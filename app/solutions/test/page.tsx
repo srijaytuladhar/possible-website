@@ -1,7 +1,69 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import SolutionStageTemplate, { SolutionSubSectionType } from "@/components/SolutionStageTemplate";
+
+// Inline Share Button with matching Secondary Blue theme for Test page
+function ShareButton({ title, url }: { title: string; url?: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = async () => {
+    const shareUrl =
+      url || (typeof window !== "undefined" ? window.location.href : "");
+
+    const shareData = {
+      title: title,
+      text: title,
+      url: shareUrl,
+    };
+
+    if (navigator.share && navigator.canShare?.(shareData)) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        // User cancelled share
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (err) {
+        console.error("Failed to copy link", err);
+      }
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleShare}
+      className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all hover:opacity-80 active:scale-95 cursor-pointer text-secondary-blue bg-secondary-blue/10 border-secondary-blue/20"
+      aria-label="Share"
+    >
+      {copied ? (
+        <>
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Copied!</span>
+        </>
+      ) : (
+        <>
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+            />
+          </svg>
+          <span>Share</span>
+        </>
+      )}
+    </button>
+  );
+}
 
 export default function TestPage() {
   const subSections: SolutionSubSectionType[] = [
@@ -50,7 +112,11 @@ export default function TestPage() {
 
             <p key="closing" className="pt-3 font-medium text-zinc-900 text-[16px] leading-relaxed">
               After two successful pilot studies, we are currently testing MILAP through a randomized controlled trial with 300 families in Nepal. This five-year study, funded by the National Institute of Mental Health, will help us understand the impact of MILAP, and prepare for a larger scale.
-            </p>
+            </p>,
+
+            <div key="share" className="pt-3">
+              <ShareButton title="MILAP — For intimate partner violence and mental health" />
+            </div>
           ],
           image: "/solutions_test/MILAP.jpg",
           publications: [
@@ -107,6 +173,10 @@ export default function TestPage() {
                 <li>Better-controlled blood pressure and diabetes</li>
                 <li>Acceptable, feasible and cost-effective integration of BECOME into the national community health worker program</li>
               </ul>
+            </div>,
+
+            <div key="share" className="pt-3">
+              <ShareButton title="BECOME — Bringing integrated mental health and NCD care closer to home" />
             </div>
           ],
           image: "/solutions_test/BECOME.jpg",
@@ -167,7 +237,11 @@ export default function TestPage() {
 
             <p key="closing" className="pt-3 font-medium text-zinc-900 text-[16px] leading-relaxed">
               Based on the findings that stigma is one barrier to treatment adherence, we co-designed INCLUDE, a digital health intervention that addresses intersectional stigma experienced by people living with HIV in healthcare settings of Nepal. We are currently testing its acceptability, feasibility and preliminary impact.
-            </p>
+            </p>,
+
+            <div key="share" className="pt-3">
+              <ShareButton title="COMMIT — Improving treatment compliance using mHealth app" />
+            </div>
           ],
           image: "/solutions_test/commit_updated.jpg",
           publications: [
@@ -219,6 +293,10 @@ export default function TestPage() {
                 <li>Decline in depressive symptoms</li>
                 <li>High acceptability and perceived usefulness among both CHWs and women</li>
               </ul>
+            </div>,
+
+            <div key="share" className="pt-3">
+              <ShareButton title="PERINATAL-Mental Health — Integrating perinatal mental health into Community Health Worker-led longitudinal care" />
             </div>
           ],
           image: "/solutions_test/perinatal.jpg",
@@ -295,6 +373,10 @@ export default function TestPage() {
                 <li>Fewer missed appointments and medication refills</li>
                 <li>Better treatment adherence and viral load suppression</li>
               </ul>
+            </div>,
+
+            <div key="share" className="pt-3">
+              <ShareButton title="INCLUDE — Addressing intersectional stigma and improving HIV care" />
             </div>
           ],
           image: "/solutions_test/include_latest.jpg",
@@ -349,6 +431,10 @@ export default function TestPage() {
                 <li>Reduced depression symptoms severity</li>
                 <li>Increased patient healthcare follow-up</li>
               </ul>
+            </div>,
+
+            <div key="share" className="pt-3">
+              <ShareButton title="P-SuPP — Reimagining suicide care for scale in primary health care" />
             </div>
           ],
           image: "/solutions_test/psupp.JPG"
@@ -383,6 +469,10 @@ export default function TestPage() {
               <p className="text-zinc-700 font-light text-[16px]">
                 Early pilot implementation demonstrated acceptability and feasibility, with promising potential for further testing and scale-up.
               </p>
+            </div>,
+
+            <div key="share" className="pt-3">
+              <ShareButton title="BECOME-D — Dementia support intervention for older adults and their caregivers at home" />
             </div>
           ],
           image: "/solutions_test/becomeD.png",
@@ -444,6 +534,10 @@ export default function TestPage() {
                 <li>Lower suicidal ideation and attempts</li>
                 <li>Higher uptake of suicide support services</li>
               </ul>
+            </div>,
+
+            <div key="share" className="pt-3">
+              <ShareButton title="Chissa — Advancing suicide prevention through personalized digital support" />
             </div>
           ],
           image: "/solutions_test/chissa.JPG",

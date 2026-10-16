@@ -1,7 +1,69 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import SolutionStageTemplate, { SolutionBoxType } from "@/components/SolutionStageTemplate";
+
+// Inline Share Button with matching Purple theme for Scale page
+function ShareButton({ title, url }: { title: string; url?: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = async () => {
+    const shareUrl =
+      url || (typeof window !== "undefined" ? window.location.href : "");
+
+    const shareData = {
+      title: title,
+      text: title,
+      url: shareUrl,
+    };
+
+    if (navigator.share && navigator.canShare?.(shareData)) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        // User cancelled share
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (err) {
+        console.error("Failed to copy link", err);
+      }
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleShare}
+      className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all hover:opacity-80 active:scale-95 cursor-pointer text-accent-purple bg-accent-purple/10 border-accent-purple/20"
+      aria-label="Share"
+    >
+      {copied ? (
+        <>
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Copied!</span>
+        </>
+      ) : (
+        <>
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+            />
+          </svg>
+          <span>Share</span>
+        </>
+      )}
+    </button>
+  );
+}
 
 export default function ScalePage() {
   const projects: SolutionBoxType[] = [
@@ -42,7 +104,11 @@ export default function ScalePage() {
 
         <p key="closing" className="pt-3 font-medium text-zinc-900 text-[16px] leading-relaxed">
           We are now working with the government and community partners to refine delivery, build evidence for national scale-up, and extend the model to care across the life course.
-        </p>
+        </p>,
+
+        <div key="share" className="pt-3">
+          <ShareButton title="Strengthening community health system through longitudinal care: From innovation to scale" />
+        </div>
       ],
       image: "/baby.jpg",
       publications: [
@@ -107,7 +173,11 @@ export default function ScalePage() {
 
         <p key="closing" className="pt-3 font-medium text-zinc-900 text-[16px] leading-relaxed">
           We are now informing WHO-endorsed national training manuals for scale-up.
-        </p>
+        </p>,
+
+        <div key="share" className="pt-3">
+          <ShareButton title="Collaborative care for improving mental health care within primary health care settings" />
+        </div>
       ],
       image: "/COCM.jpg",
       publications: [

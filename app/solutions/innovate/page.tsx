@@ -1,7 +1,69 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import SolutionStageTemplate, { SolutionBoxType } from "@/components/SolutionStageTemplate";
+
+// Inline Share Button with matching page theme
+function ShareButton({ title, url }: { title: string; url?: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = async () => {
+    const shareUrl =
+      url || (typeof window !== "undefined" ? window.location.href : "");
+
+    const shareData = {
+      title: title,
+      text: title,
+      url: shareUrl,
+    };
+
+    if (navigator.share && navigator.canShare?.(shareData)) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        // User cancelled share
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (err) {
+        console.error("Failed to copy link", err);
+      }
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleShare}
+      className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all hover:opacity-80 active:scale-95 cursor-pointer text-primary-pink bg-primary-pink/10 border-primary-pink/20"
+      aria-label="Share"
+    >
+      {copied ? (
+        <>
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Copied!</span>
+        </>
+      ) : (
+        <>
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+            />
+          </svg>
+          <span>Share</span>
+        </>
+      )}
+    </button>
+  );
+}
 
 export default function InnovatePage() {
   const projects: SolutionBoxType[] = [
@@ -41,6 +103,10 @@ export default function InnovatePage() {
             <li>Greater knowledge and skills about autism and behavioral strategies</li>
             <li>Better access to specialized services</li>
           </ul>
+        </div>,
+
+        <div key="share" className="pt-3">
+          <ShareButton title="CASA - Supporting caregivers of children with Autism" />
         </div>
       ],
       image: "/solutions_innovate/CASA1.jpg",
@@ -80,6 +146,10 @@ export default function InnovatePage() {
           <p className="text-zinc-700 leading-relaxed font-light text-[16px]">
             Co-designed intervention grounded in the needs, priorities, and lived realities of women with diverse disabilities, developed through direct partnership with the Nepal Disabled Women’s Association and local health stakeholders.
           </p>
+        </div>,
+
+        <div key="share" className="pt-3">
+          <ShareButton title="Reimagining sexual and reproductive health services with women with disabilities" />
         </div>
       ],
       image: "/solutions_innovate/Disability.JPG"
