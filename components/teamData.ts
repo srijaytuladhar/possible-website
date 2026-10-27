@@ -154,7 +154,7 @@ export const teamMembersData: TeamMember[] = [
     id: "tm-3",
     name: "Rajesh Kumar Jha",
     role: "Mental Health Research Manager",
-    image: "/team/Rajesh.jpg",
+    image: "/team/Rajesh1.jpg",
     linkedin: "https://www.linkedin.com/in/rajesh-kumar-jha/",
     bio: "Rajesh Kumar Jha leads initiatives on manual development, capacity building training, supportive supervision, and wellbeing promotion among community health workers, ART counselors, and psychosocial counselors. He focuses on designing, implementing, and scaling behavioral and mental health interventions. A Mahendra Vidya Bhusan Award recipient, he holds a Master's degree in Clinical Psychology and brings over 26 years of experience with government agencies, NGOs/INGOs, and academic institutions across Nepal's Terai, Hill, and Mountain regions, working with survivors of gender-based violence, people living with HIV, conflict-affected children, ethnic minority communities, torture survivors, and returnee migrant workers. Outside of work, he enjoys listening to music and traveling."
   },
@@ -162,7 +162,7 @@ export const teamMembersData: TeamMember[] = [
     id: "tm-23",
     name: "Prakash Pant",
     role: "Research Data Manager",
-    image: "/team/Prakash.jpg",
+    image: "/team/Prakash1.jpg",
     linkedin: "https://www.linkedin.com/in/prakash-pant/",
     bio: "Prakash Pant, from far-western Nepal, oversees the data management system for Possible's intervention and implementation research. He holds a Bachelor's in Public Health and a Master's in Public Health from the University of the West of England (2016), with over a decade of experience in research, data management, M&E, and project management, including as MEL Advisor for USAID's Health and Hygiene Activity at DevWorks International. In his free time, he prefers family time, reading, and music."
   },

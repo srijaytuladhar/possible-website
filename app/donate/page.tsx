@@ -30,7 +30,7 @@ export default function DonatePage() {
     hearAboutOther: "",
   });
 
-  const amounts = [25, 50, 100, 250, 500];
+  const amounts = [100, 250, 500, 1000, 2000];
 
   const faqs = [
     {

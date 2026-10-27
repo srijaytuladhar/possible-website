@@ -56,108 +56,111 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1 space-y-16 animate-in fade-in duration-300 bg-white">
-      {/* 1. Location Section */}
-      <section className="space-y-6">
-        <div className="flex items-center gap-3 border-b border-zinc-100 pb-3">
-          <MapPin className="h-5 w-5 text-primary-pink" />
-          <h2 className="text-xl font-semibold text-zinc-950 uppercase tracking-wider">LOCATIONS</h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {offices.map((office, idx) => {
-            const Icon = office.icon;
-            return (
-              <div
-                key={idx}
-                onMouseEnter={() => setHoveredOffice(idx)}
-                onMouseLeave={() => setHoveredOffice(null)}
-                className="p-6 bg-zinc-50 border border-zinc-100 rounded-2xl hover:border-zinc-200 transition-all duration-300 flex flex-col justify-between min-h-[260px] shadow-sm hover:shadow-md relative overflow-hidden"
-              >
-                {hoveredOffice === idx && office.mapUrl ? (
-                  /* Full-card Google Map Preview on hover */
-                  <div className="absolute inset-0 w-full h-full bg-zinc-100 animate-in fade-in duration-300">
-                    <iframe
-                      src={office.mapUrl}
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen={false}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
-                  </div>
-                ) : (
-                  /* Info view when not hovered or no mapUrl */
-                  <div className="flex flex-col justify-between h-full w-full animate-in fade-in duration-200">
-                    <div>
-                      <div className={`p-2.5 rounded-xl w-fit mb-4 ${office.badgeColor}`}>
-                        <Icon className="h-5 w-5" />
-                      </div>
-
-                      <span className="text-[12px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">
-                        {office.country}
-                      </span>
-                      <h3 className="text-[18px] font-semibold text-zinc-900 mb-3">
-                        {office.entity}
-                      </h3>
-                      <p className="text-[14px] text-body-gray leading-relaxed font-light mb-4 whitespace-pre-line">
-                        {office.address}
-                      </p>
+    <div className="mx-auto max-w-6xl w-full px-6 sm:px-8 py-12 flex flex-col flex-1 space-y-12 animate-in fade-in duration-300 bg-white">
+      {/* Side-by-Side Grid: Locations on Left, Email Enquiries on Right */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        {/* Left Side: Locations */}
+        <section className="lg:col-span-7 space-y-6">
+          <div className="flex items-center gap-3 border-b border-zinc-100 pb-3">
+            <MapPin className="h-5 w-5 text-primary-pink" />
+            <h2 className="text-xl font-semibold text-zinc-950 uppercase tracking-wider">LOCATIONS</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {offices.map((office, idx) => {
+              const Icon = office.icon;
+              return (
+                <div
+                  key={idx}
+                  onMouseEnter={() => setHoveredOffice(idx)}
+                  onMouseLeave={() => setHoveredOffice(null)}
+                  className="p-6 bg-zinc-50 border border-zinc-100 rounded-2xl hover:border-zinc-200 transition-all duration-300 flex flex-col justify-between min-h-[260px] shadow-sm hover:shadow-md relative overflow-hidden"
+                >
+                  {hoveredOffice === idx && office.mapUrl ? (
+                    /* Full-card Google Map Preview on hover */
+                    <div className="absolute inset-0 w-full h-full bg-zinc-100 animate-in fade-in duration-300">
+                      <iframe
+                        src={office.mapUrl}
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen={false}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      ></iframe>
                     </div>
-
-                    {office.phoneRaw ? (
+                  ) : (
+                    /* Info view when not hovered or no mapUrl */
+                    <div className="flex flex-col justify-between h-full w-full animate-in fade-in duration-200">
                       <div>
-                        <div className="space-y-1">
-                          <a
-                            href={`tel:${office.phoneRaw}`}
-                            className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors"
-                          >
-                            <Phone className="h-4 w-4" />
-                            <span>{office.phone}</span>
-                          </a>
-                          {office.hours && (
-                            <span className="block text-[11.5px] text-zinc-400 font-light italic mt-0.5">
-                              ({office.hours})
-                            </span>
-                          )}
+                        <div className={`p-2.5 rounded-xl w-fit mb-4 ${office.badgeColor}`}>
+                          <Icon className="h-5 w-5" />
                         </div>
+
+                        <span className="text-[12px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">
+                          {office.country}
+                        </span>
+                        <h3 className="text-[18px] font-semibold text-zinc-900 mb-3">
+                          {office.entity}
+                        </h3>
+                        <p className="text-[14px] text-body-gray leading-relaxed font-light mb-4 whitespace-pre-line">
+                          {office.address}
+                        </p>
                       </div>
-                    ) : null}
-                  </div>
-                )}
+
+                      {office.phoneRaw ? (
+                        <div>
+                          <div className="space-y-1">
+                            <a
+                              href={`tel:${office.phoneRaw}`}
+                              className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary-pink hover:text-primary-pink/80 transition-colors"
+                            >
+                              <Phone className="h-4 w-4" />
+                              <span>{office.phone}</span>
+                            </a>
+                            {office.hours && (
+                              <span className="block text-[11.5px] text-zinc-400 font-light italic mt-0.5">
+                                ({office.hours})
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      ) : null}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Right Side: Email Enquiries */}
+        <section className="lg:col-span-5 space-y-6">
+          <div className="flex items-center gap-3 border-b border-zinc-100 pb-3">
+            <Mail className="h-5 w-5 text-secondary-blue" />
+            <h2 className="text-xl font-semibold text-zinc-950 uppercase tracking-wider">EMAIL ENQUIRIES</h2>
+          </div>
+          <div className="flex flex-col gap-4">
+            {emailGrid.map((item, idx) => (
+              <div key={idx} className="p-5 border border-zinc-100 bg-zinc-50/50 rounded-2xl space-y-2 hover:border-zinc-200 transition-all">
+                <h4 className="text-[14px] font-semibold text-zinc-950">{item.label}</h4>
+                {item.desc ? (
+                  <p className="text-[13px] text-body-gray font-light leading-relaxed">{item.desc}</p>
+                ) : null}
+                <a
+                  href={`mailto:${item.email}`}
+                  className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-secondary-blue hover:text-secondary-blue/80 transition-colors pt-0.5"
+                >
+                  <Mail className="h-3.5 w-3.5" />
+                  <span>{item.email}</span>
+                </a>
               </div>
-            );
-          })}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </div>
 
-      {/* 2. Email Section */}
-      <section className="space-y-6">
-        <div className="flex items-center gap-3 border-b border-zinc-100 pb-3">
-          <Mail className="h-5 w-5 text-secondary-blue" />
-          <h2 className="text-xl font-semibold text-zinc-950 uppercase tracking-wider">EMAIL ENQUIRIES</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {emailGrid.map((item, idx) => (
-            <div key={idx} className="p-5 border border-zinc-100 bg-zinc-50/50 rounded-xl space-y-2">
-              <h4 className="text-[14px] font-semibold text-zinc-950">{item.label}</h4>
-              {item.desc ? (
-                <p className="text-[13px] text-body-gray font-light leading-relaxed min-h-[50px]">{item.desc}</p>
-              ) : null}
-              <a
-                href={`mailto:${item.email}`}
-                className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-secondary-blue hover:text-secondary-blue/80 transition-colors"
-              >
-                <Mail className="h-3.5 w-3.5" />
-                <span>{item.email}</span>
-              </a>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 3. Contact Us Button */}
-      <div className="flex flex-col items-center justify-center pt-8 space-y-4">
+      {/* Contact Us Button */}
+      <div className="flex flex-col items-center justify-center pt-6 space-y-4">
         <div className="h-px w-24 bg-zinc-200" />
         <button
           onClick={() => setIsFormOpen(true)}
@@ -168,7 +171,7 @@ export default function ContactUs() {
         </button>
       </div>
 
-      {/* 4. Form Modal Popup */}
+      {/* Form Modal Popup */}
       {isFormOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div
@@ -177,7 +180,6 @@ export default function ContactUs() {
           />
 
           <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 relative border border-zinc-100 flex flex-col z-10">
-
             {/* Modal Header */}
             <div className="flex items-center justify-between px-6 py-4.5 border-b border-zinc-100 bg-zinc-50/80 backdrop-blur-sm">
               <h3 className="text-[17px] font-semibold text-zinc-900 uppercase tracking-wider">
@@ -283,7 +285,6 @@ export default function ContactUs() {
                 </form>
               )}
             </div>
-
           </div>
         </div>
       )}
