@@ -66,18 +66,15 @@ function ShareButton({ title, url }: { title: string; url?: string }) {
   );
 }
 
-// Compact Banner Component with Integrated Share Button & Pink Donate Button
+// Compact Banner Component with Clean Heading
 function DonateBanner({ title }: { title: string }) {
   return (
     <div className="w-full bg-white border border-zinc-200/80 rounded-xl p-4 sm:p-5 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-5 border-b-4 border-b-sky-500/30">
-      {/* Heading & Subtitle */}
-      <div className="space-y-1 max-w-xl text-left">
+      {/* Heading */}
+      <div className="max-w-xl text-left">
         <h3 className="text-base sm:text-lg font-bold text-[#00A1E4] tracking-tight leading-snug">
-          Help fund Possible’s healthcare research
+          Help fund this research
         </h3>
-        <p className="text-zinc-600 text-xs sm:text-sm font-light leading-relaxed">
-          Your donation supports the evidence that shapes care and policy worldwide
-        </p>
       </div>
 
       {/* Action Buttons: Donate (Pink) & Share */}
