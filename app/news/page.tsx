@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Calendar, Tag, ArrowRight, X, Mail, Sparkles, Clock } from "lucide-react";
@@ -22,15 +22,14 @@ export default function NewsPage() {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const articles: Article[] = [
-    /*{
+  const fallbackArticles: Article[] = [
+    {
       id: "1",
       title: "Co-Designing Digital Health Systems with Municipal Leaders in Achham",
       desc: "Our data systems engineering team recently completed the deployment of custom clinical dashboards to three municipal health posts in Achham, improving healthcare outcomes.",
-      content: `Our data systems engineering team recently completed the deployment of custom clinical dashboards to three municipal health posts in Achham. This tech-enabled community care pilot is already improving patient referral speeds.
-
-      By co-designing these solutions directly with local administrators, we ensure that digital systems integrate smoothly into daily clinic workflows. Over the coming months, our team will continue tracking user adoption and clinical data quality metrics to refine the platform before national expansion.`,
+      content: `Our data systems engineering team recently completed the deployment of custom clinical dashboards to three municipal health posts in Achham. This tech-enabled community care pilot is already improving patient referral speeds.\n\nBy co-designing these solutions directly with local administrators, we ensure that digital systems integrate smoothly into daily clinic workflows. Over the coming months, our team will continue tracking user adoption and clinical data quality metrics to refine the platform before national expansion.`,
       category: "Field Updates",
       date: "June 15, 2026, 9:00 AM",
       image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&h=500&q=80",
@@ -41,9 +40,7 @@ export default function NewsPage() {
       id: "2",
       title: "New Funding to Support Mental Health Services Training",
       desc: "We are thrilled to announce a new grant supporting the expansion of our collaborative care model for depression and anxiety.",
-      content: `We are thrilled to announce a new grant supporting the expansion of our collaborative care model for depression and anxiety. This funding will train 45 new community health workers in remote districts.
-
-      Mental health support remains one of the most critical gaps in primary healthcare. Through this project, local health workers will gain specialized clinical skills to conduct home-based screenings and collaborative interventions, helping to reduce stigma and provide care to underserved populations.`,
+      content: `We are thrilled to announce a new grant supporting the expansion of our collaborative care model for depression and anxiety. This funding will train 45 new community health workers in remote districts.\n\nMental health support remains one of the most critical gaps in primary healthcare. Through this project, local health workers will gain specialized clinical skills to conduct home-based screenings and collaborative interventions, helping to reduce stigma and provide care to underserved populations.`,
       category: "Announcements",
       date: "May 20, 2026, 11:30 AM",
       image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=400&q=80",
@@ -54,9 +51,7 @@ export default function NewsPage() {
       id: "3",
       title: "Study on CHW Care Outcomes Published in The Lancet Global Health",
       desc: "Our clinical research partners have published a comprehensive evaluation of integrated maternal healthcare delivery, verifying substantial progress.",
-      content: `Our clinical research partners have published a comprehensive evaluation of integrated maternal healthcare delivery, verifying substantial progress in prenatal care adherence.
-
-      The study highlights how supervised, full-time community health workers significantly increase clinical contact points for pregnant women, leading to safer deliveries and better neonatal health outcomes. This evidence marks a critical step forward in validating our integrated care model at a global scientific level.`,
+      content: `Our clinical research partners have published a comprehensive evaluation of integrated maternal healthcare delivery, verifying substantial progress in prenatal care adherence.\n\nThe study highlights how supervised, full-time community health workers significantly increase clinical contact points for pregnant women, leading to safer deliveries and better neonatal health outcomes. This evidence marks a critical step forward in validating our integrated care model at a global scientific level.`,
       category: "Research",
       date: "April 08, 2026, 4:15 PM",
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=400&q=80",
@@ -67,9 +62,7 @@ export default function NewsPage() {
       id: "4",
       title: "Evaluating Dementia Care and Family Caregiver Support Guides",
       desc: "An outline of our home-based cognitive decline assistance tools and training guides released for regional districts.",
-      content: `We have officially launched regional training modules designed to assist older adults facing dementia and cognitive decline. These guides provide family caregivers with practical behavioral strategies, coping methods, and referral directories.
-
-      Integrating behavioral health support into standard home-based care protocols is a core focus of our team as the population over 60 increases in rural municipalities. Feedback surveys show a 92% satisfaction rate among primary caregivers utilizing our initial resource packages.`,
+      content: `We have officially launched regional training modules designed to assist older adults facing dementia and cognitive decline. These guides provide family caregivers with practical behavioral strategies, coping methods, and referral directories.\n\nIntegrating behavioral health support into standard home-based care protocols is a core focus of our team as the population over 60 increases in rural municipalities. Feedback surveys show a 92% satisfaction rate among primary caregivers utilizing our initial resource packages.`,
       category: "Research",
       date: "March 18, 2026, 10:00 AM",
       image: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&h=400&q=80",
@@ -80,27 +73,69 @@ export default function NewsPage() {
       id: "5",
       title: "Collaborative Partnerships Expand to Central Nepal Districts",
       desc: "New agreements signed with central municipal offices to deploy localized integrated health post systems.",
-      content: `Possible has formalised collaborative partnerships with three new central municipalities. The agreement establishes joint funding structures to support local health posts with pharmacy logistics, IT systems, and community health worker supervision support.
-
-      Working in close coordination with government networks ensures that clinical workflows are scalable and sustainable under state guidelines. Training programs are scheduled to begin early next month.`,
+      content: `Possible has formalised collaborative partnerships with three new central municipalities. The agreement establishes joint funding structures to support local health posts with pharmacy logistics, IT systems, and community health worker supervision support.\n\nWorking in close coordination with government networks ensures that clinical workflows are scalable and sustainable under state guidelines. Training programs are scheduled to begin early next month.`,
       category: "Field Updates",
       date: "February 12, 2026, 2:45 PM",
       image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&h=400&q=80",
       author: "Kumar Tamang, Operations",
       readTime: "3 min read"
-    }*/
+    }
   ];
 
-  // const categories = ["All", "Field Updates", "Announcements", "Research"];
+  const [articles, setArticles] = useState<Article[]>(fallbackArticles);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch('/api/news')
+      .then(r => r.json())
+      .then(data => {
+        if (mounted && data.success && Array.isArray(data.articles) && data.articles.length > 0) {
+          const mapped: Article[] = data.articles.map((item: any) => ({
+            id: String(item.id),
+            title: item.title,
+            desc: item.desc_text || item.title,
+            content: item.content,
+            category: item.category || 'Field Updates',
+            date: new Date(item.published_date).toLocaleDateString('en-US', {
+              month: 'long',
+              day: '2-digit',
+              year: 'numeric'
+            }),
+            image: item.image_url || 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&h=500&q=80',
+            author: item.author || 'Possible Health',
+            readTime: item.read_time || '4 min read'
+          }));
+          setArticles(mapped);
+        }
+      })
+      .catch(err => {
+        console.warn('Using local fallback articles:', err);
+      })
+      .finally(() => {
+        if (mounted) setLoading(false);
+      });
+
+    return () => { mounted = false; };
+  }, []);
+
   const categories = ["All", "Field Updates", "Announcements", "Research"];
 
   const filteredArticles = activeCategory === "All"
     ? articles
     : articles.filter(a => a.category === activeCategory);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
+    try {
+      await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'News Page' })
+      });
+    } catch (err) {
+      // Ignore network errors on newsletter submit
+    }
     setSubscribed(true);
     setEmail("");
   };

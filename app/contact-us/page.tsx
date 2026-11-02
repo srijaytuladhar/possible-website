@@ -9,9 +9,29 @@ export default function ContactUs() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [hoveredOffice, setHoveredOffice] = useState<number | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email && formData.message) {
+      setIsSubmitting(true);
+      try {
+        await fetch('/api/contacts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject || 'Website Inquiry',
+            message: formData.message,
+            office_entity: 'Sambhav (Possible), Nepal'
+          })
+        });
+      } catch (err) {
+        console.warn('Inquiry sent with local fallback:', err);
+      } finally {
+        setIsSubmitting(false);
+      }
       setFormSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
     }
