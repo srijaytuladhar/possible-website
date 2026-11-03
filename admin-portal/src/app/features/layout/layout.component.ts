@@ -126,7 +126,7 @@ import { ApiService } from '../../core/services/api.service';
 
           <div class="topbar-right">
             <!-- View live site button -->
-            <a href="http://localhost:3000" target="_blank" class="live-site-link">
+            <a href="https://possible-website.vercel.app" target="_blank" class="live-site-link">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -526,7 +526,7 @@ export class LayoutComponent implements OnInit {
     private apiService: ApiService,
     private router: Router,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.apiService.getStats().subscribe({
@@ -536,7 +536,7 @@ export class LayoutComponent implements OnInit {
           this.cdr.markForCheck();
         }
       },
-      error: () => {}
+      error: () => { }
     });
   }
 
