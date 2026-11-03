@@ -252,6 +252,57 @@ function TeamPageContent() {
   const tabParam = searchParams.get("tab") || "team-members";
   const isFirstMount = useRef(true);
 
+  const [dynamicTeam, setDynamicTeam] = useState<{
+    teamMembers: TeamMember[];
+    nepalBoard: TeamMember[];
+    usBoard: TeamMember[];
+  }>({
+    teamMembers: teamMembersData,
+    nepalBoard: nepalBoardMembers,
+    usBoard: usBoardMembers,
+  });
+
+  useEffect(() => {
+    let mounted = true;
+    fetch('/api/team')
+      .then(r => r.json())
+      .then(data => {
+        if (mounted && data.success && Array.isArray(data.team) && data.team.length > 0) {
+          const usB: TeamMember[] = [];
+          const npB: TeamMember[] = [];
+          const staff: TeamMember[] = [];
+
+          for (const m of data.team) {
+            const item: TeamMember = {
+              id: m.id,
+              name: m.name,
+              role: m.role,
+              image: m.image,
+              bio: m.bio,
+              linkedin: m.linkedin || undefined,
+            };
+            if (m.category === 'us_board') {
+              usB.push(item);
+            } else if (m.category === 'nepal_board') {
+              npB.push(item);
+            } else {
+              staff.push(item);
+            }
+          }
+
+          setDynamicTeam({
+            teamMembers: staff.length > 0 ? staff : teamMembersData,
+            nepalBoard: npB.length > 0 ? npB : nepalBoardMembers,
+            usBoard: usB.length > 0 ? usB : usBoardMembers,
+          });
+        }
+      })
+      .catch(err => {
+        console.warn('Using static team members fallback:', err);
+      });
+    return () => { mounted = false; };
+  }, []);
+
   useEffect(() => {
     if (isFirstMount.current) {
       isFirstMount.current = false;
@@ -273,25 +324,25 @@ function TeamPageContent() {
       colorHex: "#ED2E84",
       bgClass: "bg-primary-pink",
       activeColor: "pink" as const,
-      list: teamMembersData,
+      list: dynamicTeam.teamMembers,
     },
     {
       key: "nepal-board",
       label: "SAMBHAV (POSSIBLE) BOARD – NEPAL",
       title: "SAMBHAV (POSSIBLE) BOARD – NEPAL",
-      colorHex: "#00BBE2",
+      colorHex: "#1C8FA0",
       bgClass: "bg-secondary-blue",
       activeColor: "blue" as const,
-      list: nepalBoardMembers,
+      list: dynamicTeam.nepalBoard,
     },
     {
       key: "us-board",
       label: "POSSIBLE BOARD – US",
       title: "POSSIBLE BOARD – US",
-      colorHex: "#782888",
+      colorHex: "#823A8C",
       bgClass: "bg-accent-purple",
       activeColor: "purple" as const,
-      list: usBoardMembers,
+      list: dynamicTeam.usBoard,
     },
   ];
 
