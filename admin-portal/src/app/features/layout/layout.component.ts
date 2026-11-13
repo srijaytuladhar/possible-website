@@ -15,10 +15,9 @@ import { ApiService } from '../../core/services/api.service';
         <!-- Sidebar Brand -->
         <div class="sidebar-header">
           <div class="logo-box">
-            <span class="logo-accent">P</span>
+            <img src="/logo.png" alt="Possible Logo" class="brand-logo-img" />
           </div>
           <div class="brand-info">
-            <h2 class="brand-name">POSSIBLE</h2>
             <span class="brand-badge">ADMIN PORTAL</span>
           </div>
         </div>
@@ -62,28 +61,31 @@ import { ApiService } from '../../core/services/api.service';
             <span>Solutions & Projects</span>
           </a>
 
-          <div class="nav-section-title">COMMUNICATION</div>
-          <a routerLink="/contacts" routerLinkActive="active" class="nav-item">
-            <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            <span>Contact Messages</span>
-            <span *ngIf="newMessagesCount > 0" class="nav-badge">{{ newMessagesCount }}</span>
-          </a>
+          <!-- COMMUNICATION (Super Admin Only) -->
+          <ng-container *ngIf="isSuperAdmin">
+            <div class="nav-section-title">COMMUNICATION</div>
+            <a routerLink="/contacts" routerLinkActive="active" class="nav-item">
+              <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span>Contact Messages</span>
+              <span *ngIf="newMessagesCount > 0" class="nav-badge">{{ newMessagesCount }}</span>
+            </a>
 
-          <a routerLink="/subscribers" routerLinkActive="active" class="nav-item">
-            <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-            </svg>
-            <span>Newsletter Subscribers</span>
-          </a>
+            <a routerLink="/subscribers" routerLinkActive="active" class="nav-item">
+              <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+              <span>Newsletter Subscribers</span>
+            </a>
 
-          <a routerLink="/donations" routerLinkActive="active" class="nav-item">
-            <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>Donations</span>
-          </a>
+            <a routerLink="/donations" routerLinkActive="active" class="nav-item">
+              <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Donations</span>
+            </a>
+          </ng-container>
 
           <div class="nav-section-title">CONFIGURATION</div>
           <a routerLink="/settings" routerLinkActive="active" class="nav-item">
@@ -134,15 +136,15 @@ import { ApiService } from '../../core/services/api.service';
             </a>
 
             <!-- User Profile & Logout -->
-            <div class="user-profile-menu">
+            <div class="user-profile-menu" routerLink="/settings" title="Click to manage account profile & security" style="cursor: pointer;">
               <div class="user-avatar">
                 {{ userInitials }}
               </div>
               <div class="user-info">
                 <span class="user-name">{{ user?.full_name || 'System Admin' }}</span>
-                <span class="user-role">{{ user?.role || 'SUPER_ADMIN' }}</span>
+                <span class="user-role">{{ user?.role === 'SUPER_ADMIN' ? 'Super Admin' : 'Admin' }}</span>
               </div>
-              <button class="logout-btn" (click)="logout()" title="Sign out">
+              <button class="logout-btn" (click)="$event.stopPropagation(); logout()" title="Sign out">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                 </svg>
@@ -189,28 +191,20 @@ import { ApiService } from '../../core/services/api.service';
     }
 
     .logo-box {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--primary-pink), var(--accent-purple));
-      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px var(--primary-pink-glow);
+      background: #ffffff;
+      padding: 0.375rem 0.625rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
 
-    .logo-accent {
-      color: white;
-      font-weight: 800;
-      font-size: 1.25rem;
-      font-family: 'Outfit', sans-serif;
-    }
-
-    .brand-name {
-      color: white;
-      font-size: 1.125rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+    .brand-logo-img {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      display: block;
     }
 
     .brand-badge {
@@ -513,6 +507,10 @@ export class LayoutComponent implements OnInit {
     return this.authService.currentUser();
   }
 
+  get isSuperAdmin(): boolean {
+    return this.user?.role === 'SUPER_ADMIN';
+  }
+
   get userInitials() {
     if (!this.user?.full_name) return 'AD';
     const parts = this.user.full_name.split(' ');
@@ -532,7 +530,7 @@ export class LayoutComponent implements OnInit {
     this.apiService.getStats().subscribe({
       next: (res) => {
         if (res.success && res.stats) {
-          this.newMessagesCount = res.stats.contacts.newCount || 0;
+          this.newMessagesCount = res.stats.contacts?.newCount || 0;
           this.cdr.markForCheck();
         }
       },

@@ -21,10 +21,10 @@ export interface DashboardStats {
   team: { total: number; usBoard: number; nepalBoard: number; staff: number; advisors: number };
   publications: { total: number; impactReports: number; researchPapers: number; researchBriefs: number; financialReports: number };
   solutions: { total: number; scale: number; test: number; innovate: number; pipeline: number };
-  contacts: { total: number; newCount: number };
-  subscribers: { total: number };
-  donations: { totalCount: number; totalAmount: number };
-  recentContacts: ContactInquiry[];
+  contacts?: { total: number; newCount: number } | null;
+  subscribers?: { total: number } | null;
+  donations?: { totalCount: number; totalAmount: number } | null;
+  recentContacts?: ContactInquiry[];
   recentArticles: Article[];
 }
 
@@ -78,7 +78,7 @@ export interface Publication {
 export interface SolutionProject {
   id: number;
   slug: string;
-  stage_id: 'scale' | 'test' | 'innovate' | 'pipeline';
+  stage_id: string;
   sub_section_id?: string;
   sub_section_title?: string;
   title: string;

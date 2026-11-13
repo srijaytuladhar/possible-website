@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Download, Eye, ArrowLeft } from "lucide-react";
@@ -10,7 +10,7 @@ export default function ImpactReportsPage() {
   const [selectedReport, setSelectedReport] = useState<any | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const reports = [
+  const staticReports = [
     {
       title: "2025 Annual Impact Report",
       desc: "",
@@ -120,6 +120,35 @@ export default function ImpactReportsPage() {
       cover: "/annual-impact-report/thumbnails/Nyaya-Health-2011-Annual-Report-1.webp",
     },
   ];
+
+  const [reports, setReports] = useState(staticReports);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch('/api/publications?category=impact-reports')
+      .then(r => r.json())
+      .then(data => {
+        if (mounted && data.success && Array.isArray(data.publications) && data.publications.length > 0) {
+          const dynamicItems = data.publications.map((p: any) => ({
+            title: p.title,
+            desc: p.description || '',
+            date: p.date_display || '',
+            type: p.sub_type || 'PDF Report',
+            link: p.link_url || (p.pdf_filename ? `/annual-impact-report/${p.pdf_filename}` : '#'),
+            pdfFilename: p.pdf_filename || `${p.title.replace(/\s+/g, '_')}.pdf`,
+            cover: p.cover_image || '/annual-impact-report/thumbnails/Possible_AIR-2025.webp',
+          }));
+
+          const existingTitles = new Set(dynamicItems.map((d: any) => d.title.toLowerCase().trim()));
+          const remainingStatic = staticReports.filter((s: any) => !existingTitles.has(s.title.toLowerCase().trim()));
+          setReports([...dynamicItems, ...remainingStatic]);
+        }
+      })
+      .catch(err => {
+        console.warn('Using static impact reports fallback:', err);
+      });
+    return () => { mounted = false; };
+  }, []);
 
   const latestReports = reports.slice(0, 2);
   const olderReports = reports.slice(2);

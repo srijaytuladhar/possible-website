@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
+import { superAdminGuard } from './core/guards/super-admin.guard';
 import { LoginComponent } from './features/login/login.component';
 import { LayoutComponent } from './features/layout/layout.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
@@ -28,9 +29,9 @@ export const routes: Routes = [
       { path: 'team', component: TeamListComponent },
       { path: 'publications', component: PublicationsListComponent },
       { path: 'solutions', component: SolutionsListComponent },
-      { path: 'contacts', component: ContactsListComponent },
-      { path: 'subscribers', component: SubscribersListComponent },
-      { path: 'donations', component: DonationsListComponent },
+      { path: 'contacts', component: ContactsListComponent, canActivate: [superAdminGuard] },
+      { path: 'subscribers', component: SubscribersListComponent, canActivate: [superAdminGuard] },
+      { path: 'donations', component: DonationsListComponent, canActivate: [superAdminGuard] },
       { path: 'settings', component: SettingsComponent }
     ]
   },

@@ -51,6 +51,23 @@ export class ApiService {
     return this.http.delete<{ success: boolean; id: number }>(`${this.baseUrl}/news/${id}`);
   }
 
+  // --- ARTICLE CATEGORIES CRUD ---
+  getArticleCategories(): Observable<{ success: boolean; categories: { id: number; name: string; description?: string }[] }> {
+    return this.http.get<{ success: boolean; categories: { id: number; name: string; description?: string }[] }>(`${this.baseUrl}/news/categories`);
+  }
+
+  createArticleCategory(name: string, description?: string): Observable<{ success: boolean; message: string; category: any }> {
+    return this.http.post<{ success: boolean; message: string; category: any }>(`${this.baseUrl}/news/categories`, { name, description });
+  }
+
+  updateArticleCategory(id: number, name: string, description?: string): Observable<{ success: boolean; message: string; category: any }> {
+    return this.http.put<{ success: boolean; message: string; category: any }>(`${this.baseUrl}/news/categories`, { id, name, description });
+  }
+
+  deleteArticleCategory(id: number): Observable<{ success: boolean; message: string; id: number }> {
+    return this.http.delete<{ success: boolean; message: string; id: number }>(`${this.baseUrl}/news/categories?id=${id}`);
+  }
+
   // --- TEAM MEMBERS CRUD ---
   getTeamMembers(category?: string, search?: string, all = true): Observable<{ success: boolean; team: TeamMember[] }> {
     let params = new HttpParams().set('all', all ? 'true' : 'false');
@@ -73,6 +90,10 @@ export class ApiService {
 
   deleteTeamMember(id: string): Observable<{ success: boolean; id: string }> {
     return this.http.delete<{ success: boolean; id: string }>(`${this.baseUrl}/team/${id}`);
+  }
+
+  reorderTeamMembers(items: { id: string; sort_order: number }[]): Observable<{ success: boolean; message: string }> {
+    return this.http.post<{ success: boolean; message: string }>(`${this.baseUrl}/team/reorder`, { items });
   }
 
   // --- PUBLICATIONS CRUD ---
@@ -110,8 +131,25 @@ export class ApiService {
     return this.http.put<{ success: boolean; solution: SolutionProject }>(`${this.baseUrl}/solutions/${id}`, sol);
   }
 
-  deleteSolution(id: number): Observable<{ success: boolean; id: number }> {
+  deleteSolution(id: number | string): Observable<{ success: boolean; id: number }> {
     return this.http.delete<{ success: boolean; id: number }>(`${this.baseUrl}/solutions/${id}`);
+  }
+
+  // --- SOLUTIONS CATEGORIES CRUD ---
+  getSolutionCategories(): Observable<{ success: boolean; categories: { id: number; slug: string; name: string; description?: string }[] }> {
+    return this.http.get<{ success: boolean; categories: { id: number; slug: string; name: string; description?: string }[] }>(`${this.baseUrl}/solutions/categories`);
+  }
+
+  createSolutionCategory(name: string, slug?: string, description?: string): Observable<{ success: boolean; message: string; category: any }> {
+    return this.http.post<{ success: boolean; message: string; category: any }>(`${this.baseUrl}/solutions/categories`, { name, slug, description });
+  }
+
+  updateSolutionCategory(id: number, name: string, slug?: string, description?: string): Observable<{ success: boolean; message: string; category: any }> {
+    return this.http.put<{ success: boolean; message: string; category: any }>(`${this.baseUrl}/solutions/categories`, { id, name, slug, description });
+  }
+
+  deleteSolutionCategory(id: number): Observable<{ success: boolean; message: string; id: number }> {
+    return this.http.delete<{ success: boolean; message: string; id: number }>(`${this.baseUrl}/solutions/categories?id=${id}`);
   }
 
   // --- CONTACT INQUIRIES ---

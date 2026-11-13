@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
 
     if (stage && stage !== 'all') {
       params.push(stage);
-      sql += ` AND stage_id = $${params.length}`;
+      sql += ` AND LOWER(stage_id) = LOWER($${params.length})`;
     }
 
     sql += ' ORDER BY sort_order ASC, created_at ASC';

@@ -10,7 +10,7 @@ interface Article {
   title: string;
   desc: string;
   content: string;
-  category: "Field Updates" | "Announcements" | "Research";
+  category: string;
   date: string;
   image: string;
   author: string;
@@ -118,7 +118,9 @@ export default function NewsPage() {
     return () => { mounted = false; };
   }, []);
 
-  const categories = ["All", "Field Updates", "Announcements", "Research"];
+  const defaultCategories = ["All", "Field Updates", "Announcements", "Research"];
+  const dynamicCategorySet = new Set(["All", ...articles.map(a => a.category).filter(Boolean)]);
+  const categories = Array.from(new Set([...defaultCategories, ...dynamicCategorySet]));
 
   const filteredArticles = activeCategory === "All"
     ? articles

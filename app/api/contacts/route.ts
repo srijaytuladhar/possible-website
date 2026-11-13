@@ -7,11 +7,14 @@ export async function OPTIONS() {
   return handleOptions();
 }
 
-// GET all contact inquiries (Admin only)
+// GET all contact inquiries (Super Admin only)
 export async function GET(req: NextRequest) {
   const auth = getAuthUser(req);
   if (!auth) {
     return errorResponse('Unauthorized: Admin access required', 401);
+  }
+  if (auth.role !== 'SUPER_ADMIN') {
+    return errorResponse('Forbidden: Super Admin access required for inquiries', 403);
   }
 
   try {

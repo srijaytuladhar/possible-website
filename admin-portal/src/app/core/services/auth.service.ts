@@ -63,4 +63,24 @@ export class AuthService {
       })
     );
   }
+
+  updateProfile(data: {
+    full_name?: string;
+    email?: string;
+    username?: string;
+    current_password?: string;
+    new_password?: string;
+  }): Observable<{ success: boolean; message: string; user: AdminUser; token?: string }> {
+    return this.http.put<{ success: boolean; message: string; user: AdminUser; token?: string }>(`${this.apiUrl}/me`, data).pipe(
+      tap(res => {
+        if (res.success && res.user) {
+          localStorage.setItem(this.userKey, JSON.stringify(res.user));
+          if (res.token) {
+            localStorage.setItem(this.tokenKey, res.token);
+          }
+          this.currentUser.set(res.user);
+        }
+      })
+    );
+  }
 }

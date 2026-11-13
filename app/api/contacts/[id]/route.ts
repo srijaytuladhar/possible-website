@@ -7,11 +7,14 @@ export async function OPTIONS() {
   return handleOptions();
 }
 
-// PATCH/PUT update inquiry status & admin notes
+// PATCH/PUT update inquiry status & admin notes (Super Admin only)
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const auth = getAuthUser(req);
   if (!auth) {
     return errorResponse('Unauthorized', 401);
+  }
+  if (auth.role !== 'SUPER_ADMIN') {
+    return errorResponse('Forbidden: Super Admin access required', 403);
   }
 
   const { id } = await params;
@@ -44,11 +47,14 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
   }
 }
 
-// DELETE inquiry
+// DELETE inquiry (Super Admin only)
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const auth = getAuthUser(req);
   if (!auth) {
     return errorResponse('Unauthorized', 401);
+  }
+  if (auth.role !== 'SUPER_ADMIN') {
+    return errorResponse('Forbidden: Super Admin access required', 403);
   }
 
   const { id } = await params;

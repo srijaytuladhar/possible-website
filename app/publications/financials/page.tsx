@@ -36,7 +36,7 @@ function FinancialsContent() {
   };
 
   // Conflict of Interest / Financial Disclosures
-  const disclosureReports = [
+  const staticDisclosureReports = [
     {
       title: "FCOI Possible US",
       desc: "",
@@ -58,7 +58,7 @@ function FinancialsContent() {
   ];
 
   // Financial Reports (Audited Statements & IRS Form 990 filings sorted descending)
-  const financialReports = [
+  const staticFinancialReports = [
     {
       title: "Fiscal Year 2025 Audited Financial Statements",
       desc: "",
@@ -312,6 +312,52 @@ function FinancialsContent() {
       cover: "/financial-report/thumbnails/PUBLIC-FINAL-990-2011-1.webp",
     },
   ];
+
+  const [disclosureReports, setDisclosureReports] = useState(staticDisclosureReports);
+  const [financialReports, setFinancialReports] = useState(staticFinancialReports);
+
+  useEffect(() => {
+    let mounted = true;
+    Promise.all([
+      fetch('/api/publications?category=disclosures').then(r => r.json()),
+      fetch('/api/publications?category=financial-reports').then(r => r.json())
+    ]).then(([discData, finData]) => {
+      if (!mounted) return;
+      if (discData.success && Array.isArray(discData.publications) && discData.publications.length > 0) {
+        const dynamicDisclosures = discData.publications.map((p: any) => ({
+          title: p.title,
+          desc: p.description || '',
+          date: p.date_display || '',
+          type: p.sub_type || 'Policy & Disclosure',
+          link: p.link_url || (p.pdf_filename ? `/conflict-of-interest/${p.pdf_filename}` : '#'),
+          pdfFilename: p.pdf_filename || `${p.title.replace(/\s+/g, '_')}.pdf`,
+          cover: p.cover_image || '/conflict-of-interest/thumbnails/FCOI Possible US.webp',
+        }));
+        const existingDisc = new Set(dynamicDisclosures.map((d: any) => d.title.toLowerCase().trim()));
+        const remainingDisc = staticDisclosureReports.filter((s: any) => !existingDisc.has(s.title.toLowerCase().trim()));
+        setDisclosureReports([...dynamicDisclosures, ...remainingDisc]);
+      }
+
+      if (finData.success && Array.isArray(finData.publications) && finData.publications.length > 0) {
+        const dynamicFin = finData.publications.map((p: any) => ({
+          title: p.title,
+          desc: p.description || '',
+          date: p.date_display || '',
+          type: p.sub_type || 'Audited Report',
+          link: p.link_url || (p.pdf_filename ? `/financial-report/${p.pdf_filename}` : '#'),
+          pdfFilename: p.pdf_filename || `${p.title.replace(/\s+/g, '_')}.pdf`,
+          cover: p.cover_image || '/financial-report/thumbnails/Possible-2025-Audit-Report.webp',
+        }));
+        const existingFin = new Set(dynamicFin.map((d: any) => d.title.toLowerCase().trim()));
+        const remainingFin = staticFinancialReports.filter((s: any) => !existingFin.has(s.title.toLowerCase().trim()));
+        setFinancialReports([...dynamicFin, ...remainingFin]);
+      }
+    }).catch(err => {
+      console.warn('Using static financials fallback:', err);
+    });
+
+    return () => { mounted = false; };
+  }, []);
 
   const activeReports = activeTab === "disclosures" ? disclosureReports : financialReports;
   const latestReports = activeReports.slice(0, 2);

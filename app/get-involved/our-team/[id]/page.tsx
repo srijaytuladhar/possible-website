@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, use } from "react";
+import { useState, useEffect, use } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, User, Share2, Check } from "lucide-react";
-import { allTeamMembers } from "@/components/teamData";
+import { ArrowLeft, User, Share2, Check, Loader2 } from "lucide-react";
+import { allTeamMembers, TeamMember } from "@/components/teamData";
 
 function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -20,8 +20,38 @@ export default function TeamMemberDetailPage({
   params: Promise<{ id: string }> | { id: string };
 }) {
   const resolvedParams = params instanceof Promise ? use(params) : params;
-  const member = allTeamMembers.find((m) => m.id === resolvedParams.id);
+  const initialLocal = allTeamMembers.find((m) => m.id === resolvedParams.id) || null;
+  const [member, setMember] = useState<TeamMember | null>(initialLocal);
+  const [loading, setLoading] = useState<boolean>(!initialLocal);
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch(`/api/team/${resolvedParams.id}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (mounted && data.success && data.member) {
+          setMember({
+            id: data.member.id,
+            name: data.member.name,
+            role: data.member.role,
+            image: data.member.image || '',
+            bio: data.member.bio || '',
+            linkedin: data.member.linkedin || undefined,
+          });
+        }
+      })
+      .catch((err) => {
+        console.warn('Could not fetch dynamic team member detail:', err);
+      })
+      .finally(() => {
+        if (mounted) setLoading(false);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, [resolvedParams.id]);
 
   const handleShare = async () => {
     const shareUrl = window.location.href;
@@ -49,6 +79,15 @@ export default function TeamMemberDetailPage({
       console.error("Failed to copy URL:", err);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-[50vh] flex flex-col items-center justify-center p-8">
+        <Loader2 className="w-8 h-8 text-primary-pink animate-spin mb-3" />
+        <p className="text-zinc-600 font-light text-sm">Loading member profile...</p>
+      </div>
+    );
+  }
 
   if (!member) {
     return (

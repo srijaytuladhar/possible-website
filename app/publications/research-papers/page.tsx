@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { BookOpen, Eye } from "lucide-react";
 
 export default function ResearchPapersPage() {
-  const papers = [
+  const staticPapers = [
     { title: "Effectiveness of Integrated CHW Care on Maternal Health in Rural Nepal", desc: "Evaluating the outcomes of full-time, supervised, and trained community health workers delivering care. Published in The Lancet Global Health.", date: "2024", type: "Journal Article", link: "https://www.thelancet.com/global-health", cover: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&h=350&q=80" },
     { title: "Home-Based Collaborative Care for Depression and Anxiety in Low-Resource Settings", desc: "A randomized controlled trial on integrated collaborative care models training CHWs and clinicians. Published in JAMA Psychiatry.", date: "2023", type: "Journal Article", link: "https://jamanetwork.com/journals/jamapsychiatry", cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=350&q=80" },
     { title: "Intimate Partner Violence Interventions in Nepal (MILAP Study)", desc: "Family-based interventions engaging husbands and mothers-in-law to reduce violence and anxiety among women. Published in BMJ Global Health.", date: "2023", type: "Journal Article", link: "https://gh.bmj.com", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
@@ -30,6 +30,34 @@ export default function ResearchPapersPage() {
     { title: "Epidemiological Assessments in Mid-Western Nepal", desc: "Baseline metrics of childhood respiratory and diarrheal illness in Achham.", date: "2013", type: "Journal Article", link: "https://www.ncbi.nlm.nih.gov", cover: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80" },
     { title: "Initial Trial Design for Integrated Community Care Models", desc: "Outlining the cluster-randomized protocols for the original 2012 pilot study.", date: "2012", type: "Journal Article", link: "https://trialsjournal.biomedcentral.com", cover: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&h=350&q=80" }
   ];
+
+  const [papers, setPapers] = useState(staticPapers);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch('/api/publications?category=research-papers')
+      .then(r => r.json())
+      .then(data => {
+        if (mounted && data.success && Array.isArray(data.publications) && data.publications.length > 0) {
+          const dynamicItems = data.publications.map((p: any) => ({
+            title: p.title,
+            desc: p.description || '',
+            date: p.date_display || '',
+            type: p.sub_type || 'Journal Article',
+            link: p.link_url || '#',
+            cover: p.cover_image || 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&h=350&q=80',
+          }));
+
+          const existingTitles = new Set(dynamicItems.map((d: any) => d.title.toLowerCase().trim()));
+          const remainingStatic = staticPapers.filter((s: any) => !existingTitles.has(s.title.toLowerCase().trim()));
+          setPapers([...dynamicItems, ...remainingStatic]);
+        }
+      })
+      .catch(err => {
+        console.warn('Using static papers fallback:', err);
+      });
+    return () => { mounted = false; };
+  }, []);
 
   const latestPapers = papers.slice(0, 2);
   const olderPapers = papers.slice(2);

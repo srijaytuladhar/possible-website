@@ -1,5 +1,6 @@
 import { NextRequest } from 'next/server';
 import { query } from '@/lib/db';
+import { getAuthUser } from '@/lib/auth';
 import { jsonResponse, errorResponse, handleOptions } from '@/lib/cors';
 
 export async function OPTIONS() {
@@ -8,27 +9,37 @@ export async function OPTIONS() {
 
 export async function GET(req: NextRequest) {
   try {
-    const [
-      articlesRes,
-      teamRes,
-      pubsRes,
-      solutionsRes,
-      contactsRes,
-      subscribersRes,
-      donationsRes,
-      recentContacts,
-      recentArticles
-    ] = await Promise.all([
+    const auth = getAuthUser(req);
+    const isSuperAdmin = auth?.role === 'SUPER_ADMIN';
+
+    const queries: Promise<any>[] = [
       query('SELECT count(*) as total, count(*) FILTER (WHERE is_published = true) as published FROM news_articles'),
       query('SELECT count(*) as total, count(*) FILTER (WHERE category = \'us_board\') as us_board, count(*) FILTER (WHERE category = \'nepal_board\') as nepal_board, count(*) FILTER (WHERE category = \'team_member\') as staff, count(*) FILTER (WHERE category = \'advisor\') as advisors FROM team_members'),
       query('SELECT count(*) as total, count(*) FILTER (WHERE category = \'impact-reports\') as impact_reports, count(*) FILTER (WHERE category = \'research-papers\') as research_papers, count(*) FILTER (WHERE category = \'research-briefs\') as research_briefs, count(*) FILTER (WHERE category = \'financial-reports\') as financial_reports FROM publications'),
       query('SELECT count(*) as total, count(*) FILTER (WHERE stage_id = \'scale\') as scale, count(*) FILTER (WHERE stage_id = \'test\') as test, count(*) FILTER (WHERE stage_id = \'innovate\') as innovate, count(*) FILTER (WHERE stage_id = \'pipeline\') as pipeline FROM solutions_projects'),
-      query('SELECT count(*) as total, count(*) FILTER (WHERE status = \'NEW\') as new_count FROM contact_inquiries'),
-      query('SELECT count(*) as total FROM newsletter_subscribers WHERE is_active = true'),
-      query('SELECT count(*) as total, COALESCE(SUM(amount), 0) as total_amount FROM donations WHERE status = \'COMPLETED\''),
-      query('SELECT id, name, email, subject, status, created_at FROM contact_inquiries ORDER BY created_at DESC LIMIT 5'),
       query('SELECT id, title, category, published_date, is_published FROM news_articles ORDER BY published_date DESC LIMIT 5'),
-    ]);
+    ];
+
+    if (isSuperAdmin) {
+      queries.push(
+        query('SELECT count(*) as total, count(*) FILTER (WHERE status = \'NEW\') as new_count FROM contact_inquiries'),
+        query('SELECT count(*) as total FROM newsletter_subscribers WHERE is_active = true'),
+        query('SELECT count(*) as total, COALESCE(SUM(amount), 0) as total_amount FROM donations WHERE status = \'COMPLETED\''),
+        query('SELECT id, name, email, subject, status, created_at FROM contact_inquiries ORDER BY created_at DESC LIMIT 5')
+      );
+    }
+
+    const results = await Promise.all(queries);
+    const articlesRes = results[0];
+    const teamRes = results[1];
+    const pubsRes = results[2];
+    const solutionsRes = results[3];
+    const recentArticles = results[4];
+
+    const contactsRes = isSuperAdmin ? results[5] : null;
+    const subscribersRes = isSuperAdmin ? results[6] : null;
+    const donationsRes = isSuperAdmin ? results[7] : null;
+    const recentContacts = isSuperAdmin ? results[8] : null;
 
     return jsonResponse({
       success: true,
@@ -58,18 +69,18 @@ export async function GET(req: NextRequest) {
           innovate: parseInt(solutionsRes.rows[0].innovate, 10),
           pipeline: parseInt(solutionsRes.rows[0].pipeline, 10),
         },
-        contacts: {
+        contacts: contactsRes ? {
           total: parseInt(contactsRes.rows[0].total, 10),
           newCount: parseInt(contactsRes.rows[0].new_count, 10),
-        },
-        subscribers: {
+        } : null,
+        subscribers: subscribersRes ? {
           total: parseInt(subscribersRes.rows[0].total, 10),
-        },
-        donations: {
+        } : null,
+        donations: donationsRes ? {
           totalCount: parseInt(donationsRes.rows[0].total, 10),
           totalAmount: parseFloat(donationsRes.rows[0].total_amount),
-        },
-        recentContacts: recentContacts.rows,
+        } : null,
+        recentContacts: recentContacts ? recentContacts.rows : [],
         recentArticles: recentArticles.rows,
       },
     });

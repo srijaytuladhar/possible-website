@@ -7,11 +7,14 @@ export async function OPTIONS() {
   return handleOptions();
 }
 
-// GET newsletter subscribers (Admin only)
+// GET newsletter subscribers (Super Admin only)
 export async function GET(req: NextRequest) {
   const auth = getAuthUser(req);
   if (!auth) {
     return errorResponse('Unauthorized', 401);
+  }
+  if (auth.role !== 'SUPER_ADMIN') {
+    return errorResponse('Forbidden: Super Admin access required', 403);
   }
 
   try {
@@ -53,11 +56,14 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// DELETE subscriber (Admin only)
+// DELETE subscriber (Super Admin only)
 export async function DELETE(req: NextRequest) {
   const auth = getAuthUser(req);
   if (!auth) {
     return errorResponse('Unauthorized', 401);
+  }
+  if (auth.role !== 'SUPER_ADMIN') {
+    return errorResponse('Forbidden: Super Admin access required', 403);
   }
 
   try {

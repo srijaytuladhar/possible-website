@@ -16,12 +16,20 @@ import { Article } from '../../core/models';
           <h1 class="page-title">News & Field Updates</h1>
           <p class="page-subtitle">Publish and manage press releases, research announcements, and field dispatches</p>
         </div>
-        <button class="btn btn-primary" (click)="openCreateModal()">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-          </svg>
-          <span>Write Article</span>
-        </button>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <button class="btn btn-secondary" (click)="openCategoryModal()">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+            </svg>
+            <span>Manage Categories</span>
+          </button>
+          <button class="btn btn-primary" (click)="openCreateModal()">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+            </svg>
+            <span>Write Article</span>
+          </button>
+        </div>
       </div>
 
       <!-- Toast Notification -->
@@ -87,11 +95,7 @@ import { Article } from '../../core/models';
                   </div>
                 </td>
                 <td>
-                  <span class="badge" [ngClass]="{
-                    'badge-pink': article.category === 'Field Updates',
-                    'badge-blue': article.category === 'Announcements',
-                    'badge-purple': article.category === 'Research'
-                  }">
+                  <span class="badge" [ngClass]="getCategoryBadgeClass(article.category)">
                     {{ article.category }}
                   </span>
                 </td>
@@ -169,11 +173,29 @@ import { Article } from '../../core/models';
 
               <div class="grid-2">
                 <div class="form-group">
-                  <label class="form-label">Category *</label>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                    <label class="form-label" style="margin: 0;">Category *</label>
+                    <button type="button" (click)="toggleInlineCategory()" style="background: none; border: none; color: var(--primary-pink); font-size: 0.75rem; font-weight: 600; cursor: pointer;">
+                      {{ showInlineCat ? 'Cancel' : '+ New Category' }}
+                    </button>
+                  </div>
+
+                  <div *ngIf="showInlineCat" style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <input
+                      type="text"
+                      class="form-input"
+                      style="font-size: 0.8125rem;"
+                      [(ngModel)]="inlineCatName"
+                      name="inlineCatName"
+                      placeholder="New category name..."
+                    />
+                    <button type="button" class="btn btn-sm btn-primary" (click)="createInlineCategory()" [disabled]="creatingCat">
+                      Add
+                    </button>
+                  </div>
+
                   <select class="form-select" name="category" [(ngModel)]="formData.category" required>
-                    <option value="Field Updates">Field Updates</option>
-                    <option value="Announcements">Announcements</option>
-                    <option value="Research">Research</option>
+                    <option *ngFor="let cat of dynamicCategories" [value]="cat.name">{{ cat.name }}</option>
                   </select>
                 </div>
 
@@ -269,6 +291,90 @@ import { Article } from '../../core/models';
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="articleToDelete = null">Cancel</button>
             <button type="button" class="btn btn-danger" (click)="deleteConfirmed()">Delete Article</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Management Modal -->
+      <div *ngIf="isCategoryModalOpen" class="modal-backdrop" (click)="closeCategoryModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()" style="max-width: 580px;">
+          <div class="modal-header">
+            <h3>Manage Article Categories</h3>
+            <button class="close-btn" (click)="closeCategoryModal()">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <!-- Add / Edit Category Box -->
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1.25rem;">
+              <h4 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem;">
+                {{ editingCatId ? 'Edit Category' : 'Create New Category' }}
+              </h4>
+              <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <div>
+                  <label class="form-label" style="font-size: 0.75rem;">Category Name *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    [(ngModel)]="categoryInput.name"
+                    placeholder="e.g. Field Dispatches, Policy Briefs"
+                  />
+                </div>
+                <div>
+                  <label class="form-label" style="font-size: 0.75rem;">Description</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    [(ngModel)]="categoryInput.description"
+                    placeholder="Brief description of articles in this category..."
+                  />
+                </div>
+                <div style="display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 0.25rem;">
+                  <button *ngIf="editingCatId" type="button" class="btn btn-sm btn-secondary" (click)="cancelEditCategory()">
+                    Cancel
+                  </button>
+                  <button type="button" class="btn btn-sm btn-primary" (click)="saveCategory()" [disabled]="savingCat">
+                    <span *ngIf="savingCat" class="spinner"></span>
+                    <span>{{ editingCatId ? 'Save Changes' : 'Create Category' }}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Existing Categories List -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h4 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">
+                All Categories ({{ dynamicCategories.length }})
+              </h4>
+              <span class="text-xs text-muted">Created in system</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; max-height: 250px; overflow-y: auto;">
+              <div
+                *ngFor="let cat of dynamicCategories"
+                style="display: flex; justify-content: space-between; align-items: center; padding: 0.625rem 0.875rem; background: white; border: 1px solid #e2e8f0; border-radius: 6px;"
+              >
+                <div>
+                  <strong style="font-size: 0.875rem; color: #0f172a;">{{ cat.name }}</strong>
+                  <p *ngIf="cat.description" style="font-size: 0.75rem; color: #64748b; margin: 0.15rem 0 0 0;">{{ cat.description }}</p>
+                </div>
+                <div style="display: flex; gap: 0.35rem;">
+                  <button class="icon-btn edit" (click)="startEditCategory(cat)" title="Edit Category">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                  </button>
+                  <button class="icon-btn delete" (click)="deleteCategory(cat)" title="Delete Category">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeCategoryModal()">Done</button>
           </div>
         </div>
       </div>
@@ -579,10 +685,20 @@ import { Article } from '../../core/models';
 export class NewsListComponent implements OnInit {
   articles: Article[] = [];
   categories = ['All', 'Field Updates', 'Announcements', 'Research'];
+  dynamicCategories: { id: number; name: string; description?: string }[] = [];
   selectedCategory = 'All';
   searchQuery = '';
   loading = false;
   saving = false;
+
+  // Category Manager State
+  isCategoryModalOpen = false;
+  showInlineCat = false;
+  inlineCatName = '';
+  creatingCat = false;
+  savingCat = false;
+  editingCatId: number | null = null;
+  categoryInput = { name: '', description: '' };
 
   // Toast
   toastMessage = '';
@@ -608,7 +724,145 @@ export class NewsListComponent implements OnInit {
   constructor(private apiService: ApiService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
+    this.loadCategories();
     this.loadArticles();
+  }
+
+  loadCategories() {
+    this.apiService.getArticleCategories().subscribe({
+      next: (res) => {
+        if (res.success && Array.isArray(res.categories)) {
+          this.dynamicCategories = res.categories;
+          const names = res.categories.map(c => c.name);
+          this.categories = ['All', ...names];
+          if (this.dynamicCategories.length > 0 && !this.formData.category) {
+            this.formData.category = this.dynamicCategories[0].name;
+          }
+          this.cdr.markForCheck();
+        }
+      },
+      error: () => {}
+    });
+  }
+
+  openCategoryModal() {
+    this.isCategoryModalOpen = true;
+    this.cancelEditCategory();
+  }
+
+  closeCategoryModal() {
+    this.isCategoryModalOpen = false;
+    this.cancelEditCategory();
+  }
+
+  toggleInlineCategory() {
+    this.showInlineCat = !this.showInlineCat;
+    this.inlineCatName = '';
+  }
+
+  createInlineCategory() {
+    const trimmed = this.inlineCatName.trim();
+    if (!trimmed) {
+      this.showToast('Please enter category name', 'error');
+      return;
+    }
+
+    this.creatingCat = true;
+    this.apiService.createArticleCategory(trimmed).subscribe({
+      next: (res) => {
+        this.creatingCat = false;
+        if (res.success) {
+          this.showToast(`Category "${trimmed}" added!`, 'success');
+          this.formData.category = trimmed;
+          this.showInlineCat = false;
+          this.inlineCatName = '';
+          this.loadCategories();
+        }
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        this.creatingCat = false;
+        this.showToast(err.error?.error || 'Failed to create category', 'error');
+        this.cdr.markForCheck();
+      }
+    });
+  }
+
+  startEditCategory(cat: { id: number; name: string; description?: string }) {
+    this.editingCatId = cat.id;
+    this.categoryInput = {
+      name: cat.name,
+      description: cat.description || ''
+    };
+  }
+
+  cancelEditCategory() {
+    this.editingCatId = null;
+    this.categoryInput = { name: '', description: '' };
+  }
+
+  saveCategory() {
+    const trimmed = this.categoryInput.name.trim();
+    if (!trimmed) {
+      this.showToast('Category name is required', 'error');
+      return;
+    }
+
+    this.savingCat = true;
+    if (this.editingCatId) {
+      this.apiService.updateArticleCategory(this.editingCatId, trimmed, this.categoryInput.description.trim()).subscribe({
+        next: (res) => {
+          this.savingCat = false;
+          if (res.success) {
+            this.showToast('Category updated successfully', 'success');
+            this.cancelEditCategory();
+            this.loadCategories();
+            this.loadArticles();
+          }
+          this.cdr.markForCheck();
+        },
+        error: (err) => {
+          this.savingCat = false;
+          this.showToast(err.error?.error || 'Failed to update category', 'error');
+          this.cdr.markForCheck();
+        }
+      });
+    } else {
+      this.apiService.createArticleCategory(trimmed, this.categoryInput.description.trim()).subscribe({
+        next: (res) => {
+          this.savingCat = false;
+          if (res.success) {
+            this.showToast(`Category "${trimmed}" created successfully`, 'success');
+            this.cancelEditCategory();
+            this.loadCategories();
+          }
+          this.cdr.markForCheck();
+        },
+        error: (err) => {
+          this.savingCat = false;
+          this.showToast(err.error?.error || 'Failed to create category', 'error');
+          this.cdr.markForCheck();
+        }
+      });
+    }
+  }
+
+  deleteCategory(cat: { id: number; name: string }) {
+    if (!confirm(`Are you sure you want to delete category "${cat.name}"?`)) return;
+
+    this.apiService.deleteArticleCategory(cat.id).subscribe({
+      next: (res) => {
+        if (res.success) {
+          this.showToast(res.message, 'success');
+          this.loadCategories();
+        }
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        this.showToast(err.error?.error || 'Failed to delete category', 'error');
+        this.cdr.markForCheck();
+      }
+    });
   }
 
   loadArticles() {
@@ -759,6 +1013,17 @@ export class NewsListComponent implements OnInit {
 
   onThumbError(event: any) {
     event.target.src = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&h=300&q=80';
+  }
+
+  getCategoryBadgeClass(cat?: string): string {
+    if (!cat) return 'badge-secondary';
+    if (cat === 'Field Updates') return 'badge-pink';
+    if (cat === 'Announcements') return 'badge-blue';
+    if (cat === 'Research') return 'badge-purple';
+    const classes = ['badge-pink', 'badge-blue', 'badge-purple', 'badge-warning', 'badge-success'];
+    let hash = 0;
+    for (let i = 0; i < cat.length; i++) hash = cat.charCodeAt(i) + ((hash << 5) - hash);
+    return classes[Math.abs(hash) % classes.length];
   }
 
   showToast(msg: string, type: 'success' | 'error' = 'success') {

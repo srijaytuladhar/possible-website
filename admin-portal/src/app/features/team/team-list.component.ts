@@ -14,7 +14,7 @@ import { TeamMember } from '../../core/models';
       <div class="page-header">
         <div>
           <h1 class="page-title">Team & Board Directory</h1>
-          <p class="page-subtitle">Manage Nepal & US board directors, executive leadership, scientists, and advisors</p>
+          <p class="page-subtitle">Manage Nepal & US board directors, executive leadership, and advisors. Drag and drop rows to reorder positions.</p>
         </div>
         <button class="btn btn-primary" (click)="openCreateModal()">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -64,6 +64,7 @@ import { TeamMember } from '../../core/models';
           <table class="data-table">
             <thead>
               <tr>
+                <th style="width: 44px; text-align: center;">Order</th>
                 <th style="width: 70px;">Avatar</th>
                 <th>Name & Designation</th>
                 <th>Category</th>
@@ -73,7 +74,24 @@ import { TeamMember } from '../../core/models';
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let m of members">
+              <tr
+                *ngFor="let m of members; let i = index"
+                [draggable]="true"
+                (dragstart)="onDragStart($event, i)"
+                (dragover)="onDragOver($event, i)"
+                (drop)="onDrop($event, i)"
+                (dragend)="onDragEnd()"
+                [class.is-dragging]="draggedIndex === i"
+                [class.drag-over]="dragOverIndex === i"
+                class="draggable-row"
+              >
+                <td style="text-align: center; cursor: grab;" title="Drag to rearrange position">
+                  <div class="drag-grip">
+                    <svg class="drag-grip-icon" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M7 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 14zm6-12a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 14z"/>
+                    </svg>
+                  </div>
+                </td>
                 <td>
                   <div class="avatar-wrap">
                     <img [src]="m.image" [alt]="m.name" class="avatar-img" (error)="onAvatarError($event)" />
@@ -315,6 +333,41 @@ import { TeamMember } from '../../core/models';
     .table-card { overflow: hidden; }
     .table-responsive { overflow-x: auto; }
 
+    .draggable-row {
+      transition: background-color 0.15s ease;
+    }
+
+    .draggable-row.is-dragging {
+      opacity: 0.4;
+      background-color: #f1f5f9;
+    }
+
+    .draggable-row.drag-over {
+      border-top: 2px solid var(--primary-pink) !important;
+      background-color: rgba(237, 46, 132, 0.05);
+    }
+
+    .drag-grip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      color: #94a3b8;
+      border-radius: 4px;
+      transition: color 0.15s, background-color 0.15s;
+    }
+
+    .draggable-row:hover .drag-grip {
+      color: var(--primary-pink);
+      background-color: rgba(237, 46, 132, 0.1);
+    }
+
+    .drag-grip-icon {
+      width: 16px;
+      height: 16px;
+    }
+
     .avatar-wrap {
       width: 44px;
       height: 44px;
@@ -417,6 +470,11 @@ export class TeamListComponent implements OnInit {
   };
 
   memberToDelete: TeamMember | null = null;
+
+  // Drag and drop state
+  draggedIndex: number | null = null;
+  dragOverIndex: number | null = null;
+  reordering = false;
 
   constructor(private apiService: ApiService, private cdr: ChangeDetectorRef) {}
 
@@ -548,6 +606,64 @@ export class TeamListComponent implements OnInit {
 
   onAvatarError(e: any) {
     e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&h=400&q=80';
+  }
+
+  // Drag and drop event handlers
+  onDragStart(event: DragEvent, index: number) {
+    this.draggedIndex = index;
+    if (event.dataTransfer) {
+      event.dataTransfer.effectAllowed = 'move';
+      event.dataTransfer.setData('text/plain', index.toString());
+    }
+  }
+
+  onDragOver(event: DragEvent, index: number) {
+    event.preventDefault();
+    if (event.dataTransfer) {
+      event.dataTransfer.dropEffect = 'move';
+    }
+    this.dragOverIndex = index;
+    this.cdr.markForCheck();
+  }
+
+  onDrop(event: DragEvent, targetIndex: number) {
+    event.preventDefault();
+    if (this.draggedIndex === null || this.draggedIndex === targetIndex) {
+      this.onDragEnd();
+      return;
+    }
+
+    const moved = this.members.splice(this.draggedIndex, 1)[0];
+    this.members.splice(targetIndex, 0, moved);
+
+    const reorderedItems = this.members.map((item, idx) => ({
+      id: item.id,
+      sort_order: idx + 1
+    }));
+
+    this.reordering = true;
+    this.apiService.reorderTeamMembers(reorderedItems).subscribe({
+      next: (res) => {
+        this.reordering = false;
+        if (res.success) {
+          this.showToast('Team member order updated successfully', 'success');
+        }
+        this.cdr.markForCheck();
+      },
+      error: () => {
+        this.reordering = false;
+        this.showToast('Failed to update positions', 'error');
+        this.loadMembers();
+      }
+    });
+
+    this.onDragEnd();
+  }
+
+  onDragEnd() {
+    this.draggedIndex = null;
+    this.dragOverIndex = null;
+    this.cdr.markForCheck();
   }
 
   showToast(msg: string, type: 'success' | 'error' = 'success') {

@@ -13,6 +13,9 @@ import { AuthService } from '../../core/services/auth.service';
       <div class="login-container">
         <!-- Brand Header -->
         <div class="brand-header">
+          <div class="logo-wrapper">
+            <img src="/logo.png" alt="Possible Official Logo" class="login-brand-logo" />
+          </div>
           <div class="brand-badge">
             <span class="pulse-dot"></span>
             <span>SECURE ADMIN PORTAL</span>
@@ -172,6 +175,23 @@ import { AuthService } from '../../core/services/auth.service';
     .brand-header {
       text-align: center;
       margin-bottom: 2rem;
+    }
+
+    .logo-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      margin-bottom: 1.25rem;
+    }
+
+    .login-brand-logo {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
     }
 
     .brand-badge {

@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ApiService } from '../../core/services/api.service';
+import { AuthService } from '../../core/services/auth.service';
 import { DashboardStats } from '../../core/models';
 
 @Component({
@@ -88,8 +89,8 @@ import { DashboardStats } from '../../core/models';
           </div>
         </div>
 
-        <!-- Card 4: Inquiries & Messages -->
-        <div class="kpi-card card">
+        <!-- Card 4 (Super Admin: Inquiries & Messages) -->
+        <div *ngIf="isSuperAdmin" class="kpi-card card">
           <div class="kpi-top">
             <span class="kpi-label">Contact Messages</span>
             <span class="kpi-icon-box amber">
@@ -103,6 +104,24 @@ import { DashboardStats } from '../../core/models';
             <span class="text-danger font-semibold">{{ stats?.contacts?.newCount || 0 }} New inquiries</span>
             <span class="dot">•</span>
             <a routerLink="/contacts" class="meta-link">Review &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 4 (Admin: Solutions & Projects) -->
+        <div *ngIf="!isSuperAdmin" class="kpi-card card">
+          <div class="kpi-top">
+            <span class="kpi-label">Solutions & Projects</span>
+            <span class="kpi-icon-box teal">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </span>
+          </div>
+          <div class="kpi-value">{{ stats?.solutions?.total || 0 }}</div>
+          <div class="kpi-meta">
+            <span>{{ stats?.solutions?.scale || 0 }} Scale, {{ stats?.solutions?.test || 0 }} Test</span>
+            <span class="dot">•</span>
+            <a routerLink="/solutions" class="meta-link">Explore &rarr;</a>
           </div>
         </div>
       </div>
@@ -147,7 +166,8 @@ import { DashboardStats } from '../../core/models';
             </div>
           </a>
 
-          <a routerLink="/contacts" class="action-card card">
+          <!-- Super Admin Action -->
+          <a *ngIf="isSuperAdmin" routerLink="/contacts" class="action-card card">
             <div class="action-icon amber">
               <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -158,13 +178,26 @@ import { DashboardStats } from '../../core/models';
               <p>Respond to partner queries and website contact messages</p>
             </div>
           </a>
+
+          <!-- Standard Admin Action -->
+          <a *ngIf="!isSuperAdmin" routerLink="/solutions" class="action-card card">
+            <div class="action-icon teal">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <div>
+              <h3>Solutions & Projects</h3>
+              <p>Manage healthcare research programs and pilot models</p>
+            </div>
+          </a>
         </div>
       </div>
 
       <!-- Two-Column Recent Activity Section -->
       <div class="activity-columns">
-        <!-- Recent Inquiries Table -->
-        <div class="card activity-card">
+        <!-- Super Admin: Recent Inquiries Table -->
+        <div *ngIf="isSuperAdmin" class="card activity-card">
           <div class="card-title-bar">
             <h3>Recent Inquiries</h3>
             <a routerLink="/contacts" class="btn btn-sm btn-secondary">View All</a>
@@ -202,6 +235,32 @@ import { DashboardStats } from '../../core/models';
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+
+        <!-- Standard Admin: Solutions Overview -->
+        <div *ngIf="!isSuperAdmin" class="card activity-card">
+          <div class="card-title-bar">
+            <h3>Healthcare Solutions Stages</h3>
+            <a routerLink="/solutions" class="btn btn-sm btn-secondary">Manage</a>
+          </div>
+          <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: #f8fafc; border-radius: 8px;">
+              <span style="font-weight: 600; color: #475569; font-size: 0.875rem;">Scale Stage</span>
+              <span class="badge badge-purple">{{ stats?.solutions?.scale || 0 }} Projects</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: #f8fafc; border-radius: 8px;">
+              <span style="font-weight: 600; color: #475569; font-size: 0.875rem;">Test Stage</span>
+              <span class="badge badge-blue">{{ stats?.solutions?.test || 0 }} Projects</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: #f8fafc; border-radius: 8px;">
+              <span style="font-weight: 600; color: #475569; font-size: 0.875rem;">Innovate Stage</span>
+              <span class="badge badge-pink">{{ stats?.solutions?.innovate || 0 }} Projects</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: #f8fafc; border-radius: 8px;">
+              <span style="font-weight: 600; color: #475569; font-size: 0.875rem;">Pipeline Stage</span>
+              <span class="badge badge-warning">{{ stats?.solutions?.pipeline || 0 }} Projects</span>
+            </div>
           </div>
         </div>
 
@@ -463,7 +522,15 @@ export class DashboardComponent implements OnInit {
   stats: DashboardStats | null = null;
   loading = false;
 
-  constructor(private apiService: ApiService, private cdr: ChangeDetectorRef) {}
+  get isSuperAdmin(): boolean {
+    return this.authService.currentUser()?.role === 'SUPER_ADMIN';
+  }
+
+  constructor(
+    private apiService: ApiService,
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.loadStats();
