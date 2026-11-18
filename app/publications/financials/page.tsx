@@ -333,9 +333,7 @@ function FinancialsContent() {
           pdfFilename: p.pdf_filename || `${p.title.replace(/\s+/g, '_')}.pdf`,
           cover: p.cover_image || '/conflict-of-interest/thumbnails/FCOI Possible US.webp',
         }));
-        const existingDisc = new Set(dynamicDisclosures.map((d: any) => d.title.toLowerCase().trim()));
-        const remainingDisc = staticDisclosureReports.filter((s: any) => !existingDisc.has(s.title.toLowerCase().trim()));
-        setDisclosureReports([...dynamicDisclosures, ...remainingDisc]);
+        setDisclosureReports(dynamicDisclosures);
       }
 
       if (finData.success && Array.isArray(finData.publications) && finData.publications.length > 0) {
@@ -348,9 +346,7 @@ function FinancialsContent() {
           pdfFilename: p.pdf_filename || `${p.title.replace(/\s+/g, '_')}.pdf`,
           cover: p.cover_image || '/financial-report/thumbnails/Possible-2025-Audit-Report.webp',
         }));
-        const existingFin = new Set(dynamicFin.map((d: any) => d.title.toLowerCase().trim()));
-        const remainingFin = staticFinancialReports.filter((s: any) => !existingFin.has(s.title.toLowerCase().trim()));
-        setFinancialReports([...dynamicFin, ...remainingFin]);
+        setFinancialReports(dynamicFin);
       }
     }).catch(err => {
       console.warn('Using static financials fallback:', err);

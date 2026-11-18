@@ -52,9 +52,9 @@ export default function ResearchBriefsPage() {
             cover: p.cover_image || 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&h=350&q=80',
           }));
 
-          const existingTitles = new Set(dynamicItems.map((d: any) => d.title.toLowerCase().trim()));
-          const remainingStatic = staticBriefs.filter((s: any) => !existingTitles.has(s.title.toLowerCase().trim()));
-          setBriefs([...dynamicItems, ...remainingStatic]);
+          if (dynamicItems.length > 0) {
+            setBriefs(dynamicItems);
+          }
         }
       })
       .catch(err => {

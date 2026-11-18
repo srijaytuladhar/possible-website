@@ -139,9 +139,9 @@ export default function ImpactReportsPage() {
             cover: p.cover_image || '/annual-impact-report/thumbnails/Possible_AIR-2025.webp',
           }));
 
-          const existingTitles = new Set(dynamicItems.map((d: any) => d.title.toLowerCase().trim()));
-          const remainingStatic = staticReports.filter((s: any) => !existingTitles.has(s.title.toLowerCase().trim()));
-          setReports([...dynamicItems, ...remainingStatic]);
+          if (dynamicItems.length > 0) {
+            setReports(dynamicItems);
+          }
         }
       })
       .catch(err => {

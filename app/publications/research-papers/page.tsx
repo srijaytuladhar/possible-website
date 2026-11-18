@@ -48,9 +48,9 @@ export default function ResearchPapersPage() {
             cover: p.cover_image || 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&h=350&q=80',
           }));
 
-          const existingTitles = new Set(dynamicItems.map((d: any) => d.title.toLowerCase().trim()));
-          const remainingStatic = staticPapers.filter((s: any) => !existingTitles.has(s.title.toLowerCase().trim()));
-          setPapers([...dynamicItems, ...remainingStatic]);
+          if (dynamicItems.length > 0) {
+            setPapers(dynamicItems);
+          }
         }
       })
       .catch(err => {

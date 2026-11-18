@@ -8,6 +8,17 @@ export async function OPTIONS() {
   return handleOptions();
 }
 
+async function ensureColumns() {
+  try {
+    await query(`
+      ALTER TABLE admin_users ADD COLUMN IF NOT EXISTS phone VARCHAR(50);
+      ALTER TABLE admin_users ADD COLUMN IF NOT EXISTS avatar_url TEXT;
+    `);
+  } catch (err) {
+    console.warn('Column check warning on admin_users:', err);
+  }
+}
+
 export async function GET(req: NextRequest) {
   const auth = getAuthUser(req);
   if (!auth) {
@@ -15,8 +26,9 @@ export async function GET(req: NextRequest) {
   }
 
   try {
+    await ensureColumns();
     const res = await query(
-      'SELECT id, username, full_name, email, role, last_login, created_at FROM admin_users WHERE id = $1',
+      'SELECT id, username, full_name, email, phone, avatar_url, role, last_login, created_at FROM admin_users WHERE id = $1',
       [auth.id]
     );
 
@@ -41,8 +53,9 @@ export async function PUT(req: NextRequest) {
   }
 
   try {
+    await ensureColumns();
     const body = await req.json();
-    const { full_name, email, username, current_password, new_password } = body;
+    const { full_name, email, phone, avatar_url, username, current_password, new_password, confirm_password } = body;
 
     // Fetch existing user record
     const userRes = await query('SELECT * FROM admin_users WHERE id = $1', [auth.id]);
@@ -51,7 +64,7 @@ export async function PUT(req: NextRequest) {
     }
     const currentUser = userRes.rows[0];
 
-    // If changing password, verify current password
+    // If changing password, verify current password and strength
     let passwordHash = currentUser.password_hash;
     if (new_password) {
       if (!current_password) {
@@ -61,9 +74,19 @@ export async function PUT(req: NextRequest) {
       if (!isMatch) {
         return errorResponse('Current password does not match', 400);
       }
-      if (new_password.length < 6) {
-        return errorResponse('New password must be at least 6 characters long', 400);
+
+      if (confirm_password && new_password !== confirm_password) {
+        return errorResponse('New password and confirmation do not match', 400);
       }
+
+      // Password strength validation: minimum 8 characters, at least 1 letter and 1 number
+      if (new_password.length < 8) {
+        return errorResponse('New password must be at least 8 characters long', 400);
+      }
+      if (!/[a-zA-Z]/.test(new_password) || !/[0-9]/.test(new_password)) {
+        return errorResponse('New password must contain both letters and numbers for adequate strength', 400);
+      }
+
       const salt = bcrypt.genSaltSync(10);
       passwordHash = bcrypt.hashSync(new_password, salt);
     }
@@ -77,8 +100,10 @@ export async function PUT(req: NextRequest) {
       }
     }
 
-    const updatedFullName = full_name ? full_name.trim() : currentUser.full_name;
-    const updatedEmail = email ? email.trim() : currentUser.email;
+    const updatedFullName = full_name !== undefined ? full_name.trim() : currentUser.full_name;
+    const updatedEmail = email !== undefined ? email.trim() : currentUser.email;
+    const updatedPhone = phone !== undefined ? phone.trim() : (currentUser.phone || '');
+    const updatedAvatar = avatar_url !== undefined ? avatar_url.trim() : (currentUser.avatar_url || '');
 
     const updateRes = await query(
       `UPDATE admin_users SET
@@ -86,10 +111,12 @@ export async function PUT(req: NextRequest) {
         email = $2,
         username = $3,
         password_hash = $4,
+        phone = $5,
+        avatar_url = $6,
         updated_at = CURRENT_TIMESTAMP
-      WHERE id = $5
-      RETURNING id, username, full_name, email, role, last_login, created_at, updated_at`,
-      [updatedFullName, updatedEmail, targetUsername, passwordHash, auth.id]
+      WHERE id = $7
+      RETURNING id, username, full_name, email, phone, avatar_url, role, last_login, created_at, updated_at`,
+      [updatedFullName, updatedEmail, targetUsername, passwordHash, updatedPhone, updatedAvatar, auth.id]
     );
 
     const updatedUser = updateRes.rows[0];

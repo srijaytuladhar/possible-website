@@ -3,6 +3,8 @@ export interface AdminUser {
   username: string;
   full_name: string;
   email: string;
+  phone?: string;
+  avatar_url?: string;
   role: string;
   last_login?: string;
   created_at?: string;

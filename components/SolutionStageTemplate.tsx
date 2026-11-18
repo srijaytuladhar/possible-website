@@ -55,9 +55,39 @@ export default function SolutionStageTemplate({
   projects,
   introText,
 }: SolutionStageTemplateProps) {
+  const [activeProjects, setActiveProjects] = useState<SolutionBoxType[]>(projects || []);
   const [activeSubTab, setActiveSubTab] = useState<string>(
     subSections && subSections.length > 0 ? subSections[0].subSectionId || "0" : ""
   );
+
+  useEffect(() => {
+    let mounted = true;
+    fetch(`/api/solutions?stage=${stageId}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (mounted && data.success && Array.isArray(data.solutions) && data.solutions.length > 0) {
+          const mapped: SolutionBoxType[] = data.solutions.map((s: any) => ({
+            id: s.slug || String(s.id),
+            title: s.title,
+            subtitle: s.subtitle,
+            badge: s.badge,
+            image: s.image_url || "/health_process.jpg",
+            description: s.description,
+            linkText: s.link_text,
+            linkUrl: s.link_url,
+            publications: Array.isArray(s.publications_json) ? s.publications_json : []
+          }));
+          setActiveProjects(mapped);
+        }
+      })
+      .catch((err) => {
+        console.warn(`Could not load dynamic projects for ${stageId}:`, err);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, [stageId]);
 
   useEffect(() => {
     if (!subSections || subSections.length === 0) return;
@@ -142,7 +172,7 @@ export default function SolutionStageTemplate({
           <h2 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 text-center mb-8 max-w-4xl leading-relaxed">
             Our solutions move through these stages dynamically, starting with new ideas that we test and then scale.
           </h2>
-          
+
           <div className="flex items-start justify-center w-full max-w-4xl px-2 sm:px-4 relative">
             {stages.map((st, index) => {
               const isActive = stageId === st.id;
@@ -177,28 +207,25 @@ export default function SolutionStageTemplate({
                     className="flex flex-col items-center justify-start text-center transition-all duration-300 relative group w-36 sm:w-48 shrink-0 mx-auto active:scale-95"
                   >
                     <div
-                      className={`rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden relative border-2 shrink-0 ${
-                        isActive
+                      className={`rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden relative border-2 shrink-0 ${isActive
                           ? `${colors.circle} border-current z-10`
                           : "bg-zinc-200 border-zinc-300 w-16 h-16 sm:w-20 sm:h-20 hover:border-zinc-400 group-hover:scale-105 opacity-70 group-hover:opacity-100"
-                      }`}
+                        }`}
                     >
                       <Image
                         src={st.image}
                         alt={st.label}
                         fill
-                        className={`object-cover transition-all duration-300 ${
-                          isActive
+                        className={`object-cover transition-all duration-300 ${isActive
                             ? "scale-105 opacity-100 saturate-100"
                             : "opacity-60 saturate-50 group-hover:opacity-100 group-hover:scale-105 group-hover:saturate-100"
-                        }`}
+                          }`}
                       />
                     </div>
-                    
+
                     <span
-                      className={`mt-3 font-equip text-[12px] sm:text-[14px] uppercase transition-all duration-300 ${
-                        isActive ? colors.label : "text-zinc-500 group-hover:text-zinc-900 font-semibold"
-                      }`}
+                      className={`mt-3 font-equip text-[12px] sm:text-[14px] uppercase transition-all duration-300 ${isActive ? colors.label : "text-zinc-500 group-hover:text-zinc-900 font-semibold"
+                        }`}
                     >
                       {st.label}
                     </span>
@@ -223,16 +250,15 @@ export default function SolutionStageTemplate({
           {/* Animated Description Box with Pointer Arrow & Action Button */}
           {activeStage && (
             <div className="mt-6 w-full max-w-3xl relative animate-in fade-in slide-in-from-top-2 duration-300">
-              
+
               {/* Triangle Caret Arrow Pointing directly to selected stage */}
               <div
-                className={`absolute -top-2 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 transition-all duration-300 ${
-                  activeIndex === 0
+                className={`absolute -top-2 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 transition-all duration-300 ${activeIndex === 0
                     ? "border-b-primary-pink"
                     : activeIndex === 1
-                    ? "border-b-secondary-blue"
-                    : "border-b-accent-purple"
-                } ${arrowPositionClasses[activeIndex] || "left-1/2"}`}
+                      ? "border-b-secondary-blue"
+                      : "border-b-accent-purple"
+                  } ${arrowPositionClasses[activeIndex] || "left-1/2"}`}
               />
 
               {/* Box Content with Description & Stage Button */}
@@ -316,11 +342,10 @@ export default function SolutionStageTemplate({
                       window.history.replaceState(null, "", `#${sub.subSectionId}`);
                     }
                   }}
-                  className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all duration-200 cursor-pointer select-none flex items-center justify-center active:scale-[0.99] ${
-                    isActive
+                  className={`relative py-4 sm:py-5 px-4 text-center uppercase text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-wider text-white transition-all duration-200 cursor-pointer select-none flex items-center justify-center active:scale-[0.99] ${isActive
                       ? "bg-secondary-blue brightness-100 z-10 shadow-md"
                       : "bg-[#008ea8] hover:bg-[#009ebd] hover:brightness-105 opacity-95 hover:opacity-100"
-                  }`}
+                    }`}
                 >
                   <span className="leading-snug">{displayLabel}</span>
 
@@ -365,7 +390,7 @@ export default function SolutionStageTemplate({
             ))
         ) : (
           <div className="space-y-14">
-            {projects?.map((proj, pIdx) => (
+            {activeProjects.map((proj, pIdx) => (
               <SolutionBoxItem
                 key={pIdx}
                 project={proj}
@@ -393,8 +418,8 @@ function SolutionBoxItem({
   const paragraphs = Array.isArray(project.description)
     ? project.description
     : typeof project.description === "string"
-    ? project.description.split("\n\n")
-    : [project.description];
+      ? project.description.split("\n\n")
+      : [project.description];
 
   return (
     <div

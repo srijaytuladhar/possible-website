@@ -12,19 +12,28 @@ async function ensureTableAndSeed() {
     CREATE TABLE IF NOT EXISTS article_categories (
       id SERIAL PRIMARY KEY,
       name VARCHAR(100) UNIQUE NOT NULL,
+      slug VARCHAR(100) UNIQUE,
       description TEXT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
+    ALTER TABLE article_categories ADD COLUMN IF NOT EXISTS slug VARCHAR(100);
+  `);
+
+  // Backfill slugs if null
+  await query(`
+    UPDATE article_categories 
+    SET slug = LOWER(REGEXP_REPLACE(name, '[^a-zA-Z0-9]+', '-', 'g'))
+    WHERE slug IS NULL OR slug = '';
   `);
 
   // Seed standard categories if table is empty
   const countRes = await query('SELECT count(*) FROM article_categories');
   if (parseInt(countRes.rows[0].count, 10) === 0) {
     await query(`
-      INSERT INTO article_categories (name, description) VALUES
-        ('Field Updates', 'Dispatches, operational deployments, and community healthcare updates'),
-        ('Announcements', 'Organization news, partnerships, awards, and major milestones'),
-        ('Research', 'Scientific publications, clinical studies, and policy evaluations')
+      INSERT INTO article_categories (name, slug, description) VALUES
+        ('Field Updates', 'field-updates', 'Dispatches, operational deployments, and community healthcare updates'),
+        ('Announcements', 'announcements', 'Organization news, partnerships, awards, and major milestones'),
+        ('Research', 'research', 'Scientific publications, clinical studies, and policy evaluations')
       ON CONFLICT (name) DO NOTHING;
     `);
   }
@@ -78,23 +87,30 @@ export async function POST(req: NextRequest) {
   try {
     await ensureTableAndSeed();
     const body = await req.json();
-    const { name, description } = body;
+    const { name, slug, description } = body;
 
     if (!name || !name.trim()) {
       return errorResponse('Category name is required', 400);
     }
 
     const trimmedName = name.trim();
+    const generatedSlug = (slug && slug.trim() ? slug.trim() : trimmedName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''));
 
-    // Check if category name exists
+    // Check duplicate name
     const checkRes = await query('SELECT id FROM article_categories WHERE LOWER(name) = LOWER($1)', [trimmedName]);
     if (checkRes.rows.length > 0) {
       return errorResponse(`Category "${trimmedName}" already exists`, 400);
     }
 
+    // Check duplicate slug
+    const checkSlug = await query('SELECT id FROM article_categories WHERE LOWER(slug) = LOWER($1)', [generatedSlug]);
+    if (checkSlug.rows.length > 0) {
+      return errorResponse(`Category slug "${generatedSlug}" already exists`, 400);
+    }
+
     const res = await query(
-      'INSERT INTO article_categories (name, description) VALUES ($1, $2) RETURNING *',
-      [trimmedName, description ? description.trim() : '']
+      'INSERT INTO article_categories (name, slug, description) VALUES ($1, $2, $3) RETURNING *',
+      [trimmedName, generatedSlug, description ? description.trim() : '']
     );
 
     return jsonResponse({
@@ -118,13 +134,14 @@ export async function PUT(req: NextRequest) {
   try {
     await ensureTableAndSeed();
     const body = await req.json();
-    const { id, name, description } = body;
+    const { id, name, slug, description } = body;
 
     if (!id || !name || !name.trim()) {
       return errorResponse('Category ID and name are required', 400);
     }
 
     const trimmedName = name.trim();
+    const targetSlug = (slug && slug.trim() ? slug.trim().toLowerCase() : trimmedName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''));
 
     // Fetch existing category
     const catRes = await query('SELECT * FROM article_categories WHERE id = $1', [id]);
@@ -139,10 +156,16 @@ export async function PUT(req: NextRequest) {
       return errorResponse(`Category name "${trimmedName}" is already in use`, 400);
     }
 
+    // Check duplicate slug
+    const checkSlug = await query('SELECT id FROM article_categories WHERE LOWER(slug) = LOWER($1) AND id != $2', [targetSlug, id]);
+    if (checkSlug.rows.length > 0) {
+      return errorResponse(`Category slug "${targetSlug}" is already in use`, 400);
+    }
+
     // Update category
     const updateRes = await query(
-      'UPDATE article_categories SET name = $1, description = $2 WHERE id = $3 RETURNING *',
-      [trimmedName, description !== undefined ? description.trim() : catRes.rows[0].description, id]
+      'UPDATE article_categories SET name = $1, slug = $2, description = $3 WHERE id = $4 RETURNING *',
+      [trimmedName, targetSlug, description !== undefined ? description.trim() : catRes.rows[0].description, id]
     );
 
     // Update all news articles using old category name

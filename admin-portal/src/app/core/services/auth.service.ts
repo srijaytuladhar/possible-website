@@ -68,8 +68,11 @@ export class AuthService {
     full_name?: string;
     email?: string;
     username?: string;
+    phone?: string;
+    avatar_url?: string;
     current_password?: string;
     new_password?: string;
+    confirm_password?: string;
   }): Observable<{ success: boolean; message: string; user: AdminUser; token?: string }> {
     return this.http.put<{ success: boolean; message: string; user: AdminUser; token?: string }>(`${this.apiUrl}/me`, data).pipe(
       tap(res => {

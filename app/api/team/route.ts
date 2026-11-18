@@ -63,11 +63,21 @@ export async function POST(req: NextRequest) {
     // Auto-generate unique ID e.g. tm-custom-1234
     const id = body.id || `tm-${Date.now()}`;
 
+    // Append to end of group if sort_order is not explicitly specified
+    let finalSortOrder = sort_order;
+    if (finalSortOrder === undefined || finalSortOrder === null) {
+      const maxRes = await query(
+        'SELECT COALESCE(MAX(sort_order), 0) AS max_sort FROM team_members WHERE category = $1',
+        [category]
+      );
+      finalSortOrder = parseInt(maxRes.rows[0].max_sort, 10) + 1;
+    }
+
     const res = await query(
       `INSERT INTO team_members (id, name, role, category, image, bio, linkedin, sort_order, is_active)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, COALESCE($8, 0), COALESCE($9, true))
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, COALESCE($9, true))
       RETURNING *`,
-      [id, name, role, category, image || '/team/default.jpg', bio || '', linkedin || null, sort_order, is_active]
+      [id, name, role, category, image || '/team/default.jpg', bio || '', linkedin || null, finalSortOrder, is_active]
     );
 
     return jsonResponse({

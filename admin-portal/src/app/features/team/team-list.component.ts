@@ -30,6 +30,12 @@ import { TeamMember } from '../../core/models';
         <button class="toast-close" (click)="toastMessage = ''">&times;</button>
       </div>
 
+      <!-- Reordering State Banner -->
+      <div *ngIf="reordering" class="saving-indicator-banner">
+        <span class="spinner-small"></span>
+        <span>Saving new team member order...</span>
+      </div>
+
       <!-- Filter Bar -->
       <div class="card filter-bar">
         <div class="category-pills">
@@ -85,11 +91,35 @@ import { TeamMember } from '../../core/models';
                 [class.drag-over]="dragOverIndex === i"
                 class="draggable-row"
               >
-                <td style="text-align: center; cursor: grab;" title="Drag to rearrange position">
-                  <div class="drag-grip">
-                    <svg class="drag-grip-icon" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M7 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 14zm6-12a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 14z"/>
-                    </svg>
+                <td style="text-align: center;" title="Drag or use arrows to rearrange position">
+                  <div style="display: flex; align-items: center; justify-content: center; gap: 4px;">
+                    <div class="drag-grip" tabindex="0" role="button" aria-label="Drag handle">
+                      <svg class="drag-grip-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M7 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 14zm6-12a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 14z"/>
+                      </svg>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 2px;">
+                      <button 
+                        type="button" 
+                        class="arrow-reorder-btn" 
+                        [disabled]="i === 0 || reordering" 
+                        (click)="$event.stopPropagation(); moveMember(i, -1)" 
+                        title="Move member up"
+                        aria-label="Move member up"
+                      >
+                        ▲
+                      </button>
+                      <button 
+                        type="button" 
+                        class="arrow-reorder-btn" 
+                        [disabled]="i === members.length - 1 || reordering" 
+                        (click)="$event.stopPropagation(); moveMember(i, 1)" 
+                        title="Move member down"
+                        aria-label="Move member down"
+                      >
+                        ▼
+                      </button>
+                    </div>
                   </div>
                 </td>
                 <td>
@@ -366,6 +396,56 @@ import { TeamMember } from '../../core/models';
     .drag-grip-icon {
       width: 16px;
       height: 16px;
+    }
+
+    .arrow-reorder-btn {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #64748b;
+      font-size: 8px;
+      line-height: 1;
+      padding: 2px 4px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .arrow-reorder-btn:hover:not(:disabled) {
+      background: var(--primary-pink);
+      border-color: var(--primary-pink);
+      color: #fff;
+    }
+
+    .arrow-reorder-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .saving-indicator-banner {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fdf2f8;
+      color: var(--primary-pink);
+      border: 1px solid rgba(237, 46, 132, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+    }
+
+    .spinner-small {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(237, 46, 132, 0.2);
+      border-top-color: var(--primary-pink);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
     .avatar-wrap {
@@ -664,6 +744,36 @@ export class TeamListComponent implements OnInit {
     this.draggedIndex = null;
     this.dragOverIndex = null;
     this.cdr.markForCheck();
+  }
+
+  moveMember(currentIndex: number, direction: -1 | 1) {
+    const targetIndex = currentIndex + direction;
+    if (targetIndex < 0 || targetIndex >= this.members.length) return;
+
+    const moved = this.members.splice(currentIndex, 1)[0];
+    this.members.splice(targetIndex, 0, moved);
+
+    const reorderedItems = this.members.map((item, idx) => ({
+      id: item.id,
+      sort_order: idx + 1
+    }));
+
+    this.reordering = true;
+    this.cdr.markForCheck();
+    this.apiService.reorderTeamMembers(reorderedItems).subscribe({
+      next: (res) => {
+        this.reordering = false;
+        if (res.success) {
+          this.showToast('Team member order updated successfully', 'success');
+        }
+        this.cdr.markForCheck();
+      },
+      error: () => {
+        this.reordering = false;
+        this.showToast('Failed to update positions', 'error');
+        this.loadMembers();
+      }
+    });
   }
 
   showToast(msg: string, type: 'success' | 'error' = 'success') {

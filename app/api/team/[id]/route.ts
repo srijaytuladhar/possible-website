@@ -11,7 +11,11 @@ export async function OPTIONS() {
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   try {
-    const res = await query('SELECT * FROM team_members WHERE id = $1', [id]);
+    const decodedId = decodeURIComponent(id).trim();
+    const res = await query(
+      'SELECT * FROM team_members WHERE id = $1 OR LOWER(id) = LOWER($1)',
+      [decodedId]
+    );
     if (res.rows.length === 0) {
       return errorResponse('Team member not found', 404);
     }

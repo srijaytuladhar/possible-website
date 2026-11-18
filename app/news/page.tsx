@@ -23,6 +23,7 @@ export default function NewsPage() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [customCategories, setCustomCategories] = useState<string[]>([]);
 
   const fallbackArticles: Article[] = [
     {
@@ -115,11 +116,22 @@ export default function NewsPage() {
         if (mounted) setLoading(false);
       });
 
+    fetch('/api/news/categories')
+      .then(r => r.json())
+      .then(data => {
+        if (mounted && data.success && Array.isArray(data.categories)) {
+          setCustomCategories(data.categories.map((c: any) => c.name));
+        }
+      })
+      .catch(err => {
+        console.warn('Could not fetch dynamic news categories:', err);
+      });
+
     return () => { mounted = false; };
   }, []);
 
   const defaultCategories = ["All", "Field Updates", "Announcements", "Research"];
-  const dynamicCategorySet = new Set(["All", ...articles.map(a => a.category).filter(Boolean)]);
+  const dynamicCategorySet = new Set(["All", ...articles.map(a => a.category).filter(Boolean), ...customCategories]);
   const categories = Array.from(new Set([...defaultCategories, ...dynamicCategorySet]));
 
   const filteredArticles = activeCategory === "All"

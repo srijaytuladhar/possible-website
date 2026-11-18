@@ -89,6 +89,18 @@ import { SiteSettings, AdminUser } from '../../core/models';
             </div>
           </div>
 
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input type="text" class="form-input" [(ngModel)]="profileForm.phone" placeholder="+977-1-5551234" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Profile Picture / Avatar URL</label>
+              <input type="text" class="form-input" [(ngModel)]="profileForm.avatar_url" placeholder="https://.../avatar.jpg" />
+            </div>
+          </div>
+
           <div class="role-badge-box">
             <div class="role-pill">
               <span class="role-title">Assigned Role:</span>
@@ -389,10 +401,12 @@ export class SettingsComponent implements OnInit {
   activeTab: 'profile' | 'offices' | 'social' = 'profile';
 
   profileUser: AdminUser | null = null;
-  profileForm = {
+  profileForm: { full_name: string; email: string; username: string; phone?: string; avatar_url?: string } = {
     full_name: '',
     email: '',
-    username: ''
+    username: '',
+    phone: '',
+    avatar_url: ''
   };
 
   passwordForm = {
@@ -444,7 +458,9 @@ export class SettingsComponent implements OnInit {
       this.profileForm = {
         full_name: this.profileUser.full_name || '',
         email: this.profileUser.email || '',
-        username: this.profileUser.username || ''
+        username: this.profileUser.username || '',
+        phone: this.profileUser.phone || '',
+        avatar_url: this.profileUser.avatar_url || ''
       };
     }
     this.authService.checkAuthMe().subscribe({
@@ -454,7 +470,9 @@ export class SettingsComponent implements OnInit {
           this.profileForm = {
             full_name: res.user.full_name || '',
             email: res.user.email || '',
-            username: res.user.username || ''
+            username: res.user.username || '',
+            phone: res.user.phone || '',
+            avatar_url: res.user.avatar_url || ''
           };
           this.cdr.markForCheck();
         }
@@ -489,7 +507,9 @@ export class SettingsComponent implements OnInit {
     this.authService.updateProfile({
       full_name: this.profileForm.full_name.trim(),
       email: this.profileForm.email.trim(),
-      username: this.profileForm.username.trim()
+      username: this.profileForm.username.trim(),
+      phone: this.profileForm.phone ? this.profileForm.phone.trim() : '',
+      avatar_url: this.profileForm.avatar_url ? this.profileForm.avatar_url.trim() : ''
     }).subscribe({
       next: (res) => {
         this.savingProfile = false;
@@ -512,8 +532,12 @@ export class SettingsComponent implements OnInit {
       this.showToast('Please enter your current password', 'error');
       return;
     }
-    if (!this.passwordForm.new_password || this.passwordForm.new_password.length < 6) {
-      this.showToast('New password must be at least 6 characters long', 'error');
+    if (!this.passwordForm.new_password || this.passwordForm.new_password.length < 8) {
+      this.showToast('New password must be at least 8 characters long', 'error');
+      return;
+    }
+    if (!/[a-zA-Z]/.test(this.passwordForm.new_password) || !/[0-9]/.test(this.passwordForm.new_password)) {
+      this.showToast('New password must contain both letters and numbers for strength', 'error');
       return;
     }
     if (this.passwordForm.new_password !== this.passwordForm.confirm_password) {
@@ -524,7 +548,8 @@ export class SettingsComponent implements OnInit {
     this.savingPassword = true;
     this.authService.updateProfile({
       current_password: this.passwordForm.current_password,
-      new_password: this.passwordForm.new_password
+      new_password: this.passwordForm.new_password,
+      confirm_password: this.passwordForm.confirm_password
     }).subscribe({
       next: (res) => {
         this.savingPassword = false;

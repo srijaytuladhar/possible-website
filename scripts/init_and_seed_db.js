@@ -177,7 +177,7 @@ async function run() {
 
     console.log('[DB] Tables created successfully. Seeding initial data...');
 
-    // Seed Admin User
+    // Seed Admin Users (Super Admin and Standard Admin)
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync('Nepal@123#', salt);
 
@@ -187,7 +187,15 @@ async function run() {
       ON CONFLICT (username) DO UPDATE 
       SET password_hash = EXCLUDED.password_hash, updated_at = CURRENT_TIMESTAMP;
     `, ['admin', hash, 'Super Administrator', 'admin@possiblehealth.org', 'SUPER_ADMIN']);
-    console.log('[DB] Admin user seeded (admin / Nepal@123#).');
+    console.log('[DB] Super Admin user seeded (admin / Nepal@123#).');
+
+    await client.query(`
+      INSERT INTO admin_users (username, password_hash, full_name, email, role)
+      VALUES ($1, $2, $3, $4, $5)
+      ON CONFLICT (username) DO UPDATE 
+      SET password_hash = EXCLUDED.password_hash, updated_at = CURRENT_TIMESTAMP;
+    `, ['staff_admin', hash, 'Standard Administrator', 'staff@possiblehealth.org', 'ADMIN']);
+    console.log('[DB] Standard Admin user seeded (staff_admin / Nepal@123#).');
 
     // Seed Team Members
     const { usBoardMembers, nepalBoardMembers, teamMembersData } = require('../components/teamData.js');
