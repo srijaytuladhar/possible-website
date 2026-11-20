@@ -5,10 +5,89 @@ export interface AdminUser {
   email: string;
   phone?: string;
   avatar_url?: string;
-  role: string;
+  role: 'SUPER_ADMIN' | 'ADMIN' | 'CONTENT_MANAGER' | 'READ_ONLY' | string;
+  is_active?: boolean;
   last_login?: string;
   created_at?: string;
+  updated_at?: string;
 }
+
+export interface Collaborator {
+  id: number;
+  name: string;
+  organization?: string;
+  category: string;
+  description?: string;
+  logo_url?: string;
+  website_url?: string;
+  sort_order: number;
+  is_active: boolean;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface WorkWithUsItem {
+  id: number;
+  section_type: 'job_posting' | 'traineeship' | 'value_card' | 'quote' | 'hero' | string;
+  title: string;
+  subtitle?: string;
+  department?: string;
+  location?: string;
+  employment_type?: string;
+  description: string;
+  requirements?: string;
+  link_url?: string;
+  image_url?: string;
+  deadline?: string;
+  sort_order: number;
+  is_published: boolean;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface HomepageSectionItem {
+  title: string;
+  desc?: string;
+  link?: string;
+  icon?: string;
+  theme?: string;
+}
+
+export interface HomepageSection {
+  id: number;
+  section_key: string;
+  title: string;
+  subtitle?: string;
+  content?: string;
+  badge?: string;
+  image_url?: string;
+  link_text?: string;
+  link_url?: string;
+  items?: HomepageSectionItem[];
+  sort_order: number;
+  is_published: boolean;
+  updated_at?: string;
+}
+
+export interface RoleInfo {
+  key: string;
+  name: string;
+  description: string;
+  permissions: any;
+}
+
+export interface AuditLog {
+  id: number;
+  user_id?: number;
+  username?: string;
+  action: string;
+  module: string;
+  record_id?: string;
+  details?: any;
+  ip_address?: string;
+  created_at: string;
+}
+
 
 export interface LoginResponse {
   success: boolean;
@@ -23,6 +102,9 @@ export interface DashboardStats {
   team: { total: number; usBoard: number; nepalBoard: number; staff: number; advisors: number };
   publications: { total: number; impactReports: number; researchPapers: number; researchBriefs: number; financialReports: number };
   solutions: { total: number; scale: number; test: number; innovate: number; pipeline: number };
+  collaborators?: { total: number; active: number } | null;
+  workWithUs?: { total: number; published: number } | null;
+  users?: { total: number; active: number } | null;
   contacts?: { total: number; newCount: number } | null;
   subscribers?: { total: number } | null;
   donations?: { totalCount: number; totalAmount: number } | null;

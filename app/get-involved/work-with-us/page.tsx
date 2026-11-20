@@ -1,10 +1,49 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { ChevronRight, Briefcase } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
+interface WWUItem {
+  id: number;
+  section_type: string;
+  title: string;
+  subtitle?: string;
+  description: string;
+  requirements?: string;
+}
+
 export default function WorkWithUsPage() {
+  const [jobCount, setJobCount] = useState<number>(0);
+  const [trainCount, setTrainCount] = useState<number>(0);
+  const [valueCards, setValueCards] = useState<WWUItem[]>([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/api/work-with-us')
+      .then((res) => res.json())
+      .then((data) => {
+        if (isMounted && data.success && Array.isArray(data.items)) {
+          const jobs = data.items.filter((i: any) => i.section_type === 'job_posting');
+          const trains = data.items.filter((i: any) => i.section_type === 'traineeship');
+          const cards = data.items.filter((i: any) => i.section_type === 'value_card');
+          setJobCount(jobs.length);
+          setTrainCount(trains.length);
+          if (cards.length > 0) {
+            setValueCards(cards);
+          }
+        }
+      })
+      .catch((err) => {
+        console.error('Error fetching work with us overview:', err);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 py-12 md:py-16 flex flex-col flex-1 bg-white">
       {/* Page Hero Header with Image & Black Shade */}
@@ -29,65 +68,83 @@ export default function WorkWithUsPage() {
       </div>
 
       <div className="space-y-16 animate-in fade-in duration-300">
-        {/* Value Cards Grid (4 Cards: Rigor, Design Global Impact, Mentorship and Support, Accelerated Learning Curve) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {/* Card 1: Rigor. Respect. Results. */}
-          <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
-            <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
-              Rigor. Respect. Results.
-            </h3>
-            <p className="text-[14px] text-zinc-600 leading-relaxed font-light">
-              We are defined by fierce rigor and deep respect. Our work is evidence-based, effective, and guided by core ethical values.
-            </p>
+        {/* Value Cards Grid (Custom Cards if configured, otherwise default 4 core pillars) */}
+        {valueCards.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {valueCards.map((card) => (
+              <div
+                key={card.id}
+                className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3"
+              >
+                <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
+                  {card.title}
+                </h3>
+                <p className="text-[14px] text-zinc-600 leading-relaxed font-light">
+                  {card.description}
+                </p>
+              </div>
+            ))}
           </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* Card 1: Rigor. Respect. Results. */}
+            <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
+              <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
+                Rigor. Respect. Results.
+              </h3>
+              <p className="text-[14px] text-zinc-600 leading-relaxed font-light">
+                We are defined by fierce rigor and deep respect. Our work is evidence-based, effective, and guided by core ethical values.
+              </p>
+            </div>
 
-          {/* Card 2: Design Global Impact */}
-          <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
-            <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
-              Design Global Impact
-            </h3>
-            <p className="text-[14px] text-zinc-600 leading-relaxed font-light">
-              Together, we design projects to reduce suffering at scale.
-            </p>
+            {/* Card 2: Design Global Impact */}
+            <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
+              <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
+                Design Global Impact
+              </h3>
+              <p className="text-[14px] text-zinc-600 leading-relaxed font-light">
+                Together, we design projects to reduce suffering at scale.
+              </p>
+            </div>
+
+            {/* Card 3: Mentorship and Support */}
+            <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
+              <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
+                Mentorship and Support
+              </h3>
+              <p className="text-[14px] text-zinc-600 leading-relaxed font-light">
+                Our advisors, deeply familiar with Nepal’s health system and global best practices, provide coaching to support you on your career journey.
+              </p>
+            </div>
+
+            {/* Card 4: Accelerated Learning Curve */}
+            <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
+              <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
+                Accelerated learning curve
+              </h3>
+              <ol className="space-y-1.5 text-[14px] text-zinc-700 font-light pl-0.5">
+                <li className="flex items-center gap-2">
+                  <span className="font-semibold text-zinc-900">a.</span>
+                  <span>Co-design</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="font-semibold text-zinc-900">b.</span>
+                  <span>Tech-enabled systems</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="font-semibold text-zinc-900">c.</span>
+                  <span>Policy translation</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="font-semibold text-zinc-900">d.</span>
+                  <span>Global funding</span>
+                </li>
+              </ol>
+            </div>
           </div>
+        )}
 
-          {/* Card 3: Mentorship and Support */}
-          <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
-            <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
-              Mentorship and Support
-            </h3>
-            <p className="text-[14px] text-zinc-600 leading-relaxed font-light">
-              Our advisors, deeply familiar with Nepal’s health system and global best practices, provide coaching to support you on your career journey.
-            </p>
-          </div>
-
-          {/* Card 4: Accelerated Learning Curve */}
-          <div className="p-6 sm:p-7 bg-zinc-50 border border-zinc-200/70 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start space-y-3">
-            <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
-              Accelerated learning curve
-            </h3>
-            <ol className="space-y-1.5 text-[14px] text-zinc-700 font-light pl-0.5">
-              <li className="flex items-center gap-2">
-                <span className="font-semibold text-zinc-900">a.</span>
-                <span>Co-design</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold text-zinc-900">b.</span>
-                <span>Tech-enabled systems</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold text-zinc-900">c.</span>
-                <span>Policy translation</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold text-zinc-900">d.</span>
-                <span>Global funding</span>
-              </li>
-            </ol>
-          </div>
-        </div>
-
-        {/* Quote Block - Added w-full to match the Vacancies block below it */}
+        {/* Quote Block */}
         <div className="relative py-12 px-8 max-w-4xl mx-auto w-full text-center bg-zinc-50/70 rounded-3xl border border-zinc-100 my-8">
           <span className="absolute top-2 left-6 text-7xl font-serif text-primary-pink/20 select-none">“</span>
           <p className="text-[20px] sm:text-[23px] font-light text-zinc-800 leading-relaxed italic relative z-10 px-4">
@@ -113,7 +170,14 @@ export default function WorkWithUsPage() {
               href="/get-involved/work-with-us/job-postings"
               className="flex items-center justify-between px-6 py-4.5 bg-white border border-zinc-200 hover:border-primary-pink rounded-2xl text-[14.5px] text-zinc-800 font-medium hover:text-primary-pink transition-all duration-300 group shadow-2xs hover:shadow-sm"
             >
-              <span>Vacancies</span>
+              <div className="flex items-center gap-2">
+                <span>Vacancies</span>
+                {jobCount > 0 && (
+                  <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-primary-pink/10 text-primary-pink">
+                    {jobCount}
+                  </span>
+                )}
+              </div>
               <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-primary-pink transition-transform group-hover:translate-x-1" />
             </Link>
 
@@ -121,7 +185,14 @@ export default function WorkWithUsPage() {
               href="/get-involved/work-with-us/traineeship-apprenticeship"
               className="flex items-center justify-between px-6 py-4.5 bg-white border border-zinc-200 hover:border-secondary-blue rounded-2xl text-[14.5px] text-zinc-800 font-medium hover:text-secondary-blue transition-all duration-300 group shadow-2xs hover:shadow-sm"
             >
-              <span>Traineeship &amp; Apprenticeship </span>
+              <div className="flex items-center gap-2">
+                <span>Traineeship &amp; Apprenticeship</span>
+                {trainCount > 0 && (
+                  <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-secondary-blue/10 text-secondary-blue">
+                    {trainCount}
+                  </span>
+                )}
+              </div>
               <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-secondary-blue transition-transform group-hover:translate-x-1" />
             </Link>
           </div>

@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import { query } from '@/lib/db';
-import { getAuthUser } from '@/lib/auth';
-import { jsonResponse, errorResponse, handleOptions } from '@/lib/cors';
+import { getAuthUser, canWriteContent } from '@/lib/auth';
+import { jsonResponse, errorResponse, unauthorizedResponse, forbiddenResponse, handleOptions } from '@/lib/cors';
 
 export async function OPTIONS() {
   return handleOptions();
@@ -32,8 +32,12 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const auth = getAuthUser(req);
   if (!auth) {
-    return errorResponse('Unauthorized', 401);
+    return unauthorizedResponse();
   }
+  if (!canWriteContent(auth.role)) {
+    return forbiddenResponse('Read-only users cannot modify team members');
+  }
+
 
   const { id } = await params;
 
@@ -75,8 +79,12 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const auth = getAuthUser(req);
   if (!auth) {
-    return errorResponse('Unauthorized', 401);
+    return unauthorizedResponse();
   }
+  if (!canWriteContent(auth.role)) {
+    return forbiddenResponse('Read-only users cannot delete team members');
+  }
+
 
   const { id } = await params;
 

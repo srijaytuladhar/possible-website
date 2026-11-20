@@ -33,6 +33,27 @@ import { ApiService } from '../../core/services/api.service';
           </a>
 
           <div class="nav-section-title">CONTENT MANAGEMENT</div>
+          <a routerLink="/homepage" routerLinkActive="active" class="nav-item">
+            <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span>Homepage Content</span>
+          </a>
+
+          <a routerLink="/collaborators" routerLinkActive="active" class="nav-item">
+            <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>Collaborators</span>
+          </a>
+
+          <a routerLink="/work-with-us" routerLinkActive="active" class="nav-item">
+            <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>Work With Us</span>
+          </a>
+
           <a routerLink="/news" routerLinkActive="active" class="nav-item">
             <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
@@ -61,6 +82,17 @@ import { ApiService } from '../../core/services/api.service';
             <span>Solutions & Projects</span>
           </a>
 
+          <!-- ADMINISTRATION (Super Admin & Admin) -->
+          <ng-container *ngIf="canManageUsers">
+            <div class="nav-section-title">ADMINISTRATION</div>
+            <a routerLink="/users" routerLinkActive="active" class="nav-item">
+              <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+              <span>User Management</span>
+            </a>
+          </ng-container>
+
           <!-- COMMUNICATION (Super Admin Only) -->
           <ng-container *ngIf="isSuperAdmin">
             <div class="nav-section-title">COMMUNICATION</div>
@@ -86,6 +118,7 @@ import { ApiService } from '../../core/services/api.service';
               <span>Donations</span>
             </a>
           </ng-container>
+
 
           <div class="nav-section-title">CONFIGURATION</div>
           <a routerLink="/settings" routerLinkActive="active" class="nav-item">
@@ -127,8 +160,16 @@ import { ApiService } from '../../core/services/api.service';
           </div>
 
           <div class="topbar-right">
+            <!-- Read Only Notice Pill -->
+            <div *ngIf="isReadOnly" class="readonly-pill">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+              <span>Read-Only Mode</span>
+            </div>
+
             <!-- View live site button -->
-            <a href="https://possible-website.vercel.app" target="_blank" class="live-site-link">
+            <a href="http://localhost:3000" target="_blank" class="live-site-link">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -142,7 +183,7 @@ import { ApiService } from '../../core/services/api.service';
               </div>
               <div class="user-info">
                 <span class="user-name">{{ user?.full_name || 'System Admin' }}</span>
-                <span class="user-role">{{ user?.role === 'SUPER_ADMIN' ? 'Super Admin' : 'Admin' }}</span>
+                <span class="user-role">{{ userRoleFormatted }}</span>
               </div>
               <button class="logout-btn" (click)="$event.stopPropagation(); logout()" title="Sign out">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -153,7 +194,13 @@ import { ApiService } from '../../core/services/api.service';
           </div>
         </header>
 
+        <!-- Read Only Warning Banner across page if user is read-only -->
+        <div *ngIf="isReadOnly" class="readonly-bar">
+          <span>You are logged in with <strong>Read-Only</strong> permissions. Data modification and administrative actions are disabled.</span>
+        </div>
+
         <!-- View Page Outlet -->
+
         <main class="page-container">
           <router-outlet></router-outlet>
         </main>
@@ -468,6 +515,29 @@ import { ApiService } from '../../core/services/api.service';
       color: var(--danger);
     }
 
+    .readonly-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.25rem 0.625rem;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .readonly-bar {
+      background: #fffbeb;
+      border-bottom: 1px solid #fef3c7;
+      color: #92400e;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.8125rem;
+      text-align: center;
+    }
+
     .page-container {
       flex: 1;
       padding: 2rem;
@@ -475,6 +545,7 @@ import { ApiService } from '../../core/services/api.service';
       width: 100%;
       margin: 0 auto;
     }
+
 
     @media (max-width: 900px) {
       .sidebar {
@@ -510,6 +581,31 @@ export class LayoutComponent implements OnInit {
   get isSuperAdmin(): boolean {
     return this.user?.role === 'SUPER_ADMIN';
   }
+
+  get isAdmin(): boolean {
+    return this.user?.role === 'ADMIN';
+  }
+
+  get canManageUsers(): boolean {
+    return this.isSuperAdmin || this.isAdmin;
+  }
+
+  get isReadOnly(): boolean {
+    return this.user?.role === 'READ_ONLY';
+  }
+
+  get userRoleFormatted(): string {
+    const role = this.user?.role;
+    if (!role) return 'Admin';
+    switch (role) {
+      case 'SUPER_ADMIN': return 'Super Admin';
+      case 'ADMIN': return 'Admin';
+      case 'CONTENT_MANAGER': return 'Content Manager';
+      case 'READ_ONLY': return 'Read Only';
+      default: return role;
+    }
+  }
+
 
   get userInitials() {
     if (!this.user?.full_name) return 'AD';

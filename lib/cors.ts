@@ -15,7 +15,7 @@ export function handleOptions() {
   });
 }
 
-export function jsonResponse(data: any, status = 200) {
+export function jsonResponse(data: unknown, status = 200) {
   return NextResponse.json(data, {
     status,
     headers: corsHeaders(),
@@ -31,3 +31,12 @@ export function errorResponse(message: string, status = 400) {
     }
   );
 }
+
+export function unauthorizedResponse(message = 'Unauthorized: Authentication required') {
+  return errorResponse(message, 401);
+}
+
+export function forbiddenResponse(message = 'Forbidden: Insufficient permissions for this operation') {
+  return errorResponse(message, 403);
+}
+

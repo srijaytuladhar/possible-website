@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import { query } from '@/lib/db';
-import { getAuthUser } from '@/lib/auth';
-import { jsonResponse, errorResponse, handleOptions } from '@/lib/cors';
+import { getAuthUser, canWriteContent } from '@/lib/auth';
+import { jsonResponse, errorResponse, unauthorizedResponse, forbiddenResponse, handleOptions } from '@/lib/cors';
 
 export async function OPTIONS() {
   return handleOptions();
@@ -49,8 +49,12 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   const auth = getAuthUser(req);
   if (!auth) {
-    return errorResponse('Unauthorized', 401);
+    return unauthorizedResponse();
   }
+  if (!canWriteContent(auth.role)) {
+    return forbiddenResponse('Read-only users cannot create team members');
+  }
+
 
   try {
     const body = await req.json();

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
 import { superAdminGuard } from './core/guards/super-admin.guard';
+import { userManagementGuard } from './core/guards/user-management.guard';
 import { LoginComponent } from './features/login/login.component';
 import { LayoutComponent } from './features/layout/layout.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
@@ -12,6 +13,10 @@ import { ContactsListComponent } from './features/contacts/contacts-list.compone
 import { SubscribersListComponent } from './features/subscribers/subscribers-list.component';
 import { DonationsListComponent } from './features/donations/donations-list.component';
 import { SettingsComponent } from './features/settings/settings.component';
+import { UsersListComponent } from './features/users/users-list.component';
+import { CollaboratorsListComponent } from './features/collaborators/collaborators-list.component';
+import { WorkWithUsListComponent } from './features/work-with-us/work-with-us-list.component';
+import { HomepageContentComponent } from './features/homepage/homepage-content.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +30,10 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'homepage', component: HomepageContentComponent },
+      { path: 'collaborators', component: CollaboratorsListComponent },
+      { path: 'work-with-us', component: WorkWithUsListComponent },
+      { path: 'users', component: UsersListComponent, canActivate: [userManagementGuard] },
       { path: 'news', component: NewsListComponent },
       { path: 'team', component: TeamListComponent },
       { path: 'publications', component: PublicationsListComponent },
@@ -40,3 +49,4 @@ export const routes: Routes = [
     redirectTo: 'dashboard'
   }
 ];
+

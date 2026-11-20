@@ -89,42 +89,61 @@ import { DashboardStats } from '../../core/models';
           </div>
         </div>
 
-        <!-- Card 4 (Super Admin: Inquiries & Messages) -->
-        <div *ngIf="isSuperAdmin" class="kpi-card card">
+        <!-- Card 4: Collaborators -->
+        <div class="kpi-card card">
           <div class="kpi-top">
-            <span class="kpi-label">Contact Messages</span>
+            <span class="kpi-label">Collaborators</span>
             <span class="kpi-icon-box amber">
               <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </span>
           </div>
-          <div class="kpi-value">{{ stats?.contacts?.total || 0 }}</div>
+          <div class="kpi-value">{{ stats?.collaborators?.total || 0 }}</div>
           <div class="kpi-meta">
-            <span class="text-danger font-semibold">{{ stats?.contacts?.newCount || 0 }} New inquiries</span>
+            <span class="text-success font-semibold">{{ stats?.collaborators?.active || 0 }} Active</span>
             <span class="dot">•</span>
-            <a routerLink="/contacts" class="meta-link">Review &rarr;</a>
+            <a routerLink="/collaborators" class="meta-link">Manage &rarr;</a>
           </div>
         </div>
 
-        <!-- Card 4 (Admin: Solutions & Projects) -->
-        <div *ngIf="!isSuperAdmin" class="kpi-card card">
+        <!-- Card 5: Work With Us -->
+        <div class="kpi-card card">
           <div class="kpi-top">
-            <span class="kpi-label">Solutions & Projects</span>
+            <span class="kpi-label">Work With Us</span>
             <span class="kpi-icon-box teal">
               <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </span>
           </div>
-          <div class="kpi-value">{{ stats?.solutions?.total || 0 }}</div>
+          <div class="kpi-value">{{ stats?.workWithUs?.total || 0 }}</div>
           <div class="kpi-meta">
-            <span>{{ stats?.solutions?.scale || 0 }} Scale, {{ stats?.solutions?.test || 0 }} Test</span>
+            <span class="text-success font-semibold">{{ stats?.workWithUs?.published || 0 }} Live</span>
             <span class="dot">•</span>
-            <a routerLink="/solutions" class="meta-link">Explore &rarr;</a>
+            <a routerLink="/work-with-us" class="meta-link">Opportunities &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 6: Portal Users (if canManageUsers) -->
+        <div *ngIf="isSuperAdmin" class="kpi-card card">
+          <div class="kpi-top">
+            <span class="kpi-label">Portal Users</span>
+            <span class="kpi-icon-box purple">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </span>
+          </div>
+          <div class="kpi-value">{{ stats?.users?.total || 0 }}</div>
+          <div class="kpi-meta">
+            <span class="text-success font-semibold">{{ stats?.users?.active || 0 }} Active</span>
+            <span class="dot">•</span>
+            <a routerLink="/users" class="meta-link">Admin Users &rarr;</a>
           </div>
         </div>
       </div>
+
 
       <!-- Quick Actions Grid -->
       <div class="section-container">

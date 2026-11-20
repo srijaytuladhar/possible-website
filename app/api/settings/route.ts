@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import { query } from '@/lib/db';
-import { getAuthUser } from '@/lib/auth';
-import { jsonResponse, errorResponse, handleOptions } from '@/lib/cors';
+import { getAuthUser, canWriteContent } from '@/lib/auth';
+import { jsonResponse, errorResponse, unauthorizedResponse, forbiddenResponse, handleOptions } from '@/lib/cors';
 
 export async function OPTIONS() {
   return handleOptions();
@@ -26,8 +26,12 @@ export async function GET() {
 export async function PUT(req: NextRequest) {
   const auth = getAuthUser(req);
   if (!auth) {
-    return errorResponse('Unauthorized', 401);
+    return unauthorizedResponse();
   }
+  if (!canWriteContent(auth.role)) {
+    return forbiddenResponse('Read-only users cannot modify site settings');
+  }
+
 
   try {
     const body = await req.json();

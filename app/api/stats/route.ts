@@ -18,6 +18,9 @@ export async function GET(req: NextRequest) {
       query('SELECT count(*) as total, count(*) FILTER (WHERE category = \'impact-reports\') as impact_reports, count(*) FILTER (WHERE category = \'research-papers\') as research_papers, count(*) FILTER (WHERE category = \'research-briefs\') as research_briefs, count(*) FILTER (WHERE category = \'financial-reports\') as financial_reports FROM publications'),
       query('SELECT count(*) as total, count(*) FILTER (WHERE stage_id = \'scale\') as scale, count(*) FILTER (WHERE stage_id = \'test\') as test, count(*) FILTER (WHERE stage_id = \'innovate\') as innovate, count(*) FILTER (WHERE stage_id = \'pipeline\') as pipeline FROM solutions_projects'),
       query('SELECT id, title, category, published_date, is_published FROM news_articles ORDER BY published_date DESC LIMIT 5'),
+      query('SELECT count(*) as total, count(*) FILTER (WHERE is_active = true) as active FROM collaborators'),
+      query('SELECT count(*) as total, count(*) FILTER (WHERE is_published = true) as published FROM work_with_us_items'),
+      query('SELECT count(*) as total, count(*) FILTER (WHERE is_active = true) as active FROM admin_users'),
     ];
 
     if (isSuperAdmin) {
@@ -35,11 +38,14 @@ export async function GET(req: NextRequest) {
     const pubsRes = results[2];
     const solutionsRes = results[3];
     const recentArticles = results[4];
+    const collaboratorsRes = results[5];
+    const wwuRes = results[6];
+    const usersRes = results[7];
 
-    const contactsRes = isSuperAdmin ? results[5] : null;
-    const subscribersRes = isSuperAdmin ? results[6] : null;
-    const donationsRes = isSuperAdmin ? results[7] : null;
-    const recentContacts = isSuperAdmin ? results[8] : null;
+    const contactsRes = isSuperAdmin ? results[8] : null;
+    const subscribersRes = isSuperAdmin ? results[9] : null;
+    const donationsRes = isSuperAdmin ? results[10] : null;
+    const recentContacts = isSuperAdmin ? results[11] : null;
 
     return jsonResponse({
       success: true,
@@ -48,6 +54,18 @@ export async function GET(req: NextRequest) {
           total: parseInt(articlesRes.rows[0].total, 10),
           published: parseInt(articlesRes.rows[0].published, 10),
         },
+        collaborators: {
+          total: parseInt(collaboratorsRes.rows[0].total, 10),
+          active: parseInt(collaboratorsRes.rows[0].active, 10),
+        },
+        workWithUs: {
+          total: parseInt(wwuRes.rows[0].total, 10),
+          published: parseInt(wwuRes.rows[0].published, 10),
+        },
+        users: {
+          total: parseInt(usersRes.rows[0].total, 10),
+          active: parseInt(usersRes.rows[0].active, 10),
+        },
         team: {
           total: parseInt(teamRes.rows[0].total, 10),
           usBoard: parseInt(teamRes.rows[0].us_board, 10),
@@ -55,6 +73,7 @@ export async function GET(req: NextRequest) {
           staff: parseInt(teamRes.rows[0].staff, 10),
           advisors: parseInt(teamRes.rows[0].advisors, 10),
         },
+
         publications: {
           total: parseInt(pubsRes.rows[0].total, 10),
           impactReports: parseInt(pubsRes.rows[0].impact_reports, 10),
